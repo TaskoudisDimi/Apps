@@ -28,9 +28,8 @@ namespace Lesson1
         //Μπορώ να φτιάξω constructor με το ίδιο όνομα
         public Book()
         {
-            
-        }
 
+        }
 
     }
 }

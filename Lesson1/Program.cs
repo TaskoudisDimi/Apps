@@ -12,37 +12,36 @@ namespace Lesson1
     //{
     //    static void Main(string[] args) //Method or function 
     //    {
-            //        /*
-            //        string username = "";
+    //        /*
+    //        string username = "";
 
-            //        Console.WriteLine("Give me your name:");
+    //        Console.WriteLine("Give me your name:");
 
-            //        username = Console.ReadLine();
+    //        username = Console.ReadLine();
 
-            //        Console.WriteLine("My name is " + username);
-            //        Console.ReadLine();
-            //        */
+    //        Console.WriteLine("My name is " + username);
+    //        Console.ReadLine();
+    //        */
 
-            //        //Console.WriteLine(4 - 5);
+    //        //Console.WriteLine(4 - 5);
 
-            //        /*int x = 0 ;
-            //        x++;
-            //        Console.WriteLine(x);
-            //        */
+    //        /*int x = 0 ;
+    //        x++;
+    //        Console.WriteLine(x);
+    //        */
 
 
-            //        //float ximeia, istoria, mo;
+    //        //float ximeia, istoria, mo;
 
-            //        //Console.WriteLine("Dwse vathmo ximeias");
-            //        //ximeia = float.Parse(Console.ReadLine());
+    //        //Console.WriteLine("Dwse vathmo ximeias");
+    //        //ximeia = float.Parse(Console.ReadLine());
 
-            //        //Console.WriteLine("Dwse vathmo istorias");
-            //        //istoria = float.Parse(Console.ReadLine());
+    //        //Console.WriteLine("Dwse vathmo istorias");
+    //        //istoria = float.Parse(Console.ReadLine());
 
-            //        //mo = istoria + ximeia;
+    //        //mo = istoria + ximeia;
 
-            //        //Console.WriteLine("O mesos oros einai: " + mo/2);
-
+    //        //Console.WriteLine("O mesos oros einai: " + mo/2);
 
 
     //        //Console.WriteLine(Math.Max(8, 10)); //Έυρεση μέγιστου
@@ -120,7 +119,6 @@ namespace Lesson1
 
 
 
-            //////////////Tutorial Youtube///////////////////////
 
             //string phrase = "Girrafe";
             //char grade = 'A';
@@ -151,7 +149,6 @@ namespace Lesson1
             //string str = "Girrafe";
             //Console.WriteLine(str.IndexOf("Girrafe"));
 
-
             ////Επιστρέφει από το 4ο στοιχείο και μετά τη λέξη
             //string str = "Girrafe";
             //Console.WriteLine(str.Substring(4));
@@ -159,6 +156,7 @@ namespace Lesson1
             ////Μπορώ να του θέσω όριο για τα γράμματα της λέξης που θέλω να εκτυπώσω
             //string str = "Girrafe";
             //Console.WriteLine(str.Substring(4,2));
+
 
             //int num = 6;
             //num++;
@@ -174,7 +172,6 @@ namespace Lesson1
             //Console.WriteLine("and your age");
             //string age = Console.ReadLine();
             //Console.WriteLine("Hello " + name + ". Your age is: " + age);
-
 
 
             ////Υπολογίζω τη πρόσθεση δύο int που δίνει ο χρήστης
@@ -198,6 +195,8 @@ namespace Lesson1
             //double num2 = Convert.ToDouble(Console.ReadLine());
 
             //Console.WriteLine(num1 + num2);
+
+
 
 
             ////Create a Madlib
@@ -236,6 +235,9 @@ namespace Lesson1
             //SayHi("John", 29);
 
 
+
+
+
             //Console.WriteLine(cube(1));
 
             //bool isMale = true;
@@ -258,7 +260,6 @@ namespace Lesson1
 
             //Call method if states
             //Console.WriteLine(GetMax(4, 3));
-
 
 
 
@@ -297,7 +298,6 @@ namespace Lesson1
 
             ////Call GetDay method (switch tutorial)
             //Console.WriteLine(GetDay(90));
-
 
             // Εκτελείται ο κώδικας μέσα στη while loop μέχρι το index <= να γίνει false
             //int index = 1;
@@ -352,6 +352,7 @@ namespace Lesson1
 
 
 
+
             //int i = 0;
             //while (i <= 5)
             //{
@@ -368,8 +369,11 @@ namespace Lesson1
             //}
 
 
+
             ////Call exponend method
             //Console.WriteLine(GetPow(3, 2));
+
+
 
 
             ////Build 2d array
@@ -377,7 +381,6 @@ namespace Lesson1
             //    {4, 3}, 
             //    {1, 2}, 
             //    {7, 5} };
-
 
             //Console.WriteLine(numGrid[2, 1]);
 
@@ -406,7 +409,6 @@ namespace Lesson1
 
 
 
-
             //Δημιουργία objects από άλλη class (Book)
             //Book book1 = new Book("Mike");
             //book1.title = "Harry Potter";
@@ -421,6 +423,7 @@ namespace Lesson1
             //book2.pages = 500;
 
             //Console.WriteLine(book2.title);
+
 
 
 
@@ -440,6 +443,7 @@ namespace Lesson1
 
 
 
+
             //Student student1 = new Student("Jim", "Business", 2.8);
             //Student student2 = new Student("Pam", "Art", 3.6);
 
@@ -455,7 +459,8 @@ namespace Lesson1
             //Movie movie1 = new Movie("Avengares", "Joss Whedon", "test");
             //Movie movie2 = new Movie("Shrek", "Adam Adamson", "PG");
 
-            //Console.WriteLine(movie2.Rating);
+            //Console.WriteLine(movie1.Rating);
+
 
 
 
@@ -480,6 +485,7 @@ namespace Lesson1
 
 
 
+
             //Chef chef = new Chef();
             //chef.MakeSpecialDish();
 
@@ -491,29 +497,17 @@ namespace Lesson1
             //italianchef.MakePasta();
 
 
-            //Lessons lesson1 = new Lessons();
-            //lesson1.math();
-
-
-            List<int> test = new List<int>();
-
-            int[] array = {1, 2, 3, 4, 5};
-            
-            test.AddRange(array);
-            
 
             Console.ReadLine();
        
         }
-
-
-
 
         ////Δημιυοργία μιας method
         //static void SayHi(string name, int age)
         //{
         //    Console.WriteLine("Hello " + name + "  your age is " +  age);
         //}
+
 
         //static int cube(int num)
         //{
@@ -528,6 +522,7 @@ namespace Lesson1
         //    result[1] = num*2;
         //    return result;
         //}
+
 
 
         //Method If states
@@ -547,9 +542,7 @@ namespace Lesson1
 
 
 
-
         //// Ελέγχει τα cases και όποιο ειναι true το εκτελεί. Το break σταματάει την εκτέλεση από το switch
-        /// Η method παίρνει σαν parameter μια int τιμή (p.x. 0) και πηγαίνει στο ανάλογο case (π.χ. GetDay(0) = case 0
         //static string GetDay(int dayNum)
         //{
         //    string dayName;
@@ -601,23 +594,6 @@ namespace Lesson1
 
         //    return result;
         //}
-
-        //struct test
-        //{
-        //    public int x;
-        //    public int y;
-        //}
-
-        //public enum test2
-        //{
-        //     z = 0,
-        //     y = 0
-
-            
-        //}
-
-
-
 
 
 
