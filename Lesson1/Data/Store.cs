@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 
 namespace Lesson1.Data
 {
-    public class People
+    public class Store
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public int Age { get; set; }
+        public List<Books> books { get; set; }
 
+
+        public Store()
+        {
+            books = new List<Books>();
+        }
 
 
     }

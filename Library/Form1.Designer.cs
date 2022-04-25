@@ -28,35 +28,81 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.bookListBox = new System.Windows.Forms.ListBox();
+            this.BuyBooksListBox = new System.Windows.Forms.ListBox();
+            this.BuyButton = new System.Windows.Forms.Button();
+            this.InitAmountLabel = new System.Windows.Forms.Label();
+            this.label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // bookListBox
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(131, 156);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(488, 243);
-            this.dataGridView1.TabIndex = 0;
+            this.bookListBox.FormattingEnabled = true;
+            this.bookListBox.ItemHeight = 25;
+            this.bookListBox.Location = new System.Drawing.Point(43, 61);
+            this.bookListBox.Name = "bookListBox";
+            this.bookListBox.Size = new System.Drawing.Size(336, 154);
+            this.bookListBox.TabIndex = 1;
+            // 
+            // BuyBooksListBox
+            // 
+            this.BuyBooksListBox.FormattingEnabled = true;
+            this.BuyBooksListBox.ItemHeight = 25;
+            this.BuyBooksListBox.Location = new System.Drawing.Point(552, 61);
+            this.BuyBooksListBox.Name = "BuyBooksListBox";
+            this.BuyBooksListBox.Size = new System.Drawing.Size(369, 154);
+            this.BuyBooksListBox.TabIndex = 2;
+            // 
+            // BuyButton
+            // 
+            this.BuyButton.Location = new System.Drawing.Point(403, 289);
+            this.BuyButton.Name = "BuyButton";
+            this.BuyButton.Size = new System.Drawing.Size(112, 34);
+            this.BuyButton.TabIndex = 3;
+            this.BuyButton.Text = "Buy";
+            this.BuyButton.UseVisualStyleBackColor = true;
+            this.BuyButton.Click += new System.EventHandler(this.BuyButton_Click);
+            // 
+            // InitAmountLabel
+            // 
+            this.InitAmountLabel.AutoSize = true;
+            this.InitAmountLabel.Location = new System.Drawing.Point(43, 267);
+            this.InitAmountLabel.Name = "InitAmountLabel";
+            this.InitAmountLabel.Size = new System.Drawing.Size(107, 25);
+            this.InitAmountLabel.TabIndex = 4;
+            this.InitAmountLabel.Text = "Init Amount";
+            // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Location = new System.Drawing.Point(196, 267);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(22, 25);
+            this.label.TabIndex = 6;
+            this.label.Text = "$";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(971, 690);
+            this.Controls.Add(this.label);
+            this.Controls.Add(this.InitAmountLabel);
+            this.Controls.Add(this.BuyButton);
+            this.Controls.Add(this.BuyBooksListBox);
+            this.Controls.Add(this.bookListBox);
             this.Name = "Form1";
-            this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Text = "Book Shop";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private DataGridView dataGridView1;
+        private ListBox bookListBox;
+        private ListBox BuyBooksListBox;
+        private Button BuyButton;
+        private Label InitAmountLabel;
+        private Label label;
     }
 }
