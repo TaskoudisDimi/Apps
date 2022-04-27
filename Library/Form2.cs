@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Lesson1.DataAccess;
+using Lesson1;
+
 
 
 namespace Library
@@ -30,6 +32,11 @@ namespace Library
         private void connectButton_Click(object sender, EventArgs e)
         {
            
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
