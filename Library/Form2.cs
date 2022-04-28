@@ -8,8 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Lesson1.DataAccess;
+using Lesson1;
 using System.Data.SqlClient;
 using System.Configuration;
+
 
 
 namespace Library
@@ -42,6 +44,11 @@ namespace Library
             con.Open();
             MessageBox.Show("Success!");
             con.Close();
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
