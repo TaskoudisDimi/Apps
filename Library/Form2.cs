@@ -25,16 +25,15 @@ namespace Library
         {
             InitializeComponent();
 
-
-            con.Open();
-            SqlDataAdapter adapter = new SqlDataAdapter("Select * From [smarketdb].[dbo].[CategoryTbl]", con);
-            DataTable tbl = new DataTable();
-            adapter.Fill(tbl);
-            bindDataGridView.DataSource = tbl;
-
-            con.Close();
-
-
+            using (SqlConnection connection = new SqlConnection(constring))
+            {
+                connection.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter("Select * From [smarketdb].[dbo].[CategoryTbl]", con);
+                DataTable tbl = new DataTable();
+                adapter.Fill(tbl);
+                bindDataGridView.DataSource = tbl;
+                connection.Close();
+            }
 
         }
 
@@ -42,17 +41,14 @@ namespace Library
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            foreach (int i in method1DataGridView.Rows)
-            {
-                string query = "";
-                con.Open();
+            //foreach (int i in method1DataGridView.Rows)
+            //{
+            //    string query = "";
+            //    con.Open();
+            
+            //    con.Close();
                 
-                
-                con.Close();
-
-
-                
-            }
+            //}
             
         }
 
@@ -63,7 +59,7 @@ namespace Library
             con.Close();
         }
 
-        private void addButton_Click(object sender, EventArgs e)
+        private void displayButton_Click(object sender, EventArgs e)
         {
             using(SqlConnection con = new SqlConnection(constring))
             {
@@ -75,8 +71,70 @@ namespace Library
                 method1DataGridView.DataSource = tbl;
 
                 method2DataGridView.DataSource = tbl;
+            }
+
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            if (sender == addButton)
+            {
+                MessageBox.Show("Its not ready yet!");
+            }
 
 
+        }
+
+        private void removeButton_Click(object sender, EventArgs e)
+        {
+            //Method 1 to remove
+            //int rowIndex = method1DataGridView.CurrentCell.RowIndex;
+            //method1DataGridView.Rows.RemoveAt(rowIndex);
+
+
+            //Method 2 to remove
+            foreach (DataGridViewRow row in method1DataGridView.SelectedRows)
+            {
+                if (!row.IsNewRow)
+                {
+                    method1DataGridView.Rows.Remove(row);
+                }
+            }
+           
+
+
+        }
+
+        private void method1DataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //int rowindex = method1DataGridView.CurrentRow.Index;
+            //MessageBox.Show("Double click!");
+            Form3 form3 = new Form3();
+            form3.catIdTextBox.Text = this.method1DataGridView.CurrentRow.Cells[0].Value.ToString();
+            form3.catNameTextBox.Text = this.method1DataGridView.CurrentRow.Cells[1].Value.ToString();
+            form3.catDescTextBox.Text = this.method1DataGridView.CurrentRow.Cells[2].Value.ToString();
+            form3.ShowDialog();
+
+        }
+
+        private void autoCompleteComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            using (SqlConnection con = new SqlConnection(constring))
+            {
+                con.Open(); 
+                SqlDataAdapter adapter = new SqlDataAdapter("Select * From [smarketdb].[dbo].[CategoryTbl]", con);
+                DataTable tbl = new DataTable();
+                adapter.Fill(tbl);
+
+                autoCompleteComboBox.DataSource = tbl;
+                autoCompleteComboBox.DisplayMember = "CatName";
+                autoCompleteComboBox.ValueMember = "CatId";
+                con.Close();
 
             }
 
