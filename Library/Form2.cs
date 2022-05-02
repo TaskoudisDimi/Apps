@@ -35,6 +35,25 @@ namespace Library
                 connection.Close();
             }
 
+            //Insert CheckBox
+            DataGridViewCheckBoxColumn checkColumn = new DataGridViewCheckBoxColumn();
+            checkColumn.Name = "Test checkBox";
+            checkColumn.HeaderText = "Test checkBox";
+            checkColumn.ReadOnly = false;
+            method2DataGridView.Columns.Add(checkColumn);
+
+
+            //Insert new Column
+            DataGridViewTextBoxColumn column = new DataGridViewTextBoxColumn();
+            column.Name = "Test";
+            column.DataPropertyName = "Test";
+            method2DataGridView.Columns.Add(column);
+
+
+            method1DataGridView.Columns[0].Visible = false;
+            
+
+
         }
 
 
@@ -137,6 +156,14 @@ namespace Library
                 con.Close();
 
             }
+
+
+
+        }
+
+        private void addRowButton_Click(object sender, EventArgs e)
+        {
+
 
         }
     }

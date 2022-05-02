@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.method1DataGridView = new System.Windows.Forms.DataGridView();
+            this.select = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.connectButton = new System.Windows.Forms.Button();
             this.displayButton = new System.Windows.Forms.Button();
             this.method2DataGridView = new System.Windows.Forms.DataGridView();
@@ -42,6 +43,7 @@
             this.removeButton = new System.Windows.Forms.Button();
             this.autoCompleteComboBox = new System.Windows.Forms.ComboBox();
             this.AutoCompleteLabel = new System.Windows.Forms.Label();
+            this.addRowButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.method1DataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.method2DataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindDataGridView)).BeginInit();
@@ -51,6 +53,8 @@
             // 
             this.method1DataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.method1DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.method1DataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.select});
             this.method1DataGridView.Location = new System.Drawing.Point(24, 131);
             this.method1DataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.method1DataGridView.Name = "method1DataGridView";
@@ -61,6 +65,12 @@
             this.method1DataGridView.TabIndex = 1;
             this.method1DataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.method1DataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.method1DataGridView_CellDoubleClick);
+            // 
+            // select
+            // 
+            this.select.HeaderText = "Select";
+            this.select.Name = "select";
+            this.select.Visible = false;
             // 
             // connectButton
             // 
@@ -185,12 +195,23 @@
             this.AutoCompleteLabel.TabIndex = 11;
             this.AutoCompleteLabel.Text = "AutoComplete";
             // 
+            // addRowButton
+            // 
+            this.addRowButton.Location = new System.Drawing.Point(24, 523);
+            this.addRowButton.Name = "addRowButton";
+            this.addRowButton.Size = new System.Drawing.Size(90, 33);
+            this.addRowButton.TabIndex = 12;
+            this.addRowButton.Text = "Add Row";
+            this.addRowButton.UseVisualStyleBackColor = true;
+            this.addRowButton.Click += new System.EventHandler(this.addRowButton_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(873, 684);
+            this.Controls.Add(this.addRowButton);
             this.Controls.Add(this.AutoCompleteLabel);
             this.Controls.Add(this.autoCompleteComboBox);
             this.Controls.Add(this.removeButton);
@@ -231,5 +252,7 @@
         private Button removeButton;
         private ComboBox autoCompleteComboBox;
         private Label AutoCompleteLabel;
+        private DataGridViewCheckBoxColumn select;
+        private Button addRowButton;
     }
 }

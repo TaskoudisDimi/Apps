@@ -31,6 +31,8 @@ namespace Library
             InitializeComponent();
             SetData();
 
+            //Form1 form = new Form1();
+            //form.StartPosition = FormStartPosition.CenterScreen;
 
 
 
@@ -111,7 +113,11 @@ namespace Library
         }
 
 
+        public void Test(string Test, bool Test2)
+        {
 
+
+        }
 
 
 
