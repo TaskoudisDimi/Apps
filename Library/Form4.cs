@@ -7,14 +7,53 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Library
 {
     public partial class Form4 : Form
     {
+        public static string constring = ConfigurationManager.ConnectionStrings["Tutorial"].ConnectionString;
+        SqlConnection con = new SqlConnection(constring);
         public Form4()
         {
             InitializeComponent();
+
+
+            using (SqlConnection connection = new SqlConnection(constring))
+            {
+                connection.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter("Select * From [smarketdb].[dbo].[CategoryTbl]", con);
+                DataTable tbl = new DataTable();
+                adapter.Fill(tbl);
+                copyDataGridView.DataSource = tbl;
+                connection.Close();
+
+                //foreach (DataRow item in tbl.Rows)
+                //{
+                //    int n = copyDataGridView.Rows.Add();
+                //    copyDataGridView.Rows[n].Cells[1].Value = item["CatId"].ToString();
+                //    copyDataGridView.Rows[n].Cells[2].Value = item["CatName"].ToString();
+                //    copyDataGridView.Rows[n].Cells[3].Value = item["CatDesc"].ToString();
+
+                //}
+            }
+
+            
+
+
+
+            //Insert CheckBox
+            DataGridViewCheckBoxColumn checkColumn = new DataGridViewCheckBoxColumn();
+            checkColumn.Name = "Test checkBox";
+            checkColumn.HeaderText = "Test checkBox";
+            checkColumn.ReadOnly = false;
+            copyDataGridView.Columns.Add(checkColumn);
+
+            copyDataGridView.Columns["Test checkBox"].DisplayIndex = 0;
+
+
         }
 
         private void browseButton_Click(object sender, EventArgs e)
@@ -38,6 +77,22 @@ namespace Library
 
                 importFileDataGridView.DataSource = Helper.DataTableFromTextFile(importFiletextBox.Text);
 
+            }
+        }
+
+        private void selectAllButton_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < copyDataGridView.Rows.Count; i++)
+            {
+                copyDataGridView.Rows[i].Cells[0].Value = true;
+            }
+        }
+
+        private void DiselectAllButton_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < copyDataGridView.Rows.Count; i++)
+            {
+                copyDataGridView.Rows[i].Cells[0].Value = false;
             }
         }
     }
