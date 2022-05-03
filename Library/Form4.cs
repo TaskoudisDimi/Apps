@@ -16,5 +16,29 @@ namespace Library
         {
             InitializeComponent();
         }
+
+        private void browseButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog()
+            {
+                Title = "Browse Text File",
+                CheckFileExists = true,
+                CheckPathExists = true,
+                Filter = "txt files (*.txt)|*.txt",
+                FilterIndex = 2,
+                RestoreDirectory = true,
+                ReadOnlyChecked = true,
+                ShowReadOnly = true
+            };
+
+            if(openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                importFiletextBox.Text = openFileDialog1.FileName;
+                Helper.file = importFiletextBox.Text;
+
+                importFileDataGridView.DataSource = Helper.DataTableFromTextFile(importFiletextBox.Text);
+
+            }
+        }
     }
 }
