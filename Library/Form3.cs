@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
-
+using Lesson1.DataAccess;
 
 namespace Library
 {
@@ -23,15 +23,23 @@ namespace Library
         public Form3()
         {
             InitializeComponent();
-            using (SqlConnection connection = new SqlConnection(constring))
-            {
-                connection.Open();
-                SqlDataAdapter adapter = new SqlDataAdapter("Select * From [smarketdb].[dbo].[CategoryTbl]", con);
-                DataTable tbl = new DataTable();
-                adapter.Fill(tbl);
-                readOnlyDataGridView.DataSource = tbl;
-                connection.Close();
-            }
+            //using (SqlConnection connection = new SqlConnection(constring))
+            //{
+            //    connection.Open();
+            //    SqlDataAdapter adapter = new SqlDataAdapter("Select * From [smarketdb].[dbo].[CategoryTbl]", con);
+            //    DataTable tbl = new DataTable();
+            //    adapter.Fill(tbl);
+            //    readOnlyDataGridView.DataSource = tbl;
+            //    connection.Close();
+            //}
+
+
+            SqlConnector loadData = new SqlConnector();
+            loadData.retrieveData("Select * From [smarketdb].[dbo].[CategoryTbl]");
+            readOnlyDataGridView.DataSource = loadData.table;
+
+
+
 
             //foreach (DataGridViewRow row in readOnlyDataGridView.Rows)
             //{
