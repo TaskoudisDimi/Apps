@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
 using OfficeOpenXml;
+using Lesson1.DataAccess;
+
 
 namespace Library
 {
@@ -22,37 +24,54 @@ namespace Library
             InitializeComponent();
 
 
-            using (SqlConnection connection = new SqlConnection(constring))
+            //using (SqlConnection connection = new SqlConnection(constring))
+            //{
+            //    connection.Open();
+            //    SqlDataAdapter adapter = new SqlDataAdapter("Select * From [smarketdb].[dbo].[CategoryTbl]", con);
+            //    DataTable tbl = new DataTable();
+            //    adapter.Fill(tbl);
+            //    copyDataGridView.DataSource = tbl;
+            //    connection.Close();
+
+            //    //foreach (DataRow item in tbl.Rows)
+            //    //{
+            //    //    int n = copyDataGridView.Rows.Add();
+            //    //    copyDataGridView.Rows[n].Cells[1].Value = item["CatId"].ToString();
+            //    //    copyDataGridView.Rows[n].Cells[2].Value = item["CatName"].ToString();
+            //    //    copyDataGridView.Rows[n].Cells[3].Value = item["CatDesc"].ToString();
+
+            //    //}
+            //}
+
+
+            SqlDataAdapter adapter = new SqlDataAdapter("Select * From [smarketdb].[dbo].[CategoryTbl]", con);
+            DataTable tbl = new DataTable();
+            adapter.Fill(tbl);
+            copyDataGridView.Rows.Clear();
+
+
+            foreach (DataRow item in tbl.Rows)
             {
-                connection.Open();
-                SqlDataAdapter adapter = new SqlDataAdapter("Select * From [smarketdb].[dbo].[CategoryTbl]", con);
-                DataTable tbl = new DataTable();
-                adapter.Fill(tbl);
-                copyDataGridView.DataSource = tbl;
-                connection.Close();
+                int n = copyDataGridView.Rows.Add();
+                copyDataGridView.Rows[n].Cells[1].Value = item["Catid"].ToString();
+                copyDataGridView.Rows[n].Cells[2].Value = item["CatName"].ToString();
+                copyDataGridView.Rows[n].Cells[3].Value = item["CatDesc"].ToString();
 
-                //foreach (DataRow item in tbl.Rows)
-                //{
-                //    int n = copyDataGridView.Rows.Add();
-                //    copyDataGridView.Rows[n].Cells[1].Value = item["CatId"].ToString();
-                //    copyDataGridView.Rows[n].Cells[2].Value = item["CatName"].ToString();
-                //    copyDataGridView.Rows[n].Cells[3].Value = item["CatDesc"].ToString();
-
-                //}
             }
 
-            
 
 
 
-            //Insert CheckBox
-            DataGridViewCheckBoxColumn checkColumn = new DataGridViewCheckBoxColumn();
-            checkColumn.Name = "Test checkBox";
-            checkColumn.HeaderText = "Test checkBox";
-            checkColumn.ReadOnly = false;
-            copyDataGridView.Columns.Add(checkColumn);
 
-            copyDataGridView.Columns["Test checkBox"].DisplayIndex = 0;
+
+
+            ////Insert CheckBox
+            //DataGridViewCheckBoxColumn checkColumn = new DataGridViewCheckBoxColumn();
+            //checkColumn.Name = "Test checkBox";
+            //checkColumn.HeaderText = "Test checkBox";
+            //checkColumn.ReadOnly = false;
+            //copyDataGridView.Columns.Add(checkColumn);
+            //copyDataGridView.Columns["Test checkBox"].DisplayIndex = 0;
 
 
         }
@@ -97,6 +116,39 @@ namespace Library
             }
         }
 
+        private void CopyButton_Click(object sender, EventArgs e)
+        {
+            copyData();
+        }
+
+        public void copyData()
+        {
+            pasteDataGridView.Rows.Clear();
+            for (int i = 0; i < copyDataGridView.Rows.Count; i++)
+            {
+                if (Convert.ToBoolean(copyDataGridView.Rows[i].Cells[0].Value) == true)
+                {
+                    int n = pasteDataGridView.Rows.Add();
+                    pasteDataGridView.Rows[n].Cells[0].Value = copyDataGridView.Rows[n].Cells[1].Value.ToString();
+                    pasteDataGridView.Rows[n].Cells[1].Value = copyDataGridView.Rows[n].Cells[2].Value.ToString();
+                    pasteDataGridView.Rows[n].Cells[2].Value = copyDataGridView.Rows[n].Cells[3].Value.ToString();
+
+                }
+            }
+        }
+
+        private void copyAllButton_Click(object sender, EventArgs e)
+        {
+            pasteDataGridView.Rows.Clear();
+            for (int i = 0; i < copyDataGridView.Rows.Count; i++)
+            {
+                copyDataGridView.Rows[i].Cells[0].Value = true;
+
+            }
+            copyData();
+
         
+        }
+
     }
 }
