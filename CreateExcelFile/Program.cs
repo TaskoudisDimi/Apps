@@ -91,9 +91,9 @@ namespace CreateExcelFile
         {
             List<PersonModel> output = new()
             {
-                new() { Id = 1, FirstName = "Tim", LastName = "Corey" },
-                new() { Id = 2, FirstName = "Sue", LastName = "Storm" },
-                new() { Id = 3, FirstName = "Jane", LastName = "Smith" }
+                new() { Id = 1, FirstName = "Dimitris", LastName = "Taskoudis" },
+                new() { Id = 2, FirstName = "Teo", LastName = "Savvidis" },
+                new() { Id = 3, FirstName = "Despoina", LastName = "Taskoudi" }
             };
 
             return output;

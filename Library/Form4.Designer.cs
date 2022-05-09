@@ -38,7 +38,6 @@
             this.selectAllButton = new System.Windows.Forms.Button();
             this.CopyButton = new System.Windows.Forms.Button();
             this.ClearButton = new System.Windows.Forms.Button();
-            this.reportButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.importFileDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.copyDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pasteDataGridView)).BeginInit();
@@ -130,22 +129,11 @@
             this.ClearButton.Text = "Clear";
             this.ClearButton.UseVisualStyleBackColor = true;
             // 
-            // reportButton
-            // 
-            this.reportButton.Location = new System.Drawing.Point(743, 166);
-            this.reportButton.Name = "reportButton";
-            this.reportButton.Size = new System.Drawing.Size(75, 23);
-            this.reportButton.TabIndex = 9;
-            this.reportButton.Text = "Report";
-            this.reportButton.UseVisualStyleBackColor = true;
-            this.reportButton.Click += new System.EventHandler(this.reportButton_Click);
-            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(919, 537);
-            this.Controls.Add(this.reportButton);
             this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.CopyButton);
             this.Controls.Add(this.selectAllButton);
@@ -177,6 +165,5 @@
         private Button selectAllButton;
         private Button CopyButton;
         private Button ClearButton;
-        private Button reportButton;
     }
 }

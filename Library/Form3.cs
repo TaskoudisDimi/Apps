@@ -23,15 +23,6 @@ namespace Library
         public Form3()
         {
             InitializeComponent();
-            //using (SqlConnection connection = new SqlConnection(constring))
-            //{
-            //    connection.Open();
-            //    SqlDataAdapter adapter = new SqlDataAdapter("Select * From [smarketdb].[dbo].[CategoryTbl]", con);
-            //    DataTable tbl = new DataTable();
-            //    adapter.Fill(tbl);
-            //    readOnlyDataGridView.DataSource = tbl;
-            //    connection.Close();
-            //}
 
 
             SqlConnector loadData = new SqlConnector();
@@ -49,9 +40,6 @@ namespace Library
 
             //Chasnge column header
             //readOnlyDataGridView.Columns["CatId"].DisplayIndex = 2;
-
-
-
 
 
 
@@ -95,5 +83,8 @@ namespace Library
                 }
             }
         }
+
+
+
     }
 }

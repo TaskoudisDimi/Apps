@@ -19,7 +19,6 @@ namespace Lesson1.DataAccess
             con.ConnectionString = ConfigurationManager.ConnectionStrings["Tutorial"].ConnectionString;
         }
 
-
         public void retrieveData(string command)
         {
             try
@@ -64,6 +63,8 @@ namespace Lesson1.DataAccess
 
             }
         }
+
+
     }
     
 }

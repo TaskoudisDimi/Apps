@@ -64,7 +64,7 @@ namespace Library
                 Title = "Browse Text File",
                 CheckFileExists = true,
                 CheckPathExists = true,
-                Filter = "txt files (*.txt)|*.txt",
+                Filter = "txt files (*.xlsx)|*.xlsx",
                 FilterIndex = 2,
                 RestoreDirectory = true,
                 ReadOnlyChecked = true,
@@ -97,31 +97,6 @@ namespace Library
             }
         }
 
-        //
-        private void reportButton_Click(object sender, EventArgs e)
-        {
-            using(SaveFileDialog saveFileDialog = new SaveFileDialog() { Filter = "Excel Workbook|* .xlsx " })
-            {
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    try
-                    {
-                        var fileInfo = new FileInfo(saveFileDialog.FileName);
-                        using (var package = new ExcelPackage(fileInfo))
-                        {
-                            ExcelWorksheet excelWorksheet = package.Workbook.Worksheets.Add("Customers");
-                            //excelWorksheet.Cells.LoadFromCollections<Customer>();
-                            package.Save();
-
-                        }
-                    }
-                    catch(Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK);
-                    }
-                }
-
-            }
-        }
+        
     }
 }
