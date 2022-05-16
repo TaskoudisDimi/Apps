@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.pagingDataGridView = new System.Windows.Forms.DataGridView();
             this.previousButton = new System.Windows.Forms.Button();
             this.nextButton = new System.Windows.Forms.Button();
             this.pageLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pagingDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // pagingDataGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(776, 369);
-            this.dataGridView1.TabIndex = 0;
+            this.pagingDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.pagingDataGridView.Location = new System.Drawing.Point(12, 12);
+            this.pagingDataGridView.Name = "pagingDataGridView";
+            this.pagingDataGridView.RowTemplate.Height = 25;
+            this.pagingDataGridView.Size = new System.Drawing.Size(776, 369);
+            this.pagingDataGridView.TabIndex = 0;
             // 
             // previousButton
             // 
@@ -61,6 +61,7 @@
             this.nextButton.TabIndex = 2;
             this.nextButton.Text = "Next";
             this.nextButton.UseVisualStyleBackColor = true;
+            this.nextButton.Click += new System.EventHandler(this.nextButton_Click);
             // 
             // pageLabel
             // 
@@ -79,10 +80,11 @@
             this.Controls.Add(this.pageLabel);
             this.Controls.Add(this.nextButton);
             this.Controls.Add(this.previousButton);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.pagingDataGridView);
             this.Name = "Form5";
             this.Text = "Form5";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.Form5_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pagingDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -90,7 +92,7 @@
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView pagingDataGridView;
         private Button previousButton;
         private Button nextButton;
         private Label pageLabel;

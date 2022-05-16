@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lesson1
 {
-    internal class UsefulTools
+    public class UsefulTools
     {
 
         public static void SayHi(string name)

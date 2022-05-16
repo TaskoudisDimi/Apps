@@ -150,6 +150,8 @@ namespace Library
                 DataTable tbl = new DataTable();
                 adapter.Fill(tbl);
 
+
+
                 autoCompleteComboBox.DataSource = tbl;
                 autoCompleteComboBox.DisplayMember = "CatName";
                 autoCompleteComboBox.ValueMember = "CatId";

@@ -46,21 +46,30 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.excelDataGridView = new System.Windows.Forms.DataGridView();
+            this.excelButton = new System.Windows.Forms.Button();
+            this.excelTextBox = new System.Windows.Forms.TextBox();
+            this.txtLabel = new System.Windows.Forms.Label();
+            this.excelLabel = new System.Windows.Forms.Label();
+            this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
+            this.importButton = new System.Windows.Forms.Button();
+            this.exportButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.importFileDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.copyDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pasteDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.excelDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // importFiletextBox
             // 
-            this.importFiletextBox.Location = new System.Drawing.Point(3, 12);
+            this.importFiletextBox.Location = new System.Drawing.Point(9, 38);
             this.importFiletextBox.Name = "importFiletextBox";
             this.importFiletextBox.Size = new System.Drawing.Size(331, 23);
             this.importFiletextBox.TabIndex = 0;
             // 
             // browseButton
             // 
-            this.browseButton.Location = new System.Drawing.Point(340, 12);
+            this.browseButton.Location = new System.Drawing.Point(346, 38);
             this.browseButton.Name = "browseButton";
             this.browseButton.Size = new System.Drawing.Size(75, 23);
             this.browseButton.TabIndex = 1;
@@ -71,8 +80,9 @@
             // importFileDataGridView
             // 
             this.importFileDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.importFileDataGridView.Location = new System.Drawing.Point(3, 41);
+            this.importFileDataGridView.Location = new System.Drawing.Point(9, 67);
             this.importFileDataGridView.Name = "importFileDataGridView";
+            this.importFileDataGridView.RowHeadersWidth = 62;
             this.importFileDataGridView.RowTemplate.Height = 25;
             this.importFileDataGridView.Size = new System.Drawing.Size(412, 198);
             this.importFileDataGridView.TabIndex = 2;
@@ -91,6 +101,7 @@
             this.CatDesc});
             this.copyDataGridView.Location = new System.Drawing.Point(12, 294);
             this.copyDataGridView.Name = "copyDataGridView";
+            this.copyDataGridView.RowHeadersWidth = 62;
             this.copyDataGridView.RowTemplate.Height = 25;
             this.copyDataGridView.Size = new System.Drawing.Size(311, 198);
             this.copyDataGridView.TabIndex = 3;
@@ -98,22 +109,30 @@
             // Status
             // 
             this.Status.HeaderText = "Status";
+            this.Status.MinimumWidth = 8;
             this.Status.Name = "Status";
+            this.Status.Width = 150;
             // 
             // Id
             // 
             this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 8;
             this.Id.Name = "Id";
+            this.Id.Width = 150;
             // 
             // CatName
             // 
             this.CatName.HeaderText = "CatName";
+            this.CatName.MinimumWidth = 8;
             this.CatName.Name = "CatName";
+            this.CatName.Width = 150;
             // 
             // CatDesc
             // 
             this.CatDesc.HeaderText = "CatDesc";
+            this.CatDesc.MinimumWidth = 8;
             this.CatDesc.Name = "CatDesc";
+            this.CatDesc.Width = 150;
             // 
             // DiselectAllButton
             // 
@@ -173,6 +192,7 @@
             this.dataGridViewTextBoxColumn3});
             this.pasteDataGridView.Location = new System.Drawing.Point(534, 294);
             this.pasteDataGridView.Name = "pasteDataGridView";
+            this.pasteDataGridView.RowHeadersWidth = 62;
             this.pasteDataGridView.RowTemplate.Height = 25;
             this.pasteDataGridView.Size = new System.Drawing.Size(353, 198);
             this.pasteDataGridView.TabIndex = 10;
@@ -180,23 +200,103 @@
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 150;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.HeaderText = "CatName";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 150;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.HeaderText = "CatDesc";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // excelDataGridView
+            // 
+            this.excelDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.excelDataGridView.Location = new System.Drawing.Point(454, 67);
+            this.excelDataGridView.Name = "excelDataGridView";
+            this.excelDataGridView.RowHeadersWidth = 62;
+            this.excelDataGridView.RowTemplate.Height = 25;
+            this.excelDataGridView.Size = new System.Drawing.Size(358, 198);
+            this.excelDataGridView.TabIndex = 13;
+            // 
+            // excelButton
+            // 
+            this.excelButton.Location = new System.Drawing.Point(0, 0);
+            this.excelButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.excelButton.Name = "excelButton";
+            this.excelButton.Size = new System.Drawing.Size(52, 14);
+            this.excelButton.TabIndex = 19;
+            // 
+            // excelTextBox
+            // 
+            this.excelTextBox.Location = new System.Drawing.Point(454, 38);
+            this.excelTextBox.Name = "excelTextBox";
+            this.excelTextBox.Size = new System.Drawing.Size(359, 23);
+            this.excelTextBox.TabIndex = 11;
+            // 
+            // txtLabel
+            // 
+            this.txtLabel.AutoSize = true;
+            this.txtLabel.Location = new System.Drawing.Point(93, 12);
+            this.txtLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.txtLabel.Name = "txtLabel";
+            this.txtLabel.Size = new System.Drawing.Size(84, 15);
+            this.txtLabel.TabIndex = 14;
+            this.txtLabel.Text = "Import txt files";
+            // 
+            // excelLabel
+            // 
+            this.excelLabel.AutoSize = true;
+            this.excelLabel.Location = new System.Drawing.Point(656, 12);
+            this.excelLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.excelLabel.Name = "excelLabel";
+            this.excelLabel.Size = new System.Drawing.Size(97, 15);
+            this.excelLabel.TabIndex = 15;
+            this.excelLabel.Text = "Import excel files";
+            // 
+            // openFileDialog2
+            // 
+            this.openFileDialog2.FileName = "openFileDialog2";
+            // 
+            // importButton
+            // 
+            this.importButton.Location = new System.Drawing.Point(0, 0);
+            this.importButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.importButton.Name = "importButton";
+            this.importButton.Size = new System.Drawing.Size(52, 14);
+            this.importButton.TabIndex = 18;
+            // 
+            // exportButton
+            // 
+            this.exportButton.Location = new System.Drawing.Point(835, 131);
+            this.exportButton.Name = "exportButton";
+            this.exportButton.Size = new System.Drawing.Size(75, 23);
+            this.exportButton.TabIndex = 17;
+            this.exportButton.Text = "Export";
+            this.exportButton.UseVisualStyleBackColor = true;
+            this.exportButton.Click += new System.EventHandler(this.exportButton_Click);
             // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(919, 537);
+            this.Controls.Add(this.exportButton);
+            this.Controls.Add(this.importButton);
+            this.Controls.Add(this.excelLabel);
+            this.Controls.Add(this.txtLabel);
+            this.Controls.Add(this.excelDataGridView);
+            this.Controls.Add(this.excelButton);
+            this.Controls.Add(this.excelTextBox);
             this.Controls.Add(this.pasteDataGridView);
             this.Controls.Add(this.copyAllButton);
             this.Controls.Add(this.ClearButton);
@@ -212,6 +312,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.importFileDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.copyDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pasteDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.excelDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -237,5 +338,13 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridView excelDataGridView;
+        private Button excelButton;
+        private TextBox excelTextBox;
+        private Label txtLabel;
+        private Label excelLabel;
+        private OpenFileDialog openFileDialog2;
+        private Button importButton;
+        private Button exportButton;
     }
 }
