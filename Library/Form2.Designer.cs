@@ -44,6 +44,7 @@
             this.autoCompleteComboBox = new System.Windows.Forms.ComboBox();
             this.AutoCompleteLabel = new System.Windows.Forms.Label();
             this.addRowButton = new System.Windows.Forms.Button();
+            this.formButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.method1DataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.method2DataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindDataGridView)).BeginInit();
@@ -205,12 +206,22 @@
             this.addRowButton.UseVisualStyleBackColor = true;
             this.addRowButton.Click += new System.EventHandler(this.addRowButton_Click);
             // 
+            // formButton
+            // 
+            this.formButton.Location = new System.Drawing.Point(786, 649);
+            this.formButton.Name = "formButton";
+            this.formButton.Size = new System.Drawing.Size(75, 23);
+            this.formButton.TabIndex = 13;
+            this.formButton.Text = "Form 3";
+            this.formButton.UseVisualStyleBackColor = true;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(873, 684);
+            this.Controls.Add(this.formButton);
             this.Controls.Add(this.addRowButton);
             this.Controls.Add(this.AutoCompleteLabel);
             this.Controls.Add(this.autoCompleteComboBox);
@@ -254,5 +265,6 @@
         private Label AutoCompleteLabel;
         private DataGridViewCheckBoxColumn select;
         private Button addRowButton;
+        private Button formButton;
     }
 }

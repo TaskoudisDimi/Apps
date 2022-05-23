@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace Lesson1
 {
-    internal class Movie
+    public class Movie
     {
 
         public string title;
         public string director;
-        private string rating; //To attribute rating που όρισα είναι private, άρα μπορεί να χρησιμοποιηθεί μονο σε αυτή τη Movie class.
-                               //Με τον ορισμό των getters - setters θα το περάσω σαν public στο main Program
+        private string rating; 
+        //To attribute rating που όρισα είναι private, άρα μπορεί να χρησιμοποιηθεί μονο σε αυτή τη Movie class.
+        //Με τον ορισμό των getters - setters θα το περάσω σαν public στο main Program
 
 
         public Movie(string aTitle, string aDirector, string aRating)
@@ -22,6 +23,8 @@ namespace Lesson1
             Rating = aRating;
 
         }
+
+
 
 
         public string Rating

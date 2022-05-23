@@ -154,40 +154,73 @@ namespace Library
         
         }
 
-        private void exportButton_Click(object sender, EventArgs e)
+
+        private int rowIndex = 0;
+        private void copyDataGridView_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
-            //// creating Excel Application  
-            //Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
-            //// creating new WorkBook within Excel application  
-            //Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
-            //// creating new Excelsheet in workbook  
-            //Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
-            //// see the excel sheet behind the program  
-            //app.Visible = true;
-            //// get the reference of first sheet. By default its name is Sheet1.  
-            //// store its reference to worksheet  
-            //worksheet = workbook.Sheets["Sheet1"];
-            //worksheet = workbook.ActiveSheet;
-            //// changing the name of active sheet  
-            //worksheet.Name = "Exported from gridview";
-            //// storing header part in Excel  
-            //for (int i = 1; i < excelDataGridView.Columns.Count + 1; i++)
-            //{
-            //    worksheet.Cells[1, i] = excelDataGridView.Columns[i - 1].HeaderText;
-            //}
-            //// storing Each row and column value to excel sheet  
-            //for (int i = 0; i < excelDataGridView.Rows.Count - 1; i++)
-            //{
-            //    for (int j = 0; j < excelDataGridView.Columns.Count; j++)
-            //    {
-            //        worksheet.Cells[i + 2, j + 1] = excelDataGridView.Rows[i].Cells[j].Value.ToString();
-            //    }
-            //}
-            //// save the application  
-            //workbook.SaveAs("c:\\output.xls", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
-            //// Exit from the application  
-            //app.Quit();
+            if (e.Button == MouseButtons.Right)
+            {
+                this.copyDataGridView.Rows[e.RowIndex].Selected = true;
+                this.rowIndex = e.RowIndex;
+                this.copyDataGridView.CurrentCell = this.copyDataGridView.Rows[e.RowIndex].Cells[1];
+                this.contextMenuStrip1.Show(this.copyDataGridView, e.Location);
+                contextMenuStrip1.Show(Cursor.Position);
+            }
         }
+
+        private void contextMenuStrip1_Click(object sender, EventArgs e)
+        {
+            if (!this.copyDataGridView.Rows[this.rowIndex].IsNewRow)
+            {
+                this.copyDataGridView.Rows.RemoveAt(this.rowIndex);
+            }
+        }
+
+        private void deleteRowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!this.copyDataGridView.Rows[this.rowIndex].IsNewRow)
+            {
+                this.copyDataGridView.Rows.RemoveAt(this.rowIndex);
+            }
+        }
+
+
+
+
+        //private void exportButton_Click(object sender, EventArgs e)
+        //{
+        //// creating Excel Application  
+        //Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
+        //// creating new WorkBook within Excel application  
+        //Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
+        //// creating new Excelsheet in workbook  
+        //Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+        //// see the excel sheet behind the program  
+        //app.Visible = true;
+        //// get the reference of first sheet. By default its name is Sheet1.  
+        //// store its reference to worksheet  
+        //worksheet = workbook.Sheets["Sheet1"];
+        //worksheet = workbook.ActiveSheet;
+        //// changing the name of active sheet  
+        //worksheet.Name = "Exported from gridview";
+        //// storing header part in Excel  
+        //for (int i = 1; i < excelDataGridView.Columns.Count + 1; i++)
+        //{
+        //    worksheet.Cells[1, i] = excelDataGridView.Columns[i - 1].HeaderText;
+        //}
+        //// storing Each row and column value to excel sheet  
+        //for (int i = 0; i < excelDataGridView.Rows.Count - 1; i++)
+        //{
+        //    for (int j = 0; j < excelDataGridView.Columns.Count; j++)
+        //    {
+        //        worksheet.Cells[i + 2, j + 1] = excelDataGridView.Rows[i].Cells[j].Value.ToString();
+        //    }
+        //}
+        //// save the application  
+        //workbook.SaveAs("c:\\output.xls", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+        //// Exit from the application  
+        //app.Quit();
+        //}
 
 
 

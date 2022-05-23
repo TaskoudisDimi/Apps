@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.importFiletextBox = new System.Windows.Forms.TextBox();
             this.browseButton = new System.Windows.Forms.Button();
             this.importFileDataGridView = new System.Windows.Forms.DataGridView();
@@ -54,10 +55,14 @@
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.importButton = new System.Windows.Forms.Button();
             this.exportButton = new System.Windows.Forms.Button();
+            this.formButton = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.deleteRowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.importFileDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.copyDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pasteDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.excelDataGridView)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // importFiletextBox
@@ -105,6 +110,7 @@
             this.copyDataGridView.RowTemplate.Height = 25;
             this.copyDataGridView.Size = new System.Drawing.Size(311, 198);
             this.copyDataGridView.TabIndex = 3;
+            this.copyDataGridView.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.copyDataGridView_CellMouseUp);
             // 
             // Status
             // 
@@ -231,7 +237,7 @@
             // excelButton
             // 
             this.excelButton.Location = new System.Drawing.Point(0, 0);
-            this.excelButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.excelButton.Margin = new System.Windows.Forms.Padding(2);
             this.excelButton.Name = "excelButton";
             this.excelButton.Size = new System.Drawing.Size(52, 14);
             this.excelButton.TabIndex = 19;
@@ -270,7 +276,7 @@
             // importButton
             // 
             this.importButton.Location = new System.Drawing.Point(0, 0);
-            this.importButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.importButton.Margin = new System.Windows.Forms.Padding(2);
             this.importButton.Name = "importButton";
             this.importButton.Size = new System.Drawing.Size(52, 14);
             this.importButton.TabIndex = 18;
@@ -283,13 +289,36 @@
             this.exportButton.TabIndex = 17;
             this.exportButton.Text = "Export";
             this.exportButton.UseVisualStyleBackColor = true;
-            this.exportButton.Click += new System.EventHandler(this.exportButton_Click);
+            // 
+            // formButton
+            // 
+            this.formButton.Location = new System.Drawing.Point(835, 511);
+            this.formButton.Name = "formButton";
+            this.formButton.Size = new System.Drawing.Size(75, 23);
+            this.formButton.TabIndex = 20;
+            this.formButton.Text = "Form 5";
+            this.formButton.UseVisualStyleBackColor = true;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteRowToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
+            // 
+            // deleteRowToolStripMenuItem
+            // 
+            this.deleteRowToolStripMenuItem.Name = "deleteRowToolStripMenuItem";
+            this.deleteRowToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteRowToolStripMenuItem.Text = "Delete Row";
+            this.deleteRowToolStripMenuItem.Click += new System.EventHandler(this.deleteRowToolStripMenuItem_Click);
             // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(919, 537);
+            this.Controls.Add(this.formButton);
             this.Controls.Add(this.exportButton);
             this.Controls.Add(this.importButton);
             this.Controls.Add(this.excelLabel);
@@ -313,6 +342,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.copyDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pasteDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.excelDataGridView)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -346,5 +376,8 @@
         private OpenFileDialog openFileDialog2;
         private Button importButton;
         private Button exportButton;
+        private Button formButton;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem deleteRowToolStripMenuItem;
     }
 }

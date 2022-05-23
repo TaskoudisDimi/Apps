@@ -32,6 +32,7 @@
             this.previousButton = new System.Windows.Forms.Button();
             this.nextButton = new System.Windows.Forms.Button();
             this.pageLabel = new System.Windows.Forms.Label();
+            this.formButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pagingDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,11 +73,21 @@
             this.pageLabel.TabIndex = 3;
             this.pageLabel.Text = "page";
             // 
+            // formButton
+            // 
+            this.formButton.Location = new System.Drawing.Point(713, 415);
+            this.formButton.Name = "formButton";
+            this.formButton.Size = new System.Drawing.Size(75, 23);
+            this.formButton.TabIndex = 10;
+            this.formButton.Text = "Form 6";
+            this.formButton.UseVisualStyleBackColor = true;
+            // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.formButton);
             this.Controls.Add(this.pageLabel);
             this.Controls.Add(this.nextButton);
             this.Controls.Add(this.previousButton);
@@ -96,5 +107,6 @@
         private Button previousButton;
         private Button nextButton;
         private Label pageLabel;
+        private Button formButton;
     }
 }

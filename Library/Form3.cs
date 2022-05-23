@@ -16,6 +16,7 @@ namespace Library
     public partial class Form3 : Form
     {
 
+        private int rowintex = 0;
 
         public static string constring = ConfigurationManager.ConnectionStrings["Tutorial"].ConnectionString;
         SqlConnection con = new SqlConnection(constring);
@@ -85,6 +86,30 @@ namespace Library
         }
 
 
+        private void SelectedRow()
+        {
+            double sum = 0;
+            for (int i = 0; i < this.readOnlyDataGridView.Rows.Count; i++)
+            {
+                if (Convert.ToBoolean(readOnlyDataGridView.Rows[i].Cells[0].Value) == true)
+                {
+                    sum += double.Parse(readOnlyDataGridView.Rows[i].Cells[2].Value.ToString());
+                }
+            }
 
+            sumTextBox.Text = sum.ToString();
+
+        }
+
+        private void sumButton_Click(object sender, EventArgs e)
+        {
+            SelectedRow();
+        }
+
+        private void readOnlyDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            sumButton.PerformClick();
+
+        }
     }
 }

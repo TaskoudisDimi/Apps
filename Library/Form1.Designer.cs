@@ -35,6 +35,11 @@
             this.label = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.formButton = new System.Windows.Forms.Button();
+            this.form3Button = new System.Windows.Forms.Button();
+            this.form4Button = new System.Windows.Forms.Button();
+            this.form5Button = new System.Windows.Forms.Button();
+            this.form6Button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // bookListBox
@@ -46,6 +51,7 @@
             this.bookListBox.Name = "bookListBox";
             this.bookListBox.Size = new System.Drawing.Size(260, 124);
             this.bookListBox.TabIndex = 1;
+            this.bookListBox.SelectedIndexChanged += new System.EventHandler(this.bookListBox_SelectedIndexChanged);
             // 
             // BuyBooksListBox
             // 
@@ -107,11 +113,66 @@
             this.checkBox1.Text = "checkBox1";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
+            // formButton
+            // 
+            this.formButton.Location = new System.Drawing.Point(316, 528);
+            this.formButton.Name = "formButton";
+            this.formButton.Size = new System.Drawing.Size(75, 23);
+            this.formButton.TabIndex = 9;
+            this.formButton.Text = "Form 2";
+            this.formButton.UseVisualStyleBackColor = true;
+            this.formButton.Click += new System.EventHandler(this.formButton_Click);
+            // 
+            // form3Button
+            // 
+            this.form3Button.Location = new System.Drawing.Point(417, 528);
+            this.form3Button.Name = "form3Button";
+            this.form3Button.Size = new System.Drawing.Size(75, 23);
+            this.form3Button.TabIndex = 10;
+            this.form3Button.Text = "Form 3";
+            this.form3Button.UseVisualStyleBackColor = true;
+            this.form3Button.Click += new System.EventHandler(this.form3Button_Click);
+            // 
+            // form4Button
+            // 
+            this.form4Button.Location = new System.Drawing.Point(514, 528);
+            this.form4Button.Name = "form4Button";
+            this.form4Button.Size = new System.Drawing.Size(75, 23);
+            this.form4Button.TabIndex = 11;
+            this.form4Button.Text = "Form 4";
+            this.form4Button.UseVisualStyleBackColor = true;
+            this.form4Button.Click += new System.EventHandler(this.form4Button_Click);
+            // 
+            // form5Button
+            // 
+            this.form5Button.Location = new System.Drawing.Point(603, 528);
+            this.form5Button.Name = "form5Button";
+            this.form5Button.Size = new System.Drawing.Size(75, 23);
+            this.form5Button.TabIndex = 12;
+            this.form5Button.Text = "Form 5";
+            this.form5Button.UseVisualStyleBackColor = true;
+            this.form5Button.Click += new System.EventHandler(this.form5Button_Click);
+            // 
+            // form6Button
+            // 
+            this.form6Button.Location = new System.Drawing.Point(692, 528);
+            this.form6Button.Name = "form6Button";
+            this.form6Button.Size = new System.Drawing.Size(75, 23);
+            this.form6Button.TabIndex = 13;
+            this.form6Button.Text = "Form 6";
+            this.form6Button.UseVisualStyleBackColor = true;
+            this.form6Button.Click += new System.EventHandler(this.form6Button_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 563);
+            this.Controls.Add(this.form6Button);
+            this.Controls.Add(this.form5Button);
+            this.Controls.Add(this.form4Button);
+            this.Controls.Add(this.form3Button);
+            this.Controls.Add(this.formButton);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label);
@@ -136,5 +197,10 @@
         private Label label;
         private ComboBox comboBox1;
         private CheckBox checkBox1;
+        private Button formButton;
+        private Button form3Button;
+        private Button form4Button;
+        private Button form5Button;
+        private Button form6Button;
     }
 }

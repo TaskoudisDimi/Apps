@@ -10,6 +10,7 @@ namespace Lesson1.Data
     {
         public List<Books> books { get; set; }
 
+        public List<Movie> movie { get; set; }
 
         public Store()
         {

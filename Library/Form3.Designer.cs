@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.catIdTextBox = new System.Windows.Forms.TextBox();
             this.catNameTextBox = new System.Windows.Forms.TextBox();
             this.catDescTextBox = new System.Windows.Forms.TextBox();
@@ -35,6 +36,10 @@
             this.sqlButton = new System.Windows.Forms.Button();
             this.sqlDataGridView = new System.Windows.Forms.DataGridView();
             this.readOnlyDataGridView = new System.Windows.Forms.DataGridView();
+            this.formButton = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.sumTextBox = new System.Windows.Forms.TextBox();
+            this.sumButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.sqlDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.readOnlyDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -94,13 +99,48 @@
             this.readOnlyDataGridView.RowTemplate.Height = 25;
             this.readOnlyDataGridView.Size = new System.Drawing.Size(311, 150);
             this.readOnlyDataGridView.TabIndex = 6;
+            this.readOnlyDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.readOnlyDataGridView_CellContentClick);
             this.readOnlyDataGridView.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.readOnlyDataGridView_CellValidated);
+            // 
+            // formButton
+            // 
+            this.formButton.Location = new System.Drawing.Point(713, 415);
+            this.formButton.Name = "formButton";
+            this.formButton.Size = new System.Drawing.Size(75, 23);
+            this.formButton.TabIndex = 10;
+            this.formButton.Text = "Form 4";
+            this.formButton.UseVisualStyleBackColor = true;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // sumTextBox
+            // 
+            this.sumTextBox.Location = new System.Drawing.Point(249, 416);
+            this.sumTextBox.Name = "sumTextBox";
+            this.sumTextBox.Size = new System.Drawing.Size(100, 23);
+            this.sumTextBox.TabIndex = 11;
+            // 
+            // sumButton
+            // 
+            this.sumButton.Location = new System.Drawing.Point(148, 416);
+            this.sumButton.Name = "sumButton";
+            this.sumButton.Size = new System.Drawing.Size(75, 23);
+            this.sumButton.TabIndex = 12;
+            this.sumButton.Text = "Sum";
+            this.sumButton.UseVisualStyleBackColor = true;
+            this.sumButton.Click += new System.EventHandler(this.sumButton_Click);
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.sumButton);
+            this.Controls.Add(this.sumTextBox);
+            this.Controls.Add(this.formButton);
             this.Controls.Add(this.readOnlyDataGridView);
             this.Controls.Add(this.sqlDataGridView);
             this.Controls.Add(this.sqlButton);
@@ -127,5 +167,9 @@
         private DataGridView qlDataGridView;
         private DataGridView sqlDataGridView;
         private DataGridView readOnlyDataGridView;
+        private Button formButton;
+        private ContextMenuStrip contextMenuStrip1;
+        public TextBox sumTextBox;
+        private Button sumButton;
     }
 }

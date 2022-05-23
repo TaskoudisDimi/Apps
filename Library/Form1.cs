@@ -124,6 +124,48 @@ namespace Library
 
         }
 
+        private void bookListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void formButton_Click(object sender, EventArgs e)
+        {
+            Form2 form = new Form2();
+            form.Show();
+            this.Hide();
+
+
+        }
+
+        private void form3Button_Click(object sender, EventArgs e)
+        {
+            Form3 form = new Form3();
+            form.Show();
+            this.Hide();
+        }
+
+        private void form4Button_Click(object sender, EventArgs e)
+        {
+            Form4 form = new Form4();
+            form.Show();
+            this.Hide();
+        }
+
+        private void form5Button_Click(object sender, EventArgs e)
+        {
+            Form5 form = new Form5();
+            form.Show();
+            this.Hide();
+        }
+
+        private void form6Button_Click(object sender, EventArgs e)
+        {
+            Form6 form = new Form6();
+            form.Show();
+            this.Hide();
+        }
+
 
 
 
