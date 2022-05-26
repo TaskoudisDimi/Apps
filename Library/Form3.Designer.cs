@@ -131,7 +131,7 @@
             this.sumButton.TabIndex = 12;
             this.sumButton.Text = "Sum";
             this.sumButton.UseVisualStyleBackColor = true;
-            this.sumButton.Click += new System.EventHandler(this.sumButton_Click);
+            //this.sumButton.Click += new System.EventHandler(this.sumButton_Click);
             // 
             // Form3
             // 
