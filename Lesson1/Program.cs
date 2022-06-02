@@ -499,29 +499,29 @@ namespace Lesson1
 
                 //italianchef.MakePasta();
 
-                Console.ReadLine();
-                //The following code returns the path to the equivalent of the Windows My Documents folder, or the user's HOME directory for any operating system, even if the code is running on Linux.
-                string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-                Console.WriteLine(docPath);
-                Console.WriteLine(Directory.GetCurrentDirectory());
+                //Console.ReadLine();
+                ////The following code returns the path to the equivalent of the Windows My Documents folder, or the user's HOME directory for any operating system, even if the code is running on Linux.
+                //string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                //Console.WriteLine(docPath);
+                //Console.WriteLine(Directory.GetCurrentDirectory());
 
-                //.NET automatically interprets that field into the separator character that's applicable to the operating system when you need to build a path manually.
-                Console.WriteLine($"stores{Path.DirectorySeparatorChar}201");
+                ////.NET automatically interprets that field into the separator character that's applicable to the operating system when you need to build a path manually.
+                //Console.WriteLine($"stores{Path.DirectorySeparatorChar}201");
 
 
-                //The Path class works with the concept of file and folder paths, which are just strings. You can use the Path class to automatically build correct paths for specific operating systems.
-                //For instance, if you want to get the path to the stores/ 201 folder, you can use the Path.Combine function to do that.
-                Console.WriteLine(Path.Combine("stores", "201")); // outputs: stores/201
+                ////The Path class works with the concept of file and folder paths, which are just strings. You can use the Path class to automatically build correct paths for specific operating systems.
+                ////For instance, if you want to get the path to the stores/ 201 folder, you can use the Path.Combine function to do that.
+                //Console.WriteLine(Path.Combine("stores", "201")); // outputs: stores/201
 
-                //The Path class can also tell you the extension of a filename. If you have a file and you want to know if it's a JSON file, you can use the Path.GetExtension function.
-                Console.WriteLine(Path.GetExtension("sales.json")); // outputs: .json
+                ////The Path class can also tell you the extension of a filename. If you have a file and you want to know if it's a JSON file, you can use the Path.GetExtension function.
+                //Console.WriteLine(Path.GetExtension("sales.json")); // outputs: .json
 
-                //The Path class contains many different methods that do various things. You can get the most information about a directory or a file by using the DirectoryInfo or FileInfo classes, respectively.
-                string fileName = $"stores{Path.DirectorySeparatorChar}201{Path.DirectorySeparatorChar}sales{Path.DirectorySeparatorChar}sales.json";
+                ////The Path class contains many different methods that do various things. You can get the most information about a directory or a file by using the DirectoryInfo or FileInfo classes, respectively.
+                //string fileName = $"stores{Path.DirectorySeparatorChar}201{Path.DirectorySeparatorChar}sales{Path.DirectorySeparatorChar}sales.json";
 
-                FileInfo info = new FileInfo(fileName);
+                //FileInfo info = new FileInfo(fileName);
 
-                Console.WriteLine($"Full Name: {info.FullName}{Environment.NewLine}Directory: {info.Directory}{Environment.NewLine}Extension: {info.Extension}{Environment.NewLine}Create Date: {info.CreationTime}"); // And many more
+                //Console.WriteLine($"Full Name: {info.FullName}{Environment.NewLine}Directory: {info.Directory}{Environment.NewLine}Extension: {info.Extension}{Environment.NewLine}Create Date: {info.CreationTime}"); // And many more
 
 
                 ////In this exercise, you'll use the Path class and Directory.GetCurrentDirectory to improve the program so it will find any file with a .json or .txt extension.
@@ -553,16 +553,16 @@ namespace Lesson1
                 //    return salesFiles;
                 //}
 
-                //Sometimes, you'll need to check if a directory already exists.
-                bool doesDirectoryExist = Directory.Exists(Directory.GetCurrentDirectory());
+                ////Sometimes, you'll need to check if a directory already exists.
+                //bool doesDirectoryExist = Directory.Exists(Directory.GetCurrentDirectory());
 
 
-                //Use the Directory.CreateDirectory method to create directories. The following method creates a new folder called newDir inside the 201 folder:
-                Directory.CreateDirectory(Path.Combine(Directory.GetCurrentDirectory(), "stores", "201", "newDir"));
+                ////Use the Directory.CreateDirectory method to create directories. The following method creates a new folder called newDir inside the 201 folder:
+                //Directory.CreateDirectory(Path.Combine(Directory.GetCurrentDirectory(), "stores", "201", "newDir"));
 
 
-                //You can create files by using the File.WriteAllText method. This method takes in a path to the file and the data you want to write to the file.If the file already exists, it will be overwritten.
-                File.WriteAllText(Path.Combine(Directory.GetCurrentDirectory(), "greeting.txt"), "Hello World!");
+                ////You can create files by using the File.WriteAllText method. This method takes in a path to the file and the data you want to write to the file.If the file already exists, it will be overwritten.
+                //File.WriteAllText(Path.Combine(Directory.GetCurrentDirectory(), "greeting.txt"), "Hello World!");
 
 
 
@@ -596,28 +596,28 @@ namespace Lesson1
                 //    return salesFiles;
                 //}
 
-                //Files are read through the ReadAllText method on the File class.
-                File.ReadAllText($"stores{Path.DirectorySeparatorChar}201{Path.DirectorySeparatorChar}sales.json");
+                ////Files are read through the ReadAllText method on the File class.
+                //File.ReadAllText($"stores{Path.DirectorySeparatorChar}201{Path.DirectorySeparatorChar}sales.json");
 
 
-                //Parse data in files
-                var salesJson = File.ReadAllText($"stores{Path.DirectorySeparatorChar}201{Path.DirectorySeparatorChar}sales.json");
-                var salesData = JsonConvert.DeserializeObject<SalesTotal>(salesJson);
+                ////Parse data in files
+                //var salesJson = File.ReadAllText($"stores{Path.DirectorySeparatorChar}201{Path.DirectorySeparatorChar}sales.json");
+                //var salesData = JsonConvert.DeserializeObject<SalesTotal>(salesJson);
 
-                Console.WriteLine(salesData.Total);
+                //Console.WriteLine(salesData.Total);
 
-                var data = JsonConvert.DeserializeObject<SalesTotal>(salesJson);
+                //var data = JsonConvert.DeserializeObject<SalesTotal>(salesJson);
 
-                File.WriteAllText($"salesTotalDir{Path.DirectorySeparatorChar}totals.txt", data.Total.ToString());
+                //File.WriteAllText($"salesTotalDir{Path.DirectorySeparatorChar}totals.txt", data.Total.ToString());
 
-                // totals.txt
-                // 22385.32
+                //// totals.txt
+                //// 22385.32
 
 
-                //Append data to files
-                var data2 = JsonConvert.DeserializeObject<SalesTotal>(salesJson);
+                ////Append data to files
+                //var data2 = JsonConvert.DeserializeObject<SalesTotal>(salesJson);
 
-                File.AppendAllText($"salesTotalDir{Path.DirectorySeparatorChar}totals.txt", $"{data2.Total}{Environment.NewLine}");
+                //File.AppendAllText($"salesTotalDir{Path.DirectorySeparatorChar}totals.txt", $"{data2.Total}{Environment.NewLine}");
 
                 // totals.txt
                 // 22385.32
@@ -629,16 +629,40 @@ namespace Lesson1
 
 
 
+                //arrays
+                int[] inventory = { 200, 450, 700, 175, 250 };
+                int sum = 0;
+                int bin = 0;
+                foreach (int items in inventory)
+                {
+                    sum += items;
+                    bin++;
+                    Console.WriteLine($"Bin {bin} = {items} items (Running total: {sum})");
+                }
+                Console.WriteLine($"We have {sum} items in inventory.");
+                Console.WriteLine("Test");
 
+
+
+
+                string[] names = { "B123", "C234", "A345", "B177", "C235" };
+
+                foreach(var name in names)
+                {
+                    if (name.StartsWith("B"))
+                    {
+                        Console.WriteLine(name);
+                    }
+                }
 
 
 
 
             }
-            class SalesTotal
-            {
-                public double Total { get; set; }
-            }
+            //class SalesTotal
+            //{
+            //    public double Total { get; set; }
+            //}
 
             ////Δημιυοργία μιας method
             //static void SayHi(string name, int age)
