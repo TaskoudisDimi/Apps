@@ -28,87 +28,100 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.messageTextBox = new System.Windows.Forms.TextBox();
+            this.portTextBox = new System.Windows.Forms.TextBox();
+            this.portLabel = new System.Windows.Forms.Label();
+            this.hostLabel = new System.Windows.Forms.Label();
+            this.hostTextBox = new System.Windows.Forms.TextBox();
+            this.sendButton = new System.Windows.Forms.Button();
+            this.connectButton = new System.Windows.Forms.Button();
+            this.statusTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // textBox3
+            // messageTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(106, 98);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(430, 51);
-            this.textBox3.TabIndex = 14;
+            this.messageTextBox.Location = new System.Drawing.Point(52, 66);
+            this.messageTextBox.Multiline = true;
+            this.messageTextBox.Name = "messageTextBox";
+            this.messageTextBox.Size = new System.Drawing.Size(373, 51);
+            this.messageTextBox.TabIndex = 14;
             // 
-            // textBox2
+            // portTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(275, 47);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(50, 20);
-            this.textBox2.TabIndex = 13;
+            this.portTextBox.Location = new System.Drawing.Point(241, 35);
+            this.portTextBox.Name = "portTextBox";
+            this.portTextBox.Size = new System.Drawing.Size(50, 20);
+            this.portTextBox.TabIndex = 13;
             // 
-            // label2
+            // portLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(223, 50);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "label2";
+            this.portLabel.AutoSize = true;
+            this.portLabel.Location = new System.Drawing.Point(209, 38);
+            this.portLabel.Name = "portLabel";
+            this.portLabel.Size = new System.Drawing.Size(26, 13);
+            this.portLabel.TabIndex = 12;
+            this.portLabel.Text = "Port";
             // 
-            // label1
+            // hostLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(46, 50);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "label1";
+            this.hostLabel.AutoSize = true;
+            this.hostLabel.Location = new System.Drawing.Point(49, 38);
+            this.hostLabel.Name = "hostLabel";
+            this.hostLabel.Size = new System.Drawing.Size(29, 13);
+            this.hostLabel.TabIndex = 11;
+            this.hostLabel.Text = "Host";
             // 
-            // textBox1
+            // hostTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(106, 47);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 10;
+            this.hostTextBox.Location = new System.Drawing.Point(84, 35);
+            this.hostTextBox.Name = "hostTextBox";
+            this.hostTextBox.Size = new System.Drawing.Size(100, 20);
+            this.hostTextBox.TabIndex = 10;
             // 
-            // button3
+            // sendButton
             // 
-            this.button3.Location = new System.Drawing.Point(461, 167);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.sendButton.Location = new System.Drawing.Point(350, 133);
+            this.sendButton.Name = "sendButton";
+            this.sendButton.Size = new System.Drawing.Size(75, 23);
+            this.sendButton.TabIndex = 9;
+            this.sendButton.Text = "Send";
+            this.sendButton.UseVisualStyleBackColor = true;
+            this.sendButton.Click += new System.EventHandler(this.sendButton_Click);
             // 
-            // button2
+            // connectButton
             // 
-            this.button2.Location = new System.Drawing.Point(355, 45);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.connectButton.Location = new System.Drawing.Point(350, 33);
+            this.connectButton.Name = "connectButton";
+            this.connectButton.Size = new System.Drawing.Size(75, 23);
+            this.connectButton.TabIndex = 8;
+            this.connectButton.Text = "Connect";
+            this.connectButton.UseVisualStyleBackColor = true;
+            this.connectButton.Click += new System.EventHandler(this.connectButton_Click);
+            // 
+            // statusTextBox
+            // 
+            this.statusTextBox.Location = new System.Drawing.Point(55, 163);
+            this.statusTextBox.Multiline = true;
+            this.statusTextBox.Name = "statusTextBox";
+            this.statusTextBox.Size = new System.Drawing.Size(373, 149);
+            this.statusTextBox.TabIndex = 15;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(595, 440);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(477, 344);
+            this.Controls.Add(this.statusTextBox);
+            this.Controls.Add(this.messageTextBox);
+            this.Controls.Add(this.portTextBox);
+            this.Controls.Add(this.portLabel);
+            this.Controls.Add(this.hostLabel);
+            this.Controls.Add(this.hostTextBox);
+            this.Controls.Add(this.sendButton);
+            this.Controls.Add(this.connectButton);
             this.Name = "Form1";
             this.Text = "TCPClient";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,13 +129,14 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox messageTextBox;
+        private System.Windows.Forms.TextBox portTextBox;
+        private System.Windows.Forms.Label portLabel;
+        private System.Windows.Forms.Label hostLabel;
+        private System.Windows.Forms.TextBox hostTextBox;
+        private System.Windows.Forms.Button sendButton;
+        private System.Windows.Forms.Button connectButton;
+        private System.Windows.Forms.TextBox statusTextBox;
     }
 }
 

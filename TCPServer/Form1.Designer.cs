@@ -34,7 +34,7 @@
             this.hostLabel = new System.Windows.Forms.Label();
             this.portLabel = new System.Windows.Forms.Label();
             this.portTextBox = new System.Windows.Forms.TextBox();
-            this.messageTextBox = new System.Windows.Forms.TextBox();
+            this.statusTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // startButton
@@ -45,6 +45,7 @@
             this.startButton.TabIndex = 1;
             this.startButton.Text = "Start";
             this.startButton.UseVisualStyleBackColor = true;
+            this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
             // stopButton
             // 
@@ -54,6 +55,7 @@
             this.stopButton.TabIndex = 2;
             this.stopButton.Text = "Stop";
             this.stopButton.UseVisualStyleBackColor = true;
+            this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
             // 
             // HostTextBox
             // 
@@ -87,20 +89,20 @@
             this.portTextBox.Size = new System.Drawing.Size(50, 20);
             this.portTextBox.TabIndex = 6;
             // 
-            // messageTextBox
+            // statusTextBox
             // 
-            this.messageTextBox.Location = new System.Drawing.Point(75, 66);
-            this.messageTextBox.Multiline = true;
-            this.messageTextBox.Name = "messageTextBox";
-            this.messageTextBox.Size = new System.Drawing.Size(451, 178);
-            this.messageTextBox.TabIndex = 7;
+            this.statusTextBox.Location = new System.Drawing.Point(75, 66);
+            this.statusTextBox.Multiline = true;
+            this.statusTextBox.Name = "statusTextBox";
+            this.statusTextBox.Size = new System.Drawing.Size(451, 178);
+            this.statusTextBox.TabIndex = 7;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(590, 298);
-            this.Controls.Add(this.messageTextBox);
+            this.Controls.Add(this.statusTextBox);
             this.Controls.Add(this.portTextBox);
             this.Controls.Add(this.portLabel);
             this.Controls.Add(this.hostLabel);
@@ -109,6 +111,7 @@
             this.Controls.Add(this.startButton);
             this.Name = "Form1";
             this.Text = "TCPServer";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -122,7 +125,7 @@
         private System.Windows.Forms.Label hostLabel;
         private System.Windows.Forms.Label portLabel;
         private System.Windows.Forms.TextBox portTextBox;
-        private System.Windows.Forms.TextBox messageTextBox;
+        private System.Windows.Forms.TextBox statusTextBox;
     }
 }
 
