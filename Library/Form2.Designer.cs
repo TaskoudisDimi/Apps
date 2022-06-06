@@ -139,6 +139,7 @@
             this.bindDataGridView.RowTemplate.Height = 33;
             this.bindDataGridView.Size = new System.Drawing.Size(321, 156);
             this.bindDataGridView.TabIndex = 5;
+            this.bindDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.bindDataGridView_CellFormatting);
             // 
             // method1Label
             // 
