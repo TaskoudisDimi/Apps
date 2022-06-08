@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCPClient", "TCPClient\TCPC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email", "Email\Email.csproj", "{87569B9B-DD81-4E47-A641-526FFA8D53F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UDPServer", "UDPServer\UDPServer.csproj", "{30700967-54B6-4E9C-9B55-A7753B2C7112}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{87569B9B-DD81-4E47-A641-526FFA8D53F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87569B9B-DD81-4E47-A641-526FFA8D53F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87569B9B-DD81-4E47-A641-526FFA8D53F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30700967-54B6-4E9C-9B55-A7753B2C7112}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30700967-54B6-4E9C-9B55-A7753B2C7112}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30700967-54B6-4E9C-9B55-A7753B2C7112}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30700967-54B6-4E9C-9B55-A7753B2C7112}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
