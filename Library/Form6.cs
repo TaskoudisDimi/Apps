@@ -27,15 +27,18 @@ namespace Library
             SqlConnector loaddata = new SqlConnector();
             loaddata.retrieveData("Select * From [smarketdb].[dbo].[CategoryTbl]");
 
-            exportDataGridView.DataSource = loaddata.table;
+            DataGridView.DataSource = loaddata.table;
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             SqlConnector loaddata2 = new SqlConnector();
             loaddata2.retrieveData("Select * From CategoryTbl Where Date='" + dateTimePicker1.Text + "'" );
-            exportDataGridView.DataSource = loaddata2.table;
+            DataGridView.DataSource = loaddata2.table;
         }
+
+
+
     }
 
 }

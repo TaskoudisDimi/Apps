@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Net;
+using Nancy.Json;
 
 namespace Lesson1
 
@@ -133,6 +134,11 @@ namespace Lesson1
             }
         }
 
+        public class Department
+        {
+            public int DeptId { get; set; }
+            public string DepartmentName { get; set; }
+        }
 
 
 
@@ -142,37 +148,39 @@ namespace Lesson1
             static void Main(string[] args)
             {
 
-                ClassUniversities university1 = new ClassUniversities();
+                //ClassUniversities university1 = new ClassUniversities();
 
-                university1.universities = new Universities();
-                university1.universities.university = "South Carolina StateUniversity";
+                //university1.universities = new Universities();
+                //university1.universities.university = "South Carolina StateUniversity";
 
-                List<Student> listStudent = new List<Student>();
-                Student student1 = new Student {
-                    name = "StephenCousins"
-                };
-                Student student2 = new Student {
-                    name = "Austin A. Newton"
-                };
-                Student student3 = new Student {
-                    name = "Adam Wilhite"
-                };
-                Student student4 = new Student {
-                    name = "Enis Kurtay YILMAZ"
-                };
+                //List<Student> listStudent = new List<Student>();
+                //Student student1 = new Student {
+                //    name = "Dimitris"
+                //};
+                //Student student2 = new Student {
+                //    name = "Despoina"
+                //};
+                //Student student3 = new Student {
+                //    name = "Katerina"
+                //};
+                //Student student4 = new Student {
+                //    name = "Teo"
+                //};
 
-                listStudent.Add(student1);
-                listStudent.Add(student2);
-                listStudent.Add(student3);
-                listStudent.Add(student4);
+                //listStudent.Add(student1);
+                //listStudent.Add(student2);
+                //listStudent.Add(student3);
+                //listStudent.Add(student4);
 
-                university1.universities.students = listStudent;
-                string json = JsonConvert.SerializeObject(university1);
+                //university1.universities.students = listStudent;
+                //string json = JsonConvert.SerializeObject(university1);
 
-                Console.WriteLine(json);
-                Console.ReadLine();
+                //Console.WriteLine(json);
 
-                
+
+                string jsonData = "{\"DeptId\": 101, \"DepartmentName\": \"IT\"}";
+
+                JavaScriptSerializer json_serializer = new JavaScriptSerializer();
 
 
                 //Person person = new Person(); //Store off some memory inside the app
