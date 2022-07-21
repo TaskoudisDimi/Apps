@@ -27,44 +27,16 @@ namespace Library
             SqlConnector loaddata = new SqlConnector();
             loaddata.retrieveData("Select * From [smarketdb].[dbo].[CategoryTbl]");
 
-            exportDataGridView.DataSource = loaddata.table;
-
-
-
+            DataGridView.DataSource = loaddata.table;
         }
 
-        private void exportButton_Click(object sender, EventArgs e)
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            //saveFileDialog.InitialDirectory = "C:";
-            //saveFileDialog.Filter = "Excel File|*xlsx";
-            //if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            //{
-            //    Microsoft.Office.Interop.Excel.Application ExcelApp = new Microsoft.Office.Interop.Excel.Application();
-            //    ExcelApp.Application.Workbooks.Add(Type.Missing);
-            //    ExcelApp.Columns.ColumnWidth = 20;
-
-            //    for (int i = 1; i < exportDataGridView.Columns.Count; i++)
-            //    {
-            //        ExcelApp.Cells[1, i] = exportDataGridView.Columns[i - 1].HeaderText;
-
-            //    }
-
-            //    for (int i = 0; i < exportDataGridView.Columns.Count; i++)
-            //    {
-            //        for(int j = 0; j < exportDataGridView.Columns.Count; j++)
-            //        {
-            //            ExcelApp.Cells[i + 2, j + 1] = exportDataGridView.Rows[i].Cells[j].Value.ToString();
-            //        }
-            //    }
-
-            //    ExcelApp.ActiveWorkbook.SaveCopyAs(saveFileDialog.FileName.ToString());
-            //    ExcelApp.ActiveWorkbook.Saved = true;
-            //    ExcelApp.Quit();
-
-
-
-            //}
+            SqlConnector loaddata2 = new SqlConnector();
+            loaddata2.retrieveData("Select * From CategoryTbl Where Date='" + dateTimePicker1.Text + "'" );
+            DataGridView.DataSource = loaddata2.table;
         }
+
 
 
     }

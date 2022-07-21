@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System.Net;
+using Nancy.Json;
 
 namespace Lesson1
 
@@ -13,95 +15,130 @@ namespace Lesson1
     {
         //static void Main(string[] args) //Method or function 
         //{
-        
-    //        /*
-    //        string username = "";
 
-            //        Console.WriteLine("Give me your name:");
+        //        /*
+        //        string username = "";
 
-            //        username = Console.ReadLine();
+        //        Console.WriteLine("Give me your name:");
 
-            //        Console.WriteLine("My name is " + username);
-            //        Console.ReadLine();
-            //        */
+        //        username = Console.ReadLine();
 
-            //        //Console.WriteLine(4 - 5);
+        //        Console.WriteLine("My name is " + username);
+        //        Console.ReadLine();
+        //        */
 
-            //        /*int x = 0 ;
-            //        x++;
-            //        Console.WriteLine(x);
-            //        */
+        //        //Console.WriteLine(4 - 5);
 
-
-            //        //float ximeia, istoria, mo;
-
-            //        //Console.WriteLine("Dwse vathmo ximeias");
-            //        //ximeia = float.Parse(Console.ReadLine());
-
-            //        //Console.WriteLine("Dwse vathmo istorias");
-            //        //istoria = float.Parse(Console.ReadLine());
-
-            //        //mo = istoria + ximeia;
-
-            //        //Console.WriteLine("O mesos oros einai: " + mo/2);
+        //        /*int x = 0 ;
+        //        x++;
+        //        Console.WriteLine(x);
+        //        */
 
 
-            //        //Console.WriteLine(Math.Max(8, 10)); //Έυρεση μέγιστου
-            //        //Console.WriteLine(Math.Min(8, 10)); //Έυρεση ελάχιστου
-            //        //Console.WriteLine(Math.Sqrt(1024)); //Έυρεση ρίζας
-            //        //Console.WriteLine(Math.Abs(-5.6)); //Απόλυτη τιμή
-            //        //Console.WriteLine(Math.Round(4.5)); //Στρογγυλοποίηση
+        //        //float ximeia, istoria, mo;
 
-            //        //Console.WriteLine("\ttesttesttesttesttest"); //\t κενό
-            //        //Console.WriteLine("\ntesttesttesttesttest"); //\n αλλαγή γραμμής
+        //        //Console.WriteLine("Dwse vathmo ximeias");
+        //        //ximeia = float.Parse(Console.ReadLine());
 
-            //        //string phrase = "test";
-            //        //Console.WriteLine(phrase.Length);  //Length = μήκος string
+        //        //Console.WriteLine("Dwse vathmo istorias");
+        //        //istoria = float.Parse(Console.ReadLine());
 
-            //        //Console.WriteLine(phrase[3]);
+        //        //mo = istoria + ximeia;
 
-            //        //Console.WriteLine(phrase.Substring(1)); //Αφαιρεί το γράμμα που δηλώνω
-
-            //        //Console.WriteLine(phrase.Contains("e")); //Αν περιέχει η λέξη test το γράμμα e τότε θα επιστρέψει true
+        //        //Console.WriteLine("O mesos oros einai: " + mo/2);
 
 
-            //        //bool flag;
+        //        //Console.WriteLine(Math.Max(8, 10)); //Έυρεση μέγιστου
+        //        //Console.WriteLine(Math.Min(8, 10)); //Έυρεση ελάχιστου
+        //        //Console.WriteLine(Math.Sqrt(1024)); //Έυρεση ρίζας
+        //        //Console.WriteLine(Math.Abs(-5.6)); //Απόλυτη τιμή
+        //        //Console.WriteLine(Math.Round(4.5)); //Στρογγυλοποίηση
 
-            //        //int a = 4;
-            //        //int b = 5;
+        //        //Console.WriteLine("\ttesttesttesttesttest"); //\t κενό
+        //        //Console.WriteLine("\ntesttesttesttesttest"); //\n αλλαγή γραμμής
 
-            //        //if (a == 4 || b == 5)
-            //        //{
-            //        //    Console.WriteLine(a);
-            //        //}
+        //        //string phrase = "test";
+        //        //Console.WriteLine(phrase.Length);  //Length = μήκος string
 
-            //        Console.ReadLine();
+        //        //Console.WriteLine(phrase[3]);
 
+        //        //Console.WriteLine(phrase.Substring(1)); //Αφαιρεί το γράμμα που δηλώνω
 
-
-            //    }
-            //}
-
-            //public class Person //Καλώ αυτή τη class στη κύρια class Program όπου θα εκτελεστεί ότι υλοποίησα σε αυτή (Person)
-            //{
-            //    public string Name;
-            //    public int Age;
-            //    public bool HasPet;
+        //        //Console.WriteLine(phrase.Contains("e")); //Αν περιέχει η λέξη test το γράμμα e τότε θα επιστρέψει true
 
 
-            //    public void Greetings() //Βάζω το void όταν η method δεν θα επιστρέψει κάποια τιμή
-            //    {
-            //        //Console.WriteLine("Den epistrefw kapoia timh = void");
-            //        Console.WriteLine("Hi my name is: " + Name + " and my age is " + Age);
-            //    }
+        //        //bool flag;
 
-            //    //public int calc(int x, int y) //Σε αυτή τη method που επιστρέφω μια τιμή (number) δεν βάζω το void 
-            //    //{
-            //    //    int number = x + y;
-            //    //    return number;
-            //    //}
-            //}
+        //        //int a = 4;
+        //        //int b = 5;
 
+        //        //if (a == 4 || b == 5)
+        //        //{
+        //        //    Console.WriteLine(a);
+        //        //}
+
+        //        Console.ReadLine();
+
+
+
+        //    }
+        //}
+
+        //public class Person //Καλώ αυτή τη class στη κύρια class Program όπου θα εκτελεστεί ότι υλοποίησα σε αυτή (Person)
+        //{
+        //    public string Name;
+        //    public int Age;
+        //    public bool HasPet;
+
+
+        //    public void Greetings() //Βάζω το void όταν η method δεν θα επιστρέψει κάποια τιμή
+        //    {
+        //        //Console.WriteLine("Den epistrefw kapoia timh = void");
+        //        Console.WriteLine("Hi my name is: " + Name + " and my age is " + Age);
+        //    }
+
+        //    //public int calc(int x, int y) //Σε αυτή τη method που επιστρέφω μια τιμή (number) δεν βάζω το void 
+        //    //{
+        //    //    int number = x + y;
+        //    //    return number;
+        //    //}
+        //}
+
+        public class Student
+        {
+            public string name
+            {
+                get;
+                set;
+            }
+        }
+        public class Universities
+        {
+            public string university
+            {
+                get;
+                set;
+            }
+            public IList<Student> students
+            {
+                get;
+                set;
+            }
+        }
+        public class ClassUniversities
+        {
+            public Universities universities
+            {
+                get;
+                set;
+            }
+        }
+
+        public class Department
+        {
+            public int DeptId { get; set; }
+            public string DepartmentName { get; set; }
+        }
 
 
 
@@ -110,6 +147,42 @@ namespace Lesson1
 
             static void Main(string[] args)
             {
+
+                //ClassUniversities university1 = new ClassUniversities();
+
+                //university1.universities = new Universities();
+                //university1.universities.university = "South Carolina StateUniversity";
+
+                //List<Student> listStudent = new List<Student>();
+                //Student student1 = new Student {
+                //    name = "Dimitris"
+                //};
+                //Student student2 = new Student {
+                //    name = "Despoina"
+                //};
+                //Student student3 = new Student {
+                //    name = "Katerina"
+                //};
+                //Student student4 = new Student {
+                //    name = "Teo"
+                //};
+
+                //listStudent.Add(student1);
+                //listStudent.Add(student2);
+                //listStudent.Add(student3);
+                //listStudent.Add(student4);
+
+                //university1.universities.students = listStudent;
+                //string json = JsonConvert.SerializeObject(university1);
+
+                //Console.WriteLine(json);
+
+
+                string jsonData = "{\"DeptId\": 101, \"DepartmentName\": \"IT\"}";
+
+                JavaScriptSerializer json_serializer = new JavaScriptSerializer();
+
+
                 //Person person = new Person(); //Store off some memory inside the app
 
                 //person.Name = "Dimitris";
@@ -629,31 +702,31 @@ namespace Lesson1
 
 
 
-                //arrays
-                int[] inventory = { 200, 450, 700, 175, 250 };
-                int sum = 0;
-                int bin = 0;
-                foreach (int items in inventory)
-                {
-                    sum += items;
-                    bin++;
-                    Console.WriteLine($"Bin {bin} = {items} items (Running total: {sum})");
-                }
-                Console.WriteLine($"We have {sum} items in inventory.");
-                Console.WriteLine("Test");
+                ////arrays
+                //int[] inventory = { 200, 450, 700, 175, 250 };
+                //int sum = 0;
+                //int bin = 0;
+                //foreach (int items in inventory)
+                //{
+                //    sum += items;
+                //    bin++;
+                //    Console.WriteLine($"Bin {bin} = {items} items (Running total: {sum})");
+                //}
+                //Console.WriteLine($"We have {sum} items in inventory.");
+                //Console.WriteLine("Test");
 
 
 
 
-                string[] names = { "B123", "C234", "A345", "B177", "C235" };
+                //string[] names = { "B123", "C234", "A345", "B177", "C235" };
 
-                foreach(var name in names)
-                {
-                    if (name.StartsWith("B"))
-                    {
-                        Console.WriteLine(name);
-                    }
-                }
+                //foreach(var name in names)
+                //{
+                //    if (name.StartsWith("B"))
+                //    {
+                //        Console.WriteLine(name);
+                //    }
+                //}
 
 
 

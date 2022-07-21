@@ -9,6 +9,8 @@ using System.IO;
 
 namespace Library
 {
+
+    //Display text file on DataGridView
     public class Helper
     {
         public static string file;
@@ -47,8 +49,6 @@ namespace Library
                 dt.Rows.Add(dr);
 
             }
-
-            
         }
 
         private static void AddColumnToTable(string[] columnCollection, char delimiter, ref DataTable dt)
@@ -58,7 +58,6 @@ namespace Library
             {
                 DataColumn dc = new DataColumn(columnName, typeof(string));
                 dt.Columns.Add(dc);
-
             }
             
         }

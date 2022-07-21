@@ -48,12 +48,10 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.excelDataGridView = new System.Windows.Forms.DataGridView();
-            this.excelButton = new System.Windows.Forms.Button();
             this.excelTextBox = new System.Windows.Forms.TextBox();
             this.txtLabel = new System.Windows.Forms.Label();
             this.excelLabel = new System.Windows.Forms.Label();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
-            this.importButton = new System.Windows.Forms.Button();
             this.exportButton = new System.Windows.Forms.Button();
             this.formButton = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -234,14 +232,6 @@
             this.excelDataGridView.Size = new System.Drawing.Size(358, 198);
             this.excelDataGridView.TabIndex = 13;
             // 
-            // excelButton
-            // 
-            this.excelButton.Location = new System.Drawing.Point(0, 0);
-            this.excelButton.Margin = new System.Windows.Forms.Padding(2);
-            this.excelButton.Name = "excelButton";
-            this.excelButton.Size = new System.Drawing.Size(52, 14);
-            this.excelButton.TabIndex = 19;
-            // 
             // excelTextBox
             // 
             this.excelTextBox.Location = new System.Drawing.Point(454, 38);
@@ -272,14 +262,6 @@
             // openFileDialog2
             // 
             this.openFileDialog2.FileName = "openFileDialog2";
-            // 
-            // importButton
-            // 
-            this.importButton.Location = new System.Drawing.Point(0, 0);
-            this.importButton.Margin = new System.Windows.Forms.Padding(2);
-            this.importButton.Name = "importButton";
-            this.importButton.Size = new System.Drawing.Size(52, 14);
-            this.importButton.TabIndex = 18;
             // 
             // exportButton
             // 
@@ -321,11 +303,9 @@
             this.ClientSize = new System.Drawing.Size(919, 537);
             this.Controls.Add(this.formButton);
             this.Controls.Add(this.exportButton);
-            this.Controls.Add(this.importButton);
             this.Controls.Add(this.excelLabel);
             this.Controls.Add(this.txtLabel);
             this.Controls.Add(this.excelDataGridView);
-            this.Controls.Add(this.excelButton);
             this.Controls.Add(this.excelTextBox);
             this.Controls.Add(this.pasteDataGridView);
             this.Controls.Add(this.copyAllButton);
@@ -370,12 +350,10 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private DataGridView excelDataGridView;
-        private Button excelButton;
         private TextBox excelTextBox;
         private Label txtLabel;
         private Label excelLabel;
         private OpenFileDialog openFileDialog2;
-        private Button importButton;
         private Button exportButton;
         private Button formButton;
         private ContextMenuStrip contextMenuStrip1;
