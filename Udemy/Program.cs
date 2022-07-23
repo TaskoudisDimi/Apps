@@ -102,23 +102,34 @@ namespace Udemy
 
 
 
-            try
-            {
 
-                string input = Console.ReadLine();
-                int converted;
-                bool isSuccessfully = int.TryParse(input, out converted);
+            //Υπάρχουν exceptions που μπορούμε να τα κρατήσουμε (handle) και θέλουμε να συνεχίσει να τρέχει το πρόγραμμα και
+            //exceptions που όταν σμυβαίνουν δεν θέλουμε να συνεχίσει το πρόγραμμα
+            //try
+            //{
 
+            //    string input = Console.ReadLine();
+            //    try
+            //    {
+            //        Converter converter = new Converter();
+            //        converter.convert(input);
 
-                if (!isSuccessfully)
-                {
-                    throw new Exception("Wrong");
-                }
-            }
-            catch (Exception ex)
-            {
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        Console.WriteLine("There was en error with convertion {0}", ex.Message);
 
-            }
+            //    }
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine("There was an error {0}", ex.Message);
+            //}
+            //finally
+            //{
+            //    Console.WriteLine("The rest app running");
+            //}
 
 
 
