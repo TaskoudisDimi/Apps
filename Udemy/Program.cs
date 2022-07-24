@@ -132,8 +132,25 @@ namespace Udemy
             //}
 
 
+            try
+            {
+                InputConverter inputConverter = new InputConverter();
+                CalculatorEngine calculateEngine = new CalculatorEngine();
+
+                double firstNumber = inputConverter.ConvertInputToNumeric(Console.ReadLine());
+                double secondNumber = inputConverter.ConvertInputToNumeric(Console.ReadLine());
+                string operation = Console.ReadLine();  
 
 
+                double result = calculateEngine.Calculate(operation, firstNumber, secondNumber);
+
+                Console.WriteLine(result);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
 
 
