@@ -46,7 +46,7 @@ namespace Lesson1
         //        //mo = istoria + ximeia;
 
         //        //Console.WriteLine("O mesos oros einai: " + mo/2);
-
+        
 
         //        //Console.WriteLine(Math.Max(8, 10)); //Έυρεση μέγιστου
         //        //Console.WriteLine(Math.Min(8, 10)); //Έυρεση ελάχιστου
@@ -531,7 +531,7 @@ namespace Lesson1
 
 
                 //// Θέλω να μπορούν να περαστούν μόνο συγκεκριμένες τιμές στο object movie, πχ rating = G, PG, PG-13, R, NR
-                //// Για αυτό χρησιμοποιούμαι getters - setters
+                //// Για αυτό χρησιμοποιούμε getters - setters
                 //Movie movie1 = new Movie("Avengares", "Joss Whedon", "test");
                 //Movie movie2 = new Movie("Shrek", "Adam Adamson", "PG");
 

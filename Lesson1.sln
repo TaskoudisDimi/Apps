@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextFiles", "TextFiles\Text
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Udemy", "Udemy\Udemy.csproj", "{5D1F4581-FD61-4D5C-A444-E3627922C299}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordUnscrambler", "WordUnscrambler\WordUnscrambler.csproj", "{04469A7D-EE88-408F-AEAD-F90E48E52527}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordUnscrambler", "WordUnscrambler\WordUnscrambler.csproj", "{04469A7D-EE88-408F-AEAD-F90E48E52527}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebScraper", "WebScraper\WebScraper.csproj", "{03474BAB-90D5-4754-92C6-583D97D588AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{04469A7D-EE88-408F-AEAD-F90E48E52527}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04469A7D-EE88-408F-AEAD-F90E48E52527}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04469A7D-EE88-408F-AEAD-F90E48E52527}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03474BAB-90D5-4754-92C6-583D97D588AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03474BAB-90D5-4754-92C6-583D97D588AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03474BAB-90D5-4754-92C6-583D97D588AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03474BAB-90D5-4754-92C6-583D97D588AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

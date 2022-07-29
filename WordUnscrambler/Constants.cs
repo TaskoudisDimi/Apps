@@ -28,6 +28,6 @@ namespace WordUnscrambler
         public const string Manual = "M";
 
 
-
+        public  const string wordListFileName = "wordlist.txt";
     }
 }

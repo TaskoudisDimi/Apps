@@ -23,8 +23,6 @@ namespace WordUnscrambler.Workers
                 throw new Exception(ex.Message);
             }
 
-
-
             return fileContent;
         }
     }
