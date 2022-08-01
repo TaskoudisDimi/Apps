@@ -22,6 +22,13 @@ namespace WebScraper
             person.FirstName = "";
             Console.WriteLine(person.FirstName);
 
+
+            SuperPerson person2 = new SuperPerson("Test1", "Test2");
+            person2.Walk();
+            person2.Sleep();
+
         }
     }
 }
+
+

@@ -46,5 +46,11 @@ namespace WebScraper
         }
 
 
+        public void Sleep()
+        {
+            Console.WriteLine("Sleep");
+
+        }
+
     }
 }
