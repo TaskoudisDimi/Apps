@@ -7,18 +7,11 @@ using System.Threading.Tasks;
 
 namespace WebScraper.Data
 {
-    public class ScrapeCriteria
+    public class ScrapeCriteriaPart
     {
 
-        public ScrapeCriteria()
-        {
-            parts = new List<ScrapeCriteriaPart>();
-        }
-
-        public string Data { get; set; }
         public string Regex { get; set; }
         public RegexOptions regexOptions { get; set; }
-        public List<ScrapeCriteriaPart> parts { get; set; }
 
 
     }
