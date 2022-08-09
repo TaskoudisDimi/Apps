@@ -1,19 +1,18 @@
-﻿using System;
+﻿using SimpleWebScraper.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using WebScraper.Data;
 
-namespace WebScraper.Builders
+namespace SimpleWebScraper.Builders
 {
-    public class ScrapeCriteriaBuilder
+    class ScrapeCriteriaBuilder
     {
-
         private string _data;
         private string _regex;
-        private RegexOptions _regexOptions;
+        private RegexOptions _regexOption;
         private List<ScrapeCriteriaPart> _parts;
 
         public ScrapeCriteriaBuilder()
@@ -25,43 +24,42 @@ namespace WebScraper.Builders
         {
             _data = string.Empty;
             _regex = string.Empty;
-            _regexOptions = RegexOptions.None;
+            _regexOption = RegexOptions.None;
             _parts = new List<ScrapeCriteriaPart>();
-
         }
 
-
-        public ScrapeCriteriaBuilder withData(string data)
+        public ScrapeCriteriaBuilder WithData(string data)
         {
             _data = data;
             return this;
         }
-        public ScrapeCriteriaBuilder withRegex(string regex)
+
+        public ScrapeCriteriaBuilder WithRegex(string regex)
         {
             _regex = regex;
             return this;
         }
-        public ScrapeCriteriaBuilder withRegexOptions(RegexOptions regexOptions)
+
+        public ScrapeCriteriaBuilder WithRegexOption(RegexOptions regexOption)
         {
-            _regexOptions = regexOptions;
+            _regexOption = regexOption;
             return this;
         }
-        public ScrapeCriteriaBuilder withparts(ScrapeCriteriaPart parts)
+
+        public ScrapeCriteriaBuilder WithPart(ScrapeCriteriaPart scrapeCriteriaPart)
         {
-            _parts.Add(parts);
+            _parts.Add(scrapeCriteriaPart);
             return this;
         }
 
         public ScrapeCriteria Build()
         {
-            ScrapeCriteria criteria = new ScrapeCriteria();
-            criteria.Data = _data;
-            criteria.Regex = _regex;
-            criteria.regexOptions = _regexOptions;
-            criteria.parts = _parts;
-            return criteria;
-
+            ScrapeCriteria scrapeCriteria = new ScrapeCriteria();
+            scrapeCriteria.Data = _data;
+            scrapeCriteria.Regex = _regex;
+            scrapeCriteria.RegexOption = _regexOption;
+            scrapeCriteria.Parts = _parts;
+            return scrapeCriteria;
         }
-
     }
 }

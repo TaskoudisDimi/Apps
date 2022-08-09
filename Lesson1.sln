@@ -27,7 +27,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Udemy", "Udemy\Udemy.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordUnscrambler", "WordUnscrambler\WordUnscrambler.csproj", "{04469A7D-EE88-408F-AEAD-F90E48E52527}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebScraper", "WebScraper\WebScraper.csproj", "{03474BAB-90D5-4754-92C6-583D97D588AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebScraper", "WebScraper\WebScraper.csproj", "{03474BAB-90D5-4754-92C6-583D97D588AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SudokuSolver", "SudokuSolver\SudokuSolver.csproj", "{6E3F76BD-7000-4F7A-A74F-89DE4B9464EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +89,10 @@ Global
 		{03474BAB-90D5-4754-92C6-583D97D588AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03474BAB-90D5-4754-92C6-583D97D588AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03474BAB-90D5-4754-92C6-583D97D588AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E3F76BD-7000-4F7A-A74F-89DE4B9464EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E3F76BD-7000-4F7A-A74F-89DE4B9464EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E3F76BD-7000-4F7A-A74F-89DE4B9464EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E3F76BD-7000-4F7A-A74F-89DE4B9464EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

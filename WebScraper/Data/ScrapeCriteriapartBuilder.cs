@@ -1,22 +1,20 @@
-﻿using System;
+﻿using SimpleWebScraper.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using WebScraper.Data;
 
-namespace WebScraper.Data
+namespace SimpleWebScraper.Builders
 {
-    public class ScrapeCriteriapartBuilder
+    class ScrapeCriteriaPartBuilder
     {
-
-
-
         private string _regex;
-        private RegexOptions _regexOptions;
+        private RegexOptions _regexOption;
 
-
-        public ScrapeCriteriapartBuilder()
+        public ScrapeCriteriaPartBuilder()
         {
             SetDefaults();
         }
@@ -24,30 +22,27 @@ namespace WebScraper.Data
         private void SetDefaults()
         {
             _regex = string.Empty;
-            _regexOptions = RegexOptions.None;
-
+            _regexOption = RegexOptions.None;
         }
 
-        public ScrapeCriteriapartBuilder withRegex(string regex)
+        public ScrapeCriteriaPartBuilder WithRegex(string regex)
         {
             _regex = regex;
             return this;
         }
-        public ScrapeCriteriapartBuilder withRegexOptions(RegexOptions regexOptions)
+
+        public ScrapeCriteriaPartBuilder WithRegexOption(RegexOptions regexOption)
         {
-            _regexOptions = regexOptions;
+            _regexOption = regexOption;
             return this;
         }
 
-        public ScrapeCriteria Build()
+        public ScrapeCriteriaPart Build()
         {
-            ScrapeCriteria criteria = new ScrapeCriteria();
-            criteria.Regex = _regex;
-            criteria.regexOptions = _regexOptions;
-            return criteria;
-
+            ScrapeCriteriaPart scrapeCriteriaPart = new ScrapeCriteriaPart();
+            scrapeCriteriaPart.Regex = _regex;
+            scrapeCriteriaPart.RegexOption = _regexOption;
+            return scrapeCriteriaPart;
         }
-
-
     }
 }
