@@ -16,14 +16,51 @@ namespace SudokuSolver
         static void Main(string[] args)
         {
 
-            StringBuilder string1 = new StringBuilder();
-            string1.Append("my name is");
-            string1.Append("Dimitris Taskoudis");
+            //StringBuilder string1 = new StringBuilder();
+            //string1.Append("my name is");
+            //string1.Append("Dimitris Taskoudis");
 
 
-            //καταλαμβάνει πολύ περισσότερο χώρο στη μνήμη αυτό από οτι το να χρησιμοποιήσω το StringBuilder Append
-            string string2 = "my name is";
-            string2 = string2 + "Dimitris Taskoudis";
+            ////καταλαμβάνει πολύ περισσότερο χώρο στη μνήμη αυτό από οτι το να χρησιμοποιήσω το StringBuilder Append
+            //string string2 = "my name is";
+            //string2 = string2 + "Dimitris Taskoudis";
+
+
+            ////Το array είναι πίνακας που περιλαμβάνει άλλους πίνακες. Το κάθε στοιχείο του πίνακα μπορεί να έχει άλλο μέγεθος
+            //int[][] array = new int[10][];
+            //array[0] = new int[90];
+            //array[1] = new int[80];
+
+            ////Πίνακας 10,10
+            //int[,] matrix = new int[10, 10];
+
+            ////Μπορώ να χρησιμοποιώ matrix ή array που περιλαμβάνει άλλους πίνακες. To δεύτερο σε περίπτωση που έχω μεγάλο πλήθος δεδομένων
+            ////Χρησιμοποιώ το δεύτερο σε περίπτωση που θέλω μεγαλύτερη απόδοση στον αλγόριμο
+
+            ////DIY: Dependenjy Injection είναι ένα deisng pattern 
+            ////Η class Person απαιτεί το car, άρα το car είναι dependency του person
+            //Car car = new Car();
+            //Person person = new Person(car);
+            //person.Drive();
+
+
+
+            ////Interface: Reference Type
+            //Ferrari ferrari = new Ferrari();
+            ////Δηλώνω ποιο αυτοκινήτο συγκεκριμένα θέλω να πάρει η class Person
+            //Lambo lambo = new Lambo();
+            //Person person = new Person(lambo);
+            //person.Drive();
+
+
+            //Abstract class Car
+            //Δηλώνω τη base class Car
+            Car ferrari = new Ferrari();
+            //Δηλώνω ποιο αυτοκινήτο συγκεκριμένα θέλω να πάρει η class Person
+            Car lambo = new Lambo();
+            Person person = new Person(lambo);
+            person.Drive();
+
 
         }
 
@@ -32,7 +69,7 @@ namespace SudokuSolver
 
 
 
-        
+
     }
 }
 
