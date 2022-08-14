@@ -8,6 +8,8 @@ namespace SudokuSolver
 {
     //Base class 
     //Η abstract class μπορεί να μοιραστεί functions, ένα interface δεν μπορεί
+    //Μπορεί να εχει μια abstract class files, constructors
+    //Μία class μπορεί να κληρονομήσει τα στοιχεία μόνο ενός abstract class
     abstract class Car
     {
         protected bool _on;

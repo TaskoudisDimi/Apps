@@ -53,18 +53,43 @@ namespace SudokuSolver
             //person.Drive();
 
 
-            //Abstract class Car
-            //Δηλώνω τη base class Car
-            Car ferrari = new Ferrari();
-            //Δηλώνω ποιο αυτοκινήτο συγκεκριμένα θέλω να πάρει η class Person
-            Car lambo = new Lambo();
-            Person person = new Person(lambo);
-            person.Drive();
+            ////Abstract class Car
+            ////Δηλώνω τη base class Car
+            //Car ferrari = new Ferrari();
+            ////Δηλώνω ποιο αυτοκινήτο συγκεκριμένα θέλω να πάρει η class Person
+            //Car lambo = new Lambo();
+            //Person person = new Person(lambo);
+            //person.Drive();
+
+
+            ////LINQ
+            //Hobbie[] hobbies = { new Hobbie(1, "Walking"), new Hobbie(2, "Swimming"), new Hobbie(3, "Bodybuilding") };
+
+            ////Κρατάω σε λίστα τα δεδομένα που θέλω ανάλογα με τη συνθήκη
+            //var hobbie = hobbies.Where(h => h.Name.Contains("Walking")).Select(h => h.Name);
+            //var anotherHobbie = from h in hobbies where h.Name.Equals("Walking") select h;
+            //var hobbieID = hobbies.Where(h => h.ID > 1);
+
+            ////Κρατάω όλα τα στοιχεία απο το hobbies και κάνω skip το πρώτο
+            //var everyHobbie = hobbies.Skip(1);
+            ////Κρατάω μόνο το 2ο
+            //var swimmingHobbie = hobbies.Skip(1).Take(2);
 
 
         }
 
+        //class Hobbie
+        //{
+        //    public int ID { get; set; }
+        //    public string Name { get; set; }
 
+        //    public Hobbie(int id, string name)
+        //    {
+        //        ID = id;
+        //        Name = name;
+
+        //    }
+        //}
 
 
 
