@@ -87,6 +87,8 @@ namespace WebScraper
                             .Build())
                         .Build();
 
+
+
                     Scraper scraper = new Scraper();
 
                     var scrapedElements = scraper.Scrape(scrapeCriteria);
