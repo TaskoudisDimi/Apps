@@ -104,41 +104,41 @@ namespace Lesson1
         //    //}
         //}
 
-        public class Student
-        {
-            public string name
-            {
-                get;
-                set;
-            }
-        }
-        public class Universities
-        {
-            public string university
-            {
-                get;
-                set;
-            }
-            public IList<Student> students
-            {
-                get;
-                set;
-            }
-        }
-        public class ClassUniversities
-        {
-            public Universities universities
-            {
-                get;
-                set;
-            }
-        }
+        //public class Student
+        //{
+        //    public string name
+        //    {
+        //        get;
+        //        set;
+        //    }
+        //}
+        //public class Universities
+        //{
+        //    public string university
+        //    {
+        //        get;
+        //        set;
+        //    }
+        //    public IList<Student> students
+        //    {
+        //        get;
+        //        set;
+        //    }
+        //}
+        //public class ClassUniversities
+        //{
+        //    public Universities universities
+        //    {
+        //        get;
+        //        set;
+        //    }
+        //}
 
-        public class Department
-        {
-            public int DeptId { get; set; }
-            public string DepartmentName { get; set; }
-        }
+        //public class Department
+        //{
+        //    public int DeptId { get; set; }
+        //    public string DepartmentName { get; set; }
+        //}
 
 
 
@@ -450,7 +450,7 @@ namespace Lesson1
 
 
 
-
+                
                 ////Build 2d array
                 //int[,] numGrid = { 
                 //    {4, 3}, 

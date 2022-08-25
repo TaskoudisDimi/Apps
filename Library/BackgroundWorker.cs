@@ -18,6 +18,10 @@ namespace Library
             InitializeComponent();
         }
 
+        //The BackgroundWorker class allows you to run an operation on a separate, dedicated thread
+        //add an event handler for the DoWork event. Call your time-consuming operation in this event handler.
+        //To start the operation, call RunWorkerAsync. To receive notifications of progress updates, handle the ProgressChanged event.
+        //To receive a notification when the operation is completed, handle the RunWorkerCompleted event.
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {

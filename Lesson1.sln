@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson1", "Lesson1\Lesson1.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library", "Library\Library.csproj", "{F87BF805-4A17-4484-99E9-243522452BA3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreateExcelFile", "CreateExcelFile\CreateExcelFile.csproj", "{874F66D7-6BA8-4733-B3D1-887F14525402}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leeson1Test", "Leeson1Test\Leeson1Test.csproj", "{B57A22A2-02C2-42F0-93D6-4BB6908B3DF9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCPServer", "TCPServer\TCPServer.csproj", "{288E9470-0EF9-4C73-BEEB-D231B864A8FC}"
@@ -29,7 +27,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordUnscrambler", "WordUnsc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebScraper", "WebScraper\WebScraper.csproj", "{03474BAB-90D5-4754-92C6-583D97D588AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SudokuSolver", "SudokuSolver\SudokuSolver.csproj", "{6E3F76BD-7000-4F7A-A74F-89DE4B9464EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SudokuSolver", "SudokuSolver\SudokuSolver.csproj", "{6E3F76BD-7000-4F7A-A74F-89DE4B9464EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelFile", "ExcelFile\ExcelFile.csproj", "{E964932B-2C91-4FF1-9A84-69D952B4234C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,10 +45,6 @@ Global
 		{F87BF805-4A17-4484-99E9-243522452BA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F87BF805-4A17-4484-99E9-243522452BA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F87BF805-4A17-4484-99E9-243522452BA3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{874F66D7-6BA8-4733-B3D1-887F14525402}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{874F66D7-6BA8-4733-B3D1-887F14525402}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{874F66D7-6BA8-4733-B3D1-887F14525402}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{874F66D7-6BA8-4733-B3D1-887F14525402}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B57A22A2-02C2-42F0-93D6-4BB6908B3DF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B57A22A2-02C2-42F0-93D6-4BB6908B3DF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B57A22A2-02C2-42F0-93D6-4BB6908B3DF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -93,6 +89,10 @@ Global
 		{6E3F76BD-7000-4F7A-A74F-89DE4B9464EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E3F76BD-7000-4F7A-A74F-89DE4B9464EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E3F76BD-7000-4F7A-A74F-89DE4B9464EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E964932B-2C91-4FF1-9A84-69D952B4234C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E964932B-2C91-4FF1-9A84-69D952B4234C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E964932B-2C91-4FF1-9A84-69D952B4234C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E964932B-2C91-4FF1-9A84-69D952B4234C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

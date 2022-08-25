@@ -13,6 +13,10 @@ namespace WordUnscrambler
     public class Program
     {
 
+        //const: we cannot change the value of a const variable throughout the entire program, a variable of which the value is constant but at compile time
+        //readonly: Readonly is the keyword whose value we can change during runtime, we can assign it at run time but only through the non-static constructor
+        //static readonly: can be assigned at runtime or assigned at compile time and changed at runtime, this variable's value can only be changed in the static constructor
+        //
         ////Το const κάνει τη class static. Μπορώ να γράψω Program.someText
         //public const string someText = "This is some text";
         ////Το readonly κάνει τη class non static
