@@ -18,7 +18,7 @@ namespace Library
 {
     public partial class Form2 : Form
     {
-
+        
         public static string constring = ConfigurationManager.ConnectionStrings["Tutorial"].ConnectionString;
         SqlConnection con = new SqlConnection(constring);
         public Form2()
@@ -34,6 +34,8 @@ namespace Library
                 bindDataGridView.DataSource = tbl;
                 connection.Close();
             }
+
+
 
             //Insert CheckBox
             DataGridViewCheckBoxColumn checkColumn = new DataGridViewCheckBoxColumn();

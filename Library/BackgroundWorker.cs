@@ -23,6 +23,13 @@ namespace Library
         //To start the operation, call RunWorkerAsync. To receive notifications of progress updates, handle the ProgressChanged event.
         //To receive a notification when the operation is completed, handle the RunWorkerCompleted event.
 
+
+        //CancellationPending - Indicates if an application has requested cancellation of a BackgroundWorker.
+        //IsBusy - Indicates if a BackgroundWorker is running an asynchronous operation.
+        //WorkerReportsProgress - Indicates of a BackgroundWorker can report progress updates.
+        //WorkerSupportsCancellation - Indicates if a BackgroundWorker supports asynchronous cancellation.
+
+
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             int sum = 0;

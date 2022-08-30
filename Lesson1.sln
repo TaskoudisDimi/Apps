@@ -29,7 +29,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebScraper", "WebScraper\We
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SudokuSolver", "SudokuSolver\SudokuSolver.csproj", "{6E3F76BD-7000-4F7A-A74F-89DE4B9464EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelFile", "ExcelFile\ExcelFile.csproj", "{E964932B-2C91-4FF1-9A84-69D952B4234C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExcelFile", "ExcelFile\ExcelFile.csproj", "{E964932B-2C91-4FF1-9A84-69D952B4234C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

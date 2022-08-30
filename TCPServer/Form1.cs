@@ -27,8 +27,6 @@ namespace TCPServer
             server.Delimiter = 0x13; //enter
             server.StringEncoder = Encoding.UTF8;
             server.DataReceived += Server_DataReceived;
-
-
         }
 
         public void Server_DataReceived(object sender, SimpleTCP.Message e)
