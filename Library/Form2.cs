@@ -53,8 +53,7 @@ namespace Library
 
 
             method1DataGridView.Columns[0].Visible = false;
-            
-
+           
 
         }
 
@@ -82,19 +81,51 @@ namespace Library
 
         private void displayButton_Click(object sender, EventArgs e)
         {
-            using(SqlConnection con = new SqlConnection(constring))
+            Progress frm = new Progress();
+
+            BackgroundWorker bgw = new BackgroundWorker()
             {
-                con.Open();
-                SqlDataAdapter adapter = new SqlDataAdapter("Select * From [smarketdb].[dbo].[CategoryTbl]", con);
-                DataTable tbl = new DataTable();
-                adapter.Fill(tbl);
+                WorkerReportsProgress = true
+            };
 
-                method1DataGridView.DataSource = tbl;
+            bgw.DoWork += (s, e) =>
+            {
+                for (int i = 0; i < 10000; i++)
+                {
+                    ((BackgroundWorker)s).ReportProgress(i, "Test:" + i);
+                    
+                }
+                //using (SqlConnection con = new SqlConnection(constring))
+                //{
+                //    con.Open();
+                //    SqlDataAdapter adapter = new SqlDataAdapter("Select * From [smarketdb].[dbo].[CategoryTbl]", con);
+                //    DataTable tbl = new DataTable();
+                //    adapter.Fill(tbl);
 
-                method2DataGridView.DataSource = tbl;
-            }
+                //    method1DataGridView.DataSource = tbl;
 
+                //    method2DataGridView.DataSource = tbl;
+                //}
+            };
+
+            bgw.ProgressChanged += (s, e) =>
+            {
+                frm.SetProgress(e.ProgressPercentage, e.UserState.ToString());
+            };
+
+            bgw.RunWorkerCompleted += (s, e) =>
+            {
+                frm.Close();
+
+                if (e.Error != null)
+                    throw e.Error;
+            };
+            bgw.RunWorkerAsync();
+
+            frm.ShowDialog();
         }
+        
+
 
         private void addButton_Click(object sender, EventArgs e)
         {
@@ -183,5 +214,7 @@ namespace Library
                 
             }
         }
+
+        
     }
 }

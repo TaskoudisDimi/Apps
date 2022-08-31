@@ -11,9 +11,9 @@ using System.Threading;
 
 namespace Library
 {
-    public partial class BackgroundWorker : Form
+    public partial class BackgroundWorkerTest : Form
     {
-        public BackgroundWorker()
+        public BackgroundWorkerTest()
         {
             InitializeComponent();
         }

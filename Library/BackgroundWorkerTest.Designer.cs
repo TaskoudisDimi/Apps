@@ -1,6 +1,6 @@
 ﻿namespace Library
 {
-    partial class BackgroundWorker
+    partial class BackgroundWorkerTest
     {
         /// <summary>
         /// Required designer variable.
