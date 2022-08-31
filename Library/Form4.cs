@@ -152,8 +152,6 @@ namespace Library
 
         private int rowIndex = 0;
 
-        public object Excel_App { get; private set; }
-
         private void copyDataGridView_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -183,14 +181,6 @@ namespace Library
         }
 
 
-
-
-        private void exportButton_Click(object sender, EventArgs e)
-        {
-
-           
-        }
-
         private void copyAlltoClipboard()
         {
             excelDataGridView.SelectAll();
@@ -201,9 +191,23 @@ namespace Library
 
         private void exportButton_Click_1(object sender, EventArgs e)
         {
+            OpenFileDialog path = new OpenFileDialog()
+            {
+                Title = "Browse Excel File",
+                CheckFileExists = true,
+                CheckPathExists = true,
+                Filter = "txt files (*.xlsx)|*.xlsx",
+                FilterIndex = 2,
+                RestoreDirectory = true,
+                ReadOnlyChecked = true,
+                ShowReadOnly = true
 
+            };
 
-
+            if (path.ShowDialog() == DialogResult.OK)
+            {
+                excelTextBox.Text = path.FileName;
+            }
 
         }
 
