@@ -12,6 +12,7 @@ using System.Configuration;
 using Lesson1.DataAccess;
 using PageList;
 using Lesson1.Data;
+using Newtonsoft.Json;
 
 namespace Library
 {
@@ -36,10 +37,17 @@ namespace Library
 
         private void Form5_Load(object sender, EventArgs e)
         {
-            //SqlDataAdapter adapter = new SqlDataAdapter("Select * From [smarketdb].[dbo].[CategoryTbl]", con);
-            //DataTable tbl = new DataTable();
-            //adapter.Fill(tbl);
-            //pagingDataGridView.DataSource = tbl;
+            using (var client = new HttpClient())
+            {
+                var endpoint = new Uri("http://localhost:52465/api/products");
+                var result1 = client.GetAsync(endpoint).Result;
+                var json = result1.Content.ReadAsStringAsync().Result;
+                var result = JsonConvert.DeserializeObject<List<Products>>(json);
+                pagingDataGridView.DataSource = result;
+            }
+               
+            
+
         }
 
 
