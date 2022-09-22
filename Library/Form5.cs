@@ -37,14 +37,14 @@ namespace Library
 
         private void Form5_Load(object sender, EventArgs e)
         {
-            using (var client = new HttpClient())
-            {
-                var endpoint = new Uri("http://localhost:52465/api/products");
-                var result1 = client.GetAsync(endpoint).Result;
-                var json = result1.Content.ReadAsStringAsync().Result;
-                var result = JsonConvert.DeserializeObject<List<Products>>(json);
-                pagingDataGridView.DataSource = result;
-            }
+            //using (var client = new HttpClient())
+            //{
+            //    var endpoint = new Uri("http://localhost:52465/api/products");
+            //    var result1 = client.GetAsync(endpoint).Result;
+            //    var json = result1.Content.ReadAsStringAsync().Result;
+            //    var result = JsonConvert.DeserializeObject<List<Products>>(json);
+            //    pagingDataGridView.DataSource = result;
+            //}
                
             
 
