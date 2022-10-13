@@ -59,7 +59,8 @@ namespace WebScraper
             //Build WebScraper
 
 
-
+            //https://boston.craigslist.org/search/cta
+            //
             try
             {
                 Console.WriteLine("Please enter which city you would like to scrape information from:");
@@ -70,7 +71,7 @@ namespace WebScraper
 
                 using (WebClient client = new WebClient())
                 {
-                    string content = client.DownloadString($"http://{craigslistCity.Replace(" ", string.Empty)}.craigslist.org/{Method}/{craigslistCategoryName}");
+                    string content = client.DownloadString($"https://{craigslistCity.Replace(" ", string.Empty)}.craigslist.org/{Method}/{craigslistCategoryName}");
 
                     ScrapeCriteria scrapeCriteria = new ScrapeCriteriaBuilder()
                         .WithData(content)

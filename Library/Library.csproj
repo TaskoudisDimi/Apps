@@ -7,6 +7,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <PlatformTarget>AnyCPU</PlatformTarget>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,14 +23,26 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="CefSharp.Common" Version="51.0.0" />
+    <PackageReference Include="CefSharp.WinForms" Version="51.0.0" />
     <PackageReference Include="ClosedXML" Version="0.95.4" />
     <PackageReference Include="EPPlus" Version="6.0.3" />
     <PackageReference Include="PageList" Version="1.2.0" />
     <PackageReference Include="System.Data.OleDb" Version="6.0.0" />
+    <PackageReference Include="System.ServiceModel.Primitives" Version="4.10.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Lesson1\Lesson1.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="CefSharp.Core">
+      <HintPath>..\..\..\Projects\IQDIS\IQDIS\packages\CefSharp.Common.47.0.2\CefSharp\x86\CefSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CefSharp.WinForms">
+      <HintPath>..\..\..\Projects\IQDIS\IQDIS\packages\CefSharp.WinForms.47.0.2\CefSharp\x86\CefSharp.WinForms.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
