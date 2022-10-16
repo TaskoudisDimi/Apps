@@ -36,47 +36,30 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(12, 98);
+            this.panel1.Location = new System.Drawing.Point(17, 163);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(776, 391);
+            this.panel1.Size = new System.Drawing.Size(1109, 652);
             this.panel1.TabIndex = 0;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 50);
+            this.textBox1.Location = new System.Drawing.Point(17, 83);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(708, 23);
+            this.textBox1.Size = new System.Drawing.Size(1010, 31);
             this.textBox1.TabIndex = 1;
-            // 
-            // goButton
-            // 
-            this.goButton.Location = new System.Drawing.Point(735, 49);
-            this.goButton.Name = "goButton";
-            this.goButton.Size = new System.Drawing.Size(70, 23);
-            this.goButton.TabIndex = 2;
-            this.goButton.Text = "GO";
-            this.goButton.UseVisualStyleBackColor = true;
-            this.goButton.Click += new System.EventHandler(this.goButton_Click);
-            // 
-            // refreshButton
-            // 
-            this.refreshButton.Location = new System.Drawing.Point(811, 49);
-            this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(70, 23);
-            this.refreshButton.TabIndex = 3;
-            this.refreshButton.Text = "Refresh";
-            this.refreshButton.UseVisualStyleBackColor = true;
-            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
             // Form7
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(992, 501);
+            this.ClientSize = new System.Drawing.Size(1417, 920);
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.goButton);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form7";
             this.Text = "Form7";
             this.Load += new System.EventHandler(this.Form7_Load);

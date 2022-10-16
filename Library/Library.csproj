@@ -23,8 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CefSharp.Common" Version="51.0.0" />
-    <PackageReference Include="CefSharp.WinForms" Version="51.0.0" />
     <PackageReference Include="ClosedXML" Version="0.95.4" />
     <PackageReference Include="EPPlus" Version="6.0.3" />
     <PackageReference Include="PageList" Version="1.2.0" />
