@@ -19,7 +19,7 @@ namespace Library
         private int rowintex = 0;
 
         public static string constring = ConfigurationManager.ConnectionStrings["Tutorial"].ConnectionString;
-        SqlConnection con = new SqlConnection(constring);
+        //SqlConnect con = new SqlConnection(constring);
 
         public Form3()
         {
@@ -48,15 +48,15 @@ namespace Library
 
         private void sqlButton_Click(object sender, EventArgs e)
         {
-            string query = sqlTextBox.Text;
-            SqlDataAdapter adapter = new SqlDataAdapter(query, con);
-            DataSet ds = new DataSet();
-            adapter.Fill(ds);
-            if (ds.Tables[0].Rows.Count != 0)
-            {
-                sqlDataGridView.DataSource = ds.Tables[0];
+            //string query = sqlTextBox.Text;
+            //SqlDataAdapter adapter = new SqlDataAdapter(query, con);
+            //DataSet ds = new DataSet();
+            //adapter.Fill(ds);
+            //if (ds.Tables[0].Rows.Count != 0)
+            //{
+            //    sqlDataGridView.DataSource = ds.Tables[0];
 
-            }
+            //}
         }
 
         //Prevent from dublicate values on datagridview

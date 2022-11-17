@@ -20,20 +20,20 @@ namespace Library
     {
         
         public static string constring = ConfigurationManager.ConnectionStrings["Tutorial"].ConnectionString;
-        SqlConnection con = new SqlConnection(constring);
+        //SqlConnect con = new SqlConnection(constring);
         public Form2()
         {
             InitializeComponent();
 
-            using (SqlConnection connection = new SqlConnection(constring))
-            {
-                connection.Open();
-                SqlDataAdapter adapter = new SqlDataAdapter("Select * From [smarketdb].[dbo].[CategoryTbl]", con);
-                DataTable tbl = new DataTable();
-                adapter.Fill(tbl);
-                bindDataGridView.DataSource = tbl;
-                connection.Close();
-            }
+            //using (SqlConnect connection = new SqlConnection(constring))
+            //{
+            //    connection.Open();
+            //    SqlDataAdapter adapter = new SqlDataAdapter("Select * From [smarketdb].[dbo].[CategoryTbl]", con);
+            //    DataTable tbl = new DataTable();
+            //    adapter.Fill(tbl);
+            //    bindDataGridView.DataSource = tbl;
+            //    connection.Close();
+            //}
 
 
 
@@ -74,9 +74,9 @@ namespace Library
 
         private void connectButton_Click(object sender, EventArgs e)
         {
-            con.Open();
-            MessageBox.Show("Success!");
-            con.Close();
+            //con.Open();
+            //MessageBox.Show("Success!");
+            //con.Close();
         }
 
         private void displayButton_Click(object sender, EventArgs e)
@@ -176,21 +176,21 @@ namespace Library
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            using (SqlConnection con = new SqlConnection(constring))
-            {
-                con.Open(); 
-                SqlDataAdapter adapter = new SqlDataAdapter("Select * From [smarketdb].[dbo].[CategoryTbl]", con);
-                DataTable tbl = new DataTable();
-                adapter.Fill(tbl);
+            //using (SqlConnect con = new SqlConnection(constring))
+            //{
+            //    con.Open(); 
+            //    SqlDataAdapter adapter = new SqlDataAdapter("Select * From [smarketdb].[dbo].[CategoryTbl]", con);
+            //    DataTable tbl = new DataTable();
+            //    adapter.Fill(tbl);
 
 
 
-                autoCompleteComboBox.DataSource = tbl;
-                autoCompleteComboBox.DisplayMember = "CatName";
-                autoCompleteComboBox.ValueMember = "CatId";
-                con.Close();
+            //    autoCompleteComboBox.DataSource = tbl;
+            //    autoCompleteComboBox.DisplayMember = "CatName";
+            //    autoCompleteComboBox.ValueMember = "CatId";
+            //    con.Close();
 
-            }
+            //}
 
 
 
