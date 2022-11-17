@@ -17,11 +17,15 @@ namespace Library
         public DataTable table = new DataTable();
         
 
-        public SqlConnect(string connectionString)
+        //public SqlConnect(string connectionString)
+        //{
+        //    con.ConnectionString = connectionString;
+        //}
+        public SqlConnect()
         {
-            con.ConnectionString = connectionString;
+            con.ConnectionString = ConfigurationManager.ConnectionStrings["Supermarket"].ConnectionString;
         }
-        
+
         public void retrieveData(string command)
         {
             try
@@ -29,6 +33,7 @@ namespace Library
                 con.Open();
                 SqlDataAdapter adapter = new SqlDataAdapter(command, con);
                 adapter.Fill(table);
+                Logs log = new Logs(command);
 
             }
             catch (Exception ex)

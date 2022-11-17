@@ -21,34 +21,34 @@ namespace Library
         private void DbForm_Load(object sender, EventArgs e)
         {
 
-            //SqlConnect loaddata = new SqlConnect();
-            //loaddata.retrieveData("Select * From ProductTbl");
-            //dataGridView1.DataSource = loaddata.table;
+            SqlConnect loaddata = new SqlConnect();
+            loaddata.retrieveData("Select * From ProductTbl");
+            dataGridView1.DataSource = loaddata.table;
 
-            
+
 
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
-                string connectionString = string.Format("server={0};database={1};Persist Security Info = True; User ID = {2}; Password = {3};", textBox3.Text);
-                SqlConnect loaddata2 = new SqlConnect(connectionString);
-                loaddata2.GetDatabases();
-                comboBox1.DisplayMember = "name";
-                comboBox1.DataSource = loaddata2.table;
-           
+
+            //string connectionString = string.Format("server={0};database={1};Persist Security Info = True; User ID = {2}; Password = {3};", textBox3.Text);
+            //SqlConnect loaddata2 = new SqlConnect(connectionString);
+            //loaddata2.GetDatabases();
+            //comboBox1.DisplayMember = "name";
+            //comboBox1.DataSource = loaddata2.table;
+
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string connectionString = string.Format("server={0};database=Ambulate;Integrated Security=SSPI;", textBox3.Text);
-            SqlConnect loaddata2 = new SqlConnect(connectionString);
-            loaddata2.GetDatabases();
-            comboBox1.DisplayMember = "name";
-            comboBox1.DataSource = loaddata2.table;
+            //string connectionString = string.Format("server={0};database=Ambulate;Integrated Security=SSPI;", textBox3.Text);
+            //SqlConnect loaddata2 = new SqlConnect(connectionString);
+            //loaddata2.GetDatabases();
+            //comboBox1.DisplayMember = "name";
+            //comboBox1.DataSource = loaddata2.table;
         }
     }
 }
