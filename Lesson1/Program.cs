@@ -178,9 +178,9 @@ namespace Lesson1
                 //Console.WriteLine(json);
 
 
-                string jsonData = "{\"DeptId\": 101, \"DepartmentName\": \"IT\"}";
+                //string jsonData = "{\"DeptId\": 101, \"DepartmentName\": \"IT\"}";
 
-                JavaScriptSerializer json_serializer = new JavaScriptSerializer();
+                //JavaScriptSerializer json_serializer = new JavaScriptSerializer();
 
 
                 //Person person = new Person(); //Store off some memory inside the app
@@ -289,9 +289,6 @@ namespace Lesson1
                 //Console.WriteLine("Roses are " + color);
                 //Console.WriteLine(pluralNoun + "are blue");
                 //Console.WriteLine("I love " + celebrity);
-
-
-
 
 
                 ////Δημιουργία arrays
@@ -450,7 +447,7 @@ namespace Lesson1
 
 
 
-                
+
                 ////Build 2d array
                 //int[,] numGrid = { 
                 //    {4, 3}, 
