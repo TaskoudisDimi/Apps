@@ -2,7 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.Common;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,14 +17,19 @@ namespace Library
 {
     public partial class Form7 : Form
     {
-
+       
         public Form7()
         {
             InitializeComponent();
+           
         }
+
+        
 
         private void Form7_Load(object sender, EventArgs e)
         {
+            ClassLibrary.Connect con = new ClassLibrary.Connect();
+            con.OpenConnection();
         }
 
 
