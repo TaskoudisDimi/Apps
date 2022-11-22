@@ -28,7 +28,7 @@ namespace Library
 
         private void Form7_Load(object sender, EventArgs e)
         {
-            ClassLibrary.Connect con = new ClassLibrary.Connect();
+            ClassLibrary.DbContext con = new ClassLibrary.DbContext();
             con.OpenConnection();
         }
 

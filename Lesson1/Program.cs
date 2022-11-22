@@ -9,8 +9,6 @@ using Nancy.Json;
 namespace Lesson1
 
 {
-
-
     class Tutorial  //Η class είναι ένα container που μπορώ να γράψω κώδικα
     {
         //static void Main(string[] args) //Method or function 
@@ -144,9 +142,24 @@ namespace Lesson1
 
         class Program
         {
+            //public delegate void AddVal(int x, int y);
+            //public void SMeth(int x, int y)
+            //{
+            //    Console.WriteLine("[{0} + {1}] = [{2}]", x, y, x + y);
+            //}
 
             static void Main(string[] args)
             {
+                //Delegate
+                //// Creating the object of Program class
+                //Program o = new Program();
+
+                //// Creating object of delegate
+                //AddVal obj = new AddVal(o.SMeth);
+                
+                //// Pass the values to the method
+                //// Using delegate object
+                //obj(190, 70);
 
                 //ClassUniversities university1 = new ClassUniversities();
 
@@ -729,6 +742,7 @@ namespace Lesson1
 
 
             }
+
             //class SalesTotal
             //{
             //    public double Total { get; set; }
