@@ -67,7 +67,6 @@ namespace Library
                         if (table.Rows != null && table.Rows.ToString() != String.Empty)
                         {
                             csvDataGridView.DataSource = table;
-
                         }
 
                     }
@@ -83,7 +82,6 @@ namespace Library
 
         }
 
-
         private DataTable GetData(string path)
         {
             DataTable table = new DataTable();
@@ -98,6 +96,7 @@ namespace Library
                     foreach (string column in colFields)
                     {
                         DataColumn datecolumn = new DataColumn(column);
+                        
                         datecolumn.AllowDBNull = true;
                         table.Columns.Add(datecolumn);
                     }
