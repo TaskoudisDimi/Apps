@@ -28,38 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pagingDataGridView = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.pagingDataGridView)).BeginInit();
+            this.conButton = new System.Windows.Forms.Button();
+            this.commitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // pagingDataGridView
+            // conButton
             // 
-            this.pagingDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.pagingDataGridView.Location = new System.Drawing.Point(17, 20);
-            this.pagingDataGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pagingDataGridView.Name = "pagingDataGridView";
-            this.pagingDataGridView.RowHeadersWidth = 62;
-            this.pagingDataGridView.RowTemplate.Height = 25;
-            this.pagingDataGridView.Size = new System.Drawing.Size(1109, 615);
-            this.pagingDataGridView.TabIndex = 0;
+            this.conButton.Location = new System.Drawing.Point(78, 57);
+            this.conButton.Name = "conButton";
+            this.conButton.Size = new System.Drawing.Size(89, 23);
+            this.conButton.TabIndex = 1;
+            this.conButton.Text = "Connection";
+            this.conButton.UseVisualStyleBackColor = true;
+            this.conButton.Click += new System.EventHandler(this.conButton_Click);
+            // 
+            // commitButton
+            // 
+            this.commitButton.Location = new System.Drawing.Point(78, 125);
+            this.commitButton.Name = "commitButton";
+            this.commitButton.Size = new System.Drawing.Size(89, 23);
+            this.commitButton.TabIndex = 2;
+            this.commitButton.Text = "Commit";
+            this.commitButton.UseVisualStyleBackColor = true;
+            this.commitButton.Click += new System.EventHandler(this.commitButton_Click);
             // 
             // Form5
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1143, 750);
-            this.Controls.Add(this.pagingDataGridView);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.commitButton);
+            this.Controls.Add(this.conButton);
             this.Name = "Form5";
             this.Text = "Form5";
-            this.Load += new System.EventHandler(this.Form5_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pagingDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DataGridView pagingDataGridView;
+        private Button conButton;
+        private Button commitButton;
     }
 }
