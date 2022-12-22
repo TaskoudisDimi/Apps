@@ -21,19 +21,23 @@ namespace Library
         public Form7()
         {
             InitializeComponent();
-           
+  
         }
-
-        
 
         private void Form7_Load(object sender, EventArgs e)
         {
-            ClassLibrary.DbContext con = new ClassLibrary.DbContext();
-            con.OpenConnection();
+            InitBrowser();
+        }
+
+        public void InitBrowser()
+        {
+            // TODO: Import CefSharp library
+            //Cef.Initialize(new CefSettings());
+            //browser = new ChromiumWebBrowser("www.youtube.com");
+            //browserPanel.Controls.Add(browser);
         }
 
 
 
-        
     }
 }

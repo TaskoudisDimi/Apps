@@ -28,35 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // panel1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 89);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(968, 451);
-            this.dataGridView1.TabIndex = 0;
+            this.panel1.Location = new System.Drawing.Point(22, 96);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1105, 350);
+            this.panel1.TabIndex = 0;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(22, 29);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(581, 23);
+            this.textBox1.TabIndex = 1;
             // 
             // Form7
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(992, 552);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(1241, 552);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.panel1);
             this.Name = "Form7";
             this.Text = "Form7";
             this.Load += new System.EventHandler(this.Form7_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private Panel panel1;
+        private TextBox textBox1;
     }
 }

@@ -33,7 +33,6 @@ namespace ObjectToJSONConversion
                 newPerson.FirstName = entries[0];
                 newPerson.LastName = entries[1];
                 newPerson.Url = entries[2];
-
                 people.Add(newPerson);
 
             }
@@ -54,10 +53,6 @@ namespace ObjectToJSONConversion
             Console.WriteLine("Writing to text file");
             File.WriteAllLines(filepath, output);   
             Console.WriteLine("All entries written");
-
-
-
-
             Console.ReadLine();
         
         }
