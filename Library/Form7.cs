@@ -11,23 +11,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Timers;
 //using CefSettings = CefSharp.CefSettings;
 
 namespace Library
 {
     public partial class Form7 : Form
     {
-       
         public Form7()
         {
             InitializeComponent();
-  
+            
         }
 
         private void Form7_Load(object sender, EventArgs e)
         {
-            InitBrowser();
+            //InitBrowser();
+            
         }
+
+       
+
 
         public void InitBrowser()
         {
@@ -37,7 +41,16 @@ namespace Library
             //browserPanel.Controls.Add(browser);
         }
 
-
-
+        private void timerButton_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Timer MyTimer = new System.Windows.Forms.Timer();
+            MyTimer.Interval = 5000;
+            MyTimer.Tick += new EventHandler(MyTimer_Tick);
+            MyTimer.Start();
+        }
+        private void MyTimer_Tick(object sender, EventArgs e)
+        {
+            MessageBox.Show("Test Timer", "Time Elapsed");
+        }
     }
 }

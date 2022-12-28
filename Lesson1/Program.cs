@@ -150,13 +150,16 @@ namespace Lesson1
 
             static void Main(string[] args)
             {
+
+                #region Comments
+
                 //Delegate
                 //// Creating the object of Program class
                 //Program o = new Program();
 
                 //// Creating object of delegate
                 //AddVal obj = new AddVal(o.SMeth);
-                
+
                 //// Pass the values to the method
                 //// Using delegate object
                 //obj(190, 70);
@@ -738,10 +741,17 @@ namespace Lesson1
                 //    }
                 //}
 
+                #endregion
 
-
+                ////Test create 2nd Thread
+                //Console.WriteLine("Start counting...");
+                //StartCounting();
+                //Console.WriteLine("Press any key to exit...");
+                //Console.ReadKey();
+                //Console.WriteLine("Exiting...");
 
             }
+
 
             //class SalesTotal
             //{
@@ -842,6 +852,21 @@ namespace Lesson1
             //}
 
 
+
+            //private static void StartCounting()
+            //{
+            //    //The thread is end when loop is end
+            //    var thread = new Thread(() =>
+            //    {
+            //        for (var x = 0; x < 10; x++)
+            //        {
+            //            Console.Write("{0}... ", x);
+            //            Thread.Sleep(1000);
+            //        }
+            //    });
+            //    thread.Start();
+
+            //}
 
 
         }
