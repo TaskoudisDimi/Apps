@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.messageTextBox = new System.Windows.Forms.TextBox();
+            this.FromServerTextBox = new System.Windows.Forms.TextBox();
             this.portTextBox = new System.Windows.Forms.TextBox();
             this.portLabel = new System.Windows.Forms.Label();
             this.hostLabel = new System.Windows.Forms.Label();
             this.hostTextBox = new System.Windows.Forms.TextBox();
             this.sendButton = new System.Windows.Forms.Button();
             this.connectButton = new System.Windows.Forms.Button();
-            this.statusTextBox = new System.Windows.Forms.TextBox();
+            this.ToServerTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // messageTextBox
+            // FromServerTextBox
             // 
-            this.messageTextBox.Location = new System.Drawing.Point(52, 66);
-            this.messageTextBox.Multiline = true;
-            this.messageTextBox.Name = "messageTextBox";
-            this.messageTextBox.Size = new System.Drawing.Size(373, 51);
-            this.messageTextBox.TabIndex = 14;
+            this.FromServerTextBox.Location = new System.Drawing.Point(52, 66);
+            this.FromServerTextBox.Multiline = true;
+            this.FromServerTextBox.Name = "FromServerTextBox";
+            this.FromServerTextBox.Size = new System.Drawing.Size(373, 51);
+            this.FromServerTextBox.TabIndex = 14;
             // 
             // portTextBox
             // 
@@ -98,21 +98,21 @@
             this.connectButton.UseVisualStyleBackColor = true;
             this.connectButton.Click += new System.EventHandler(this.connectButton_Click);
             // 
-            // statusTextBox
+            // ToServerTextBox
             // 
-            this.statusTextBox.Location = new System.Drawing.Point(55, 163);
-            this.statusTextBox.Multiline = true;
-            this.statusTextBox.Name = "statusTextBox";
-            this.statusTextBox.Size = new System.Drawing.Size(373, 149);
-            this.statusTextBox.TabIndex = 15;
+            this.ToServerTextBox.Location = new System.Drawing.Point(55, 163);
+            this.ToServerTextBox.Multiline = true;
+            this.ToServerTextBox.Name = "ToServerTextBox";
+            this.ToServerTextBox.Size = new System.Drawing.Size(373, 149);
+            this.ToServerTextBox.TabIndex = 15;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(477, 344);
-            this.Controls.Add(this.statusTextBox);
-            this.Controls.Add(this.messageTextBox);
+            this.Controls.Add(this.ToServerTextBox);
+            this.Controls.Add(this.FromServerTextBox);
             this.Controls.Add(this.portTextBox);
             this.Controls.Add(this.portLabel);
             this.Controls.Add(this.hostLabel);
@@ -129,14 +129,14 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox messageTextBox;
+        private System.Windows.Forms.TextBox FromServerTextBox;
         private System.Windows.Forms.TextBox portTextBox;
         private System.Windows.Forms.Label portLabel;
         private System.Windows.Forms.Label hostLabel;
         private System.Windows.Forms.TextBox hostTextBox;
         private System.Windows.Forms.Button sendButton;
         private System.Windows.Forms.Button connectButton;
-        private System.Windows.Forms.TextBox statusTextBox;
+        private System.Windows.Forms.TextBox ToServerTextBox;
     }
 }
 

@@ -34,7 +34,8 @@
             this.hostLabel = new System.Windows.Forms.Label();
             this.portLabel = new System.Windows.Forms.Label();
             this.portTextBox = new System.Windows.Forms.TextBox();
-            this.statusTextBox = new System.Windows.Forms.TextBox();
+            this.messageTextBox = new System.Windows.Forms.TextBox();
+            this.textBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // startButton
@@ -89,20 +90,28 @@
             this.portTextBox.Size = new System.Drawing.Size(50, 20);
             this.portTextBox.TabIndex = 6;
             // 
-            // statusTextBox
+            // messageTextBox
             // 
-            this.statusTextBox.Location = new System.Drawing.Point(75, 66);
-            this.statusTextBox.Multiline = true;
-            this.statusTextBox.Name = "statusTextBox";
-            this.statusTextBox.Size = new System.Drawing.Size(451, 178);
-            this.statusTextBox.TabIndex = 7;
+            this.messageTextBox.Location = new System.Drawing.Point(75, 66);
+            this.messageTextBox.Multiline = true;
+            this.messageTextBox.Name = "messageTextBox";
+            this.messageTextBox.Size = new System.Drawing.Size(451, 178);
+            this.messageTextBox.TabIndex = 7;
+            // 
+            // textBox
+            // 
+            this.textBox.Location = new System.Drawing.Point(75, 266);
+            this.textBox.Name = "textBox";
+            this.textBox.Size = new System.Drawing.Size(159, 20);
+            this.textBox.TabIndex = 8;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(590, 298);
-            this.Controls.Add(this.statusTextBox);
+            this.ClientSize = new System.Drawing.Size(590, 385);
+            this.Controls.Add(this.textBox);
+            this.Controls.Add(this.messageTextBox);
             this.Controls.Add(this.portTextBox);
             this.Controls.Add(this.portLabel);
             this.Controls.Add(this.hostLabel);
@@ -125,7 +134,8 @@
         private System.Windows.Forms.Label hostLabel;
         private System.Windows.Forms.Label portLabel;
         private System.Windows.Forms.TextBox portTextBox;
-        private System.Windows.Forms.TextBox statusTextBox;
+        private System.Windows.Forms.TextBox messageTextBox;
+        private System.Windows.Forms.TextBox textBox;
     }
 }
 

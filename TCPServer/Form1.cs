@@ -22,132 +22,57 @@ namespace TCPServer
             InitializeComponent();
         }
 
-        SimpleTcpServer server;
-
-        private void Form1_Load(object sender, EventArgs e)
+        private async void Form1_Load(object sender, EventArgs e)
         {
-            server = new SimpleTcpServer();
-            server.Delimiter = 0x13; //enter
-            server.StringEncoder = Encoding.UTF8;
-            server.DataReceived += Server_DataReceived;
-
-            IPEndPoint ep = new IPEndPoint(IPAddress.Loopback, 1234);
-            TcpListener listener = new TcpListener(ep);
-            listener.Start();
-
-            Console.WriteLine(@"  
-            ===================================================  
-                   Started listening requests at: {0}:{1}  
-            ===================================================",
-            ep.Address, ep.Port);
-
-            // Run the loop continuously; this is the server.  
-            while (true)
-            {
-                const int bytesize = 1024 * 1024;
-
-                string message = null;
-                byte[] buffer = new byte[bytesize];
-
-                var sender2 = listener.AcceptTcpClient();
-                sender2.GetStream().Read(buffer, 0, bytesize);
-
-                // Read the message and perform different actions  
-                message = cleanMessage(buffer);
-
-                // Save the data sent by the client;  
-                Person person = JsonConvert.DeserializeObject<Person>(message); // Deserialize  
-
-                byte[] bytes = System.Text.Encoding.Unicode.GetBytes("Thank you for your message, " + person.Name);
-                sender2.GetStream().Write(bytes, 0, bytes.Length); // Send the response  
-
-                sendEmail(person);
-            }
+            
         }
-
-        public void Server_DataReceived(object sender, SimpleTCP.Message e)
-        {
-            statusTextBox.Invoke((MethodInvoker)delegate ()
-            {
-                statusTextBox.Text += e.MessageString;
-                e.ReplyLine(string.Format("You Said: {0}", e.MessageString));
-            });
-
-
-
-        }
-
+        
         private void startButton_Click(object sender, EventArgs e)
         {
-            statusTextBox.Text = "Server Starting...";
-            System.Net.IPAddress ip = System.Net.IPAddress.Parse(HostTextBox.Text);
-            server.Start(ip, Convert.ToInt32(portTextBox.Text));
+            TcpListener server = new TcpListener(8888);
+            int reqCount = 0;
+            TcpClient client = default(TcpClient);
+            server.Start();
+            textBox.Text = "Server is started...";
+            
+            client = server.AcceptTcpClient();
+            textBox.Text = "Accept connection from client...";
+
+            while (true)
+            {
+                try
+                {
+                   
+                    reqCount++;
+                    NetworkStream stream = client.GetStream();
+                    byte[] bytesFrom = new byte[10025];
+                    stream.Read(bytesFrom, 0, (int)client.ReceiveBufferSize);
+                    string dataFromClient = System.Text.Encoding.ASCII.GetString(bytesFrom);
+                    dataFromClient = dataFromClient.Substring(0, dataFromClient.IndexOf("$"));
+                    messageTextBox.Text = dataFromClient;
+                    string serverResponse = "Last Message from Client" + dataFromClient;
+                    Byte[] sendbytes = Encoding.ASCII.GetBytes(serverResponse);
+                    stream.Write(sendbytes, 0, sendbytes.Length);
+                    stream.Flush();
+                    messageTextBox.Text = serverResponse;
+
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+            }
         }
 
         private void stopButton_Click(object sender, EventArgs e)
         {
-            if (!server.IsStarted)
-            {
-                server.Stop();
-            }
+            
+
         }
 
-        private static void sendEmail(Person p)
-        {
-            try
-            {
-                // Send an email to the user also to notify him of the delivery.  
-                using (SmtpClient client = new SmtpClient("<your-smtp>", 25))
-                {
-                    client.EnableSsl = true;
-                    client.Credentials = new NetworkCredential("<email>", "<pass>");
 
-                    client.Send(
-                        new MailMessage("<email-from>", p.Email,
-                            "Thank you for using the Web Service",
-                            string.Format(
-    @"Thank you for using our Web Service, {0}.We have recieved your message, '{1}'.", p.Name, p.Message
-                            )
-                        )
-                    );
-                }
-
-                Console.WriteLine("Email sent to " + p.Email); // Email sent successfully  
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-        }
-
-        private static string cleanMessage(byte[] bytes)
-        {
-            string message = System.Text.Encoding.Unicode.GetString(bytes);
-
-            string messageToPrint = null;
-            foreach (var nullChar in message)
-            {
-                if (nullChar != '\0')
-                {
-                    messageToPrint += nullChar;
-                }
-            }
-            return messageToPrint;
-        }
-
-        // Sends the message string using the bytes provided.  
-        private static void sendMessage(byte[] bytes, TcpClient client)
-        {
-            client.GetStream()
-                .Write(bytes, 0,
-                bytes.Length); // Send the stream  
-        }
     }
-    class Person
-    {
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Message { get; set; }
-    }
+
 
 }
