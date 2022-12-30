@@ -46,7 +46,7 @@ namespace Lesson1
         //        //mo = istoria + ximeia;
 
         //        //Console.WriteLine("O mesos oros einai: " + mo/2);
-        
+
 
         //        //Console.WriteLine(Math.Max(8, 10)); //Έυρεση μέγιστου
         //        //Console.WriteLine(Math.Min(8, 10)); //Έυρεση ελάχιστου
@@ -751,163 +751,132 @@ namespace Lesson1
                 //Console.WriteLine("Press any key to exit...");
                 //Console.ReadKey();
                 //Console.WriteLine("Exiting...");
-                TcpListener serverSocket = new TcpListener(8888);
-                int requestCount = 0;
-                TcpClient clientSocket = default(TcpClient);
-                serverSocket.Start();
-                Console.WriteLine(" >> Server Started");
-                clientSocket = serverSocket.AcceptTcpClient();
-                Console.WriteLine(" >> Accept connection from client");
-                requestCount = 0;
 
-                while ((true))
-                {
-                    try
-                    {
-                        requestCount = requestCount + 1;
-                        NetworkStream networkStream = clientSocket.GetStream();
-                        byte[] bytesFrom = new byte[10025];
-                        networkStream.Read(bytesFrom, 0, (int)clientSocket.ReceiveBufferSize);
-                        string dataFromClient = System.Text.Encoding.ASCII.GetString(bytesFrom);
-                        dataFromClient = dataFromClient.Substring(0, dataFromClient.IndexOf("$"));
-                        Console.WriteLine(" >> Data from client - " + dataFromClient);
-                        string serverResponse = "Last Message from client" + dataFromClient;
-                        Byte[] sendBytes = Encoding.ASCII.GetBytes(serverResponse);
-                        networkStream.Write(sendBytes, 0, sendBytes.Length);
-                        networkStream.Flush();
-                        Console.WriteLine(" >> " + serverResponse);
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.ToString());
-                    }
-                }
 
-                clientSocket.Close();
-                serverSocket.Stop();
-                Console.WriteLine(" >> exit");
-                Console.ReadLine();
 
             }
 
-
-            //class SalesTotal
-            //{
-            //    public double Total { get; set; }
-            //}
-
-            ////Δημιυοργία μιας method
-            //static void SayHi(string name, int age)
-            //{
-            //    Console.WriteLine("Hello " + name + "  your age is " +  age);
-            //}
-
-
-            //static int cube(int num)
-            //{
-            //    int result = num * num * num;
-            //    return result;
-            //}
-
-            //static int[] cube(int num)
-            //{
-            //    int[] result = new int[2];
-            //    result[0] = num;
-            //    result[1] = num*2;
-            //    return result;
-            //}
-
-
-
-            //Method If states
-            //static int GetMax(int num1, int num2)
-            //{
-            //    int result;
-            //    if (num1 > num2)
-            //    {
-            //        result = num1;
-            //    }
-            //    else
-            //    {
-            //        result = num2;
-            //    }
-            //    return result;
-            //}
-
-
-
-            //// Ελέγχει τα cases και όποιο ειναι true το εκτελεί. Το break σταματάει την εκτέλεση από το switch
-            //static string GetDay(int dayNum)
-            //{
-            //    string dayName;
-            //    switch (dayNum)
-            //    {
-            //        case 0:
-            //            dayName = "Sunday";
-            //            break;
-            //        case 1:
-            //            dayName = "Monday";
-            //            break;
-            //        case 2:
-            //            dayName = "Tuesday";
-            //            break;
-            //        case 3:
-            //            dayName = "Wednesday";
-            //            break;
-            //        case 4:
-            //            dayName = "Thursday";
-            //            break;
-            //        case 5:
-            //            dayName = "Friday";
-            //            break;
-            //        case 6:
-            //            dayName = "Saturday";
-            //            break;
-            //        default:
-            //            dayName = "Invalid Name";
-            //            break;
-            //    }
-
-            //    return dayName;
-            //}
-
-
-
-
-            ////Build exponend method
-            //static int GetPow(int baseNum, int powNum)
-            //{
-            //    int result = 1;
-
-            //    //Τρέχει το for loop powNum φορές
-            //    for(int i = 0; i < powNum; i++)
-            //    {
-            //        result = result * baseNum;
-            //    }
-
-
-            //    return result;
-            //}
-
-
-
-            //private static void StartCounting()
-            //{
-            //    //The thread is end when loop is end
-            //    var thread = new Thread(() =>
-            //    {
-            //        for (var x = 0; x < 10; x++)
-            //        {
-            //            Console.Write("{0}... ", x);
-            //            Thread.Sleep(1000);
-            //        }
-            //    });
-            //    thread.Start();
-
-            //}
-
-
         }
+
+
+
+        //class SalesTotal
+        //{
+        //    public double Total { get; set; }
+        //}
+
+        ////Δημιυοργία μιας method
+        //static void SayHi(string name, int age)
+        //{
+        //    Console.WriteLine("Hello " + name + "  your age is " +  age);
+        //}
+
+
+        //static int cube(int num)
+        //{
+        //    int result = num * num * num;
+        //    return result;
+        //}
+
+        //static int[] cube(int num)
+        //{
+        //    int[] result = new int[2];
+        //    result[0] = num;
+        //    result[1] = num*2;
+        //    return result;
+        //}
+
+
+
+        //Method If states
+        //static int GetMax(int num1, int num2)
+        //{
+        //    int result;
+        //    if (num1 > num2)
+        //    {
+        //        result = num1;
+        //    }
+        //    else
+        //    {
+        //        result = num2;
+        //    }
+        //    return result;
+        //}
+
+
+
+        //// Ελέγχει τα cases και όποιο ειναι true το εκτελεί. Το break σταματάει την εκτέλεση από το switch
+        //static string GetDay(int dayNum)
+        //{
+        //    string dayName;
+        //    switch (dayNum)
+        //    {
+        //        case 0:
+        //            dayName = "Sunday";
+        //            break;
+        //        case 1:
+        //            dayName = "Monday";
+        //            break;
+        //        case 2:
+        //            dayName = "Tuesday";
+        //            break;
+        //        case 3:
+        //            dayName = "Wednesday";
+        //            break;
+        //        case 4:
+        //            dayName = "Thursday";
+        //            break;
+        //        case 5:
+        //            dayName = "Friday";
+        //            break;
+        //        case 6:
+        //            dayName = "Saturday";
+        //            break;
+        //        default:
+        //            dayName = "Invalid Name";
+        //            break;
+        //    }
+
+        //    return dayName;
+        //}
+
+
+
+
+        ////Build exponend method
+        //static int GetPow(int baseNum, int powNum)
+        //{
+        //    int result = 1;
+
+        //    //Τρέχει το for loop powNum φορές
+        //    for(int i = 0; i < powNum; i++)
+        //    {
+        //        result = result * baseNum;
+        //    }
+
+
+        //    return result;
+        //}
+
+
+
+        //private static void StartCounting()
+        //{
+        //    //The thread is end when loop is end
+        //    var thread = new Thread(() =>
+        //    {
+        //        for (var x = 0; x < 10; x++)
+        //        {
+        //            Console.Write("{0}... ", x);
+        //            Thread.Sleep(1000);
+        //        }
+        //    });
+        //    thread.Start();
+
+        //}
+
+
+
     }
 }
 
