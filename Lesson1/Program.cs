@@ -140,7 +140,10 @@ namespace Lesson1
         //    public string DepartmentName { get; set; }
         //}
 
-
+        /// <summary>
+        /// TODO: UDP, TCP server
+        /// TODO: Linq methods
+        /// </summary>
 
         class Program
         {
