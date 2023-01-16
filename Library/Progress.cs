@@ -12,11 +12,28 @@ namespace Library
 {
     public partial class Progress : Form
     {
+ 
         public Progress()
         {
             InitializeComponent();
+            progressBar.Minimum = 0;
+            LabelProgress.Text = string.Empty;
         }
 
+        public void SetStyle(ProgressBarStyle style)
+        {
+            progressBar.Style = style;
+        }
+
+        public Progress(int max) : this()
+        {
+            SetMax(max);
+        }
+
+        public void SetMax(int max)
+        {
+            progressBar.Maximum = max;
+        }
 
         public void SetProgress(int value, string Message = null)
         {
