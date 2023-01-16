@@ -19,9 +19,9 @@ namespace Library
 
         private void DbForm_Load(object sender, EventArgs e)
         {
-            SqlConnect loaddata = new SqlConnect();
-            loaddata.retrieveData("Select * From ProductTbl");
-            dataGridView1.DataSource = loaddata.table;
+            //SqlConnect loaddata = new SqlConnect();
+            //loaddata.retrieveData("Select * From ProductTbl");
+            //dataGridView1.DataSource = loaddata.table;
         }
 
         private void button1_Click(object sender, EventArgs e)

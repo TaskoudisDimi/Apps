@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.Sql;
+﻿using Forms;
+using Microsoft.Data.Sql;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -10,87 +11,122 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    public class SqlConnect
+    public class SqlConnect 
     {
 
         SqlConnection con = new SqlConnection();
         public DataTable table = new DataTable();
-        
+       
+        public int ExecuteSqlTransaction(string cmd)
+        {
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["Supermarket"].ConnectionString))
+            {
+                connection.Open();
 
-        //public SqlConnect(string connectionString)
+                SqlCommand command = connection.CreateCommand();
+                SqlTransaction transaction;
+
+                // Start a local transaction.
+                transaction = connection.BeginTransaction();
+
+                // Must assign both transaction object and connection
+                // to Command object for a pending local transaction
+                //command.Connection = connection;
+                command.Transaction = transaction;
+
+                try
+                {
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = cmd;
+
+                    int res = command.ExecuteNonQuery();
+
+                    // Attempt to commit the transaction.
+                    transaction.Commit();
+                    Console.WriteLine("Both records are written to database.");
+                    return res;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Commit Exception Type: {0}", ex.GetType());
+                    Console.WriteLine("  Message: {0}", ex.Message);
+                    return -1;
+                    // Attempt to roll back the transaction.
+                    try
+                    {
+                        transaction.Rollback();
+                    }
+                    catch (Exception ex2)
+                    {
+                        // This catch block will handle any errors that may have occurred
+                        // on the server that would cause the rollback to fail, such as
+                        // a closed connection.
+                        Console.WriteLine("Rollback Exception Type: {0}", ex2.GetType());
+                        Console.WriteLine("  Message: {0}", ex2.Message);
+                    }
+                }
+            }
+        }
+
+        //public void retrieveData(string command)
         //{
-        //    con.ConnectionString = connectionString;
+        //    try
+        //    {
+        //        SqlDataAdapter adapter = new SqlDataAdapter(command, con);
+        //        adapter.Fill(table);
+        //        Logs log = new Logs(command);
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        Console.WriteLine(ex.Message);
+        //    }
+
         //}
-        public SqlConnect()
-        {
-            con.ConnectionString = ConfigurationManager.ConnectionStrings["Supermarket"].ConnectionString;
-        }
+        //public void commandExc(string command)
+        //{
+        //    try
+        //    {
+        //        con.Open();
+        //        SqlCommand sqlcomm = new SqlCommand(command, con);
 
-        public void retrieveData(string command)
-        {
-            try
-            {
-                con.Open();
-                SqlDataAdapter adapter = new SqlDataAdapter(command, con);
-                adapter.Fill(table);
-                Logs log = new Logs(command);
+        //        int rowInfected = sqlcomm.ExecuteNonQuery();
+        //        if (rowInfected > 0)
+        //        {
+        //            Console.WriteLine("Success to connect with db!");
+        //        }
+        //        else
+        //        {
+        //            Console.WriteLine("Fail to connect with db!");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-            }
-            catch (Exception ex)
-            {
-
-                Console.WriteLine(ex.Message);
-            }
-            finally
-            {
-                con.Close();
-            }
-        }
-        public void commandExc(string command)
-        {
-            try
-            {
-                con.Open();
-                SqlCommand sqlcomm = new SqlCommand(command, con);
-
-                int rowInfected = sqlcomm.ExecuteNonQuery();
-                if (rowInfected > 0)
-                {
-                    Console.WriteLine("Success to connect with db!");
-                }
-                else
-                {
-                    Console.WriteLine("Fail to connect with db!");
-                }
-            }
-            catch (Exception ex)
-            {
-
-            }
-        }
-
-        public void GetDatabases()
-        {
-            try
-            {
-                con.Open();
-                string command = "SELECT name FROM sys.databases";
-                SqlDataAdapter adapter = new SqlDataAdapter(command, con);
-                adapter.Fill(table);
-
-            }
-            catch (Exception ex)
-            {
-
-                Console.WriteLine(ex.Message);
-            }
-            finally
-            {
-                con.Close();
-            }
-        }
+        //    }
+        //}
 
 
+        //public void GetDatabases()
+        //{
+        //    try
+        //    {
+        //        con.Open();
+        //        string command = "SELECT name FROM sys.databases";
+        //        SqlDataAdapter adapter = new SqlDataAdapter(command, con);
+        //        adapter.Fill(table);
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        Console.WriteLine(ex.Message);
+        //    }
+        //    finally
+        //    {
+        //        con.Close();
+        //    }
+        //}
 
         //public void test()
         //{

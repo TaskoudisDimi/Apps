@@ -30,9 +30,6 @@ namespace Library
             
         }
 
-       
-
-
         public void InitBrowser()
         {
             // TODO: Import CefSharp library

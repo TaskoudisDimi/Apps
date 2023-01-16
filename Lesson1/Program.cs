@@ -756,6 +756,20 @@ namespace Lesson1
                 //Console.WriteLine("Exiting...");
 
 
+                //Trim 
+                string test1 = "    Test1";
+                string test2 = "Test2";
+                Console.WriteLine(test1.Trim());
+                Console.WriteLine(test2.Trim());
+
+                string s4 = "     Test0000";
+                Console.WriteLine("Before:" + s4);
+                Console.WriteLine("After:" + s4.Trim('0'));
+
+                char[] charsToTrim3 = { 'T', 'e', 's', 't' };
+                string s3 = "Test3Test4";
+                Console.WriteLine("Before:" + s3);
+                Console.WriteLine("After:" + s3.Trim(charsToTrim3));
 
             }
 

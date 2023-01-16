@@ -17,16 +17,14 @@ namespace Library
     {
 
         private int rowintex = 0;
-
-        public static string constring = ConfigurationManager.ConnectionStrings["Tutorial"].ConnectionString;
-        //SqlConnect con = new SqlConnection(constring);
+        SqlConnector loadData = new SqlConnector();
 
         public Form3()
         {
             InitializeComponent();
 
 
-            SqlConnector loadData = new SqlConnector();
+            //SqlConnector loadData = new SqlConnector();
             loadData.retrieveData("Select * From [smarketdb].[dbo].[CategoryTbl]");
             readOnlyDataGridView.DataSource = loadData.table;
 
