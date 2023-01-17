@@ -756,20 +756,73 @@ namespace Lesson1
                 //Console.WriteLine("Exiting...");
 
 
-                //Trim 
-                string test1 = "    Test1";
-                string test2 = "Test2";
-                Console.WriteLine(test1.Trim());
-                Console.WriteLine(test2.Trim());
+                ////Trim 
+                //string test1 = "    Test1";
+                //string test2 = "Test2";
+                //Console.WriteLine(test1.Trim());
+                //Console.WriteLine(test2.Trim());
 
-                string s4 = "     Test0000";
-                Console.WriteLine("Before:" + s4);
-                Console.WriteLine("After:" + s4.Trim('0'));
+                //string s4 = "     Test0000";
+                //Console.WriteLine("Before:" + s4);
+                //Console.WriteLine("After:" + s4.Trim('0'));
 
-                char[] charsToTrim3 = { 'T', 'e', 's', 't' };
-                string s3 = "Test3Test4";
-                Console.WriteLine("Before:" + s3);
-                Console.WriteLine("After:" + s3.Trim(charsToTrim3));
+                //char[] charsToTrim3 = { 'T', 'e', 's', 't' };
+                //string s3 = "Test3Test4";
+                //Console.WriteLine("Before:" + s3);
+                //Console.WriteLine("After:" + s3.Trim(charsToTrim3));
+
+                ////StringBuilder
+                //StringBuilder sb1 = new StringBuilder();
+                //sb1.Append("Test1");
+                //sb1.AppendLine("Test1");
+                //Console.WriteLine(sb1);
+
+                //StringBuilder sb2 = new StringBuilder("Hello World2!");
+                //sb2.Insert(5, "C#");
+                //Console.WriteLine(sb2);
+
+                //StringBuilder sb3 = new StringBuilder("Hello World3!");
+                //sb3.Remove(5, 6);
+                //Console.WriteLine(sb3);
+
+
+                //Array
+                int[] integ = new int[5];
+                for (int i = 0; i < 5; i++)
+                {
+                    integ[i] = i;
+                    Console.WriteLine(integ[i]);
+                }
+
+                string[] str = new string[] { "Test1", "Test2", "Test3" };
+                foreach(var item in str)
+                {
+                    Console.WriteLine(item);
+                }
+
+                //Linq
+                int max = integ.Max();
+                int min = integ.Min();
+                int sum = integ.Sum();
+                double avg = integ.Average();
+                Console.WriteLine(max);
+                Console.WriteLine(min);
+                Console.WriteLine(sum);
+                Console.WriteLine(avg);
+
+
+                int[] integ2 = new int[10];
+                for(int j = 0; j < 9; j++)
+                {
+                    integ2[j] = j;
+                }
+
+
+                Console.ReadLine();
+                //List
+
+
+                //Dictionary
 
             }
 
