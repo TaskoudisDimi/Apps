@@ -7,6 +7,7 @@ using System.Net;
 using Nancy.Json;
 using System.Net.Sockets;
 using System.Text;
+using System.Collections;
 
 namespace Lesson1
 
@@ -786,37 +787,81 @@ namespace Lesson1
                 //Console.WriteLine(sb3);
 
 
-                //Array
-                int[] integ = new int[5];
-                for (int i = 0; i < 5; i++)
-                {
-                    integ[i] = i;
-                    Console.WriteLine(integ[i]);
-                }
+                ////Array
+                //int[] integ = new int[5];
+                //for (int i = 0; i < 5; i++)
+                //{
+                //    integ[i] = i;
+                //    Console.WriteLine(integ[i]);
+                //}
 
-                string[] str = new string[] { "Test1", "Test2", "Test3" };
-                foreach(var item in str)
-                {
-                    Console.WriteLine(item);
-                }
+                //string[] str = new string[] { "Test1", "Test2", "Test3" };
+                //foreach(var item in str)
+                //{
+                //    Console.WriteLine(item);
+                //}
 
-                //Linq
-                int max = integ.Max();
-                int min = integ.Min();
-                int sum = integ.Sum();
-                double avg = integ.Average();
-                Console.WriteLine(max);
-                Console.WriteLine(min);
-                Console.WriteLine(sum);
-                Console.WriteLine(avg);
+                ////Linq methods
+                //int max = integ.Max();
+                //int min = integ.Min();
+                //int sum = integ.Sum();
+                //double avg = integ.Average();
+                //Console.WriteLine(max);
+                //Console.WriteLine(min);
+                //Console.WriteLine(sum);
+                //Console.WriteLine(avg);
+
+                //int[] integ2 = new int[10];
+                //for(int j = 0; j < 9; j++)
+                //{
+                //    integ2[j] = j;
+                //}
+
+                //int[] integ3 = new int[4] { 6, 1, 5, 3 };
+
+                //Array.Sort(integ3);
+                //Array.ForEach(integ3, n => Console.WriteLine(n));
+
+                //Array.Fill(integ3,5);
+                //Array.ForEach(integ3, n => Console.WriteLine(n));
+
+                //Array.Reverse(integ3);
+                //Array.ForEach(integ3, n => Console.WriteLine(n));
+
+                //Array.BinarySearch(integ3, 3);// binary search 
+                //Array.ForEach(integ3, n => Console.WriteLine(n));
+
+                //string[] findMethod = new string[4] { "Test1", "Test2", "Test3", "Test4" };
+                //var result = Array.Find(findMethod, n => n.Contains("Test1"));
+                //Console.WriteLine(result);
+
+                //var result = Array.FindLast(findMethod, n => n.Contains("Test"));
+                //Console.WriteLine(result);
+
+                ////Multidimensional Arrays
+                //int[,] arr2d = new int[3, 2]
+                //{
+                //    { 1,2},{ 2,3}, {1,3}
+                //};
+                //// three-dimensional array
+                //int[,,] arr3d = new int[1, 2, 2]
+                //{
+                //    { { 1, 2}, { 3, 4} }
+                //};
+                //// four-dimensional array
+                //int[,,,] arr4d = new int[3, 2, 3, 4];
+                //// five-dimensional array
+                //int[,,,,] arr5d = new int[3, 2, 3, 4, 2]; 
 
 
-                int[] integ2 = new int[10];
-                for(int j = 0; j < 9; j++)
-                {
-                    integ2[j] = j;
-                }
 
+                //string[] data = { "Test1", "Test2", "Test3", "Test4" };
+                //var data2 = String.Join(", ", data);
+                //Console.WriteLine(data2);
+
+
+                ArrayList arrList = new ArrayList();
+                //arrList.AddRange();
 
                 Console.ReadLine();
                 //List
