@@ -853,28 +853,166 @@ namespace Lesson1
                 //// five-dimensional array
                 //int[,,,,] arr5d = new int[3, 2, 3, 4, 2]; 
 
-
-
+                ////String.Join
                 //string[] data = { "Test1", "Test2", "Test3", "Test4" };
                 //var data2 = String.Join(", ", data);
                 //Console.WriteLine(data2);
 
+                //List<string> data3 = new List<string>();
+                //data3.Add("Test1");
+                //data3.Add("Test2");
+                //data3.Add("Test3");
+                //var data4 = String.Join(", ", data3);
+                //Console.WriteLine(data4);
 
-                ArrayList arrList = new ArrayList();
-                //arrList.AddRange();
+                ////String.Format
+                //string data5 = "Test1";
+                //string data6 = String.Format("Hello {0}", data5);
+                //Console.WriteLine(data6);
 
-                Console.ReadLine();
-                //List
+                //int data7 = 7;
+                //Console.WriteLine($"Hello {data7}");
 
+                ////0 and 1 represent the first and second objects in the method ("Test1" and "Test2")
+                ////-20 and - 14 represent the width of "Test1" and "Test2" respectively.
+                ////Since - 20 and - 14 are negative numbers, "Test1" and "Test2" are left-aligned.
+                //string data8 = string.Format("{0, -20} {1, -14}", "Test1", "Test2");
+                //Console.WriteLine(data8);
+
+
+
+                //var arrList = new ArrayList();
+                //arrList.Add("Test1");
+                //arrList.Add(1);
+                //arrList.Add(true);
+                //arrList.Add(null);
+                //arrList.Add(4.5);
+                //for(int i =0; i<arrList.Count; i++)
+                //{
+                //    Console.WriteLine(arrList[i]);
+                //}
+
+                //int[] data9 = new int[3] { 1,2,3};
+                //arrList.AddRange(data9);
+                //for (int i = 0; i < arrList.Count; i++)
+                //{
+                //    Console.WriteLine(arrList[i]);
+                //}
+
+                //insert an element at the specified index
+                //arrList.Insert(1, "Test2");
+                //for (int i = 0; i < arrList.Count; i++)
+                //{
+                //    Console.WriteLine(arrList[i]);
+                //}
+
+                ////insert a collection
+                //ArrayList arlist2 = new ArrayList()
+                //{
+                //    300, 400, 500
+                //};
+                //arrList.InsertRange(1, arlist2);
+                //for (int i = 0; i < arrList.Count; i++)
+                //{
+                //    Console.WriteLine(arrList[i]);
+                //}
+
+                //arrList.Remove(null); //Removes first occurance of null
+                //arrList.RemoveAt(4); //Removes element at index 4
+                //arrList.RemoveRange(0, 2);//Removes two elements starting from 1st item (0 index)
+
+                ////Contains
+                //Console.WriteLine(arrList.Contains(null));
+
+
+                ////IndexOf
+                //string stop = " ";
+                //string Name = "Dimitris Taskoudis";
+                //int findStop = Name.IndexOf(stop);
+                //string FirstName = Name.Substring(0, findStop);
+                //string LastName = Name.Substring(findStop);
+                //Console.WriteLine("LastName is : " + LastName.Trim());
+                //Console.WriteLine("FirstName is : " + FirstName.Trim());
+
+
+                ////List
+                //var list = new List<string>();
+                //list.Add("Test1");
+                //list.Add("Test2");
+                //list.Add("Test3");
+                ////foreach (var item in list)
+                ////{
+                ////    Console.WriteLine(item);
+                ////}
+
+                ////Fist, Last
+                //Console.WriteLine(list.Last());
+                //Console.WriteLine(list.First());
+
+                //var list = new List<string>();
+                //list.Add("Test1");
+                //list.Add("Test2");
+                //list.Add("Test3");
+                //string[] cities = new string[3] { "Mumbai", "London", "New York" };
+                //list.AddRange(cities);
+                ////foreach (var item in list)
+                ////{
+                ////    Console.WriteLine(item);
+                ////}
+                ////list.ForEach(n => Console.WriteLine(n + ", "));
+
+                ////Insert
+                //list.Insert(4, "Test4"); //inserts Test4 at 4rd index
+                //list.ForEach(n => Console.WriteLine(n + ", "));
+
+                //list.Remove("Test1");
+                //list.ForEach(n => Console.WriteLine(n + ", "));
+
+                //////removes the 2nd element
+                //list.RemoveAt(2);
+                //list.ForEach(n => Console.WriteLine(n + ", "));
 
                 //Dictionary
+                //Dictionary<int, string> dict = new Dictionary<int, string>();
+                //dict.Add(1, "Test1");
+                //dict.Add(2, "Test2");
+                //dict.Add(3, "Test3");
+                //foreach(KeyValuePair<int,string> item in dict)
+                //{
+                //    Console.WriteLine("Key {0} and Value {1}", item.Key, item.Value);
+                //}
 
+                ////use ContainsKey() to check for an unknown key
+                //if (dict.ContainsKey(2))
+                //{
+                //    Console.WriteLine(dict[2]);
+
+                //}
+                //string result;
+                //if (dict.TryGetValue(2, out result))
+                //{
+                //    dict[2] = "Test4";
+                //    Console.WriteLine(result);
+                //    Console.WriteLine(dict[2]);
+                //}
+
+                //if (dict.ContainsKey(1))
+                //{
+                //    dict.Remove(1);
+                //}
+                //foreach (KeyValuePair<int, string> item in dict)
+                //{
+                //    Console.WriteLine("Key {0} and Value {1}", item.Key, item.Value);
+                //}
+
+
+                Console.ReadLine();
             }
 
         }
 
 
-
+        
         //class SalesTotal
         //{
         //    public double Total { get; set; }

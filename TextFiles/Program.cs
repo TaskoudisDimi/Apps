@@ -28,13 +28,11 @@ namespace ObjectToJSONConversion
             foreach(var line in lines)
             {
                 string[] entries = line.Split(',');
-
                 Person newPerson = new Person();
                 newPerson.FirstName = entries[0];
                 newPerson.LastName = entries[1];
                 newPerson.Url = entries[2];
                 people.Add(newPerson);
-
             }
             Console.WriteLine("Start read from text file");
             foreach (var person in people)
