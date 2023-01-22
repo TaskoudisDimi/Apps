@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
 using OfficeOpenXml;
-using Lesson1.DataAccess;
 using System.Data.OleDb;
 
 namespace Library
@@ -19,7 +18,7 @@ namespace Library
     {
         //public static string constring = ConfigurationManager.ConnectionStrings["Tutorial"].ConnectionString;
         //SqlConnection con = new SqlConnection(constring);
-        SqlConnector loaddata = new SqlConnector();
+        SqlConnect loaddata = new SqlConnect();
         
         public Form4()
         {

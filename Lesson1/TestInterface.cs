@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Lesson1
 {
-    public class Interface_Delegate
+    public interface TestInterface
     {
-        public delegate void Calc(int x, int y);
-        public int Calculate(int x1, int y1)
+        void test();
+        void PTheory()
         {
-            return x1 + y1;
+            Console.WriteLine("Test Interface");
         }
 
 

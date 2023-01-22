@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
-using Lesson1.DataAccess;
 
 namespace Library
 {
@@ -17,7 +16,7 @@ namespace Library
     {
 
         private int rowintex = 0;
-        SqlConnector loadData = new SqlConnector();
+        SqlConnect loadData = new SqlConnect();
 
         public Form3()
         {

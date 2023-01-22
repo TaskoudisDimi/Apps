@@ -1005,7 +1005,9 @@ namespace Lesson1
                 //    Console.WriteLine("Key {0} and Value {1}", item.Key, item.Value);
                 //}
 
-
+                TestInterface test = new UsefulTools();
+                test.PTheory();
+                test.test();
                 Console.ReadLine();
             }
 

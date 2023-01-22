@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Lesson1.DataAccess;
 using Lesson1;
 using System.Data.SqlClient;
 using System.Configuration;
