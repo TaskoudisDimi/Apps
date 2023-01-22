@@ -11,19 +11,15 @@ using System.Windows.Forms;
 
 namespace Forms
 {
-    public partial class Connect : Form
+    public partial class BackgroundWorker : Form
     {
-        BackgroundWorker backgroundWorker = new BackgroundWorker();
-        public Connect()
+        System.ComponentModel.BackgroundWorker backgroundWorker = new System.ComponentModel.BackgroundWorker();
+        public BackgroundWorker()
         {
             InitializeComponent();
             
         }
 
-        private void backButton_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void connectButton_Click(object sender, EventArgs e)
         {

@@ -17,8 +17,6 @@ namespace Library
 
         public static void LoadHTML(ChromiumWebBrowser browser, string html, string url)
         {
-            
-
             browser.Load(url);
         }
 

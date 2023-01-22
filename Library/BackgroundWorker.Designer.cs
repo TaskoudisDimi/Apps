@@ -1,6 +1,6 @@
 ﻿namespace Forms
 {
-    partial class Connect
+    partial class BackgroundWorker
     {
         /// <summary>
         /// Required designer variable.
@@ -63,7 +63,6 @@
             this.backButton.TabIndex = 2;
             this.backButton.Text = "Back";
             this.backButton.UseVisualStyleBackColor = true;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // progressBar1
             // 
