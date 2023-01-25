@@ -1,3 +1,4 @@
+
 using Lesson1.Data;
 using System;
 using System.Collections.Generic;
@@ -146,9 +147,7 @@ namespace Library
 
         private void form5Button_Click(object sender, EventArgs e)
         {
-            Form5 form = new Form5();
-            form.Show();
-            this.Hide();
+            
         }
 
         private void form6Button_Click(object sender, EventArgs e)

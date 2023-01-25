@@ -1,20 +1,45 @@
-﻿using OfficeOpenXml;
-using OfficeOpenXml.Style;
+﻿using OfficeOpenXml.Style;
+using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace Library
+namespace Forms
 {
-    public class Excel
+    public partial class ExcelForm : Form
     {
-        static async Task Main(string[] args)
+        public ExcelForm()
         {
-            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-            var file = new FileInfo(@"C:\Users\User\Desktop\Excel.xlsx");
+            InitializeComponent();
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string path = null;
+            SaveFileDialog dialog = new SaveFileDialog()
+            {
+                Filter = "CSV (*.csv)|*.csv",
+                Title = "Csv Files",
+                RestoreDirectory = true
+            };
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                path = dialog.FileName;
+                excel(path);
+            }
+        }
+
+        private async void excel(string path)
+        {
+            ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
+            
+            var file = new FileInfo(path);
             var people = GetSetupData();
 
             await SaveExcelFile(people, file);
@@ -26,6 +51,7 @@ namespace Library
                 Console.WriteLine($"{p.Id} {p.FirstName} {p.LastName}");
             }
         }
+
         private static async Task<List<PersonModel>> LoadExcelFile(FileInfo file)
         {
             List<PersonModel> output = new();
@@ -69,7 +95,7 @@ namespace Library
             ws.Column(1).Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
             ws.Row(1).Style.Font.Size = 24;
             ws.Row(1).Style.Font.Color.SetColor(Color.Blue);
-
+            ws.Cells["A20:C20"].Merge = true;
             ws.Row(2).Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
             ws.Row(2).Style.Font.Bold = true;
             ws.Column(3).Width = 20;
@@ -96,6 +122,11 @@ namespace Library
 
             return output;
         }
+
+        private void getButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public class PersonModel
@@ -104,8 +135,4 @@ namespace Library
         public string FirstName { get; set; }
         public string LastName { get; set; }
     }
-
-
-
-
 }
