@@ -34,27 +34,30 @@
             // 
             // progressBar
             // 
-            this.progressBar.Location = new System.Drawing.Point(158, 215);
+            this.progressBar.Location = new System.Drawing.Point(226, 358);
+            this.progressBar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(487, 38);
+            this.progressBar.Size = new System.Drawing.Size(696, 63);
             this.progressBar.TabIndex = 0;
             // 
             // LabelProgress
             // 
             this.LabelProgress.AutoSize = true;
-            this.LabelProgress.Location = new System.Drawing.Point(158, 156);
+            this.LabelProgress.Location = new System.Drawing.Point(226, 260);
+            this.LabelProgress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelProgress.Name = "LabelProgress";
-            this.LabelProgress.Size = new System.Drawing.Size(80, 15);
+            this.LabelProgress.Size = new System.Drawing.Size(122, 25);
             this.LabelProgress.TabIndex = 1;
             this.LabelProgress.Text = "LabelProgress";
             // 
             // Progress
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1143, 750);
             this.Controls.Add(this.LabelProgress);
             this.Controls.Add(this.progressBar);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Progress";
             this.Text = "Progress";
             this.ResumeLayout(false);
@@ -65,6 +68,6 @@
         #endregion
 
         private ProgressBar progressBar;
-        private Label LabelProgress;
+        public Label LabelProgress;
     }
 }
