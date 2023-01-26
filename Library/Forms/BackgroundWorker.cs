@@ -48,15 +48,16 @@ namespace Forms
 
         private void backgroundWorker__DoWork(object sender, DoWorkEventArgs e)
         {
+            Control.CheckForIllegalCrossThreadCalls = false;
             backgroundWorker_.WorkerReportsProgress = true;
-            List<int> records = new List<int>();
-            for (int j = 0; j < 100; j++)
-            {
-                records.Add(j);
-            }
+            //List<int> records = new List<int>();
+            //for (int j = 0; j < 100; j++)
+            //{
+            //    records.Add(j);
+            //}
             loaddata.retrieveData($"Select * From ProductTbl");
             int sum = 0;
-            for (int i = 1; i <= loaddata.table.Rows.Count; i++)
+            for (int i = 1; i <= 100; i++)
             {
                 sum = sum + i;
                 //loaddata.retrieveData($"Select * From ProductTbl where ProdId = {records[i]}");
@@ -72,9 +73,6 @@ namespace Forms
                 }
             }
             e.Result = sum;
-            dataGridView.DataSource = loaddata.table;
-            //dataGridView.DataSource = loaddata.table;
-
         }
 
         private void backgroundWorker__RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -92,6 +90,12 @@ namespace Forms
             else
             {
                 progress.Text = e.Result.ToString();
+                if(progressBar1.Value == 100)
+                {
+
+                    dataGridView.DataSource = loaddata.table;
+                }
+
             }
         }
 
