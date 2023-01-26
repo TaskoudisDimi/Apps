@@ -60,7 +60,6 @@
             // 
             // productsBindingSource
             // 
-            this.productsBindingSource.DataSource = typeof(Forms.Category);
             // 
             // catIdDataGridViewTextBoxColumn
             // 

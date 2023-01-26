@@ -16,7 +16,7 @@ namespace Library
 
         SqlConnection con = new SqlConnection();
         public DataTable table = new DataTable();
-
+        public SqlDataAdapter adapterPage = new SqlDataAdapter();
         public SqlConnect()
         {
             con.ConnectionString = ConfigurationManager.ConnectionStrings["Supermarket"].ConnectionString;
@@ -76,6 +76,7 @@ namespace Library
         {
             try
             {
+                table.Clear();
                 SqlDataAdapter adapter = new SqlDataAdapter(command, con);
                 adapter.Fill(table);
                 Logs log = new Logs(command);
@@ -85,6 +86,25 @@ namespace Library
                 Console.WriteLine(ex.Message);
             }
         }
+
+        //public int Fill(int startRecord, int maxRecords, params DataTable[] dataTables);
+        public void pagingData(string command, int test1, int test2)
+        {
+            try
+            {
+                table.Clear();
+                SqlDataAdapter adapter = new SqlDataAdapter(command, con);
+                adapter.Fill(test1, test2, table);
+                Logs log = new Logs(command);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+
+
         public void commandExc(string command)
         {
             try
