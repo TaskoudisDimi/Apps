@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Library;
+using ClassLibrary;
 
 namespace Forms
 {
@@ -18,6 +20,14 @@ namespace Forms
         {
             InitializeComponent();
         }
+        SqlConnect loaddata = new SqlConnect();
+
+        private void ExcelForm_Load(object sender, EventArgs e)
+        {
+           
+
+        }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -125,8 +135,105 @@ namespace Forms
 
         private void getButton_Click(object sender, EventArgs e)
         {
+            try
+            {
+                int ImportedRecord = 0, inValidItem = 0;
+                string SourceURl = "";
+                OpenFileDialog dialog = new OpenFileDialog()
+                {
+                    Title = "Browse csv File",
+                    CheckFileExists = true,
+                    CheckPathExists = true,
+                    Filter = "xlsx files (*.xlsx)|*.xlsx",
+                    FilterIndex = 2,
+                    RestoreDirectory = true,
+                    ReadOnlyChecked = true,
+                    ShowReadOnly = true
+
+                };
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    if (dialog.FileName.EndsWith(".xlsx"))
+                    {
+                        DataTable table = new DataTable();
+                        table = GetData(dialog.FileName);
+                        SourceURl = dialog.FileName;
+                        if (table.Rows != null && table.Rows.ToString() != String.Empty)
+                        {
+                            dataGridView.DataSource = table;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception" + ex);
+
+            }
+        }
+
+        private DataTable GetData(string path)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                if (path.EndsWith(".csv"))
+                {
+                    //TextFieldParser csvReader = new TextFieldParser(path);
+                    //csvReader.SetDelimiters(new string[] { "," });
+                    //csvReader.HasFieldsEnclosedInQuotes = true;
+                    //string[] colFields = csvReader.ReadFields();
+
+                    string[] lines = System.IO.File.ReadAllLines(path);
+                    if (lines.Length > 0)
+                    {
+                        //first line to create header
+                        string firstLine = lines[0];
+                        //Devide each data of column
+                        string[] headerLabels = firstLine.Split(',');
+                        foreach (string headerWord in headerLabels)
+                        {
+                            //add data column
+                            dt.Columns.Add(new DataColumn(headerWord));
+                        }
+                        //For Data
+                        for (int i = 1; i < lines.Length; i++)
+                        {
+                            //devide each data of rows
+                            string[] dataWords = lines[i].Split(',');
+                            //create new row of DataTable
+                            DataRow dr = dt.NewRow();
+                            int columnIndex = 0;
+                            foreach (string headerWord in headerLabels)
+                            {
+                                //Corresponde each Column name with coresponding Row
+                                dr[headerWord] = dataWords[columnIndex++];
+                            }
+                            //Add all rows to DataTable
+                            dt.Rows.Add(dr);
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception " + ex);
+            }
+            return dt;
+        }
+
+        private void csvButton_Click(object sender, EventArgs e)
+        {
 
         }
+
+        private void getCsvButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+ 
     }
 
     public class PersonModel
