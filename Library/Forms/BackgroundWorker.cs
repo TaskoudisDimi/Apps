@@ -35,10 +35,10 @@ namespace Forms
 
             //}
             //dataGridView.DataSource = loaddata.table;
-            
+
             if (!backgroundWorker_.IsBusy)
             {
-                progressBar1.Visible = true;
+                //progressBar1.Visible = true;
                 progress.Text = "Please wait...";
                 //SnackBarTimer();
                 backgroundWorker_.RunWorkerAsync();
@@ -48,42 +48,50 @@ namespace Forms
 
         private void backgroundWorker__DoWork(object sender, DoWorkEventArgs e)
         {
-            try
+            backgroundWorker_.WorkerReportsProgress = true;
+            List<int> records = new List<int>();
+            for (int j = 0; j < 100; j++)
             {
-                List<int> records = new List<int>();
-                records.Add(1);
-                records.Add(2);
-                
-
-                for (int i = 0; i < records.Count; i++)
+                records.Add(j);
+            }
+            loaddata.retrieveData($"Select * From ProductTbl");
+            int sum = 0;
+            for (int i = 1; i <= loaddata.table.Rows.Count; i++)
+            {
+                sum = sum + i;
+                //loaddata.retrieveData($"Select * From ProductTbl where ProdId = {records[i]}");
+                backgroundWorker_.ReportProgress(i);
+                // Check if the cancellation is requested
+                if (backgroundWorker_.CancellationPending)
                 {
-                    loaddata.retrieveData($"Select * From ProductTbl where ProdId = {records[i]}");
-
+                    // Set Cancel property of DoWorkEventArgs object to true
+                    e.Cancel = true;
+                    // Reset progress percentage to ZERO and return
+                    backgroundWorker_.ReportProgress(0);
+                    return;
                 }
-                dataGridView.DataSource = loaddata.table;
             }
-            catch (Exception ex)
-            {
-                progress.Text = "Error";
-            }
+            e.Result = sum;
+            dataGridView.DataSource = loaddata.table;
+            //dataGridView.DataSource = loaddata.table;
+
         }
 
         private void backgroundWorker__RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            
-            try
+            if (e.Cancelled)
             {
-                dataGridView.DataSource = loaddata.table;
-                if (dataGridView.Rows.Count == 1)
-                {
-                    progress.Text = "Completed";
-                }
+                progress.Text = "Processing Cancelled";
 
             }
-            catch (Exception ex)
+            else if (e.Error != null)
             {
-                progressBar1.Visible = true;
-                progress.Text = "Error";
+                progress.Text = e.Error.Message;
+
+            }
+            else
+            {
+                progress.Text = e.Result.ToString();
             }
         }
 
