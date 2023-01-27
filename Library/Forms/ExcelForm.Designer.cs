@@ -33,24 +33,27 @@
             this.csvButton = new System.Windows.Forms.Button();
             this.getCsvButton = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.displayButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // saveExcelButton
             // 
-            this.saveExcelButton.Location = new System.Drawing.Point(417, 622);
+            this.saveExcelButton.Location = new System.Drawing.Point(292, 373);
+            this.saveExcelButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.saveExcelButton.Name = "saveExcelButton";
-            this.saveExcelButton.Size = new System.Drawing.Size(112, 34);
+            this.saveExcelButton.Size = new System.Drawing.Size(78, 30);
             this.saveExcelButton.TabIndex = 0;
             this.saveExcelButton.Text = "Save xlsx";
             this.saveExcelButton.UseVisualStyleBackColor = true;
-            this.saveExcelButton.Click += new System.EventHandler(this.button1_Click);
+            this.saveExcelButton.Click += new System.EventHandler(this.saveExcelButton_Click);
             // 
             // getExcelButton
             // 
-            this.getExcelButton.Location = new System.Drawing.Point(592, 622);
+            this.getExcelButton.Location = new System.Drawing.Point(414, 373);
+            this.getExcelButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.getExcelButton.Name = "getExcelButton";
-            this.getExcelButton.Size = new System.Drawing.Size(112, 34);
+            this.getExcelButton.Size = new System.Drawing.Size(78, 30);
             this.getExcelButton.TabIndex = 1;
             this.getExcelButton.Text = "Get xlsx";
             this.getExcelButton.UseVisualStyleBackColor = true;
@@ -58,9 +61,10 @@
             // 
             // csvButton
             // 
-            this.csvButton.Location = new System.Drawing.Point(417, 704);
+            this.csvButton.Location = new System.Drawing.Point(292, 422);
+            this.csvButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.csvButton.Name = "csvButton";
-            this.csvButton.Size = new System.Drawing.Size(112, 34);
+            this.csvButton.Size = new System.Drawing.Size(78, 25);
             this.csvButton.TabIndex = 2;
             this.csvButton.Text = "Save Csv";
             this.csvButton.UseVisualStyleBackColor = true;
@@ -68,9 +72,10 @@
             // 
             // getCsvButton
             // 
-            this.getCsvButton.Location = new System.Drawing.Point(592, 704);
+            this.getCsvButton.Location = new System.Drawing.Point(414, 422);
+            this.getCsvButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.getCsvButton.Name = "getCsvButton";
-            this.getCsvButton.Size = new System.Drawing.Size(112, 34);
+            this.getCsvButton.Size = new System.Drawing.Size(78, 25);
             this.getCsvButton.TabIndex = 3;
             this.getCsvButton.Text = "Get csv";
             this.getCsvButton.UseVisualStyleBackColor = true;
@@ -79,23 +84,37 @@
             // dataGridView
             // 
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(24, 26);
+            this.dataGridView.Location = new System.Drawing.Point(17, 16);
+            this.dataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersWidth = 62;
             this.dataGridView.RowTemplate.Height = 33;
-            this.dataGridView.Size = new System.Drawing.Size(1102, 544);
+            this.dataGridView.Size = new System.Drawing.Size(771, 326);
             this.dataGridView.TabIndex = 4;
+            // 
+            // displayButton
+            // 
+            this.displayButton.Location = new System.Drawing.Point(17, 362);
+            this.displayButton.Margin = new System.Windows.Forms.Padding(2);
+            this.displayButton.Name = "displayButton";
+            this.displayButton.Size = new System.Drawing.Size(111, 31);
+            this.displayButton.TabIndex = 5;
+            this.displayButton.Text = "Display Data";
+            this.displayButton.UseVisualStyleBackColor = true;
+            this.displayButton.Click += new System.EventHandler(this.displayButton_Click);
             // 
             // ExcelForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1152, 764);
+            this.ClientSize = new System.Drawing.Size(806, 458);
+            this.Controls.Add(this.displayButton);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.getCsvButton);
             this.Controls.Add(this.csvButton);
             this.Controls.Add(this.getExcelButton);
             this.Controls.Add(this.saveExcelButton);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ExcelForm";
             this.Text = "ExcelForm";
             this.Load += new System.EventHandler(this.ExcelForm_Load);
@@ -111,5 +130,6 @@
         private Button csvButton;
         private Button getCsvButton;
         private DataGridView dataGridView;
+        private Button displayButton;
     }
 }

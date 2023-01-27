@@ -21,91 +21,123 @@ namespace Forms
             InitializeComponent();
         }
         SqlConnect loaddata = new SqlConnect();
-
+        List<Products> productsOut = new List<Products>();
         private void ExcelForm_Load(object sender, EventArgs e)
         {
-           
+            
 
         }
 
 
-        private void button1_Click(object sender, EventArgs e)
+        //xlsx
+        private async void getButton_Click(object sender, EventArgs e)
         {
             string path = null;
+            ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
+            OpenFileDialog dialog = new OpenFileDialog()
+            {
+                Filter = "xlsx (*.xlsx)|*.xlsx",
+                Title = "xlsx Files",
+                RestoreDirectory = true
+            };
+            if(dialog.ShowDialog() == DialogResult.OK)
+            {
+
+                path = dialog.FileName;
+
+            }
+            var file = new FileInfo(path);
+            List<Products> productsFromExcel = await LoadExcelFile(file);
+            dataGridView.DataSource = productsFromExcel;
+        }
+        private async void saveExcelButton_Click(object sender, EventArgs e)
+        {
+            string path = null;
+            ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
             SaveFileDialog dialog = new SaveFileDialog()
             {
-                Filter = "CSV (*.csv)|*.csv",
-                Title = "Csv Files",
+                Filter = "xlsx (*.xlsx)|*.xlsx",
+                Title = "xlsx Files",
                 RestoreDirectory = true
             };
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 path = dialog.FileName;
-                excel(path);
+                
             }
-        }
-
-        private async void excel(string path)
-        {
-            ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
-            
             var file = new FileInfo(path);
-            var people = GetSetupData();
-
-            await SaveExcelFile(people, file);
-
-            List<PersonModel> peopleFromExcel = await LoadExcelFile(file);
-
-            foreach (var p in peopleFromExcel)
-            {
-                Console.WriteLine($"{p.Id} {p.FirstName} {p.LastName}");
-            }
+            var products = GetSetupDataProd();
+            await SaveExcelFile(products, file);
         }
 
-        private static async Task<List<PersonModel>> LoadExcelFile(FileInfo file)
+        private List<Products> GetSetupDataProd()
         {
-            List<PersonModel> output = new();
+            
+            for (int i = 0; i < loaddata.table.Rows.Count; i++)
+            {
+                Products prod = new Products();
+                prod.ProdId = Convert.ToInt32(loaddata.table.Rows[i]["ProdId"]);
+                prod.ProdCat = loaddata.table.Rows[i]["ProdCat"].ToString();
+                prod.ProdName = loaddata.table.Rows[i]["ProdName"].ToString();
+                prod.ProdPrice = Convert.ToInt32(loaddata.table.Rows[i]["ProdPrice"]);
+                prod.ProdQty = Convert.ToInt32(loaddata.table.Rows[i]["ProdQty"]);
+                prod.ProdCatID = Convert.ToInt32(loaddata.table.Rows[i]["ProdCatID"]);
+                prod.ProdDate = (loaddata.table.Rows[i]["Date"]).ToString();
+                productsOut.Add(prod);
+            }
+            return productsOut;
+        }
 
+        private static async Task<List<Products>> LoadExcelFile(FileInfo file)
+        {
+            List<Products> outputProd = new();
             using var package = new ExcelPackage(file);
 
             await package.LoadAsync(file);
 
             var ws = package.Workbook.Worksheets[0];
 
-            int row = 3;
+            int row = 5;
             int col = 1;
 
             while (string.IsNullOrWhiteSpace(ws.Cells[row, col].Value?.ToString()) == false)
             {
-                PersonModel p = new();
-                p.Id = int.Parse(ws.Cells[row, col].Value.ToString());
-                p.FirstName = ws.Cells[row, col + 1].Value.ToString();
-                p.LastName = ws.Cells[row, col + 2].Value.ToString();
-                output.Add(p);
+                //PersonModel p = new();
+                Products p = new();
+                p.ProdId = int.Parse(ws.Cells[row, col].Value.ToString());
+                p.ProdName = ws.Cells[row, col + 1].Value.ToString();
+                p.ProdQty = int.Parse(ws.Cells[row, col + 2].Value.ToString());
+                p.ProdPrice = int.Parse(ws.Cells[row, col + 3].Value.ToString());
+                p.ProdCatID = int.Parse(ws.Cells[row, col + 4].Value.ToString());
+                p.ProdCat = ws.Cells[row, col + 5].Value.ToString();
+                p.ProdDate = ws.Cells[row, col + 6].Value.ToString();
+
+                outputProd.Add(p);
                 row += 1;
             }
 
-            return output;
+            return outputProd;
         }
 
-        private static async Task SaveExcelFile(List<PersonModel> people, FileInfo file)
+        private static async Task SaveExcelFile(List<Products> products, FileInfo file)
         {
             DeleteIfExists(file);
-
             using var package = new ExcelPackage(file);
 
             var ws = package.Workbook.Worksheets.Add("MainReport");
 
-            var range = ws.Cells["A2"].LoadFromCollection(people, true);
+            var range = ws.Cells["A4"].LoadFromCollection(products, true);
             range.AutoFitColumns();
 
             // Formats the header
-            ws.Cells["A1"].Value = "Our Cool Report";
+            ws.Cells["A1"].Value = "Report Products";
             ws.Cells["A1:C1"].Merge = true;
             ws.Column(1).Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
             ws.Row(1).Style.Font.Size = 24;
-            ws.Row(1).Style.Font.Color.SetColor(Color.Blue);
-            ws.Cells["A20:C20"].Merge = true;
+            ws.Row(1).Style.Border.BorderAround(ExcelBorderStyle.Dashed);
+            ws.Row(1).Style.Font.Color.SetColor(Color.Black);
+            ws.Row(1).Style.Font.Bold = true;
+
             ws.Row(2).Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
             ws.Row(2).Style.Font.Bold = true;
             ws.Column(3).Width = 20;
@@ -121,19 +153,17 @@ namespace Forms
             }
         }
 
-        private static List<PersonModel> GetSetupData()
-        {
-            List<PersonModel> output = new()
-            {
-                new() { Id = 1, FirstName = "Dimitris", LastName = "Taskoudis" },
-                new() { Id = 2, FirstName = "Teo", LastName = "Savvidis" },
-                new() { Id = 3, FirstName = "Despoina", LastName = "Taskoudi" }
-            };
+       
 
-            return output;
+
+
+        //Csv
+        private void csvButton_Click(object sender, EventArgs e)
+        {
+            
         }
 
-        private void getButton_Click(object sender, EventArgs e)
+        private void getCsvButton_Click(object sender, EventArgs e)
         {
             try
             {
@@ -223,23 +253,28 @@ namespace Forms
             return dt;
         }
 
-        private void csvButton_Click(object sender, EventArgs e)
+        private void displayButton_Click(object sender, EventArgs e)
         {
-
+            loaddata.retrieveData("Select * From ProductTbl");
+            dataGridView.DataSource = loaddata.table;
         }
-
-        private void getCsvButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
- 
     }
 
-    public class PersonModel
+
+    public class Products
     {
-        public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public int ProdId { get; set; }
+        public string ProdName { get; set; }
+        public int ProdQty { get; set; }
+
+        public int ProdPrice { get; set; }
+        public int ProdCatID { get; set; }
+        public string ProdCat { get; set; }
+        public string ProdDate { get; set; }
+
+
     }
+
+
+
 }

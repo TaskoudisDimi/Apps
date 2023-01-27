@@ -38,11 +38,12 @@ namespace Forms
 
             if (!backgroundWorker_.IsBusy)
             {
-                //progressBar1.Visible = true;
+                progressBar1.Visible = true;
                 progress.Text = "Please wait...";
                 //SnackBarTimer();
                 backgroundWorker_.RunWorkerAsync();
             }
+
         }
 
 
@@ -55,24 +56,28 @@ namespace Forms
             //{
             //    records.Add(j);
             //}
+            
             loaddata.retrieveData($"Select * From ProductTbl");
-            int sum = 0;
-            for (int i = 1; i <= 100; i++)
-            {
-                sum = sum + i;
-                //loaddata.retrieveData($"Select * From ProductTbl where ProdId = {records[i]}");
-                backgroundWorker_.ReportProgress(i);
-                // Check if the cancellation is requested
-                if (backgroundWorker_.CancellationPending)
-                {
-                    // Set Cancel property of DoWorkEventArgs object to true
-                    e.Cancel = true;
-                    // Reset progress percentage to ZERO and return
-                    backgroundWorker_.ReportProgress(0);
-                    return;
-                }
-            }
-            e.Result = sum;
+            //backgroundWorker_.ReportProgress(100);
+            dataGridView.DataSource = loaddata.table;
+            //int sum = 0;
+            //for (int i = 1; i <= 100; i++)
+            //{
+            //    sum = sum + i;
+            //    //loaddata.retrieveData($"Select * From ProductTbl where ProdId = {records[i]}");
+            //    backgroundWorker_.ReportProgress(i);
+            //    // Check if the cancellation is requested
+            //    if (backgroundWorker_.CancellationPending)
+            //    {
+            //        // Set Cancel property of DoWorkEventArgs object to true
+            //        e.Cancel = true;
+            //        // Reset progress percentage to ZERO and return
+            //        backgroundWorker_.ReportProgress(0);
+            //        return;
+            //    }
+            //}
+            //e.Result = sum;
+
         }
 
         private void backgroundWorker__RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -89,14 +94,12 @@ namespace Forms
             }
             else
             {
-                progress.Text = e.Result.ToString();
-                if(progressBar1.Value == 100)
-                {
-
-                    dataGridView.DataSource = loaddata.table;
-                }
+                //progress.Text = e.Result.ToString();
+                progress.Text = "Completed!";
+            
 
             }
+            
         }
 
         private void backgroundWorker__ProgressChanged(object sender, ProgressChangedEventArgs e)

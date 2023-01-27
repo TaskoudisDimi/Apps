@@ -27,8 +27,7 @@ namespace Forms.Forms
 
         private void Paging_Load(object sender, EventArgs e)
         {
-            //loaddata.retrieveData("Select * From ProductTbl");
-            //dataGridView.DataSource = loaddata.table;
+
         }
 
         private void prevButton_Click(object sender, EventArgs e)
@@ -40,12 +39,18 @@ namespace Forms.Forms
             }
             loaddata.pagingData("Select * From ProductTbl", scr_val, 5);
             dataGridView.DataSource = loaddata.table;
+            if (dataGridView.Rows.Count > 1)
+            {
+                nextButton.Enabled = true;
+                
+            }
+            
 
         }
 
         private void nextButton_Click(object sender, EventArgs e)
         {
-            if(dataGridView.Rows.Count > 1)
+            if (dataGridView.Rows.Count > 1)
             {
                 scr_val = scr_val + 5;
                 if (scr_val <= 0)
@@ -67,5 +72,5 @@ namespace Forms.Forms
             dataGridView.DataSource = loaddata.table;
         }
     }
-   
+
 }
