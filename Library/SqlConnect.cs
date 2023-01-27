@@ -87,14 +87,13 @@ namespace Library
             }
         }
 
-        //public int Fill(int startRecord, int maxRecords, params DataTable[] dataTables);
-        public void pagingData(string command, int test1, int test2)
+        public void pagingData(string command, int startRecord, int maxRecord)
         {
             try
             {
                 table.Clear();
                 SqlDataAdapter adapter = new SqlDataAdapter(command, con);
-                adapter.Fill(test1, test2, table);
+                adapter.Fill(startRecord, maxRecord, table);
                 Logs log = new Logs(command);
             }
             catch (Exception ex)
