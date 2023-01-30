@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Library;
 using ClassLibrary;
+using Forms.Forms;
 
 namespace Forms
 {
@@ -160,7 +161,64 @@ namespace Forms
         //Csv
         private void csvButton_Click(object sender, EventArgs e)
         {
-            
+            if (dataGridView.Rows.Count > 0)
+            {
+                SaveFileDialog dialog = new SaveFileDialog()
+                {
+                    Filter = "CSV (*.csv)|*.csv",
+                    Title = "Csv Files",
+                    RestoreDirectory = true
+                };
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    if (File.Exists(dialog.FileName))
+                    {
+                        try
+                        {
+                            File.Delete(dialog.FileName);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("It wasn't possible to write the data to the disk." + ex.Message);
+                        }
+                    }
+                    else
+                    {
+                        try
+                        {
+                            int colCount = dataGridView.Columns.Count;
+                            string colNames = string.Empty;
+                            string[] outputCSV = new string[dataGridView.Rows.Count + 1];
+                            for (int i = 0; i < colCount; i++)
+                            {
+                                if (i == colCount - 1)
+                                {
+                                    colNames += dataGridView.Columns[i].HeaderText.ToString();
+                                }
+                                else
+                                {
+                                    colNames += dataGridView.Columns[i].HeaderText.ToString() + ",";
+                                }
+                            }
+                            outputCSV[0] += colNames;
+
+                            for (int i = 1; (i - 1) < dataGridView.Rows.Count; i++)
+                            {
+                                for (int j = 0; j < colCount; j++)
+                                {
+                                    outputCSV[i] += dataGridView.Rows[i - 1].Cells[j].Value.ToString() + ",";
+                                }
+                            }
+                            File.WriteAllLines(dialog.FileName, outputCSV, Encoding.UTF8);
+                            MessageBox.Show("Success");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error :" + ex.Message);
+                        }
+                    }
+                }
+            }
         }
 
         private void getCsvButton_Click(object sender, EventArgs e)
@@ -257,6 +315,23 @@ namespace Forms
         {
             loaddata.retrieveData("Select * From ProductTbl");
             dataGridView.DataSource = loaddata.table;
+        }
+
+        private void test()
+        {
+            for(int i = 0; i < 100; i++)
+            {
+                Thread.Sleep(100);
+            }
+        }
+
+
+        private void testButton_Click(object sender, EventArgs e)
+        {
+            using (ProgressWait wait = new ProgressWait(test))
+            {
+                wait.ShowDialog(this);
+            }
         }
     }
 
