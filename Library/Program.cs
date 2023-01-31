@@ -15,7 +15,7 @@ namespace Library
             // To customize application configuration such as set high DPI settings or default font,z
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new ExcelForm());
+            Application.Run(new PopupNotify());
         }
     }
 }

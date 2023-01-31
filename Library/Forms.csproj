@@ -31,6 +31,7 @@
     <PackageReference Include="PageList" Version="1.2.0" />
     <PackageReference Include="System.Data.OleDb" Version="6.0.0" />
     <PackageReference Include="System.ServiceModel.Primitives" Version="4.10.0" />
+    <PackageReference Include="Tulpep.NotificationWindow" Version="1.1.38" />
   </ItemGroup>
 
   <ItemGroup>
