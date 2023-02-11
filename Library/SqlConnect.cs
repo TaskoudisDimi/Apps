@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -126,6 +127,23 @@ namespace Library
 
             }
         }
+
+        public void storeProcedure()
+        {
+            //String connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BasqueNames.mdf;Integrated Security=True";
+
+            //using (SqlConnection oCON = new SqlConnection(connString))
+            //{
+            //    SqlCommand oCMD = new SqlCommand("usp_BasqueNames_Insert", oCon);
+            //    oCMD.CommandType = CommandType.StoredProcedure;
+
+            //    oCMD.Parameters.Add("@First", SqlDbType.Nchar).Value = strFirstName;
+            //    oCMD.Parameters.Add("@Last", SqlDbType.Nchar).Value = strLastName;
+
+            //    oCMD.ExecuteNonQuery();
+            //}
+        }
+        
 
     }
     
