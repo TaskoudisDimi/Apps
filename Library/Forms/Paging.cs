@@ -73,7 +73,6 @@ namespace Forms.Forms
 
         private void allButton_Click(object sender, EventArgs e)
         {
-
             loaddata.retrieveData("Select * From ProductTbl");
             dataGridView.DataSource = loaddata.table;
             allRecords = loaddata.table.Rows.Count;
@@ -101,6 +100,7 @@ namespace Forms.Forms
                 loaddata.pagingData("Select * From ProductTbl", 0, allRecords);
             }
         }
+
     }
 
 }

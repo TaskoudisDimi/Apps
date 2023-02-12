@@ -15,7 +15,7 @@ namespace Library
     public class SqlConnect 
     {
 
-        SqlConnection con = new SqlConnection();
+        public static SqlConnection con = new SqlConnection();
         public DataTable table = new DataTable();
         public SqlDataAdapter adapterPage = new SqlDataAdapter();
         public SqlConnect()
@@ -128,25 +128,19 @@ namespace Library
             }
         }
 
-        public void storeProcedure()
+        public static void Open()
         {
-            //String connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BasqueNames.mdf;Integrated Security=True";
-
-            //using (SqlConnection oCON = new SqlConnection(connString))
-            //{
-            //    SqlCommand oCMD = new SqlCommand("usp_BasqueNames_Insert", oCon);
-            //    oCMD.CommandType = CommandType.StoredProcedure;
-
-            //    oCMD.Parameters.Add("@First", SqlDbType.Nchar).Value = strFirstName;
-            //    oCMD.Parameters.Add("@Last", SqlDbType.Nchar).Value = strLastName;
-
-            //    oCMD.ExecuteNonQuery();
-            //}
+            con.Open();
         }
-        
+
+        public static void Close()
+        {
+            con.Close();
+        }
+
 
     }
-    
+
 
 
     //public void GetDatabases()

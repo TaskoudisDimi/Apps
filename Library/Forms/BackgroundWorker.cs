@@ -14,7 +14,7 @@ namespace Forms
 {
     public partial class BackgroundWorker : Form
     {
-        SqlConnect loaddata = new SqlConnect();
+        
         public BackgroundWorker()
         {
             InitializeComponent();
@@ -56,7 +56,7 @@ namespace Forms
             //{
             //    records.Add(j);
             //}
-            
+            SqlConnect loaddata = new SqlConnect();
             loaddata.retrieveData($"Select * From ProductTbl");
             //backgroundWorker_.ReportProgress(100);
             dataGridView.DataSource = loaddata.table;

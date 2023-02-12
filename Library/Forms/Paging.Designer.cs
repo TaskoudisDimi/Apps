@@ -39,9 +39,10 @@
             // 
             // prevButton
             // 
-            this.prevButton.Location = new System.Drawing.Point(176, 32);
+            this.prevButton.Location = new System.Drawing.Point(251, 53);
+            this.prevButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.prevButton.Name = "prevButton";
-            this.prevButton.Size = new System.Drawing.Size(75, 23);
+            this.prevButton.Size = new System.Drawing.Size(107, 38);
             this.prevButton.TabIndex = 0;
             this.prevButton.Text = "Prev";
             this.prevButton.UseVisualStyleBackColor = true;
@@ -49,9 +50,10 @@
             // 
             // nextButton
             // 
-            this.nextButton.Location = new System.Drawing.Point(355, 31);
+            this.nextButton.Location = new System.Drawing.Point(507, 52);
+            this.nextButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.nextButton.Name = "nextButton";
-            this.nextButton.Size = new System.Drawing.Size(75, 23);
+            this.nextButton.Size = new System.Drawing.Size(107, 38);
             this.nextButton.TabIndex = 1;
             this.nextButton.Text = "Next";
             this.nextButton.UseVisualStyleBackColor = true;
@@ -60,52 +62,57 @@
             // dataGridView
             // 
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(12, 61);
+            this.dataGridView.Location = new System.Drawing.Point(17, 102);
+            this.dataGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersWidth = 62;
             this.dataGridView.RowTemplate.Height = 25;
-            this.dataGridView.Size = new System.Drawing.Size(817, 435);
+            this.dataGridView.Size = new System.Drawing.Size(1167, 725);
             this.dataGridView.TabIndex = 2;
             // 
             // pageLabel
             // 
             this.pageLabel.AutoSize = true;
-            this.pageLabel.Location = new System.Drawing.Point(283, 36);
+            this.pageLabel.Location = new System.Drawing.Point(404, 60);
+            this.pageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.pageLabel.Name = "pageLabel";
-            this.pageLabel.Size = new System.Drawing.Size(38, 15);
+            this.pageLabel.Size = new System.Drawing.Size(59, 25);
             this.pageLabel.TabIndex = 3;
             this.pageLabel.Text = "label1";
             // 
             // allButton
             // 
-            this.allButton.Location = new System.Drawing.Point(453, 31);
+            this.allButton.Location = new System.Drawing.Point(647, 52);
+            this.allButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.allButton.Name = "allButton";
-            this.allButton.Size = new System.Drawing.Size(75, 23);
+            this.allButton.Size = new System.Drawing.Size(151, 38);
             this.allButton.TabIndex = 4;
-            this.allButton.Text = "All";
+            this.allButton.Text = "All Products";
             this.allButton.UseVisualStyleBackColor = true;
             this.allButton.Click += new System.EventHandler(this.allButton_Click);
             // 
             // comboBox
             // 
             this.comboBox.FormattingEnabled = true;
-            this.comboBox.Location = new System.Drawing.Point(12, 32);
+            this.comboBox.Location = new System.Drawing.Point(17, 53);
+            this.comboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBox.Name = "comboBox";
-            this.comboBox.Size = new System.Drawing.Size(121, 23);
+            this.comboBox.Size = new System.Drawing.Size(171, 33);
             this.comboBox.TabIndex = 5;
             this.comboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
             // 
             // Paging
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(841, 508);
+            this.ClientSize = new System.Drawing.Size(1201, 847);
             this.Controls.Add(this.comboBox);
             this.Controls.Add(this.allButton);
             this.Controls.Add(this.pageLabel);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.nextButton);
             this.Controls.Add(this.prevButton);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Paging";
             this.Text = "Paging";
             this.Load += new System.EventHandler(this.Paging_Load);
