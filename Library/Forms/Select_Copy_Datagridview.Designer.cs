@@ -1,6 +1,6 @@
 ﻿namespace Library
 {
-    partial class Form4
+    partial class Select_Copy_Datagridview
     {
         /// <summary>
         /// Required designer variable.

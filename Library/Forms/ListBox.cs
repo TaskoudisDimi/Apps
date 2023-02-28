@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    public partial class Form1 : Form
+    public partial class ListBox : Form
     {
 
         private List<Books> BuyBooks = new List<Books>();
@@ -27,7 +27,7 @@ namespace Library
 
 
 
-        public Form1()
+        public ListBox()
         {
             InitializeComponent();
             DateTimePicker date = new DateTimePicker();
@@ -50,29 +50,18 @@ namespace Library
             bindingbuyBooks.DataSource = BuyBooks;
             BuyBooksListBox.DataSource = bindingbuyBooks;
 
-
-            //label.Text = String.Format("{0}", InitAmount);
-
-
             StringBuilder sb = new StringBuilder();
             sb.Append("Test of String Builder");
             stringBuilderLabel.Text = sb.ToString();
             
-
-
-
         }
 
 
         public void SetData()
         {
-
             store.books.Add(new Books { TitleBook = "Test1", AgeBook = 200, Price = 20.90 });
             store.books.Add(new Books { TitleBook = "Test2", AgeBook = 201, Price = 29.90 });
             store.books.Add(new Books { TitleBook = "Test3", AgeBook = 180, Price = 30.90 });
-
-            
-
         }
 
         private void BuyButton_Click(object sender, EventArgs e)
@@ -105,13 +94,6 @@ namespace Library
 
         }
 
-
-        public void Test(string Test, bool Test2)
-        {
-
-
-        }
-
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -124,7 +106,7 @@ namespace Library
 
         private void formButton_Click(object sender, EventArgs e)
         {
-            Form2 form = new Form2();
+            Datagridview_Events form = new Datagridview_Events();
             form.Show();
             this.Hide();
 
@@ -133,29 +115,18 @@ namespace Library
 
         private void form3Button_Click(object sender, EventArgs e)
         {
-            Form3 form = new Form3();
+            Datagridview_Event form = new Datagridview_Event();
             form.Show();
             this.Hide();
         }
 
         private void form4Button_Click(object sender, EventArgs e)
         {
-            Form4 form = new Form4();
+            Select_Copy_Datagridview form = new Select_Copy_Datagridview();
             form.Show();
             this.Hide();
         }
 
-        private void form5Button_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void form6Button_Click(object sender, EventArgs e)
-        {
-            Form6 form = new Form6();
-            form.Show();
-            this.Hide();
-        }
 
         private void dateTimePicker_ValueChanged(object sender, EventArgs e)
         {
@@ -176,9 +147,5 @@ namespace Library
 
         }
 
-        //private void bookListBox_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-
-        //}
     }
 }

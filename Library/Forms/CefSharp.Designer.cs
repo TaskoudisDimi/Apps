@@ -1,6 +1,6 @@
 ﻿namespace Library
 {
-    partial class Form7
+    partial class CefSharp
     {
         /// <summary>
         /// Required designer variable.

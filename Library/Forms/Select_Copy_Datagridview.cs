@@ -14,13 +14,13 @@ using System.Data.OleDb;
 
 namespace Library
 {
-    public partial class Form4 : Form
+    public partial class Select_Copy_Datagridview : Form
     {
         //public static string constring = ConfigurationManager.ConnectionStrings["Tutorial"].ConnectionString;
         //SqlConnection con = new SqlConnection(constring);
         SqlConnect loaddata = new SqlConnect();
         
-        public Form4()
+        public Select_Copy_Datagridview()
         {
             InitializeComponent();
 

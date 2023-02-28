@@ -1,6 +1,6 @@
 ﻿namespace Library
 {
-    partial class Form1
+    partial class ListBox
     {
         /// <summary>
         ///  Required designer variable.
@@ -38,8 +38,6 @@
             this.formButton = new System.Windows.Forms.Button();
             this.form3Button = new System.Windows.Forms.Button();
             this.form4Button = new System.Windows.Forms.Button();
-            this.form5Button = new System.Windows.Forms.Button();
-            this.form6Button = new System.Windows.Forms.Button();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.dayLabel = new System.Windows.Forms.Label();
             this.monthLabel = new System.Windows.Forms.Label();
@@ -150,26 +148,6 @@
             this.form4Button.UseVisualStyleBackColor = true;
             this.form4Button.Click += new System.EventHandler(this.form4Button_Click);
             // 
-            // form5Button
-            // 
-            this.form5Button.Location = new System.Drawing.Point(603, 528);
-            this.form5Button.Name = "form5Button";
-            this.form5Button.Size = new System.Drawing.Size(75, 23);
-            this.form5Button.TabIndex = 12;
-            this.form5Button.Text = "Form 5";
-            this.form5Button.UseVisualStyleBackColor = true;
-            this.form5Button.Click += new System.EventHandler(this.form5Button_Click);
-            // 
-            // form6Button
-            // 
-            this.form6Button.Location = new System.Drawing.Point(692, 528);
-            this.form6Button.Name = "form6Button";
-            this.form6Button.Size = new System.Drawing.Size(75, 23);
-            this.form6Button.TabIndex = 13;
-            this.form6Button.Text = "Form 6";
-            this.form6Button.UseVisualStyleBackColor = true;
-            this.form6Button.Click += new System.EventHandler(this.form6Button_Click);
-            // 
             // dateTimePicker
             // 
             this.dateTimePicker.Location = new System.Drawing.Point(36, 29);
@@ -234,8 +212,6 @@
             this.Controls.Add(this.monthLabel);
             this.Controls.Add(this.dayLabel);
             this.Controls.Add(this.dateTimePicker);
-            this.Controls.Add(this.form6Button);
-            this.Controls.Add(this.form5Button);
             this.Controls.Add(this.form4Button);
             this.Controls.Add(this.form3Button);
             this.Controls.Add(this.formButton);
@@ -258,8 +234,8 @@
         }
 
         #endregion
-        private ListBox bookListBox;
-        private ListBox BuyBooksListBox;
+        private System.Windows.Forms.ListBox bookListBox;
+        private System.Windows.Forms.ListBox BuyBooksListBox;
         private Button BuyButton;
         private Label InitAmountLabel;
         private Label label;
@@ -268,8 +244,6 @@
         private Button formButton;
         private Button form3Button;
         private Button form4Button;
-        private Button form5Button;
-        private Button form6Button;
         private DateTimePicker dateTimePicker;
         private Label dayLabel;
         private Label monthLabel;

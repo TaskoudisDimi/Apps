@@ -1,6 +1,6 @@
 ﻿namespace Library
 {
-    partial class Form3
+    partial class Datagridview_Event
     {
         /// <summary>
         /// Required designer variable.

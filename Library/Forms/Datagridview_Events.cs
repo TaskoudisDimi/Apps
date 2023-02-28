@@ -15,26 +15,14 @@ using System.Configuration;
 
 namespace Library
 {
-    public partial class Form2 : Form
+    public partial class Datagridview_Events : Form
     {
         
         public static string constring = ConfigurationManager.ConnectionStrings["Tutorial"].ConnectionString;
         //SqlConnect con = new SqlConnection(constring);
-        public Form2()
+        public Datagridview_Events()
         {
             InitializeComponent();
-
-            //using (SqlConnect connection = new SqlConnection(constring))
-            //{
-            //    connection.Open();
-            //    SqlDataAdapter adapter = new SqlDataAdapter("Select * From [smarketdb].[dbo].[CategoryTbl]", con);
-            //    DataTable tbl = new DataTable();
-            //    adapter.Fill(tbl);
-            //    bindDataGridView.DataSource = tbl;
-            //    connection.Close();
-            //}
-
-
 
             //Insert CheckBox
             DataGridViewCheckBoxColumn checkColumn = new DataGridViewCheckBoxColumn();
@@ -50,9 +38,7 @@ namespace Library
             column.DataPropertyName = "Test";
             method2DataGridView.Columns.Add(column);
 
-
             method1DataGridView.Columns[0].Visible = false;
-           
 
         }
 
@@ -60,22 +46,12 @@ namespace Library
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //foreach (int i in method1DataGridView.Rows)
-            //{
-            //    string query = "";
-            //    con.Open();
-            
-            //    con.Close();
-                
-            //}
             
         }
 
         private void connectButton_Click(object sender, EventArgs e)
         {
-            //con.Open();
-            //MessageBox.Show("Success!");
-            //con.Close();
+   
         }
 
         private void displayButton_Click(object sender, EventArgs e)
@@ -94,17 +70,7 @@ namespace Library
                     ((BackgroundWorker)s).ReportProgress(i, "Test:" + i);
                     
                 }
-                //using (SqlConnection con = new SqlConnection(constring))
-                //{
-                //    con.Open();
-                //    SqlDataAdapter adapter = new SqlDataAdapter("Select * From [smarketdb].[dbo].[CategoryTbl]", con);
-                //    DataTable tbl = new DataTable();
-                //    adapter.Fill(tbl);
-
-                //    method1DataGridView.DataSource = tbl;
-
-                //    method2DataGridView.DataSource = tbl;
-                //}
+                
             };
 
             bgw.ProgressChanged += (s, e) =>
@@ -151,8 +117,6 @@ namespace Library
                     method1DataGridView.Rows.Remove(row);
                 }
             }
-           
-
 
         }
 
@@ -160,7 +124,7 @@ namespace Library
         {
             //int rowindex = method1DataGridView.CurrentRow.Index;
             //MessageBox.Show("Double click!");
-            Form3 form3 = new Form3();
+            Datagridview_Event form3 = new Datagridview_Event();
             form3.catIdTextBox.Text = this.method1DataGridView.CurrentRow.Cells[0].Value.ToString();
             form3.catNameTextBox.Text = this.method1DataGridView.CurrentRow.Cells[1].Value.ToString();
             form3.catDescTextBox.Text = this.method1DataGridView.CurrentRow.Cells[2].Value.ToString();
@@ -175,23 +139,7 @@ namespace Library
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            //using (SqlConnect con = new SqlConnection(constring))
-            //{
-            //    con.Open(); 
-            //    SqlDataAdapter adapter = new SqlDataAdapter("Select * From [smarketdb].[dbo].[CategoryTbl]", con);
-            //    DataTable tbl = new DataTable();
-            //    adapter.Fill(tbl);
-
-
-
-            //    autoCompleteComboBox.DataSource = tbl;
-            //    autoCompleteComboBox.DisplayMember = "CatName";
-            //    autoCompleteComboBox.ValueMember = "CatId";
-            //    con.Close();
-
-            //}
-
-
+            
 
         }
 
@@ -210,10 +158,7 @@ namespace Library
                     Myrow.DefaultCellStyle.BackColor = Color.Green;
 
                 }
-                
             }
         }
-
-        
     }
 }

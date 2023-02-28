@@ -12,48 +12,24 @@ using System.Configuration;
 
 namespace Library
 {
-    public partial class Form3 : Form
+    public partial class Datagridview_Event : Form
     {
 
         private int rowintex = 0;
         SqlConnect loadData = new SqlConnect();
 
-        public Form3()
+        public Datagridview_Event()
         {
             InitializeComponent();
-
-
-            //SqlConnector loadData = new SqlConnector();
             loadData.retrieveData("Select * From [smarketdb].[dbo].[CategoryTbl]");
             readOnlyDataGridView.DataSource = loadData.table;
-
-
-
-
-            //foreach (DataGridViewRow row in readOnlyDataGridView.Rows)
-            //{
-            //    row.ReadOnly = true;
-            //}
-
-
-            //Chasnge column header
-            //readOnlyDataGridView.Columns["CatId"].DisplayIndex = 2;
-
 
 
         }
 
         private void sqlButton_Click(object sender, EventArgs e)
         {
-            //string query = sqlTextBox.Text;
-            //SqlDataAdapter adapter = new SqlDataAdapter(query, con);
-            //DataSet ds = new DataSet();
-            //adapter.Fill(ds);
-            //if (ds.Tables[0].Rows.Count != 0)
-            //{
-            //    sqlDataGridView.DataSource = ds.Tables[0];
-
-            //}
+            
         }
 
         //Prevent from dublicate values on datagridview
@@ -83,25 +59,6 @@ namespace Library
         }
 
 
-        //private void SelectedRow()
-        //{
-        //    double sum = 0;
-        //    for (int i = 0; i < this.readOnlyDataGridView.Rows.Count; i++)
-        //    {
-        //        if (Convert.ToBoolean(readOnlyDataGridView.Rows[i].Cells[0].Value) == true)
-        //        {
-        //            sum += double.Parse(readOnlyDataGridView.Rows[i].Cells[2].Value.ToString());
-        //        }
-        //    }
-
-        //    sumTextBox.Text = sum.ToString();
-
-        //}
-
-        //private void sumButton_Click(object sender, EventArgs e)
-        //{
-        //    SelectedRow();
-        //}
 
         private void readOnlyDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

@@ -34,7 +34,7 @@ namespace Forms.Forms
 
         private void stopButton_Click(object sender, EventArgs e)
         {
-            mciSendString("save recsound C:\\Users\\ASUS\\Desktop\\Programming\\C#_OOP\\test.wav", null, 0, 0);
+            mciSendString("save recsound C:\\Users\\ASUS\\Desktop\\Programming\\C#\\test.wav", null, 0, 0);
             mciSendString("close recsound", null, 0, 0);
 
         }

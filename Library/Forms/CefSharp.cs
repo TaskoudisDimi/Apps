@@ -16,9 +16,9 @@ using System.Timers;
 
 namespace Library
 {
-    public partial class Form7 : Form
+    public partial class CefSharp : Form
     {
-        public Form7()
+        public CefSharp()
         {
             InitializeComponent();
             
