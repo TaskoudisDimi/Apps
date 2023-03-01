@@ -27,6 +27,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TCPCLient", "TCPCLient\TCPC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Forms", "Library\Forms.csproj", "{DBF6144E-A98D-4967-AD30-51D79BC4659C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{F3712EBC-ACEF-418A-826C-26E60D2AF946}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{ED503CFE-7D31-44FE-8FB8-DAAF49E7EDFB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -131,6 +135,22 @@ Global
 		{DBF6144E-A98D-4967-AD30-51D79BC4659C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DBF6144E-A98D-4967-AD30-51D79BC4659C}.Release|x64.ActiveCfg = Release|x64
 		{DBF6144E-A98D-4967-AD30-51D79BC4659C}.Release|x64.Build.0 = Release|x64
+		{F3712EBC-ACEF-418A-826C-26E60D2AF946}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3712EBC-ACEF-418A-826C-26E60D2AF946}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3712EBC-ACEF-418A-826C-26E60D2AF946}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F3712EBC-ACEF-418A-826C-26E60D2AF946}.Debug|x64.Build.0 = Debug|Any CPU
+		{F3712EBC-ACEF-418A-826C-26E60D2AF946}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3712EBC-ACEF-418A-826C-26E60D2AF946}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3712EBC-ACEF-418A-826C-26E60D2AF946}.Release|x64.ActiveCfg = Release|Any CPU
+		{F3712EBC-ACEF-418A-826C-26E60D2AF946}.Release|x64.Build.0 = Release|Any CPU
+		{ED503CFE-7D31-44FE-8FB8-DAAF49E7EDFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED503CFE-7D31-44FE-8FB8-DAAF49E7EDFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED503CFE-7D31-44FE-8FB8-DAAF49E7EDFB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{ED503CFE-7D31-44FE-8FB8-DAAF49E7EDFB}.Debug|x64.Build.0 = Debug|Any CPU
+		{ED503CFE-7D31-44FE-8FB8-DAAF49E7EDFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED503CFE-7D31-44FE-8FB8-DAAF49E7EDFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED503CFE-7D31-44FE-8FB8-DAAF49E7EDFB}.Release|x64.ActiveCfg = Release|Any CPU
+		{ED503CFE-7D31-44FE-8FB8-DAAF49E7EDFB}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
