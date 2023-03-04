@@ -8,6 +8,8 @@ using Nancy.Json;
 using System.Net.Sockets;
 using System.Text;
 using System.Collections;
+using System.Runtime.InteropServices;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Lesson1
 
@@ -148,6 +150,9 @@ namespace Lesson1
 
         class Program
         {
+            [DllImport("user32.dll", EntryPoint = "MessageBox")]
+            public static extern int ShowMessageBox(int hWnd, string text, string caption, uint type);
+
             //public delegate void AddVal(int x, int y);
             //public void SMeth(int x, int y)
             //{
@@ -747,7 +752,6 @@ namespace Lesson1
                 //    }
                 //}
 
-                #endregion
 
                 ////Test create 2nd Thread
                 //Console.WriteLine("Start counting...");
@@ -1005,16 +1009,51 @@ namespace Lesson1
                 //    Console.WriteLine("Key {0} and Value {1}", item.Key, item.Value);
                 //}
 
-                TestInterface test = new UsefulTools();
-                test.PTheory();
-                test.test();
-                Console.ReadLine();
+                //TestInterface test = new UsefulTools();
+                //test.PTheory();
+                //test.test();
+                //Console.ReadLine();
+                #endregion
+
+
+
+                ////Type
+                //int numInt = 500;
+
+                //// get type of numInt
+                //Type n = numInt.GetType();
+
+                //// Implicit Conversion
+                //double numDouble = numInt;
+
+                //// get type of numDouble
+                //Type n1 = numDouble.GetType();
+
+                //string str = numInt.ToString();
+                //Type n2 = str.GetType();
+
+
+                //// Value before conversion
+                //Console.WriteLine("numInt value: " + numInt);
+                //Console.WriteLine("numInt Type: " + n);
+
+                //// Value after conversion
+                //Console.WriteLine("numDouble value: " + numDouble);
+                //Console.WriteLine("numDouble Type: " + n1);
+
+                //// Value before conversion
+                //Console.WriteLine("numInt value: " + str);
+                //Console.WriteLine("numInt Type: " + n2);
+
+                //Console.ReadLine();
+
+
+                //Attribute
+                
             }
 
         }
 
-
-        
         //class SalesTotal
         //{
         //    public double Total { get; set; }

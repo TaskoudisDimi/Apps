@@ -43,7 +43,7 @@ public class Client
 
                 // Encode the data string into a byte array.
                 byte[] msg = Encoding.ASCII.GetBytes("This is a test<EOF>");
-
+                
                 // Send the data through the socket.
                 int bytesSent = sender.Send(msg);
 
