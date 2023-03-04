@@ -10,6 +10,7 @@ using System.Text;
 using System.Collections;
 using System.Runtime.InteropServices;
 using static System.Net.Mime.MediaTypeNames;
+using System.Reflection;
 
 namespace Lesson1
 
@@ -1048,8 +1049,14 @@ namespace Lesson1
                 //Console.ReadLine();
 
 
-                //Attribute
-                
+                ////Attribute
+                //var test = from t in Assembly.GetExecutingAssembly().GetTypes()
+                //           where t.GetCustomAttributes(false).Any(a => a is TestAttribute)
+                //           select t;
+                //foreach(Type t in test)
+                //{
+                //    Console.WriteLine(t.Name);
+                //}
             }
 
         }
@@ -1170,6 +1177,13 @@ namespace Lesson1
         //}
 
 
+        //class TestAttribute : Attribute { }
+
+        //[TestAttribute]
+        //class MyTest
+        //{
+
+        //}
 
     }
 }
