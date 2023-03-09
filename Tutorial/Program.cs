@@ -2,9 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
+//using Newtonsoft.Json;
 using System.Net;
-using Nancy.Json;
+//using Nancy.Json;
 using System.Net.Sockets;
 using System.Text;
 using System.Collections;
@@ -1057,6 +1057,39 @@ namespace Lesson1
                 //{
                 //    Console.WriteLine(t.Name);
                 //}
+
+
+               
+
+                //int int1 = 10;
+                //byte[] bytes1 = BitConverter.GetBytes(int1);
+                //Console.WriteLine(BitConverter.ToString(bytes1));
+                //Console.WriteLine(BitConverter.ToString(bytes1));
+
+                int intValue = 10000;
+                byte[] intBytes = BitConverter.GetBytes(intValue);
+                Array.Reverse(intBytes);
+                byte[] result = intBytes;
+                foreach(var item in result)
+                {
+                    Console.WriteLine(item);
+                }
+
+
+
+                //byte[] ObjectToByteArray(object obj)
+                //{
+                //    if (obj == null)
+                //        return null;
+                //    BinaryFormatter bf = new BinaryFormatter();
+                //    using (MemoryStream ms = new MemoryStream())
+                //    {
+                //        bf.Serialize(ms, obj);
+                //        return ms.ToArray();
+                //    }
+                //}
+
+
             }
 
         }

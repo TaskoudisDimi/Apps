@@ -29,11 +29,11 @@ public class Program
             
             // A Socket must be associated with an endpoint using the Bind method
             listener.Bind(localEndPoint);
-
+            
             // Specify how many requests a Socket can listen before it gives Server busy response.
             // We will listen 10 requests at a time
             listener.Listen(10);
-
+            
             Console.WriteLine("Waiting for a connection...");
             Socket handler = listener.Accept();
 
@@ -46,7 +46,7 @@ public class Program
                 bytes = new byte[1024];
                 int bytesRec = handler.Receive(bytes);
                 data += Encoding.ASCII.GetString(bytes, 0, bytesRec);
-                if (data.IndexOf("<EOF>") > -1)
+                if (data.IndexOf("Client1") > -1)
                 {
                     break;
                 }

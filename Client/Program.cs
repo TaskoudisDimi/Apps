@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -42,14 +43,14 @@ public class Client
                     sender.RemoteEndPoint.ToString());
 
                 // Encode the data string into a byte array.
-                byte[] msg = Encoding.ASCII.GetBytes("This is a test<EOF>");
+                byte[] msg = Encoding.ASCII.GetBytes("This is a test from Client1");
                 
                 // Send the data through the socket.
                 int bytesSent = sender.Send(msg);
 
                 // Receive the response from the remote device.
                 int bytesRec = sender.Receive(bytes);
-                Console.WriteLine("Echoed test = {0}",
+                Console.WriteLine("Test Message = {0}",
                     Encoding.ASCII.GetString(bytes, 0, bytesRec));
 
                 // Release the socket.
@@ -76,4 +77,5 @@ public class Client
             Console.WriteLine(e.ToString());
         }
     }
+
 }
