@@ -11,6 +11,7 @@ using System.Collections;
 using System.Runtime.InteropServices;
 using static System.Net.Mime.MediaTypeNames;
 using System.Reflection;
+using System.Text.Json;
 
 namespace Lesson1
 
@@ -1059,41 +1060,66 @@ namespace Lesson1
                 //}
 
 
-               
 
-                //int int1 = 10;
-                //byte[] bytes1 = BitConverter.GetBytes(int1);
-                //Console.WriteLine(BitConverter.ToString(bytes1));
-                //Console.WriteLine(BitConverter.ToString(bytes1));
 
-                int intValue = 10000;
-                byte[] intBytes = BitConverter.GetBytes(intValue);
-                Array.Reverse(intBytes);
-                byte[] result = intBytes;
-                foreach(var item in result)
+
+                //Bytes
+                //string: Encoding.ASCII.GetBytes() or Encoding.UTF8.GetBytes()
+                //int, float, double, long, short, byte: BitConverter.GetBytes()
+                //bool: BitConverter.GetBytes() or new byte[] { value ? (byte)1 : (byte)0 }
+                //DateTime: BitConverter.GetBytes() or DateTime.ToBinary() and BitConverter.GetBytes()
+
+
+                //Convert string/int to bytes
+                string str = "Test";
+                byte[] dataString = Encoding.ASCII.GetBytes(str);
+                byte[] dataString2 = Encoding.UTF8.GetBytes(str);
+
+                int Int = 10;
+                byte[] dataInt = BitConverter.GetBytes(Int);
+
+
+                //Convert bytes to string/int
+                byte[] intBytes = new byte[] { 0x01, 0x00, 0x00, 0x00 }; // Represents the integer value 1
+                int myInt = BitConverter.ToInt32(intBytes, 0);
+
+                byte[] messageBytes = new byte[] { 72, 101, 108, 108, 111, 44, 32, 119, 111, 114, 108, 100, 33 };
+                string message = Encoding.UTF8.GetString(messageBytes);
+
+
+                //Json
+                //Serialize
+                Person person = new Person { Name = "John", Age = 30 };
+                string jsonString = JsonSerializer.Serialize(person);
+
+
+                //Deserialize
+                string jsonString2 = "{\"Name\":\"John\",\"Age\":30}";
+                Person person2 = JsonSerializer.Deserialize<Person>(jsonString);
+
+
+                string jsonString3 = "{\"Name\":\"John\",\"Age\":30}";
+                using (JsonDocument document = JsonDocument.Parse(jsonString))
                 {
-                    Console.WriteLine(item);
+                    JsonElement root = document.RootElement;
+                    string name = root.GetProperty("Name").GetString();
+                    int age = root.GetProperty("Age").GetInt32();
+                    Console.WriteLine($"Name: {name}, Age: {age}");
                 }
 
+                Console.ReadLine();
 
 
-                //byte[] ObjectToByteArray(object obj)
-                //{
-                //    if (obj == null)
-                //        return null;
-                //    BinaryFormatter bf = new BinaryFormatter();
-                //    using (MemoryStream ms = new MemoryStream())
-                //    {
-                //        bf.Serialize(ms, obj);
-                //        return ms.ToArray();
-                //    }
-                //}
-
+                //Json to bytes
 
             }
 
         }
-
+        public class Person
+        {
+            public string Name { get; set; }
+            public int Age { get; set; }
+        }
         //class SalesTotal
         //{
         //    public double Total { get; set; }
