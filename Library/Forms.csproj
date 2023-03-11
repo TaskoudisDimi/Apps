@@ -37,6 +37,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ClassLibrary1\ClassLibrary.csproj" />
+    <ProjectReference Include="..\Tutorial\Tutorial.csproj" />
   </ItemGroup>
 
   <ItemGroup>
