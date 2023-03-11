@@ -7,7 +7,7 @@ using System.Text;
 // Client app is the one sending messages to a Server/listener.
 // Both listener and client can send messages back and forth once a
 // communication is established.
-public class Client
+public class Client2
 {
     public static int Main(String[] args)
     {
@@ -43,16 +43,16 @@ public class Client
                     sender.RemoteEndPoint.ToString());
 
                 // Encode the data string into a byte array.
-                byte[] msg = Encoding.ASCII.GetBytes("This is a test from Client 1");
-                
+                byte[] msg = Encoding.ASCII.GetBytes("This is a test from Client 2");
+
                 // Send the data through the socket.
-                int bytesSent = sender.Send(msg);   
+                int bytesSent = sender.Send(msg);
 
                 // Receive the response from the remote device.
                 int bytesRec = sender.Receive(bytes);
                 string msgFromServer = Encoding.ASCII.GetString(bytes);
                 Console.WriteLine("Message from server is : {0}", msgFromServer);
-            
+
 
                 // Release the socket.
                 sender.Shutdown(SocketShutdown.Both);

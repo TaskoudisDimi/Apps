@@ -33,6 +33,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AI", "AI\AI.csproj", "{DDEF
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tutorial", "Tutorial\Tutorial.csproj", "{B7FE592B-B203-4387-9837-D8F6B26CCDF2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client2", "ClientTest\Client2.csproj", "{96356580-D62B-4EB5-9A5E-E19823826C9B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -161,6 +163,14 @@ Global
 		{B7FE592B-B203-4387-9837-D8F6B26CCDF2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B7FE592B-B203-4387-9837-D8F6B26CCDF2}.Release|x64.ActiveCfg = Release|Any CPU
 		{B7FE592B-B203-4387-9837-D8F6B26CCDF2}.Release|x64.Build.0 = Release|Any CPU
+		{96356580-D62B-4EB5-9A5E-E19823826C9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96356580-D62B-4EB5-9A5E-E19823826C9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96356580-D62B-4EB5-9A5E-E19823826C9B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{96356580-D62B-4EB5-9A5E-E19823826C9B}.Debug|x64.Build.0 = Debug|Any CPU
+		{96356580-D62B-4EB5-9A5E-E19823826C9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96356580-D62B-4EB5-9A5E-E19823826C9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96356580-D62B-4EB5-9A5E-E19823826C9B}.Release|x64.ActiveCfg = Release|Any CPU
+		{96356580-D62B-4EB5-9A5E-E19823826C9B}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

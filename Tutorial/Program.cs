@@ -145,10 +145,7 @@ namespace Lesson1
         //    public string DepartmentName { get; set; }
         //}
 
-        /// <summary>
-        /// TODO: UDP, TCP server
-        /// TODO: Linq methods
-        /// </summary>
+       
 
         class Program
         {
@@ -1086,26 +1083,26 @@ namespace Lesson1
                 byte[] messageBytes = new byte[] { 72, 101, 108, 108, 111, 44, 32, 119, 111, 114, 108, 100, 33 };
                 string message = Encoding.UTF8.GetString(messageBytes);
 
-
-                //Json
-                //Serialize
-                Person person = new Person { Name = "John", Age = 30 };
-                string jsonString = JsonSerializer.Serialize(person);
-
-
-                //Deserialize
-                string jsonString2 = "{\"Name\":\"John\",\"Age\":30}";
-                Person person2 = JsonSerializer.Deserialize<Person>(jsonString);
+                
+                ////Json
+                ////Serialize
+                //Person person = new Person { Name = "John", Age = 30 };
+                //string jsonString = JsonSerializer.Serialize(person);
 
 
-                string jsonString3 = "{\"Name\":\"John\",\"Age\":30}";
-                using (JsonDocument document = JsonDocument.Parse(jsonString))
-                {
-                    JsonElement root = document.RootElement;
-                    string name = root.GetProperty("Name").GetString();
-                    int age = root.GetProperty("Age").GetInt32();
-                    Console.WriteLine($"Name: {name}, Age: {age}");
-                }
+                ////Deserialize
+                //string jsonString2 = "{\"Name\":\"John\",\"Age\":30}";
+                //Person person2 = JsonSerializer.Deserialize<Person>(jsonString);
+
+
+                //string jsonString3 = "{\"Name\":\"John\",\"Age\":30}";
+                //using (JsonDocument document = JsonDocument.Parse(jsonString))
+                //{
+                //    JsonElement root = document.RootElement;
+                //    string name = root.GetProperty("Name").GetString();
+                //    int age = root.GetProperty("Age").GetInt32();
+                //    Console.WriteLine($"Name: {name}, Age: {age}");
+                //}
 
                 Console.ReadLine();
 
@@ -1247,3 +1244,8 @@ namespace Lesson1
     }
 }
 
+/// <summary>
+/// TODO: UDP, TCP server
+/// TODO: Linq methods
+/// TODO: Image to db
+/// </summary>

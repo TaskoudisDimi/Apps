@@ -2,69 +2,81 @@
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
+using static Program;
 
 // Socket Listener acts as a server and listens to the incoming
 // messages on the specified port and protocol.
 public class Program
 {
-    public static int Main(String[] args)
+    public static void Main(String[] args)
     {
-        StartServer();
-        return 0;
+        //StartServer();
+        Console.WriteLine("Starting server...");
+        Server server = new Server();
+        Thread serverThread = new Thread(() => server.Start());
+        serverThread.Start();
+
+        Console.WriteLine("Press any key to exit...");
+        Console.ReadKey();
     }
 
-    public static void StartServer()
+
+    public class Server
     {
-        // Get Host IP Address that is used to establish a connection
-        // In this case, we get one IP address of localhost that is IP : 127.0.0.1
-        // If a host has multiple addresses, you will get a list of addresses
-        IPHostEntry host = Dns.GetHostEntry("localhost");
-        IPAddress ipAddress = host.AddressList[1];
-        IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 11000);
-
-        try {
-
+        private const int PORT = 8888;
+        private Socket serverSocket;
+        //Creating the client and server on separate threads allows them to run concurrently,
+        //meaning they can both execute at the same time.If we were to run the server and client sequentially(i.e.one after the other) on the same thread,
+        //the server would have to wait for the client to finish before it could continue processing.
+        public Server()
+        {
+            // Get Host IP Address that is used to establish a connection
+            // In this case, we get one IP address of localhost that is IP : 127.0.0.1
+            // If a host has multiple addresses, you will get a list of addresses
             // Create a Socket that will use Tcp protocol
-            Socket listener = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-            
+            serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             // A Socket must be associated with an endpoint using the Bind method
-            listener.Bind(localEndPoint);
-            
-            // Specify how many requests a Socket can listen before it gives Server busy response.
-            // We will listen 10 requests at a time
-            listener.Listen(10);
-            
-            Console.WriteLine("Waiting for a connection...");
-            Socket handler = listener.Accept();
+            serverSocket.Bind(new IPEndPoint(IPAddress.Any, PORT));
+        }
+        public void Start()
+        {
+            serverSocket.Listen(10);
+            Console.WriteLine($"Server started on port {PORT}");
+            while (true)
+            {
+                Socket clientSocket = serverSocket.Accept();
+                Console.WriteLine($"New client connected: {clientSocket.RemoteEndPoint}");
 
-             // Incoming data from the client.
-             string data = null;
-             byte[] bytes = null;
+                Thread clientThread = new Thread(() => HandleClient(clientSocket));
+                clientThread.Start();
+            }
+        }
+
+        private void HandleClient(Socket clientSocket)
+        {
+            byte[] buffer = new byte[1024];
+            StringBuilder message = new StringBuilder();
 
             while (true)
             {
-                bytes = new byte[1024];
-                int bytesRec = handler.Receive(bytes);
-                data += Encoding.ASCII.GetString(bytes, 0, bytesRec);
-                if (data.IndexOf("Client1") > -1)
+                // Incoming data from the client.
+                int bytesRead = clientSocket.Receive(buffer);
+                if (bytesRead == 0)
                 {
                     break;
                 }
+
+                string data = Encoding.ASCII.GetString(buffer, 0, bytesRead);
+                message.Append(data);
+                Console.WriteLine($"Received message from {clientSocket.RemoteEndPoint}: {message}");
+                clientSocket.Send(Encoding.ASCII.GetBytes("Message received"));
             }
 
-            Console.WriteLine("Text received : {0}", data);
-
-            byte[] msg = Encoding.ASCII.GetBytes(data);
-            handler.Send(msg);
-            handler.Shutdown(SocketShutdown.Both);
-            handler.Close();
+            
+            clientSocket.Shutdown(SocketShutdown.Both);
+            clientSocket.Close();
         }
-        catch (Exception e)
-        {
-            Console.WriteLine(e.ToString());
-        }
-
-        Console.WriteLine("\n Press any key to continue...");
-        Console.ReadKey();
     }
+
 }
