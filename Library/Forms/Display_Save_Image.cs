@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using static System.Net.Mime.MediaTypeNames;
+using Image = System.Drawing.Image;
+using DocumentFormat.OpenXml.Vml;
 
 namespace Forms.Forms
 {
@@ -23,16 +25,21 @@ namespace Forms.Forms
             InitializeComponent();
         }
 
+
+        //Uploade Image
         private void button_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
             if(ofd.ShowDialog() == DialogResult.OK)
             {
                 imageName = ofd.FileName;
+                pictureBox.Image = Image.FromFile(ofd.FileName);
             }
         }
 
 
+        //Save Image
+        public int imageId = 0 ;
         private void image()
         {
             byte[] imageData = File.ReadAllBytes(imageName);
@@ -55,21 +62,29 @@ namespace Forms.Forms
             image();
         }
 
+
+        //Display Image
         private void buttonDisplayDB_Click(object sender, EventArgs e)
         {
-            //string connectionString = "your connection string";
-            //using (SqlConnection connection = new SqlConnection(connectionString))
-            //{
-            //    connection.Open();
-            //    string query = "SELECT ImageData FROM Images WHERE Id = @Id";
-            //    SqlCommand command = new SqlCommand(query, connection);
-            //    command.Parameters.AddWithValue("@Id", imageId);
-            //    byte[] imageData = (byte[])command.ExecuteScalar();
-            //    using (MemoryStream stream = new MemoryStream(imageData))
-            //    {
-            //        pictureBox1.Image = Image.FromStream(stream);
-            //    }
-            //}
+            con.ConnectionString = ConfigurationManager.ConnectionStrings["Supermarket"].ConnectionString;
+            string connectionString = con.ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                
+                imageId = 1;
+                string query = "SELECT Image FROM TestImage WHERE Id = @Id";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Id", imageId);
+                byte[] imageData2 = (byte[])command.ExecuteScalar();
+                using (MemoryStream stream = new MemoryStream(imageData2))
+                {
+                    pictureBox2.Image = Image.FromStream(stream);
+                }
+                command.ExecuteNonQuery();
+            }
+
+
 
         }
     }

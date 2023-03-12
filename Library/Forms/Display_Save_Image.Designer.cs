@@ -32,12 +32,14 @@
             this.button = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonDisplayDB = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox
             // 
-            this.pictureBox.Location = new System.Drawing.Point(189, 49);
+            this.pictureBox.Location = new System.Drawing.Point(25, 26);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(370, 214);
             this.pictureBox.TabIndex = 0;
@@ -73,11 +75,20 @@
             this.buttonDisplayDB.UseVisualStyleBackColor = true;
             this.buttonDisplayDB.Click += new System.EventHandler(this.buttonDisplayDB_Click);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(639, 26);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(370, 214);
+            this.pictureBox2.TabIndex = 4;
+            this.pictureBox2.TabStop = false;
+            // 
             // Display_Save_Image
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1191, 450);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.buttonDisplayDB);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.button);
@@ -85,6 +96,7 @@
             this.Name = "Display_Save_Image";
             this.Text = "Display_Save_Image";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -95,5 +107,6 @@
         private Button button;
         private Button buttonSave;
         private Button buttonDisplayDB;
+        private PictureBox pictureBox2;
     }
 }
