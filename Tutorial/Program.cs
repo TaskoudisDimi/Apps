@@ -1067,23 +1067,23 @@ namespace Lesson1
                 //DateTime: BitConverter.GetBytes() or DateTime.ToBinary() and BitConverter.GetBytes()
 
 
-                //Convert string/int to bytes
-                string str = "Test";
-                byte[] dataString = Encoding.ASCII.GetBytes(str);
-                byte[] dataString2 = Encoding.UTF8.GetBytes(str);
+                ////Convert string/int to bytes
+                //string str = "Test";
+                //byte[] dataString = Encoding.ASCII.GetBytes(str);
+                //byte[] dataString2 = Encoding.UTF8.GetBytes(str);
 
-                int Int = 10;
-                byte[] dataInt = BitConverter.GetBytes(Int);
+                //int Int = 10;
+                //byte[] dataInt = BitConverter.GetBytes(Int);
 
 
-                //Convert bytes to string/int
-                byte[] intBytes = new byte[] { 0x01, 0x00, 0x00, 0x00 }; // Represents the integer value 1
-                int myInt = BitConverter.ToInt32(intBytes, 0);
+                ////Convert bytes to string/int
+                //byte[] intBytes = new byte[] { 0x01, 0x00, 0x00, 0x00 }; // Represents the integer value 1
+                //int myInt = BitConverter.ToInt32(intBytes, 0);
 
-                byte[] messageBytes = new byte[] { 72, 101, 108, 108, 111, 44, 32, 119, 111, 114, 108, 100, 33 };
-                string message = Encoding.UTF8.GetString(messageBytes);
+                //byte[] messageBytes = new byte[] { 72, 101, 108, 108, 111, 44, 32, 119, 111, 114, 108, 100, 33 };
+                //string message = Encoding.UTF8.GetString(messageBytes);
 
-                
+
                 ////Json
                 ////Serialize
                 //Person person = new Person { Name = "John", Age = 30 };
@@ -1104,14 +1104,68 @@ namespace Lesson1
                 //    Console.WriteLine($"Name: {name}, Age: {age}");
                 //}
 
+
+                ////Lock
+                //for (int i = 0; i < 10; i++)
+                //{
+                //    ThreadStart start = new ThreadStart(TestLock);
+                //    new Thread(start).Start();
+                //}
+
+               
+                ////Monitor
+                //Thread[] Threads = new Thread[3];
+                //for (int i = 0; i < 3; i++)
+                //{
+                //    Threads[i] = new Thread(new ThreadStart(PrintNumbers));
+                //    Threads[i].Name = "Child " + i;
+                //}
+                //foreach (Thread t in Threads)
+                //    t.Start();
+
                 Console.ReadLine();
 
 
                 //Json to bytes
 
             }
+            //static readonly object _object = new object();
+
+            ////Lock
+            //static void TestLock()
+            //{
+
+            //    lock (_object)
+            //    {
+            //        Thread.Sleep(100);
+            //        Console.WriteLine(Environment.TickCount);
+            //    }
+            //}
+
+
+            ////Monitor
+            //public static void PrintNumbers()
+            //{
+            //    Monitor.Enter(_object);
+            //    try
+            //    {
+            //        for (int i = 0; i < 5; i++)
+            //        {
+            //            Thread.Sleep(100);
+            //            Console.Write(i + ",");
+            //        }
+            //        Console.WriteLine();
+            //    }
+            //    finally
+            //    {
+            //        Monitor.Exit(_object);
+            //    }
+            //}
+
 
         }
+
+
         public class Person
         {
             public string Name { get; set; }
@@ -1247,5 +1301,5 @@ namespace Lesson1
 /// <summary>
 /// TODO: UDP, TCP server
 /// TODO: Linq methods
-/// TODO: Image to db
+/// TODO: Schema of database (create, edit tables)
 /// </summary>
