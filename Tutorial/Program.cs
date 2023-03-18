@@ -1088,81 +1088,23 @@ namespace Lesson1
                 //}
 
 
-
-                ////Delegates
-                ////Delegates are often used to implement callback functions, event handlers, and other similar patterns where we need to pass a function or method as an argument to another method or object. 
-                //// Create delegate instances that point to the Add and Subtract methods
-                //Calculate add = new Calculate(Calculator.Add);
-                //Calculate subtract = new Calculate(Calculator.Subtract);
-
-                //// Use the delegates to perform calculations
-                //int result1 = add(5, 3);
-                //int result2 = subtract(10, 4);
-
-                //Console.WriteLine($"Result of adding 5 and 3: {result1}");
-                //Console.WriteLine($"Result of subtracting 4 from 10: {result2}");
-
-                //StringJoin strs = new StringJoin(StringJoins.AddStr);
-                //string str1 = strs("Test1", "Test2");
-                //Console.WriteLine(str1);
-
-
-                //// Create a new thread
-                //Thread t = new Thread(new ThreadStart(DoWork));
-                //Thread t2 = new Thread(new ThreadStart(DoWork2));
-                //// Start the thread
-                //t.Start();
-                //t2.Start();
-                //// Wait for the thread to finish
-                //t.Join();
-                //t2.Join();
-                //Console.WriteLine("Main thread exiting...");
-
-
-                ////Lock statement
-                //Counter counter = new Counter();
-
-                //Thread thread1 = new Thread(() =>
+                ////Lock
+                //for (int i = 0; i < 10; i++)
                 //{
-                //    for (int i = 0; i < 10; i++)
-                //    {
-                //        counter.Increment();
-                //        Console.WriteLine("Increment {0}", i);
-                //        Thread.Sleep(100);
-                //    }
-                //});
+                //    ThreadStart start = new ThreadStart(TestLock);
+                //    new Thread(start).Start();
+                //}
 
-                //Thread thread2 = new Thread(() =>
+               
+                ////Monitor
+                //Thread[] Threads = new Thread[3];
+                //for (int i = 0; i < 3; i++)
                 //{
-                //    for (int i = 0; i < 10; i++)
-                //    {
-                //        counter.Decrement();
-                //        Console.WriteLine("Decrement {0}", i);
-                //        Thread.Sleep(100);
-                //    }
-                //});
-
-                //thread1.Start();
-                //thread2.Start();
-
-                //thread1.Join();
-                //thread2.Join();
-
-                //Console.WriteLine("Finished executing threads.");
-
-
-                ////Queue
-                //Thread thread1 = new Thread(Producer);
-                //Thread thread2 = new Thread(Consumer);
-
-                //thread1.Start();
-                //thread2.Start();
-
-                //thread1.Join();
-                //thread2.Join();
-                
-                
-
+                //    Threads[i] = new Thread(new ThreadStart(PrintNumbers));
+                //    Threads[i].Name = "Child " + i;
+                //}
+                //foreach (Thread t in Threads)
+                //    t.Start();
 
                 Console.ReadLine();
 
@@ -1171,6 +1113,18 @@ namespace Lesson1
                 //Json to bytes
 
             }
+            //static readonly object _object = new object();
+
+            ////Lock
+            //static void TestLock()
+            //{
+
+            //    lock (_object)
+            //    {
+            //        Thread.Sleep(100);
+            //        Console.WriteLine(Environment.TickCount);
+            //    }
+            //}
 
             ////Queue, Lock statement
             //static Queue<int> que = new Queue<int>();
@@ -1422,5 +1376,5 @@ namespace Lesson1
 /// <summary>
 /// TODO: UDP, TCP server
 /// TODO: Linq methods
-/// TODO: Image to db
+/// TODO: Schema of database (create, edit tables)
 /// </summary>
