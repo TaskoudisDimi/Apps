@@ -1095,7 +1095,7 @@ namespace Lesson1
                 //    new Thread(start).Start();
                 //}
 
-               
+
                 ////Monitor
                 //Thread[] Threads = new Thread[3];
                 //for (int i = 0; i < 3; i++)
@@ -1105,6 +1105,38 @@ namespace Lesson1
                 //}
                 //foreach (Thread t in Threads)
                 //    t.Start();
+
+
+                //////Task class
+                /////the Task.Run method to start a background task that performs some work. The Main method also continues doing some work on the main thread while the background task is running. 
+                
+                //Console.WriteLine("Main Thread is running!");
+                
+                //Task.Run(() =>
+                //{
+                //    Console.WriteLine("Background task is started!");
+                //    for (int i = 0; i < 10; i++)
+                //    {
+                //        Console.WriteLine($"Background task iteration {i}.");
+                //        Task.Delay(1000).Wait();
+                //    }
+                //    Console.WriteLine("Background task completed.");
+                //});
+
+                //// Continue doing some work on the main thread while the background task is running
+                //for (int i = 0; i < 3; i++)
+                //{
+                //    Console.WriteLine($"Main thread iteration {i}.");
+                //    Task.Delay(500).Wait();
+                //}
+                //Console.WriteLine("Main thread completed.");
+
+
+
+
+
+
+
 
                 Console.ReadLine();
 
