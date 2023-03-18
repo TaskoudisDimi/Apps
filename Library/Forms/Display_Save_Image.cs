@@ -71,7 +71,6 @@ namespace Forms.Forms
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                
                 imageId = 1;
                 string query = "SELECT Image FROM TestImage WHERE Id = @Id";
                 SqlCommand command = new SqlCommand(query, connection);
@@ -83,9 +82,9 @@ namespace Forms.Forms
                 }
                 command.ExecuteNonQuery();
             }
-
-
-
         }
+
+
+  
     }
 }

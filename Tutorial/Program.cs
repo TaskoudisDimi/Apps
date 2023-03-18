@@ -12,6 +12,9 @@ using System.Runtime.InteropServices;
 using static System.Net.Mime.MediaTypeNames;
 using System.Reflection;
 using System.Text.Json;
+using System.Threading;
+using System.Reflection.Metadata;
+using System.Diagnostics.Metrics;
 
 namespace Lesson1
 
@@ -152,27 +155,10 @@ namespace Lesson1
             [DllImport("user32.dll", EntryPoint = "MessageBox")]
             public static extern int ShowMessageBox(int hWnd, string text, string caption, uint type);
 
-            //public delegate void AddVal(int x, int y);
-            //public void SMeth(int x, int y)
-            //{
-            //    Console.WriteLine("[{0} + {1}] = [{2}]", x, y, x + y);
-            //}
-
             static void Main(string[] args)
             {
 
                 #region Comments
-
-                //Delegate
-                //// Creating the object of Program class
-                //Program o = new Program();
-
-                //// Creating object of delegate
-                //AddVal obj = new AddVal(o.SMeth);
-
-                //// Pass the values to the method
-                //// Using delegate object
-                //obj(190, 70);
 
                 //ClassUniversities university1 = new ClassUniversities();
 
@@ -1057,9 +1043,6 @@ namespace Lesson1
                 //}
 
 
-
-
-
                 //Bytes
                 //string: Encoding.ASCII.GetBytes() or Encoding.UTF8.GetBytes()
                 //int, float, double, long, short, byte: BitConverter.GetBytes()
@@ -1067,23 +1050,23 @@ namespace Lesson1
                 //DateTime: BitConverter.GetBytes() or DateTime.ToBinary() and BitConverter.GetBytes()
 
 
-                //Convert string/int to bytes
-                string str = "Test";
-                byte[] dataString = Encoding.ASCII.GetBytes(str);
-                byte[] dataString2 = Encoding.UTF8.GetBytes(str);
+                ////Convert string/int to bytes
+                //string str = "Test";
+                //byte[] dataString = Encoding.ASCII.GetBytes(str);
+                //byte[] dataString2 = Encoding.UTF8.GetBytes(str);
 
-                int Int = 10;
-                byte[] dataInt = BitConverter.GetBytes(Int);
+                //int Int = 10;
+                //byte[] dataInt = BitConverter.GetBytes(Int);
 
 
-                //Convert bytes to string/int
-                byte[] intBytes = new byte[] { 0x01, 0x00, 0x00, 0x00 }; // Represents the integer value 1
-                int myInt = BitConverter.ToInt32(intBytes, 0);
+                ////Convert bytes to string/int
+                //byte[] intBytes = new byte[] { 0x01, 0x00, 0x00, 0x00 }; // Represents the integer value 1
+                //int myInt = BitConverter.ToInt32(intBytes, 0);
 
-                byte[] messageBytes = new byte[] { 72, 101, 108, 108, 111, 44, 32, 119, 111, 114, 108, 100, 33 };
-                string message = Encoding.UTF8.GetString(messageBytes);
+                //byte[] messageBytes = new byte[] { 72, 101, 108, 108, 111, 44, 32, 119, 111, 114, 108, 100, 33 };
+                //string message = Encoding.UTF8.GetString(messageBytes);
 
-                
+
                 ////Json
                 ////Serialize
                 //Person person = new Person { Name = "John", Age = 30 };
@@ -1091,12 +1074,12 @@ namespace Lesson1
 
 
                 ////Deserialize
-                //string jsonString2 = "{\"Name\":\"John\",\"Age\":30}";
+                //string jsonString = "{\"Name\":\"John\",\"Age\":30}";
                 //Person person2 = JsonSerializer.Deserialize<Person>(jsonString);
 
 
                 //string jsonString3 = "{\"Name\":\"John\",\"Age\":30}";
-                //using (JsonDocument document = JsonDocument.Parse(jsonString))
+                //using (JsonDocument document = JsonDocument.Parse(jsonString3))
                 //{
                 //    JsonElement root = document.RootElement;
                 //    string name = root.GetProperty("Name").GetString();
@@ -1104,19 +1087,211 @@ namespace Lesson1
                 //    Console.WriteLine($"Name: {name}, Age: {age}");
                 //}
 
+
+
+                ////Delegates
+                ////Delegates are often used to implement callback functions, event handlers, and other similar patterns where we need to pass a function or method as an argument to another method or object. 
+                //// Create delegate instances that point to the Add and Subtract methods
+                //Calculate add = new Calculate(Calculator.Add);
+                //Calculate subtract = new Calculate(Calculator.Subtract);
+
+                //// Use the delegates to perform calculations
+                //int result1 = add(5, 3);
+                //int result2 = subtract(10, 4);
+
+                //Console.WriteLine($"Result of adding 5 and 3: {result1}");
+                //Console.WriteLine($"Result of subtracting 4 from 10: {result2}");
+
+                //StringJoin strs = new StringJoin(StringJoins.AddStr);
+                //string str1 = strs("Test1", "Test2");
+                //Console.WriteLine(str1);
+
+
+                //// Create a new thread
+                //Thread t = new Thread(new ThreadStart(DoWork));
+                //Thread t2 = new Thread(new ThreadStart(DoWork2));
+                //// Start the thread
+                //t.Start();
+                //t2.Start();
+                //// Wait for the thread to finish
+                //t.Join();
+                //t2.Join();
+                //Console.WriteLine("Main thread exiting...");
+
+
+                ////Lock statement
+                //Counter counter = new Counter();
+
+                //Thread thread1 = new Thread(() =>
+                //{
+                //    for (int i = 0; i < 10; i++)
+                //    {
+                //        counter.Increment();
+                //        Console.WriteLine("Increment {0}", i);
+                //        Thread.Sleep(100);
+                //    }
+                //});
+
+                //Thread thread2 = new Thread(() =>
+                //{
+                //    for (int i = 0; i < 10; i++)
+                //    {
+                //        counter.Decrement();
+                //        Console.WriteLine("Decrement {0}", i);
+                //        Thread.Sleep(100);
+                //    }
+                //});
+
+                //thread1.Start();
+                //thread2.Start();
+
+                //thread1.Join();
+                //thread2.Join();
+
+                //Console.WriteLine("Finished executing threads.");
+
+
+                ////Queue
+                //Thread thread1 = new Thread(Producer);
+                //Thread thread2 = new Thread(Consumer);
+
+                //thread1.Start();
+                //thread2.Start();
+
+                //thread1.Join();
+                //thread2.Join();
+                
+                
+
+
                 Console.ReadLine();
+
 
 
                 //Json to bytes
 
             }
 
+            ////Queue, Lock statement
+            //static Queue<int> que = new Queue<int>();
+            //static readonly object locker = new object();
+
+            //private static void Consumer(object? obj)
+            //{
+            //    for(int i = 0; i <= 10; i++)
+            //    {
+            //        lock (locker)
+            //        {
+            //            que.Enqueue(i);
+            //            Console.WriteLine($"Enqueued: {i}");
+            //        }
+            //        Thread.Sleep(1000);
+            //    }
+            
+            
+            //}
+
+            //private static void Producer(object? obj)
+            //{
+            //    while (true)
+            //    {
+            //        lock (locker)
+            //        {
+            //            if (que.Count > 0)
+            //            {
+            //                int value = que.Dequeue();
+            //                Console.WriteLine($"Dequeued: {value}");
+            //            }
+            //        }
+
+            //        Thread.Sleep(1000);
+            //    }
+
+            //}
+
+            
+            
+            //Threads
+            //static void DoWork2()
+            //{
+            //    Console.WriteLine("Worker 2 thread started...");
+            //    // Do some work...
+            //    Thread.Sleep(5000);
+            //    Console.WriteLine("Worker 2 thread finished...");
+            //}
+            //static void DoWork()
+            //{
+            //    Console.WriteLine("Worker 1 thread started...");
+            //    // Do some work...
+            //    Thread.Sleep(5000);
+            //    Console.WriteLine("Worker 1 thread finished...");
+            //}
+
+
+
         }
-        public class Person
-        {
-            public string Name { get; set; }
-            public int Age { get; set; }
-        }
+
+        //Lock statement
+        //By using the lock statement, we ensure that only one thread can access the Increment and Decrement methods at a time,
+        //preventing race conditions and other synchronization issues that could arise if multiple threads tried to access the shared count variable simultaneously.
+        //public class Counter
+        //{
+        //    private int count = 0;
+        //    private readonly object lockObject = new object();
+
+        //    public void Increment()
+        //    {
+        //        lock (lockObject)
+        //        {
+        //            count++;
+        //            Console.WriteLine($"Incremented count to {count}");
+        //        }
+        //    }
+
+        //    public void Decrement()
+        //    {
+        //        lock (lockObject)
+        //        {
+        //            count--;
+        //            Console.WriteLine($"Decremented count to {count}");
+        //        }
+        //    }
+        //}
+
+        
+        ////Delegate
+        //public delegate int Calculate(int x, int y);
+        //public delegate string StringJoin(string a, string b);
+
+        //public class StringJoins
+        //{
+        //    public static string AddStr(string a, string b)
+        //    {
+        //        return string.Join(", ",  a + b);
+        //    }
+        //}
+
+
+        //public class Calculator
+        //{
+        //    public static int Add(int x, int y)
+        //    {
+        //        return x + y;
+        //    }
+
+        //    public static int Subtract(int x, int y)
+        //    {
+        //        return x - y;
+        //    }
+        //}
+
+        //public class Person
+        //{
+        //    public string Name { get; set; }
+        //    public int Age { get; set; }
+        //}
+
+
         //class SalesTotal
         //{
         //    public double Total { get; set; }
