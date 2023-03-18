@@ -66,8 +66,7 @@
         }
 
         #endregion
-
-        private ProgressBar progressBar;
         public Label LabelProgress;
+        public ProgressBar progressBar;
     }
 }

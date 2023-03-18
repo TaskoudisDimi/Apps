@@ -1,6 +1,6 @@
 ﻿namespace Forms
 {
-    partial class BackgroundWorker
+    partial class BackgroundWorkerExample
     {
         /// <summary>
         /// Required designer variable.
@@ -30,10 +30,10 @@
         {
             this.connectButton = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.backButton = new System.Windows.Forms.Button();
-            this.backgroundWorker_ = new System.ComponentModel.BackgroundWorker();
+            this.stopButton = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.progress = new System.Windows.Forms.Label();
+            this.listBoxResults = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,24 +56,18 @@
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersWidth = 62;
             this.dataGridView.RowTemplate.Height = 25;
-            this.dataGridView.Size = new System.Drawing.Size(1121, 623);
+            this.dataGridView.Size = new System.Drawing.Size(370, 623);
             this.dataGridView.TabIndex = 1;
             // 
-            // backButton
+            // stopButton
             // 
-            this.backButton.Location = new System.Drawing.Point(197, 692);
-            this.backButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(107, 38);
-            this.backButton.TabIndex = 2;
-            this.backButton.Text = "Back";
-            this.backButton.UseVisualStyleBackColor = true;
-            // 
-            // backgroundWorker_
-            // 
-            this.backgroundWorker_.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker__DoWork);
-            this.backgroundWorker_.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker__ProgressChanged);
-            this.backgroundWorker_.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker__RunWorkerCompleted);
+            this.stopButton.Location = new System.Drawing.Point(197, 692);
+            this.stopButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.stopButton.Name = "stopButton";
+            this.stopButton.Size = new System.Drawing.Size(107, 38);
+            this.stopButton.TabIndex = 2;
+            this.stopButton.Text = "Cancel";
+            this.stopButton.UseVisualStyleBackColor = true;
             // 
             // progressBar1
             // 
@@ -92,18 +86,28 @@
             this.progress.TabIndex = 4;
             this.progress.Text = "label1";
             // 
-            // BackgroundWorker
+            // listBoxResults
+            // 
+            this.listBoxResults.FormattingEnabled = true;
+            this.listBoxResults.ItemHeight = 25;
+            this.listBoxResults.Location = new System.Drawing.Point(406, 20);
+            this.listBoxResults.Name = "listBoxResults";
+            this.listBoxResults.Size = new System.Drawing.Size(1048, 629);
+            this.listBoxResults.TabIndex = 5;
+            // 
+            // BackgroundWorkerExample
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1143, 750);
+            this.ClientSize = new System.Drawing.Size(1542, 750);
+            this.Controls.Add(this.listBoxResults);
             this.Controls.Add(this.progress);
             this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.backButton);
+            this.Controls.Add(this.stopButton);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.connectButton);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "BackgroundWorker";
+            this.Name = "BackgroundWorkerExample";
             this.Text = "Back";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
@@ -115,9 +119,9 @@
 
         private Button connectButton;
         private DataGridView dataGridView;
-        private Button backButton;
-        private System.ComponentModel.BackgroundWorker backgroundWorker_;
+        private Button stopButton;
         private ProgressBar progressBar1;
         private Label progress;
+        private ListBox listBoxResults;
     }
 }

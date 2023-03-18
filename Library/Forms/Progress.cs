@@ -20,27 +20,28 @@ namespace Library
             LabelProgress.Text = string.Empty;
         }
 
-        public void SetStyle(ProgressBarStyle style)
-        {
-            progressBar.Style = style;
-        }
 
-        public Progress(int max) : this()
-        {
-            SetMax(max);
-        }
+        //public void SetStyle(ProgressBarStyle style)
+        //{
+        //    progressBar.Style = style;
+        //}
 
-        public void SetMax(int max)
-        {
-            progressBar.Maximum = max;
-        }
+        //public Progress(int max) : this()
+        //{
+        //    SetMax(max);
+        //}
 
-        public void SetProgress(int value, string Message = null)
-        {
-            if (value <= progressBar.Maximum)
-                progressBar.Value = value;
-            LabelProgress.Text = string.IsNullOrWhiteSpace(Message) ? string.Empty : Message;
-        }
+        //public void SetMax(int max)
+        //{
+        //    progressBar.Maximum = max;
+        //}
+
+        //public void SetProgress(int value, string Message = null)
+        //{
+        //    if (value <= progressBar.Maximum)
+        //        progressBar.Value = value;
+        //    LabelProgress.Text = string.IsNullOrWhiteSpace(Message) ? string.Empty : Message;
+        //}
 
 
     }

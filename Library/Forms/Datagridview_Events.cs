@@ -74,7 +74,7 @@ namespace Library
 
             bgw.ProgressChanged += (s, e) =>
             {
-                frm.SetProgress(e.ProgressPercentage, e.UserState.ToString());
+                //frm.SetProgress(e.ProgressPercentage, e.UserState.ToString());
             };
 
             bgw.RunWorkerCompleted += (s, e) =>
