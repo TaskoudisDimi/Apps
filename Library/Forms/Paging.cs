@@ -24,7 +24,6 @@ namespace Forms.Forms
         {
             InitializeComponent();
             startRecord = 0;
-            
         }
 
         private void Paging_Load(object sender, EventArgs e)
@@ -36,6 +35,8 @@ namespace Forms.Forms
             comboPaging.Add("All");
             comboBox.DataSource = comboPaging;
             pageLabel.Text = $"{dataGridView.Rows.Count / Convert.ToInt32(comboBox.SelectedItem)}";
+            loaddata.pagingData("Select * From ProductTbl", 0, 5);
+            dataGridView.DataSource = loaddata.table;
         }
 
         private void prevButton_Click(object sender, EventArgs e)

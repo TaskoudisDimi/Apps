@@ -21,7 +21,7 @@ namespace Forms.Forms
 
         private void insertButton_Click(object sender, EventArgs e)
         {
-            ////1st way to insert data with storeProcedure
+            ////1st way to insert data
             //SqlConnect data = new SqlConnect();
             //data.Open();
             //SqlCommand cmd = new SqlCommand("Insert Into CategoryTbl Values (@CatName, @CatDesc, @Date)", data.con);

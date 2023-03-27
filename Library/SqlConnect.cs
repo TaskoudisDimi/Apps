@@ -103,8 +103,6 @@ namespace Library
             }
         }
 
-
-
         public void commandExc(string command)
         {
             try
