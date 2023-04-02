@@ -1,4 +1,5 @@
-﻿using Library;
+﻿using Forms.Models;
+using Library;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,7 +26,7 @@ namespace Forms
             //dataGridView.DataSource = connect.table;
             DateTime test = DateTime.Now;
 
-            productsBindingSource.Add(new Category() { CatId = 1, CatName = "Test1", CatDesc = "Test2", Date =  test});
+            //productsBindingSource.Add(new Category() { CatId = 1, CatName = "Test1", CatDesc = "Test2", Date =  test});
 
         }
     }
