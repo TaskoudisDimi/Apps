@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Server;
+using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -11,6 +12,18 @@ public class Program
 {
     public static void Main(String[] args)
     {
+        ////Use Thread Manager
+        //var threadManager = new ThreadManager();
+        //threadManager.Start(() => {
+        //    // Your long-running process code here
+        //});
+        //if (threadManager.IsRunning())
+        //{
+        //    // The thread is still running
+        //}
+        //threadManager.Stop();
+
+
         //StartServer();
         Console.WriteLine("Starting server...");
         Server server = new Server();
