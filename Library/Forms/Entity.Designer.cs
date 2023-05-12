@@ -1,6 +1,6 @@
 ﻿namespace Forms.Forms
 {
-    partial class pdf
+    partial class Entity
     {
         /// <summary>
         /// Required designer variable.
@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             dataGridView = new DataGridView();
-            importButton = new Button();
-            exportButton = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
             // 
@@ -40,40 +38,18 @@
             dataGridView.Location = new Point(12, 12);
             dataGridView.Name = "dataGridView";
             dataGridView.RowTemplate.Height = 25;
-            dataGridView.Size = new Size(776, 386);
+            dataGridView.Size = new Size(776, 406);
             dataGridView.TabIndex = 0;
             // 
-            // importButton
-            // 
-            importButton.Location = new Point(12, 415);
-            importButton.Name = "importButton";
-            importButton.Size = new Size(75, 23);
-            importButton.TabIndex = 1;
-            importButton.Text = "Import";
-            importButton.UseVisualStyleBackColor = true;
-            importButton.Click += importButton_Click;
-            // 
-            // exportButton
-            // 
-            exportButton.Location = new Point(93, 415);
-            exportButton.Name = "exportButton";
-            exportButton.Size = new Size(75, 23);
-            exportButton.TabIndex = 2;
-            exportButton.Text = "Export";
-            exportButton.UseVisualStyleBackColor = true;
-            exportButton.Click += exportButton_Click;
-            // 
-            // pdf
+            // Entity
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(exportButton);
-            Controls.Add(importButton);
+            ClientSize = new Size(800, 465);
             Controls.Add(dataGridView);
-            Name = "pdf";
-            Text = "pdf";
-            Load += pdf_Load;
+            Name = "Entity";
+            Text = "Entity";
+            Load += Entity_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             ResumeLayout(false);
         }
@@ -81,7 +57,5 @@
         #endregion
 
         private DataGridView dataGridView;
-        private Button importButton;
-        private Button exportButton;
     }
 }
