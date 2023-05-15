@@ -15,6 +15,7 @@ using System.Text.Json;
 using System.Threading;
 using System.Reflection.Metadata;
 using System.Diagnostics.Metrics;
+using System.Timers;
 
 namespace Lesson1
 
@@ -154,6 +155,8 @@ namespace Lesson1
         {
             [DllImport("user32.dll", EntryPoint = "MessageBox")]
             public static extern int ShowMessageBox(int hWnd, string text, string caption, uint type);
+
+            private static System.Timers.Timer timer;
 
             static void Main(string[] args)
             {
@@ -1109,9 +1112,9 @@ namespace Lesson1
 
                 //////Task class
                 /////the Task.Run method to start a background task that performs some work. The Main method also continues doing some work on the main thread while the background task is running. 
-                
+
                 //Console.WriteLine("Main Thread is running!");
-                
+
                 //Task.Run(() =>
                 //{
                 //    Console.WriteLine("Background task is started!");
@@ -1131,20 +1134,29 @@ namespace Lesson1
                 //}
                 //Console.WriteLine("Main thread completed.");
 
+                //Json to bytes
 
-
-
-
-
+                ////Timer
+                //timer = new System.Timers.Timer(5000);
+                //timer.Elapsed += TimerElapsed;
+                //timer.Start();
+                //Console.ReadLine();
+                ////When I want to stop the execute
+                //timer.Stop();
 
 
                 Console.ReadLine();
 
-
-
-                //Json to bytes
-
             }
+
+            //Timer
+            private static void TimerElapsed(object sender, ElapsedEventArgs e)
+            {
+                //Do something
+                Console.WriteLine("Time to elapsed..." + e.SignalTime);
+            }
+
+
             //static readonly object _object = new object();
 
             ////Lock
@@ -1173,8 +1185,8 @@ namespace Lesson1
             //        }
             //        Thread.Sleep(1000);
             //    }
-            
-            
+
+
             //}
 
             //private static void Producer(object? obj)
@@ -1195,8 +1207,8 @@ namespace Lesson1
 
             //}
 
-            
-            
+
+
             //Threads
             //static void DoWork2()
             //{

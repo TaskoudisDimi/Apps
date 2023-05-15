@@ -1,38 +1,29 @@
-﻿using Server;
-using System;
+﻿using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using System.Timers;
 using static Program;
 
 // Socket Listener acts as a server and listens to the incoming
 // messages on the specified port and protocol.
 public class Program
 {
+    
     public static void Main(String[] args)
     {
-        ////Use Thread Manager
-        //var threadManager = new ThreadManager();
-        //threadManager.Start(() => {
-        //    // Your long-running process code here
-        //});
-        //if (threadManager.IsRunning())
-        //{
-        //    // The thread is still running
-        //}
-        //threadManager.Stop();
-
 
         //StartServer();
-        Console.WriteLine("Starting server...");
-        Server server = new Server();
-        Thread serverThread = new Thread(() => server.Start());
-        serverThread.Start();
+        //Console.WriteLine("Starting server...");
+        //Server server = new Server();
+        //Thread serverThread = new Thread(() => server.Start());
+        //serverThread.Start();
 
-        Console.WriteLine("Press any key to exit...");
-        Console.ReadKey();
+        //Console.WriteLine("Press any key to exit...");
+        //Console.ReadKey();
     }
+
 
 
     public class Server

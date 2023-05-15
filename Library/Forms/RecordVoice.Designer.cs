@@ -28,39 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.recordButton = new System.Windows.Forms.Button();
-            this.stopButton = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            recordButton = new Button();
+            stopButton = new Button();
+            SuspendLayout();
             // 
             // recordButton
             // 
-            this.recordButton.Location = new System.Drawing.Point(50, 357);
-            this.recordButton.Name = "recordButton";
-            this.recordButton.Size = new System.Drawing.Size(112, 34);
-            this.recordButton.TabIndex = 0;
-            this.recordButton.Text = "Record";
-            this.recordButton.UseVisualStyleBackColor = true;
+            recordButton.Location = new Point(35, 214);
+            recordButton.Margin = new Padding(2, 2, 2, 2);
+            recordButton.Name = "recordButton";
+            recordButton.Size = new Size(78, 20);
+            recordButton.TabIndex = 0;
+            recordButton.Text = "Record";
+            recordButton.UseVisualStyleBackColor = true;
             // 
             // stopButton
             // 
-            this.stopButton.Location = new System.Drawing.Point(294, 357);
-            this.stopButton.Name = "stopButton";
-            this.stopButton.Size = new System.Drawing.Size(112, 34);
-            this.stopButton.TabIndex = 2;
-            this.stopButton.Text = "Stop";
-            this.stopButton.UseVisualStyleBackColor = true;
+            stopButton.Location = new Point(206, 214);
+            stopButton.Margin = new Padding(2, 2, 2, 2);
+            stopButton.Name = "stopButton";
+            stopButton.Size = new Size(78, 20);
+            stopButton.TabIndex = 2;
+            stopButton.Text = "Stop";
+            stopButton.UseVisualStyleBackColor = true;
             // 
             // RecordVoice
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(511, 450);
-            this.Controls.Add(this.stopButton);
-            this.Controls.Add(this.recordButton);
-            this.Name = "RecordVoice";
-            this.Text = "RecordVoice";
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(358, 270);
+            Controls.Add(stopButton);
+            Controls.Add(recordButton);
+            Margin = new Padding(2, 2, 2, 2);
+            Name = "RecordVoice";
+            Text = "RecordVoice";
+            ResumeLayout(false);
         }
 
         #endregion

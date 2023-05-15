@@ -17,9 +17,19 @@ namespace Forms.Forms
     public partial class pdf : Form
     {
         Document document = new Document();
+        private Thread thread;
+        private event Action completed;
+
         public pdf()
         {
             InitializeComponent();
+            completed += ManageThreads_QueryCompleted;
+
+        }
+
+        private void ManageThreads_QueryCompleted()
+        {
+            MessageBox.Show("Query completed successfully!");
         }
 
         private void pdf_Load(object sender, EventArgs e)
@@ -29,7 +39,6 @@ namespace Forms.Forms
             //dataGridView.DataSource = loaddata.table;
 
         }
-
 
         private void importButton_Click(object sender, EventArgs e)
         {
@@ -78,9 +87,20 @@ namespace Forms.Forms
                 // bind the DataTable to the DataGridView
                 dataGridView.DataSource = dataTable;
 
-
-
             }
+
+            if (thread != null && thread.IsAlive)
+            {
+                MessageBox.Show("Another query is already running. Please wait for it to finish.");
+                return;
+            }
+
+            thread = new Thread(() =>
+            {
+                OnQueryCompleted();
+            });
+
+            thread.Start();
         }
 
         private void exportButton_Click(object sender, EventArgs e)
@@ -114,6 +134,11 @@ namespace Forms.Forms
             }
 
 
+        }
+
+        private void OnQueryCompleted()
+        {
+            completed?.Invoke();
         }
 
 
