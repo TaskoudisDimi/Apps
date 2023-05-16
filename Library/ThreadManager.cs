@@ -41,7 +41,7 @@ public class ThreadManager
         // Simulate a delay to represent the time taken by the actual database query
         Thread.Sleep(2000);
     }
-    protected virtual void OnQueryCompleted()
+    private void OnQueryCompleted()
     {
         QueryCompleted?.Invoke();
     }
