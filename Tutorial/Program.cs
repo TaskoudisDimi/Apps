@@ -22,6 +22,8 @@ namespace Lesson1
 {
     class Tutorial  //Η class είναι ένα container που μπορώ να γράψω κώδικα
     {
+        #region Comments1
+
         //static void Main(string[] args) //Method or function 
         //{
 
@@ -149,7 +151,7 @@ namespace Lesson1
         //    public string DepartmentName { get; set; }
         //}
 
-       
+        #endregion
 
         class Program
         {
@@ -1417,8 +1419,3 @@ namespace Lesson1
     }
 }
 
-/// <summary>
-/// TODO: UDP, TCP server
-/// TODO: Linq methods
-/// TODO: Schema of database (create, edit tables)
-/// </summary>

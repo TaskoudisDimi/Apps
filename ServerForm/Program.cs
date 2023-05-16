@@ -1,10 +1,6 @@
-using Forms;
-using Forms.Forms;
-using Binding = Forms.Binding;
-
-namespace Library
+namespace ServerForm
 {
-    public static class Program
+    internal static class Program
     {
         /// <summary>
         ///  The main entry point for the application.
@@ -12,10 +8,10 @@ namespace Library
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,z
+            // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Client1());
+            Application.Run(new Form1());
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -10,21 +12,18 @@ using static Program;
 // messages on the specified port and protocol.
 public class Program
 {
-    
+
     public static void Main(String[] args)
     {
 
-        //StartServer();
-        //Console.WriteLine("Starting server...");
-        //Server server = new Server();
-        //Thread serverThread = new Thread(() => server.Start());
-        //serverThread.Start();
+        Console.WriteLine("Starting server...");
+        Server server = new Server();
+        Thread serverThread = new Thread(() => server.Start());
+        serverThread.Start();
 
-        //Console.WriteLine("Press any key to exit...");
-        //Console.ReadKey();
+        Console.WriteLine("Press any key to exit...");
+        Console.ReadKey();
     }
-
-
 
     public class Server
     {
@@ -73,14 +72,26 @@ public class Program
 
                 string data = Encoding.ASCII.GetString(buffer, 0, bytesRead);
                 message.Append(data);
+                BroadcastUpdate(data, clientSocket);
+
                 Console.WriteLine($"Received message from {clientSocket.RemoteEndPoint}: {message}");
-                clientSocket.Send(Encoding.ASCII.GetBytes("Message received"));
+                //clientSocket.Send(Encoding.ASCII.GetBytes("Message received"));
             }
 
-            
+
             clientSocket.Shutdown(SocketShutdown.Both);
             clientSocket.Close();
         }
+
+        private void BroadcastUpdate(string data, Socket clientSocket)
+        {
+            byte[] buffer = Encoding.ASCII.GetBytes(data);
+
+            clientSocket.Send(buffer);
+
+        }
     }
+
+
 
 }
