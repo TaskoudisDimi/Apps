@@ -1,4 +1,4 @@
-namespace Client2Form
+namespace ClientForm2
 {
     internal static class Program
     {

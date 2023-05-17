@@ -16,7 +16,9 @@ namespace Forms.Forms
 {
     public partial class Client1 : Form
     {
-        private Socket clientSocket;
+        private Socket _clientSocket;
+        private Thread _receiveThread;
+
         public Client1()
         {
             InitializeComponent();
@@ -24,56 +26,91 @@ namespace Forms.Forms
 
         private void Client1_Load(object sender, EventArgs e)
         {
-            SqlConnect loaddata = new SqlConnect();
-            loaddata.retrieveData("Select * From ProductTbl");
-            dataGridView1.DataSource = loaddata.table;
-
-
-            //clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            //clientSocket.Connect(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8888));
 
 
         }
 
-        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            string ipAddress = ipTextBox.Text.Trim();
+            int port;
+
+            if (!int.TryParse(portTextBox.Text.Trim(), out port))
             {
-                string data = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-                byte[] buffer = Encoding.ASCII.GetBytes(data);
-                clientSocket.Send(buffer);
+                MessageBox.Show("Invalid port number.");
+                return;
+            }
+
+            try
+            {
+                _clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                _clientSocket.Connect(ipAddress, port);
+
+                logListBox.Items.Add("Connected to server." + Environment.NewLine);
+
+                _receiveThread = new Thread(ReceiveMessages);
+                _receiveThread.Start();
+
+                button1.Enabled = false;
+            }
+            catch (SocketException ex)
+            {
+                MessageBox.Show("Connection error: " + ex.Message);
+            }
+        }
+
+        private void ReceiveMessages()
+        {
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+
+            try
+            {
+                while ((bytesRead = _clientSocket.Receive(buffer)) > 0)
+                {
+                    byte[] receivedData = new byte[bytesRead];
+                    Array.Copy(buffer, receivedData, bytesRead);
+
+                    string receivedMessage = Encoding.ASCII.GetString(receivedData);
+                    logListBox.Invoke(new Action(() =>
+                    {
+                        logListBox.Items.Add("Received message from server: " + receivedMessage + Environment.NewLine);
+                    }));
+                }
+            }
+            catch (SocketException)
+            {
+                logListBox.Invoke(new Action(() =>
+                {
+                    logListBox.Items.Add("Disconnected from server." + Environment.NewLine);
+                }));
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // Serialize the whole DataGridView data to JSON
-            string data = SerializeDataGridView();
-
-            // Send the serialized data to the server
-            byte[] buffer = Encoding.ASCII.GetBytes(data);
-            clientSocket.Send(buffer);
-        }
-
-        private string SerializeDataGridView()
-        {
-            // Create a data structure to hold the DataGridView data
-            var dataGridData = new
+            if (_clientSocket == null || !_clientSocket.Connected)
             {
-                ColumnCount = dataGridView1.ColumnCount,
-                RowCount = dataGridView1.RowCount,
-                Headers = dataGridView1.Columns.Cast<DataGridViewColumn>().Select(c => c.HeaderText).ToArray(),
-                Values = dataGridView1.Rows.Cast<DataGridViewRow>()
-                    .Select(r => r.Cells.Cast<DataGridViewCell>().Select(c => c.Value).ToArray())
-                    .ToArray()
-            };
+                MessageBox.Show("Not connected to the server.");
+                return;
+            }
 
-            // Serialize the data to JSON
-            string jsonData = JsonConvert.SerializeObject(dataGridData);
+            string message = messageTextBox.Text.Trim();
 
-            return jsonData;
+            byte[] buffer = Encoding.ASCII.GetBytes(message);
+            _clientSocket.Send(buffer);
+
+            logListBox.Items.Add("Sent message to the server: " + message + Environment.NewLine);
+
+            if (message.ToLower() == "exit")
+            {
+                _clientSocket.Shutdown(SocketShutdown.Both);
+                _clientSocket.Close();
+
+                logListBox.Items.Add("Disconnected from server." + Environment.NewLine);
+            }
+
+            messageTextBox.Clear();
         }
-
-
     }
 }
