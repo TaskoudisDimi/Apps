@@ -1,6 +1,7 @@
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Text.Json;
 
 namespace ServerForm
 {
@@ -25,7 +26,8 @@ namespace ServerForm
             _serverThread.Start();
 
             startButton.Enabled = false;
-            logListBox.Items.Add("Server started listening on port 1234." + Environment.NewLine);
+            logListBox.Items.Add("Server started listening on port 1234.");
+            
         }
 
         private void StartServer()
@@ -35,7 +37,12 @@ namespace ServerForm
                 Socket clientSocket = _serverSocket.Accept();
                 lock (_lock)
                 {
+                    pictureBox1.BackColor = Color.LightGreen;
                     _clients.Add(clientSocket);
+                    countLabel.Invoke(new Action(() =>
+                    {
+                        countLabel.Text = $"{_clients.Count}";
+                    }));
                 }
 
                 Thread clientThread = new Thread(() => HandleClient(clientSocket));
@@ -46,7 +53,9 @@ namespace ServerForm
         private void HandleClient(Socket clientSocket)
         {
             byte[] buffer;
-            buffer = Encoding.UTF8.GetBytes(bufferSizeTextBox.Text);
+            //byte[] buffer = new byte[1024];
+            int length = Convert.ToInt32(bufferSizeTextBox.Text);
+            buffer = new byte[length];
             int bytesRead;
 
             try
@@ -56,17 +65,31 @@ namespace ServerForm
                     byte[] receivedData = new byte[bytesRead];
                     Array.Copy(buffer, receivedData, bytesRead);
 
-                    string receivedMessage = Encoding.ASCII.GetString(receivedData);
+                    //string receivedMessage = Encoding.ASCII.GetString(receivedData);
+                    
+                    string jsonData = Encoding.UTF8.GetString(receivedData);
+
+                    // Parse the JSON string into a JsonDocument
+                    JsonDocument jsonDocument = JsonDocument.Parse(jsonData);
+
+                    // Access the root element of the JSON array
+                    JsonElement root = jsonDocument.RootElement;
+                    string newValue = "";
+
+                    foreach (JsonElement element in root.EnumerateArray())
+                    {
+                        // Access the properties dynamically
+                        int rowIndex = element.GetProperty("RowIndex").GetInt32();
+                        int columnIndex = element.GetProperty("ColumnIndex").GetInt32();
+                        newValue = element.GetProperty("NewValue").GetString();
+
+                    }
                     logListBox.Invoke(new Action(() =>
                     {
-                        logListBox.Items.Add("Received message from client: " + receivedMessage + Environment.NewLine);
+                        logListBox.Items.Add("Received message from client: " + newValue);
                     }));
-                    countLabel.Invoke(new Action(() =>
-                    {
-                        countLabel.Text = $"{_clients.Count}";
-                    }));
-
-                    BroadcastToClients(clientSocket, receivedMessage);
+   
+                    BroadcastToClients(clientSocket, jsonData);
                 }
             }
             catch (SocketException)
@@ -77,7 +100,7 @@ namespace ServerForm
                 }
                 logListBox.Invoke(new Action(() =>
                 {
-                    logListBox.Items.Add("Client disconnected." + Environment.NewLine);
+                    logListBox.Items.Add("Client disconnected.");
                 }));
             }
         }
@@ -100,4 +123,5 @@ namespace ServerForm
             logListBox.Items.Add("Server started. Waiting for connections..." + Environment.NewLine);
         }
     }
+
 }

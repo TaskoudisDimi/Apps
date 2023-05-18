@@ -38,6 +38,9 @@
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
+            dataGridView1 = new DataGridView();
+            button3 = new Button();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // button2
@@ -126,11 +129,33 @@
             label4.TabIndex = 17;
             label4.Text = "Log";
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(12, 224);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.Size = new Size(776, 225);
+            dataGridView1.TabIndex = 18;
+            dataGridView1.CellValueChanged += dataGridView1_CellValueChanged;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(50, 196);
+            button3.Name = "button3";
+            button3.Size = new Size(142, 23);
+            button3.TabIndex = 30;
+            button3.Text = "ChangeDataGridView";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // Client1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 229);
+            ClientSize = new Size(800, 461);
+            Controls.Add(button3);
+            Controls.Add(dataGridView1);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -144,6 +169,7 @@
             Name = "Client1";
             Text = "Client1";
             Load += Client1_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -160,5 +186,7 @@
         private Label label2;
         private Label label3;
         private Label label4;
+        private DataGridView dataGridView1;
+        private Button button3;
     }
 }

@@ -38,6 +38,9 @@
             portTextBox = new TextBox();
             ipTextBox = new TextBox();
             button1 = new Button();
+            dataGridView1 = new DataGridView();
+            button3 = new Button();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // label4
@@ -126,11 +129,33 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(18, 239);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.Size = new Size(745, 243);
+            dataGridView1.TabIndex = 28;
+            dataGridView1.CellValueChanged += dataGridView1_CellValueChanged;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(56, 201);
+            button3.Name = "button3";
+            button3.Size = new Size(142, 23);
+            button3.TabIndex = 29;
+            button3.Text = "ChangeDataGridView";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(769, 225);
+            ClientSize = new Size(769, 494);
+            Controls.Add(button3);
+            Controls.Add(dataGridView1);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -143,6 +168,8 @@
             Controls.Add(button1);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -159,5 +186,7 @@
         private TextBox portTextBox;
         private TextBox ipTextBox;
         private Button button1;
+        private DataGridView dataGridView1;
+        private Button button3;
     }
 }
