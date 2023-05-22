@@ -37,14 +37,16 @@
             tabPage2 = new TabPage();
             bufferSizeTextBox = new TextBox();
             buferSizeLabel = new Label();
+            pictureBox1 = new PictureBox();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // connectedClientsLabel
             // 
             connectedClientsLabel.AutoSize = true;
-            connectedClientsLabel.Location = new Point(-3, 14);
+            connectedClientsLabel.Location = new Point(9, 14);
             connectedClientsLabel.Name = "connectedClientsLabel";
             connectedClientsLabel.Size = new Size(104, 15);
             connectedClientsLabel.TabIndex = 0;
@@ -124,11 +126,21 @@
             buferSizeLabel.TabIndex = 9;
             buferSizeLabel.Text = "Buffer Size";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.OrangeRed;
+            pictureBox1.Location = new Point(180, 85);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(25, 23);
+            pictureBox1.TabIndex = 10;
+            pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(pictureBox1);
             Controls.Add(buferSizeLabel);
             Controls.Add(bufferSizeTextBox);
             Controls.Add(tabControl1);
@@ -140,6 +152,7 @@
             Load += Form1_Load;
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -155,5 +168,6 @@
         private TextBox bufferSizeTextBox;
         private Label buferSizeLabel;
         private ListBox logListBox;
+        private PictureBox pictureBox1;
     }
 }

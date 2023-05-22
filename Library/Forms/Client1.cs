@@ -1,5 +1,6 @@
 ﻿using Library;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -18,7 +20,7 @@ namespace Forms.Forms
     {
         private Socket _clientSocket;
         private Thread _receiveThread;
-
+        private List<DataGridViewCellChange> changedCells = new List<DataGridViewCellChange>();
         public Client1()
         {
             InitializeComponent();
@@ -26,7 +28,9 @@ namespace Forms.Forms
 
         private void Client1_Load(object sender, EventArgs e)
         {
-
+            SqlConnect loaddata = new SqlConnect();
+            loaddata.retrieveData("Select * From ProductTbl");
+            dataGridView1.DataSource = loaddata.table;
 
         }
 
@@ -71,10 +75,30 @@ namespace Forms.Forms
                     byte[] receivedData = new byte[bytesRead];
                     Array.Copy(buffer, receivedData, bytesRead);
 
-                    string receivedMessage = Encoding.ASCII.GetString(receivedData);
+
+                    string jsonData = Encoding.UTF8.GetString(receivedData);
+
+                    // Parse the JSON string into a JsonDocument
+                    JsonDocument jsonDocument = JsonDocument.Parse(jsonData);
+
+                    // Access the root element of the JSON array
+                    JsonElement root = jsonDocument.RootElement;
+                    string newValue = "";
+
+                    foreach (JsonElement element in root.EnumerateArray())
+                    {
+                        // Access the properties dynamically
+                        int rowIndex = element.GetProperty("RowIndex").GetInt32();
+                        int columnIndex = element.GetProperty("ColumnIndex").GetInt32();
+                        newValue = element.GetProperty("NewValue").GetString();
+                        dataGridView1.Rows[rowIndex].Cells[columnIndex].Value = newValue;
+
+                    }
+                    //string receivedMessage = Encoding.ASCII.GetString(receivedData);
+
                     logListBox.Invoke(new Action(() =>
                     {
-                        logListBox.Items.Add("Received message from server: " + receivedMessage + Environment.NewLine);
+                        logListBox.Items.Add("Received message from server: " + newValue + Environment.NewLine);
                     }));
                 }
             }
@@ -95,11 +119,19 @@ namespace Forms.Forms
                 return;
             }
 
-            string message = messageTextBox.Text.Trim();
+            //string message = messageTextBox.Text;
+            //byte[] messageData = Encoding.UTF8.GetBytes(message);
 
-            byte[] buffer = Encoding.ASCII.GetBytes(message);
-            _clientSocket.Send(buffer);
+            string jsonData = System.Text.Json.JsonSerializer.Serialize(changedCells);
+            byte[] jsonToBytes = Encoding.UTF8.GetBytes(jsonData);
 
+            string message = "";
+            foreach (DataGridViewCellChange data in changedCells)
+            {
+                message = data.NewValue;
+            }
+
+            _clientSocket.Send(jsonToBytes);
             logListBox.Items.Add("Sent message to the server: " + message + Environment.NewLine);
 
             if (message.ToLower() == "exit")
@@ -112,5 +144,36 @@ namespace Forms.Forms
 
             messageTextBox.Clear();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int rowIndex = 1;
+            int columnIndex = 1;
+            dataGridView1.Rows[rowIndex].Cells[columnIndex].Value = "22";
+            int rowIndex2 = 1;
+            int columnIndex2 = 4;
+            dataGridView1.Rows[rowIndex].Cells[columnIndex].Value = "2222";
+
+        }
+
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            var changeCell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
+            var change = new DataGridViewCellChange
+            {
+                RowIndex = e.RowIndex,
+                ColumnIndex = e.ColumnIndex,
+                NewValue = changeCell.Value.ToString()
+            };
+            changedCells.Add(change);
+        }
     }
+
+    public class DataGridViewCellChange
+    {
+        public int RowIndex { get; set; }
+        public int ColumnIndex { get; set; }
+        public string NewValue { get; set; }
+    }
+
 }
