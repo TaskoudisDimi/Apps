@@ -42,57 +42,64 @@
             // 
             // statusTextBox
             // 
-            this.statusTextBox.Location = new System.Drawing.Point(12, 168);
+            this.statusTextBox.Location = new System.Drawing.Point(18, 258);
+            this.statusTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.statusTextBox.Multiline = true;
             this.statusTextBox.Name = "statusTextBox";
-            this.statusTextBox.Size = new System.Drawing.Size(499, 149);
+            this.statusTextBox.Size = new System.Drawing.Size(746, 227);
             this.statusTextBox.TabIndex = 23;
             // 
             // messageTextBox
             // 
-            this.messageTextBox.Location = new System.Drawing.Point(12, 68);
+            this.messageTextBox.Location = new System.Drawing.Point(18, 105);
+            this.messageTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.messageTextBox.Multiline = true;
             this.messageTextBox.Name = "messageTextBox";
-            this.messageTextBox.Size = new System.Drawing.Size(499, 51);
+            this.messageTextBox.Size = new System.Drawing.Size(746, 76);
             this.messageTextBox.TabIndex = 22;
             // 
             // ClientPortTextBox
             // 
-            this.ClientPortTextBox.Location = new System.Drawing.Point(228, 41);
+            this.ClientPortTextBox.Location = new System.Drawing.Point(342, 63);
+            this.ClientPortTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ClientPortTextBox.Name = "ClientPortTextBox";
-            this.ClientPortTextBox.Size = new System.Drawing.Size(50, 20);
+            this.ClientPortTextBox.Size = new System.Drawing.Size(73, 26);
             this.ClientPortTextBox.TabIndex = 21;
             // 
             // clientPortLabel
             // 
             this.clientPortLabel.AutoSize = true;
-            this.clientPortLabel.Location = new System.Drawing.Point(168, 44);
+            this.clientPortLabel.Location = new System.Drawing.Point(252, 68);
+            this.clientPortLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.clientPortLabel.Name = "clientPortLabel";
-            this.clientPortLabel.Size = new System.Drawing.Size(55, 13);
+            this.clientPortLabel.Size = new System.Drawing.Size(82, 20);
             this.clientPortLabel.TabIndex = 20;
             this.clientPortLabel.Text = "Client Port";
             // 
             // hostLabel
             // 
             this.hostLabel.AutoSize = true;
-            this.hostLabel.Location = new System.Drawing.Point(13, 44);
+            this.hostLabel.Location = new System.Drawing.Point(20, 68);
+            this.hostLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.hostLabel.Name = "hostLabel";
-            this.hostLabel.Size = new System.Drawing.Size(29, 13);
+            this.hostLabel.Size = new System.Drawing.Size(43, 20);
             this.hostLabel.TabIndex = 19;
             this.hostLabel.Text = "Host";
             // 
             // hostTextBox
             // 
-            this.hostTextBox.Location = new System.Drawing.Point(48, 41);
+            this.hostTextBox.Location = new System.Drawing.Point(72, 63);
+            this.hostTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.hostTextBox.Name = "hostTextBox";
-            this.hostTextBox.Size = new System.Drawing.Size(100, 20);
+            this.hostTextBox.Size = new System.Drawing.Size(148, 26);
             this.hostTextBox.TabIndex = 18;
             // 
             // sendButton
             // 
-            this.sendButton.Location = new System.Drawing.Point(436, 138);
+            this.sendButton.Location = new System.Drawing.Point(654, 212);
+            this.sendButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.sendButton.Name = "sendButton";
-            this.sendButton.Size = new System.Drawing.Size(75, 23);
+            this.sendButton.Size = new System.Drawing.Size(112, 35);
             this.sendButton.TabIndex = 17;
             this.sendButton.Text = "Send";
             this.sendButton.UseVisualStyleBackColor = true;
@@ -100,34 +107,38 @@
             // 
             // connectButton
             // 
-            this.connectButton.Location = new System.Drawing.Point(436, 39);
+            this.connectButton.Location = new System.Drawing.Point(654, 60);
+            this.connectButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.connectButton.Name = "connectButton";
-            this.connectButton.Size = new System.Drawing.Size(75, 23);
+            this.connectButton.Size = new System.Drawing.Size(112, 35);
             this.connectButton.TabIndex = 16;
             this.connectButton.Text = "Connect";
             this.connectButton.UseVisualStyleBackColor = true;
+            this.connectButton.Click += new System.EventHandler(this.connectButton_Click);
             // 
             // hostPortTextBox
             // 
-            this.hostPortTextBox.Location = new System.Drawing.Point(357, 41);
+            this.hostPortTextBox.Location = new System.Drawing.Point(536, 63);
+            this.hostPortTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.hostPortTextBox.Name = "hostPortTextBox";
-            this.hostPortTextBox.Size = new System.Drawing.Size(50, 20);
+            this.hostPortTextBox.Size = new System.Drawing.Size(73, 26);
             this.hostPortTextBox.TabIndex = 25;
             // 
             // serverPortLabel
             // 
             this.serverPortLabel.AutoSize = true;
-            this.serverPortLabel.Location = new System.Drawing.Point(291, 44);
+            this.serverPortLabel.Location = new System.Drawing.Point(436, 68);
+            this.serverPortLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.serverPortLabel.Name = "serverPortLabel";
-            this.serverPortLabel.Size = new System.Drawing.Size(60, 13);
+            this.serverPortLabel.Size = new System.Drawing.Size(88, 20);
             this.serverPortLabel.TabIndex = 24;
             this.serverPortLabel.Text = "Server Port";
             // 
             // UDPClient
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(523, 363);
+            this.ClientSize = new System.Drawing.Size(784, 558);
             this.Controls.Add(this.hostPortTextBox);
             this.Controls.Add(this.serverPortLabel);
             this.Controls.Add(this.statusTextBox);
@@ -138,6 +149,7 @@
             this.Controls.Add(this.hostTextBox);
             this.Controls.Add(this.sendButton);
             this.Controls.Add(this.connectButton);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "UDPClient";
             this.Text = "UDPClient";
             this.ResumeLayout(false);

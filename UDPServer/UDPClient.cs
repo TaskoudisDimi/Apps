@@ -15,44 +15,22 @@ namespace UDPServer
     public partial class UDPClient : Form
     {
 
-        UdpClient client;
-        IPEndPoint endPoint;
-
         public UDPClient()
         {
             InitializeComponent();
         }
 
-        
+
 
         private void sendButton_Click_1(object sender, EventArgs e)
         {
-            int serverPort = int.Parse(hostPortTextBox.Text);
-            int clientPort = int.Parse(ClientPortTextBox.Text);
 
-            string hostName = hostTextBox.Text;
-
-            client = new UdpClient(clientPort);
-
-            string msg = clientPort + "." + hostName + "." + messageTextBox.Text;
-            byte[] buffer = Encoding.Unicode.GetBytes(msg);
-
-            client.Send(buffer, buffer.Length, hostName, serverPort);
-
-            endPoint = new IPEndPoint(IPAddress.Any, 0);
-            buffer = client.Receive(ref endPoint);
-
-            msg = Encoding.Unicode.GetString(buffer);
-
-            statusTextBox.AppendText("Server Said : " + msg + Environment.NewLine);
-
-            Writelog(msg);
         }
 
-        private void Writelog(string msg)
+
+
+        private void connectButton_Click(object sender, EventArgs e)
         {
-            MethodInvoker invoker = new MethodInvoker(delegate { statusTextBox.AppendText("Server Said : " + msg + Environment.NewLine); });
-            this.BeginInvoke(invoker);
 
         }
     }

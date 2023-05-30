@@ -28,133 +28,144 @@
         /// </summary>
         private void InitializeComponent()
         {
-            connectedClientsLabel = new Label();
-            countLabel = new Label();
-            startButton = new Button();
-            tabControl1 = new TabControl();
-            tabPage1 = new TabPage();
-            logListBox = new ListBox();
-            tabPage2 = new TabPage();
-            bufferSizeTextBox = new TextBox();
-            buferSizeLabel = new Label();
-            pictureBox1 = new PictureBox();
-            tabControl1.SuspendLayout();
-            tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            SuspendLayout();
+            this.connectedClientsLabel = new System.Windows.Forms.Label();
+            this.countLabel = new System.Windows.Forms.Label();
+            this.startButton = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.logListBox = new System.Windows.Forms.ListBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.bufferSizeTextBox = new System.Windows.Forms.TextBox();
+            this.buferSizeLabel = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.SuspendLayout();
             // 
             // connectedClientsLabel
             // 
-            connectedClientsLabel.AutoSize = true;
-            connectedClientsLabel.Location = new Point(9, 14);
-            connectedClientsLabel.Name = "connectedClientsLabel";
-            connectedClientsLabel.Size = new Size(104, 15);
-            connectedClientsLabel.TabIndex = 0;
-            connectedClientsLabel.Text = "Connected Clients";
+            this.connectedClientsLabel.AutoSize = true;
+            this.connectedClientsLabel.Location = new System.Drawing.Point(13, 23);
+            this.connectedClientsLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.connectedClientsLabel.Name = "connectedClientsLabel";
+            this.connectedClientsLabel.Size = new System.Drawing.Size(154, 25);
+            this.connectedClientsLabel.TabIndex = 0;
+            this.connectedClientsLabel.Text = "Connected Clients";
             // 
             // countLabel
             // 
-            countLabel.AutoSize = true;
-            countLabel.Location = new Point(39, 55);
-            countLabel.Name = "countLabel";
-            countLabel.Size = new Size(0, 15);
-            countLabel.TabIndex = 1;
+            this.countLabel.AutoSize = true;
+            this.countLabel.Location = new System.Drawing.Point(56, 92);
+            this.countLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.countLabel.Name = "countLabel";
+            this.countLabel.Size = new System.Drawing.Size(0, 25);
+            this.countLabel.TabIndex = 1;
             // 
             // startButton
             // 
-            startButton.Location = new Point(12, 85);
-            startButton.Name = "startButton";
-            startButton.Size = new Size(75, 23);
-            startButton.TabIndex = 4;
-            startButton.Text = "Start";
-            startButton.UseVisualStyleBackColor = true;
-            startButton.Click += startButton_Click;
+            this.startButton.Location = new System.Drawing.Point(17, 142);
+            this.startButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.startButton.Name = "startButton";
+            this.startButton.Size = new System.Drawing.Size(107, 38);
+            this.startButton.TabIndex = 4;
+            this.startButton.Text = "Start";
+            this.startButton.UseVisualStyleBackColor = true;
+            this.startButton.Click += new System.EventHandler(this.startButton_Click_1);
             // 
             // tabControl1
             // 
-            tabControl1.Controls.Add(tabPage1);
-            tabControl1.Controls.Add(tabPage2);
-            tabControl1.Location = new Point(2, 139);
-            tabControl1.Name = "tabControl1";
-            tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(797, 299);
-            tabControl1.TabIndex = 7;
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(3, 232);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1139, 498);
+            this.tabControl1.TabIndex = 7;
             // 
             // tabPage1
             // 
-            tabPage1.Controls.Add(logListBox);
-            tabPage1.Location = new Point(4, 24);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(789, 271);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "tabPage1";
-            tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Controls.Add(this.logListBox);
+            this.tabPage1.Location = new System.Drawing.Point(4, 34);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage1.Size = new System.Drawing.Size(1131, 460);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // logListBox
             // 
-            logListBox.FormattingEnabled = true;
-            logListBox.ItemHeight = 15;
-            logListBox.Location = new Point(3, 3);
-            logListBox.Name = "logListBox";
-            logListBox.Size = new Size(779, 259);
-            logListBox.TabIndex = 0;
+            this.logListBox.FormattingEnabled = true;
+            this.logListBox.ItemHeight = 25;
+            this.logListBox.Location = new System.Drawing.Point(4, 5);
+            this.logListBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.logListBox.Name = "logListBox";
+            this.logListBox.Size = new System.Drawing.Size(1111, 429);
+            this.logListBox.TabIndex = 0;
             // 
             // tabPage2
             // 
-            tabPage2.Location = new Point(4, 24);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(789, 271);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
-            tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.Location = new System.Drawing.Point(4, 34);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage2.Size = new System.Drawing.Size(1131, 460);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // bufferSizeTextBox
             // 
-            bufferSizeTextBox.Location = new Point(180, 32);
-            bufferSizeTextBox.Name = "bufferSizeTextBox";
-            bufferSizeTextBox.Size = new Size(100, 23);
-            bufferSizeTextBox.TabIndex = 8;
+            this.bufferSizeTextBox.Location = new System.Drawing.Point(257, 53);
+            this.bufferSizeTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bufferSizeTextBox.Name = "bufferSizeTextBox";
+            this.bufferSizeTextBox.Size = new System.Drawing.Size(141, 31);
+            this.bufferSizeTextBox.TabIndex = 8;
             // 
             // buferSizeLabel
             // 
-            buferSizeLabel.AutoSize = true;
-            buferSizeLabel.Location = new Point(180, 14);
-            buferSizeLabel.Name = "buferSizeLabel";
-            buferSizeLabel.Size = new Size(62, 15);
-            buferSizeLabel.TabIndex = 9;
-            buferSizeLabel.Text = "Buffer Size";
+            this.buferSizeLabel.AutoSize = true;
+            this.buferSizeLabel.Location = new System.Drawing.Point(257, 23);
+            this.buferSizeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.buferSizeLabel.Name = "buferSizeLabel";
+            this.buferSizeLabel.Size = new System.Drawing.Size(95, 25);
+            this.buferSizeLabel.TabIndex = 9;
+            this.buferSizeLabel.Text = "Buffer Size";
             // 
             // pictureBox1
             // 
-            pictureBox1.BackColor = Color.OrangeRed;
-            pictureBox1.Location = new Point(180, 85);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(25, 23);
-            pictureBox1.TabIndex = 10;
-            pictureBox1.TabStop = false;
+            this.pictureBox1.BackColor = System.Drawing.Color.OrangeRed;
+            this.pictureBox1.Location = new System.Drawing.Point(257, 142);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(36, 38);
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(pictureBox1);
-            Controls.Add(buferSizeLabel);
-            Controls.Add(bufferSizeTextBox);
-            Controls.Add(tabControl1);
-            Controls.Add(startButton);
-            Controls.Add(countLabel);
-            Controls.Add(connectedClientsLabel);
-            Name = "Form1";
-            Text = "Form1";
-            Load += Form1_Load;
-            tabControl1.ResumeLayout(false);
-            tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1143, 750);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.buferSizeLabel);
+            this.Controls.Add(this.bufferSizeTextBox);
+            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.startButton);
+            this.Controls.Add(this.countLabel);
+            this.Controls.Add(this.connectedClientsLabel);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Name = "Form1";
+            this.Text = "Form1";
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

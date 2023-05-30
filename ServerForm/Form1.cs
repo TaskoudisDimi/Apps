@@ -53,7 +53,7 @@ namespace ServerForm
         private void HandleClient(Socket clientSocket)
         {
             byte[] buffer;
-            //byte[] buffer = new byte[1024];
+
             int length = Convert.ToInt32(bufferSizeTextBox.Text);
             buffer = new byte[length];
             int bytesRead;
@@ -121,6 +121,11 @@ namespace ServerForm
         private void Form1_Load(object sender, EventArgs e)
         {
             logListBox.Items.Add("Server started. Waiting for connections..." + Environment.NewLine);
+        }
+
+        private void startButton_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 
