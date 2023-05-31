@@ -85,12 +85,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UDPClient.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UDPClient.Designer.cs">
-      <DependentUpon>UDPClient.cs</DependentUpon>
-    </Compile>
     <Compile Include="UDPServer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,9 +93,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="UDPClient.resx">
-      <DependentUpon>UDPClient.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UDPServer.resx">
       <DependentUpon>UDPServer.cs</DependentUpon>
     </EmbeddedResource>

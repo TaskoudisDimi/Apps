@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tutorial", "Tutorial\Tutori
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerForm", "ServerForm\ServerForm.csproj", "{FE965DAD-4A34-4657-A4D5-C095DD93CA65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientForm2", "ClientForm2\ClientForm2.csproj", "{CF2BFCF4-D953-43E2-B8BE-6EE991968A2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientForm2", "ClientForm2\ClientForm2.csproj", "{CF2BFCF4-D953-43E2-B8BE-6EE991968A2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UDPClient", "UDPClient\UDPClient.csproj", "{C9B5426C-1A00-4D96-B340-EF286B5D6209}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -131,6 +133,14 @@ Global
 		{CF2BFCF4-D953-43E2-B8BE-6EE991968A2B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CF2BFCF4-D953-43E2-B8BE-6EE991968A2B}.Release|x64.ActiveCfg = Release|Any CPU
 		{CF2BFCF4-D953-43E2-B8BE-6EE991968A2B}.Release|x64.Build.0 = Release|Any CPU
+		{C9B5426C-1A00-4D96-B340-EF286B5D6209}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9B5426C-1A00-4D96-B340-EF286B5D6209}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9B5426C-1A00-4D96-B340-EF286B5D6209}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C9B5426C-1A00-4D96-B340-EF286B5D6209}.Debug|x64.Build.0 = Debug|Any CPU
+		{C9B5426C-1A00-4D96-B340-EF286B5D6209}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9B5426C-1A00-4D96-B340-EF286B5D6209}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9B5426C-1A00-4D96-B340-EF286B5D6209}.Release|x64.ActiveCfg = Release|Any CPU
+		{C9B5426C-1A00-4D96-B340-EF286B5D6209}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
