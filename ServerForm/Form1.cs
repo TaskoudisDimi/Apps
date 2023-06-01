@@ -16,19 +16,6 @@ namespace ServerForm
             InitializeComponent();
         }
 
-        private void startButton_Click(object sender, EventArgs e)
-        {
-            _serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            _serverSocket.Bind(new IPEndPoint(IPAddress.Any, 1234));
-            _serverSocket.Listen(10);
-
-            _serverThread = new Thread(StartServer);
-            _serverThread.Start();
-
-            startButton.Enabled = false;
-            logListBox.Items.Add("Server started listening on port 1234.");
-            
-        }
 
         private void StartServer()
         {
@@ -125,7 +112,15 @@ namespace ServerForm
 
         private void startButton_Click_1(object sender, EventArgs e)
         {
+            _serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            _serverSocket.Bind(new IPEndPoint(IPAddress.Any, 1234));
+            _serverSocket.Listen(10);
 
+            _serverThread = new Thread(StartServer);
+            _serverThread.Start();
+
+            startButton.Enabled = false;
+            logListBox.Items.Add("Server started listening on port 1234.");
         }
     }
 

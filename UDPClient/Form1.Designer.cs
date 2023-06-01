@@ -33,90 +33,107 @@
             this.portLabel = new System.Windows.Forms.Label();
             this.hostLabel = new System.Windows.Forms.Label();
             this.HostTextBox = new System.Windows.Forms.TextBox();
-            this.stopButton = new System.Windows.Forms.Button();
-            this.startButton = new System.Windows.Forms.Button();
+            this.disconnectButton = new System.Windows.Forms.Button();
+            this.connectButton = new System.Windows.Forms.Button();
+            this.sendButton = new System.Windows.Forms.Button();
+            this.messageTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // statusTextBox
             // 
-            this.statusTextBox.Location = new System.Drawing.Point(32, 74);
-            this.statusTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.statusTextBox.Location = new System.Drawing.Point(21, 84);
             this.statusTextBox.Multiline = true;
             this.statusTextBox.Name = "statusTextBox";
-            this.statusTextBox.Size = new System.Drawing.Size(674, 272);
+            this.statusTextBox.Size = new System.Drawing.Size(451, 178);
             this.statusTextBox.TabIndex = 21;
             // 
             // portTextBox
             // 
-            this.portTextBox.Location = new System.Drawing.Point(304, 33);
-            this.portTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.portTextBox.Location = new System.Drawing.Point(203, 21);
             this.portTextBox.Name = "portTextBox";
-            this.portTextBox.Size = new System.Drawing.Size(73, 26);
+            this.portTextBox.Size = new System.Drawing.Size(50, 20);
             this.portTextBox.TabIndex = 20;
             // 
             // portLabel
             // 
             this.portLabel.AutoSize = true;
-            this.portLabel.Location = new System.Drawing.Point(256, 38);
-            this.portLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.portLabel.Location = new System.Drawing.Point(171, 25);
             this.portLabel.Name = "portLabel";
-            this.portLabel.Size = new System.Drawing.Size(38, 20);
+            this.portLabel.Size = new System.Drawing.Size(26, 13);
             this.portLabel.TabIndex = 19;
             this.portLabel.Text = "Port";
             // 
             // hostLabel
             // 
             this.hostLabel.AutoSize = true;
-            this.hostLabel.Location = new System.Drawing.Point(28, 38);
-            this.hostLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.hostLabel.Location = new System.Drawing.Point(19, 25);
             this.hostLabel.Name = "hostLabel";
-            this.hostLabel.Size = new System.Drawing.Size(43, 20);
+            this.hostLabel.Size = new System.Drawing.Size(29, 13);
             this.hostLabel.TabIndex = 18;
             this.hostLabel.Text = "Host";
             // 
             // HostTextBox
             // 
-            this.HostTextBox.Location = new System.Drawing.Point(80, 33);
-            this.HostTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.HostTextBox.Location = new System.Drawing.Point(53, 21);
             this.HostTextBox.Name = "HostTextBox";
-            this.HostTextBox.Size = new System.Drawing.Size(148, 26);
+            this.HostTextBox.Size = new System.Drawing.Size(100, 20);
             this.HostTextBox.TabIndex = 17;
             // 
-            // stopButton
+            // disconnectButton
             // 
-            this.stopButton.Location = new System.Drawing.Point(596, 30);
-            this.stopButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.stopButton.Name = "stopButton";
-            this.stopButton.Size = new System.Drawing.Size(112, 35);
-            this.stopButton.TabIndex = 16;
-            this.stopButton.Text = "Stop";
-            this.stopButton.UseVisualStyleBackColor = true;
+            this.disconnectButton.Location = new System.Drawing.Point(397, 20);
+            this.disconnectButton.Name = "disconnectButton";
+            this.disconnectButton.Size = new System.Drawing.Size(75, 23);
+            this.disconnectButton.TabIndex = 16;
+            this.disconnectButton.Text = "Disconnect";
+            this.disconnectButton.UseVisualStyleBackColor = true;
+            this.disconnectButton.Click += new System.EventHandler(this.disconnectButton_Click);
             // 
-            // startButton
+            // connectButton
             // 
-            this.startButton.Location = new System.Drawing.Point(437, 30);
-            this.startButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(112, 35);
-            this.startButton.TabIndex = 15;
-            this.startButton.Text = "Start";
-            this.startButton.UseVisualStyleBackColor = true;
-            this.startButton.Click += new System.EventHandler(this.startButton_Click);
+            this.connectButton.Location = new System.Drawing.Point(291, 20);
+            this.connectButton.Name = "connectButton";
+            this.connectButton.Size = new System.Drawing.Size(75, 23);
+            this.connectButton.TabIndex = 15;
+            this.connectButton.Text = "Connect";
+            this.connectButton.UseVisualStyleBackColor = true;
+            this.connectButton.Click += new System.EventHandler(this.startButton_Click);
+            // 
+            // sendButton
+            // 
+            this.sendButton.Location = new System.Drawing.Point(187, 53);
+            this.sendButton.Name = "sendButton";
+            this.sendButton.Size = new System.Drawing.Size(75, 23);
+            this.sendButton.TabIndex = 22;
+            this.sendButton.Text = "Send";
+            this.sendButton.UseVisualStyleBackColor = true;
+            this.sendButton.Click += new System.EventHandler(this.sendButton_Click);
+            // 
+            // messageTextBox
+            // 
+            this.messageTextBox.Location = new System.Drawing.Point(53, 55);
+            this.messageTextBox.Name = "messageTextBox";
+            this.messageTextBox.Size = new System.Drawing.Size(100, 20);
+            this.messageTextBox.TabIndex = 23;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(785, 422);
+            this.ClientSize = new System.Drawing.Size(523, 274);
+            this.Controls.Add(this.messageTextBox);
+            this.Controls.Add(this.sendButton);
             this.Controls.Add(this.statusTextBox);
             this.Controls.Add(this.portTextBox);
             this.Controls.Add(this.portLabel);
             this.Controls.Add(this.hostLabel);
             this.Controls.Add(this.HostTextBox);
-            this.Controls.Add(this.stopButton);
-            this.Controls.Add(this.startButton);
+            this.Controls.Add(this.disconnectButton);
+            this.Controls.Add(this.connectButton);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,8 +146,10 @@
         private System.Windows.Forms.Label portLabel;
         private System.Windows.Forms.Label hostLabel;
         private System.Windows.Forms.TextBox HostTextBox;
-        private System.Windows.Forms.Button stopButton;
-        private System.Windows.Forms.Button startButton;
+        private System.Windows.Forms.Button disconnectButton;
+        private System.Windows.Forms.Button connectButton;
+        private System.Windows.Forms.Button sendButton;
+        private System.Windows.Forms.TextBox messageTextBox;
     }
 }
 
