@@ -16,6 +16,8 @@ using System.Threading;
 using System.Reflection.Metadata;
 using System.Diagnostics.Metrics;
 using System.Timers;
+using Tutorial;
+using System.Xml.Serialization;
 
 namespace Lesson1
 
@@ -1146,10 +1148,26 @@ namespace Lesson1
                 ////When I want to stop the execute
                 //timer.Stop();
 
+                //XML
+                XMLExample obj = new XMLExample { Name = "Test", Age = 28 };
+                //Serializer
+                XmlSerializer serializer = new XmlSerializer(typeof(XMLExample));
+                using(TextWriter writer = new StreamWriter("C:\\Users\\ASUS\\Desktop\\Programming\\C#\\Apps\\ouput.xml"))
+                {
+                    serializer.Serialize(writer, obj);
+                }
+                //Deserializer
+                XMLExample deserialize;
+                XmlSerializer serilieazer_ = new XmlSerializer(typeof(XMLExample));
+                using (TextReader reader = new StreamReader("C:\\Users\\ASUS\\Desktop\\Programming\\C#\\Apps\\ouput.xml"))
+                {   
+                    deserialize = (XMLExample)serilieazer_.Deserialize(reader);
+                };
 
                 Console.ReadLine();
 
             }
+
 
             //Timer
             private static void TimerElapsed(object sender, ElapsedEventArgs e)
