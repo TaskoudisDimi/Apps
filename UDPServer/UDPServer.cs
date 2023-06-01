@@ -28,34 +28,44 @@ namespace UDPServer
 
         private void startButton_Click(object sender, EventArgs e)
         {
-            
+            udpServer = new UdpClient(Convert.ToInt32(portTextBox.Text));
+            remoteEndPoint = new IPEndPoint(IPAddress.Any, 0);
+            udpServer.BeginReceive(ReceiveCallback, null);
+            statusTextBox.AppendText($"Start Listening...");
         }
 
         private void ReceiveCallback(IAsyncResult ar)
         {
-            byte[] receivedBytes = udpServer.EndReceive(ar, ref remoteEndPoint);
-            string receivedMessage = Encoding.ASCII.GetString(receivedBytes);
-
-            // Display the received message in the UI
-            Invoke(new Action(() =>
+            try
             {
-                statusTextBox.AppendText($"Received: {receivedMessage}{Environment.NewLine}");
-            }));
+                byte[] receivedBytes = udpServer.EndReceive(ar, ref remoteEndPoint);
+                string receivedMessage = Encoding.ASCII.GetString(receivedBytes);
 
-            // Add or update client's endpoint in the dictionary
-            string clientKey = $"{remoteEndPoint.Address}:{remoteEndPoint.Port}";
-            connectedClients[clientKey] = remoteEndPoint;
+                // Display the received message in the UI
+                Invoke(new Action(() =>
+                {
+                    statusTextBox.AppendText($"Received: {receivedMessage}{Environment.NewLine}");
+                }));
 
-            // Continue receiving messages
-            udpServer.BeginReceive(ReceiveCallback, null);
+                // Add or update client's endpoint in the dictionary
+                string clientKey = $"{remoteEndPoint.Address}:{remoteEndPoint.Port}";
+                connectedClients[clientKey] = remoteEndPoint;
+
+                // Continue receiving messages
+                udpServer.BeginReceive(ReceiveCallback, null);
+            }
+            catch
+            {
+
+            }
+            
         }
 
 
 
         private void UDPServer_FormClosing(object sender, FormClosingEventArgs e)
         {
-           
-           
+           udpServer.Close();
         }
 
         private void sendButton_Click(object sender, EventArgs e)
@@ -75,14 +85,6 @@ namespace UDPServer
 
         }
 
-        private void UDPServer_Load(object sender, EventArgs e)
-        {
-            udpServer = new UdpClient(8080); // Set the port number you want to listen on
-            remoteEndPoint = new IPEndPoint(IPAddress.Any, 0);
-
-            // Start receiving messages asynchronously
-            udpServer.BeginReceive(ReceiveCallback, null);
-        }
 
         
     }

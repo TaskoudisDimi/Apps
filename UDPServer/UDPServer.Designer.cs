@@ -132,7 +132,6 @@
             this.Name = "UDPServer";
             this.Text = "Server";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UDPServer_FormClosing);
-            this.Load += new System.EventHandler(this.UDPServer_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -22,31 +22,25 @@ namespace UDPClient
         {
             InitializeComponent();
         }
-
-        private void startButton_Click(object sender, EventArgs e)
-        {
-           
-
-        }
-
-
-        private void disconnectButton_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             udpClient = new UdpClient();
-
+        }
+        private void startButton_Click(object sender, EventArgs e)
+        {
             // Bind the client socket to an available port
             udpClient.Client.Bind(new IPEndPoint(IPAddress.Any, 0));
 
-            serverEndPoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8080); // Set the server IP address and port number
+            serverEndPoint = new IPEndPoint(IPAddress.Parse(HostTextBox.Text),Convert.ToInt32(portTextBox.Text)); // Set the server IP address and port number
 
             // Start receiving messages asynchronously
             udpClient.BeginReceive(ReceiveCallback, null);
+            statusTextBox.AppendText("Connected");
+        }
 
+        private void disconnectButton_Click(object sender, EventArgs e)
+        {
+            udpClient.Close();
         }
 
         private void ReceiveCallback(IAsyncResult ar)
