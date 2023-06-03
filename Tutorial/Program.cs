@@ -1130,7 +1130,7 @@ namespace Lesson1
                 //    Console.WriteLine("Background task completed.");
                 //});
 
-                //// Continue doing some work on the main thread while the background task is running
+                //// Continue doing some work on the main thread while the background task is running   
                 //for (int i = 0; i < 3; i++)
                 //{
                 //    Console.WriteLine($"Main thread iteration {i}.");
@@ -1149,23 +1149,23 @@ namespace Lesson1
                 //timer.Stop();
 
                 //XML
-                XMLExample obj = new XMLExample { Name = "Test", Age = 28 };
+                XMLExample obj = new XMLExample { Name = "Test", Age = 28, Email = "test@gmail.com" };
                 //Serializer
                 XmlSerializer serializer = new XmlSerializer(typeof(XMLExample));
                 using(TextWriter writer = new StreamWriter("C:\\Users\\ASUS\\Desktop\\Programming\\C#\\Apps\\ouput.xml"))
                 {
                     serializer.Serialize(writer, obj);
                 }
+
                 //Deserializer
                 XMLExample deserialize;
                 XmlSerializer serilieazer_ = new XmlSerializer(typeof(XMLExample));
                 using (TextReader reader = new StreamReader("C:\\Users\\ASUS\\Desktop\\Programming\\C#\\Apps\\ouput.xml"))
-                {   
+                {
                     deserialize = (XMLExample)serilieazer_.Deserialize(reader);
                 };
 
                 Console.ReadLine();
-
             }
 
 

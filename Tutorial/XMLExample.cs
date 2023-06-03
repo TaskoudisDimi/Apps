@@ -11,15 +11,13 @@ namespace Tutorial
     [XmlRoot("Root")]
     public class XMLExample
     {
+        [XmlAttribute]
+        public string Email { get; set; }
+
         [XmlElement("Name")]
         public string Name { get; set; }
 
         [XmlElement("Age")]
         public int Age { get; set; }
-
-        //[XmlAttribute]
-        //public string Email { get; set; }
-
-
     }
 }
