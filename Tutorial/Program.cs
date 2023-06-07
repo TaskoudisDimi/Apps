@@ -18,6 +18,7 @@ using System.Diagnostics.Metrics;
 using System.Timers;
 using Tutorial;
 using System.Xml.Serialization;
+using System.Data;
 
 namespace Lesson1
 
@@ -797,16 +798,6 @@ namespace Lesson1
                 //    Console.WriteLine(item);
                 //}
 
-                ////Linq methods
-                //int max = integ.Max();
-                //int min = integ.Min();
-                //int sum = integ.Sum();
-                //double avg = integ.Average();
-                //Console.WriteLine(max);
-                //Console.WriteLine(min);
-                //Console.WriteLine(sum);
-                //Console.WriteLine(avg);
-
                 //int[] integ2 = new int[10];
                 //for(int j = 0; j < 9; j++)
                 //{
@@ -874,7 +865,6 @@ namespace Lesson1
                 ////Since - 20 and - 14 are negative numbers, "Test1" and "Test2" are left-aligned.
                 //string data8 = string.Format("{0, -20} {1, -14}", "Test1", "Test2");
                 //Console.WriteLine(data8);
-
 
 
                 //var arrList = new ArrayList();
@@ -1005,6 +995,18 @@ namespace Lesson1
                 //test.PTheory();
                 //test.test();
                 //Console.ReadLine();
+
+                ////Linq methods
+                //int max = integ.Max();
+                //int min = integ.Min();
+                //int sum = integ.Sum();
+                //double avg = integ.Average();
+                //Console.WriteLine(max);
+                //Console.WriteLine(min);
+                //Console.WriteLine(sum);
+                //Console.WriteLine(avg);
+
+
                 #endregion
 
 
@@ -1148,22 +1150,43 @@ namespace Lesson1
                 ////When I want to stop the execute
                 //timer.Stop();
 
-                //XML
-                XMLExample obj = new XMLExample { Name = "Test", Age = 28, Email = "test@gmail.com" };
-                //Serializer
-                XmlSerializer serializer = new XmlSerializer(typeof(XMLExample));
-                using(TextWriter writer = new StreamWriter("C:\\Users\\ASUS\\Desktop\\Programming\\C#\\Apps\\ouput.xml"))
-                {
-                    serializer.Serialize(writer, obj);
-                }
+                ////XML
+                //XMLExample obj = new XMLExample { Name = "Test", Age = 28, Email = "test@gmail.com" };
+                ////Serializer
+                //XmlSerializer serializer = new XmlSerializer(typeof(XMLExample));
+                //using(TextWriter writer = new StreamWriter("C:\\Users\\ASUS\\Desktop\\Programming\\C#\\Apps\\ouput.xml"))
+                //{
+                //    serializer.Serialize(writer, obj);
+                //}
 
-                //Deserializer
-                XMLExample deserialize;
-                XmlSerializer serilieazer_ = new XmlSerializer(typeof(XMLExample));
-                using (TextReader reader = new StreamReader("C:\\Users\\ASUS\\Desktop\\Programming\\C#\\Apps\\ouput.xml"))
-                {
-                    deserialize = (XMLExample)serilieazer_.Deserialize(reader);
-                };
+                ////Deserializer
+                //XMLExample deserialize;
+                //XmlSerializer serilieazer_ = new XmlSerializer(typeof(XMLExample));
+                //using (TextReader reader = new StreamReader("C:\\Users\\ASUS\\Desktop\\Programming\\C#\\Apps\\ouput.xml"))
+                //{
+                //    deserialize = (XMLExample)serilieazer_.Deserialize(reader);
+                //};
+
+
+                //AsEnumerable -> Convert the DataTable to an enumerable sequence using AsEnumerable
+                //Except -> Find the set difference between the two arrays using Except
+                DataTable table = new DataTable();
+                table.Columns.Add("ID");
+                table.Rows.Add(1);
+                table.Rows.Add(2);
+                // Convert the DataTable to an enumerable sequence using AsEnumerable
+                var Elements = table.AsEnumerable();
+                var result = Elements.Where(row => row.Field<string>("ID").Contains("1"));
+
+                // Find the set difference between the two arrays using Except
+                int[] arr1 = {0, 1, 2};
+                int[] arr2 = {1, 2, 3};
+                var res = arr1.Except(arr2);
+
+                // Check if any element in the array is greater than 3 using Any
+                var any = arr1.Any(x => x > 2);
+
+                
 
                 Console.ReadLine();
             }
@@ -1175,7 +1198,6 @@ namespace Lesson1
                 //Do something
                 Console.WriteLine("Time to elapsed..." + e.SignalTime);
             }
-
 
             //static readonly object _object = new object();
 
