@@ -10,6 +10,9 @@ namespace Lesson1
     {
         public int CompId { get; set; }
         public string CompName { get; set; }
+
+        // Instance-specific, cannot be changed after initialization
+        public readonly int readOnlyTest = 10;
         
         public Components(int compId, string compName)
         {

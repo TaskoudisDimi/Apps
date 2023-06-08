@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Text.Json;
 using TextFiles;
 
@@ -25,7 +26,7 @@ namespace ObjectToJSONConversion
             List<Person> people = new List<Person>();
             List<string> lines = File.ReadAllLines(filepath).ToList();
 
-            foreach(var line in lines)
+            foreach (var line in lines)
             {
                 string[] entries = line.Split(',');
                 Person newPerson = new Person();
@@ -44,15 +45,33 @@ namespace ObjectToJSONConversion
             people.Add(new Person { FirstName = "Despoina", LastName = "Taskoudi", Url = "despoina@gmail.com" });
 
             List<string> output = new List<string>();
-            foreach(var person in people)
+            foreach (var person in people)
             {
                 output.Add($"{person.FirstName}, {person.LastName}, {person.Url}");
             }
             Console.WriteLine("Writing to text file");
-            File.WriteAllLines(filepath, output);   
+            File.WriteAllLines(filepath, output);
             Console.WriteLine("All entries written");
             Console.ReadLine();
-        
+
+        }
+
+
+        private void Write(string path)
+        {
+            using (TextWriter writer = new StreamWriter(path))
+            {
+                writer.Write(true);
+            }
+        }
+
+        private void Read(string path)
+        {
+            using (TextReader read = new StreamReader(path))
+            {
+                read.Read();
+            }
+
         }
     }
 }

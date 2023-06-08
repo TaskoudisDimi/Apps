@@ -70,22 +70,45 @@ namespace ParallelProgramming
 
             //WAITING FOR TIME TO PASS
             //The SpinWait is more efficient from Thread.Sleep(1000)
+
+
+            //var cts = new CancellationTokenSource();
+            //var token = cts.Token;
+
+            //var t = new Task(() =>
+            //{
+            //    Console.WriteLine("Press any key to disarm; You have 5 seconds");
+            //    bool result = token.WaitHandle.WaitOne(5000);
+            //    Console.WriteLine(result ? "Bomb disarmed" : "Boom!!!");
+            //},token);
+            //t.Start();
+            //Console.ReadKey();
+            //cts.Cancel();
+
             var cts = new CancellationTokenSource();
             var token = cts.Token;
-
             var t = new Task(() =>
             {
-                Console.WriteLine("Press any key to disarm; You have 5 seconds");
-                bool result = token.WaitHandle.WaitOne(5000);
-                Console.WriteLine(result ? "Bomb disarmed" : "Boom!!!");
+                Console.WriteLine("I take 5 seconds.");
+                for(int i = 0; i < 10; i++)
+                {
+                    token.ThrowIfCancellationRequested();
+                    Thread.Sleep(1000);
+                }
+                Console.WriteLine("I'm done.");
             },token);
             t.Start();
-            Console.ReadKey();
-            cts.Cancel();
+
+            Task t2 = Task.Factory.StartNew(() => Thread.Sleep(3000), token);
+
+            Task.WaitAny(new[] { t, t2 }, 4000, token);
+
+            Console.WriteLine($"Task t status is {t.Status}");
+            Console.WriteLine($"Task t2 status is {t2.Status}");
 
 
 
-            Console.Write("Main Program done!");
+            Console.WriteLine("Main Program done!");
             Console.ReadKey();
 
         }

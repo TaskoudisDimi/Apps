@@ -8,10 +8,14 @@ namespace Lesson1
 {
     public interface TestInterface
     {
-        void test();
+        void interTest()
+        {
+            Console.WriteLine("Test interTest");
+        }
+
         void PTheory()
         {
-            Console.WriteLine("Test Interface");
+            Console.WriteLine("Test PTheory");
         }
 
 

@@ -19,6 +19,7 @@ using System.Timers;
 using Tutorial;
 using System.Xml.Serialization;
 using System.Data;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Lesson1
 
@@ -158,10 +159,11 @@ namespace Lesson1
 
         class Program
         {
-            [DllImport("user32.dll", EntryPoint = "MessageBox")]
-            public static extern int ShowMessageBox(int hWnd, string text, string caption, uint type);
 
-            private static System.Timers.Timer timer;
+            //[DllImport("user32.dll", EntryPoint = "MessageBox")]
+            //public static extern int ShowMessageBox(int hWnd, string text, string caption, uint type);
+
+            //private static System.Timers.Timer timer;
 
             static void Main(string[] args)
             {
@@ -991,9 +993,11 @@ namespace Lesson1
                 //    Console.WriteLine("Key {0} and Value {1}", item.Key, item.Value);
                 //}
 
+                ////Interface
                 //TestInterface test = new UsefulTools();
                 //test.PTheory();
-                //test.test();
+                //test.interTest();
+
                 //Console.ReadLine();
 
                 ////Linq methods
@@ -1005,10 +1009,6 @@ namespace Lesson1
                 //Console.WriteLine(min);
                 //Console.WriteLine(sum);
                 //Console.WriteLine(avg);
-
-
-                #endregion
-
 
 
                 ////Type
@@ -1167,37 +1167,68 @@ namespace Lesson1
                 //    deserialize = (XMLExample)serilieazer_.Deserialize(reader);
                 //};
 
+                #endregion
 
-                //AsEnumerable -> Convert the DataTable to an enumerable sequence using AsEnumerable
-                //Except -> Find the set difference between the two arrays using Except
-                DataTable table = new DataTable();
-                table.Columns.Add("ID");
-                table.Rows.Add(1);
-                table.Rows.Add(2);
-                // Convert the DataTable to an enumerable sequence using AsEnumerable
-                var Elements = table.AsEnumerable();
-                var result = Elements.Where(row => row.Field<string>("ID").Contains("1"));
+                ////AsEnumerable -> Convert the DataTable to an enumerable sequence using AsEnumerable
+                ////Except -> Find the set difference between the two arrays using Except
+                //DataTable table = new DataTable();
+                //table.Columns.Add("ID");
+                //table.Rows.Add(1);
+                //table.Rows.Add(2);
+                //// Convert the DataTable to an enumerable sequence using AsEnumerable
+                //var Elements = table.AsEnumerable();
+                //var result = Elements.Where(row => row.Field<string>("ID").Contains("1"));
 
-                // Find the set difference between the two arrays using Except
-                int[] arr1 = {0, 1, 2};
-                int[] arr2 = {1, 2, 3};
-                var res = arr1.Except(arr2);
+                //// Find the set difference between the two arrays using Except
+                //int[] arr1 = {0, 1, 2};
+                //int[] arr2 = {1, 2, 3};
+                //var res = arr1.Except(arr2);
 
-                // Check if any element in the array is greater than 3 using Any
-                var any = arr1.Any(x => x > 2);
+                //// Check if any element in the array is greater than 3 using Any
+                //var any = arr1.Any(x => x > 2);
 
-                
+                ////ReadOnly
+                //Components ReadOnly = new Components(1, "test");
+                //int testReadOnly = ReadOnly.readOnlyTest;
+                //Console.WriteLine(testReadOnly);
+
+
+                ////Abstract
+                //Circle createCircle = new Circle(5);
+                //Console.WriteLine($"{createCircle.CalculateArea()}");
+
+
+                //Static Extern
+                //The combination of static extern is used in C# to define a method declaration that is implemented externally in another language
+                //or platform, typically through a native code library or an external component.
+
+                ////Delegate
+                //Printer printer = new Printer();
+                //PrintDelegate printDelegate = printer.PrintMessage;
+                //printDelegate("Test!");
+
+                //printDelegate = PrintUpperCase;
+                //printDelegate("Test Upper!");
+
+
 
                 Console.ReadLine();
             }
 
 
+            //Delegate Example
+            //public static void PrintUpperCase(string message)
+            //{
+            //    Console.WriteLine(message.ToUpper());
+            //}
+      
+
             //Timer
-            private static void TimerElapsed(object sender, ElapsedEventArgs e)
-            {
-                //Do something
-                Console.WriteLine("Time to elapsed..." + e.SignalTime);
-            }
+            //private static void TimerElapsed(object sender, ElapsedEventArgs e)
+            //{
+            //    //Do something
+            //    Console.WriteLine("Time to elapsed..." + e.SignalTime);
+            //}
 
             //static readonly object _object = new object();
 
@@ -1267,9 +1298,10 @@ namespace Lesson1
             //    Console.WriteLine("Worker 1 thread finished...");
             //}
 
-
-
         }
+
+
+
 
         //Lock statement
         //By using the lock statement, we ensure that only one thread can access the Increment and Decrement methods at a time,
@@ -1298,7 +1330,7 @@ namespace Lesson1
         //    }
         //}
 
-        
+
         ////Delegate
         //public delegate int Calculate(int x, int y);
         //public delegate string StringJoin(string a, string b);
