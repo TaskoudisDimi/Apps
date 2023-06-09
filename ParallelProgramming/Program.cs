@@ -85,28 +85,57 @@ namespace ParallelProgramming
             //Console.ReadKey();
             //cts.Cancel();
 
-            var cts = new CancellationTokenSource();
-            var token = cts.Token;
-            var t = new Task(() =>
+            //var cts = new CancellationTokenSource();
+            //var token = cts.Token;
+            //var t = new Task(() =>
+            //{
+            //    Console.WriteLine("I take 5 seconds.");
+            //    for(int i = 0; i < 10; i++)
+            //    {
+            //        token.ThrowIfCancellationRequested();
+            //        Thread.Sleep(1000);
+            //    }
+            //    Console.WriteLine("I'm done.");
+            //},token);
+            //t.Start();
+
+            //Task t2 = Task.Factory.StartNew(() => Thread.Sleep(3000), token);
+
+            //Task.WaitAny(new[] { t, t2 }, 4000, token);
+
+            //Console.WriteLine($"Task t status is {t.Status}");
+            //Console.WriteLine($"Task t2 status is {t2.Status}");
+
+            //EXCEPTION HANDLING
+
+            var t = Task.Factory.StartNew(() =>
             {
-                Console.WriteLine("I take 5 seconds.");
-                for(int i = 0; i < 10; i++)
+                throw new InvalidOperationException("Can't do this!") { Source = "t"};
+            });
+            var t2 = Task.Factory.StartNew(() =>
+            {
+                throw new AccessViolationException("Can't access this!") { Source = "t2" };
+            });
+            try
+            {
+                Task.WaitAll(t, t2);
+            }
+            catch (AggregateException ae)
+            {
+                //foreach(var a in ae.InnerExceptions)
+                //{
+                //    Console.WriteLine($"Exception {a.GetType()} from {a.Source}");
+                //}
+                ae.Handle(e =>
                 {
-                    token.ThrowIfCancellationRequested();
-                    Thread.Sleep(1000);
-                }
-                Console.WriteLine("I'm done.");
-            },token);
-            t.Start();
-
-            Task t2 = Task.Factory.StartNew(() => Thread.Sleep(3000), token);
-
-            Task.WaitAny(new[] { t, t2 }, 4000, token);
-
-            Console.WriteLine($"Task t status is {t.Status}");
-            Console.WriteLine($"Task t2 status is {t2.Status}");
-
-
+                    if (e is InvalidOperationException)
+                    {
+                        Console.WriteLine("Invalid op!");
+                        return true;
+                    }
+                    else return false;
+                });
+            }
 
             Console.WriteLine("Main Program done!");
             Console.ReadKey();
