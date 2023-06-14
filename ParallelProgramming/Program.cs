@@ -179,31 +179,58 @@ namespace ParallelProgramming
 
             #endregion
 
+            #region Data Sharing and Synchronization
+
+            #endregion
             //DATA SHARING AND SYNCHRONIZATION
 
-            var tasks = new List<Task>();
-            var ba = new BankAccount();
-            for(int i = 0; i < 10; i++)
-            {
-                tasks.Add(Task.Factory.StartNew(() =>
-                {
-                    for (int j = 0; j < 1000; j++)
-                    {
-                        ba.Deposit(100);
-                    }
-                }));
-                tasks.Add(Task.Factory.StartNew(() =>
-                {
-                    for (int j = 0; j < 1000; j++)
-                    {
-                        ba.WithDraw(100);
-                    }
-                }));
-                
-            }
-            Task.WaitAll(tasks.ToArray());
-            Console.WriteLine($"Final balance is {ba.Balance}");
+            //var tasks = new List<Task>();
 
+            //var ba = new BankAccount();
+
+            //SpinLock sl = new SpinLock();
+
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    tasks.Add(Task.Factory.StartNew(() =>
+            //    {
+            //        for (int j = 0; j < 1000; j++)
+            //        {
+            //            var lockTaken = false;
+            //            try
+            //            {
+            //                sl.Enter(ref lockTaken);
+            //                ba.Deposit(100);
+            //            }
+            //            finally
+            //            {
+            //                if (lockTaken) sl.Exit();
+            //            }
+            //        }
+            //    }));
+            //    tasks.Add(Task.Factory.StartNew(() =>
+            //    {
+            //        for (int j = 0; j < 1000; j++)
+            //        {
+            //            var lockTaken = false;
+            //            try
+            //            {
+            //                sl.Enter(ref lockTaken);
+            //                ba.WithDraw(100);
+            //            }
+            //            finally
+            //            {
+            //                if (lockTaken) sl.Exit();
+            //            }
+            //        }
+            //    }));
+
+            //}
+            //Task.WaitAll(tasks.ToArray());
+            //Console.WriteLine($"Final balance is {ba.Balance}");
+            
+            //SpinLock Example
+            LockRecursion(5);
 
         }
         #region TASK CLASS
@@ -230,26 +257,60 @@ namespace ParallelProgramming
         }
         #endregion
 
+        #region Data Sharing and Synchronization
+        static SpinLock sl = new SpinLock();
+        public static void LockRecursion(int x)
+        {
+            bool lockTaken = false;
+            try
+            {
+                sl.Enter(ref lockTaken);
+            }
+            catch (LockRecursionException ex)
+            {
+                Console.WriteLine($"Exception is {ex}");
+            }
+            finally
+            {
+                if (lockTaken)
+                {
+                    Console.WriteLine($"Took a lock, x = {x}");
+                    LockRecursion(x - 1);
+                    sl.Exit();
+                }
+                else
+                {
+                    Console.WriteLine($"Failed to take a lock x = {x}");
+                }
+            }
+        }
+        #endregion
     }
 
     public class BankAccount 
     {
         public object padLock = new object();
-        public int Balance { get; private set; }
+        private int balance;
+        public int Balance { get { return balance; } private set { balance = value; } }
 
         public void Deposit(int amount)
         {
-            lock(padLock)
-            {
-                Balance += amount;
-            }
+            //lock(padLock)
+            //{
+            //    Balance += amount;
+            //}
+
+            Interlocked.Add(ref balance, amount);
+            //Thread.MemoryBarrier();
         }
         public void WithDraw(int amount)
         {
-            lock (padLock)
-            {
-                Balance -= amount;
-            }
+            //lock (padLock)
+            //{
+            //    Balance -= amount;
+            //}
+            Interlocked.Add(ref balance, -amount);
+            
         }
 
     }
