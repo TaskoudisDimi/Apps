@@ -28,7 +28,7 @@ namespace Library
             manageThreads.RunQueryInBackground();
 
             //// Wait for the query to complete
-            //manageThreads.WaitForQueryCompletion();
+            manageThreads.WaitForQueryCompletion();
 
         }
         private void ManageThreads_QueryCompleted()

@@ -20,6 +20,7 @@ using Tutorial;
 using System.Xml.Serialization;
 using System.Data;
 using System.Security.Cryptography.X509Certificates;
+using System.Security.Policy;
 
 namespace Lesson1
 
@@ -1211,9 +1212,97 @@ namespace Lesson1
                 //printDelegate("Test Upper!");
 
 
+                
+                // Inside a method or block where shared resource is accessed
+                lock (lockObject)
+                {
+                    // Access or modify the shared resource
+                }
+
+                mutex.WaitOne();
+                try
+                {
+                    // Access or modify the shared resource
+                }
+                finally
+                {
+                    mutex.ReleaseMutex();
+                }
+
+                Monitor.Enter(lockObject);
+                try
+                {
+                    // Access or modify the shared resource
+                    // Only one thread can enter this section at a time
+                }
+                finally
+                {
+                    Monitor.Exit(lockObject);
+                }
+
+
+                //The AutoResetEvent and ManualResetEvent classes are synchronization primitives in .NET that allow threads to
+                //communicate and coordinate their execution. They are typically used in scenarios where one or more threads need
+                //to wait for a signal before proceeding.
+                //NOTE that AutoResetEvent resets itself automatically after a single waiting thread is released,
+                //while ManualResetEvent stays in the signaled state until explicitly reset by calling signal.Reset().
+
+                ////AutoResetEvent
+                //Thread producerThread = new Thread(() =>
+                //{
+                //    int data = 10;
+                //    // Signal the consumer thread
+                //    signal.Set();
+                //});
+                //// Consumer thread
+                //Thread consumerThread = new Thread(() =>
+                //{
+                //    Console.WriteLine("Waiting for data...");
+                //    signal.WaitOne(); // Wait for the signal from the producer thread
+
+                //    // Process the data
+                //    Console.WriteLine("Data received and processed.");
+                //});
+
+                //producerThread.Start();
+                //consumerThread.Start();
+
+                //// Wait for both threads to complete
+                //producerThread.Join();
+                //consumerThread.Join();
+
+                ////ManualResetEvent
+                //// Worker thread
+                //Thread workerThread = new Thread(() =>
+                //{
+                //    Console.WriteLine("Worker thread started.");
+                //    signal.WaitOne(); // Wait for the signal from the main thread
+
+                //    // Continue with the work
+                //    Console.WriteLine("Worker thread resumed and completed its work.");
+                //});
+
+                //workerThread.Start();
+
+                //// Simulate some delay
+                //Thread.Sleep(2000);
+
+                //// Signal the worker thread to continue
+                //signal.Set();
+
+                //// Wait for the worker thread to complete
+                //workerThread.Join();
 
                 Console.ReadLine();
             }
+
+            private static AutoResetEvent signal = new AutoResetEvent(false);
+            private static ManualResetEvent signalManual = new ManualResetEvent(false);
+            public string sharedObject = "sharedObject";
+            private static object lockObject = new object();
+
+            private static Mutex mutex = new Mutex();
+
 
 
             //Delegate Example
@@ -1221,7 +1310,7 @@ namespace Lesson1
             //{
             //    Console.WriteLine(message.ToUpper());
             //}
-      
+
 
             //Timer
             //private static void TimerElapsed(object sender, ElapsedEventArgs e)
