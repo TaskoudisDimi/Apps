@@ -1,13 +1,14 @@
 ﻿
-
-
 namespace ParallelProgramming
 {
     class Program
     {
+        static ReaderWriterLockSlim padlock = new ReaderWriterLockSlim();
+        static Random random = new Random();
         static void Main(string[] args)
         {
             #region TASK CLASS
+
             //TASK CLASS
             //string text1 = "Hello World Test 1";
             //string text2 = "Test 2";
@@ -179,11 +180,9 @@ namespace ParallelProgramming
 
             #endregion
 
-            #region Data Sharing and Synchronization
+            #region DATA SHARING AND SYNCHRONIZATION
 
-            #endregion
-            //DATA SHARING AND SYNCHRONIZATION
-
+            #region SpinLock
             //var tasks = new List<Task>();
 
             //var ba = new BankAccount();
@@ -228,9 +227,152 @@ namespace ParallelProgramming
             //}
             //Task.WaitAll(tasks.ToArray());
             //Console.WriteLine($"Final balance is {ba.Balance}");
+
+            ////SpinLock Example
+            //LockRecursion(5);
+            #endregion
+
+            #region Mutex
+            //var tasks = new List<Task>();
+            //var ba = new BankAccount();
+            //var ba2 = new BankAccount();
+
+            //Mutex mutex = new Mutex();
+            //Mutex mutex2 = new Mutex();
+
+
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    tasks.Add(Task.Factory.StartNew(() =>
+            //    {
+            //        for (int j = 0; j < 1000; j++)
+            //        {
+            //            bool haveLock = mutex.WaitOne();
+            //            try
+            //            {
+            //                ba.Deposit(1);
+            //            }
+            //            finally
+            //            {
+            //                if (haveLock) mutex.ReleaseMutex();
+            //            }
+            //        }
+            //    }));
+            //    tasks.Add(Task.Factory.StartNew(() =>
+            //    {
+            //        for (int j = 0; j < 1000; j++)
+            //        {
+            //            bool haveLock = mutex2.WaitOne();
+            //            try
+            //            {
+            //                ba2.Deposit(1);
+            //            }
+            //            finally
+            //            {
+            //                if (haveLock) mutex2.ReleaseMutex();
+            //            }
+            //        }
+            //    }));
+            //    tasks.Add(Task.Factory.StartNew(() =>
+            //    {
+            //        for (int j = 0; j < 1000; j++)
+            //        {
+            //            bool havelock = WaitHandle.WaitAll(new[] { mutex, mutex2 });
+            //            try
+            //            {
+            //                ba.Transfer(ba2, 1);
+            //            }
+            //            finally
+            //            {
+            //                if (havelock)
+            //                {
+            //                    mutex.ReleaseMutex();
+            //                    mutex2.ReleaseMutex();
+            //                }
+            //            }
+            //        }
+            //    }));
+            //}
+            //Task.WaitAll(tasks.ToArray());
+            //Console.WriteLine($"Final balance ba is {ba.Balance}");
+            //Console.WriteLine($"Final balance ba2 is {ba2.Balance}");
+            #endregion
+
+            #region ReadLock WriteLock
+            //int x = 0;
+            //var tasks = new List<Task>();
+            //for(int i = 0; i < 10; i++)
+            //{
+            //    tasks.Add(Task.Factory.StartNew(() =>
+            //    {
+            //        padlock.EnterReadLock();
+            //        Console.WriteLine($"Entered read lock, x = {x}");
+            //        Thread.Sleep(5000);
+            //        padlock.ExitReadLock();
+            //        Console.WriteLine($"Exited read lock, x = {x}");
+
+            //    }));
+            //}
+            //try
+            //{
+            //    Task.WaitAll(tasks.ToArray());
+
+            //}
+            //catch(AggregateException ae)
+            //{
+            //    ae.Handle(e =>
+            //    {
+            //        Console.WriteLine(e);
+            //        return true;
+            //    });
+
+            //}
+            //while (true)
+            //{
+            //    Console.ReadKey();
+            //    padlock.EnterWriteLock();
+            //    Console.WriteLine("Write lock acquired");
+            //    int newValue = random.Next(10);
+            //    x = newValue;
+            //    Console.WriteLine($"Set x =  {x}");
+            //    padlock.ExitWriteLock();
+            //    Console.WriteLine("Write lock released");
+            //}
+            #endregion
+
+            //Summary
+            //lock keyword
+            //Typically locks on an existing object, Best to make a new object to lock on
+            //Monitor.Enter()/Exit()
+            //Blocks until a lock is available
+
+            //Useful for automically changing low-level primitives
+            //Interlock.Increment()/Decrement()
+            //Interlock.Add()
+            //Exchange()/CompareExchange()
             
-            //SpinLock Example
-            LockRecursion(5);
+            
+            //A sping lock wastes CPU cucles without yielding
+            //Enter() to take, Exit() to release
+            //Lock recursion = ability to enter a lock twice on the same thread
+            //SpinLock doesn't support lock recursion
+            //Owner tracking helps keep a record of thread that acquied the lock 
+            
+            //Mutex
+            //A waithandle-derived synchronization primitive
+            //WaitOne() to acquire 
+            //ReleaseMutex() -> release
+            //Mutex.WaitAll() -> to acquire several
+            //Global/named Mutexs are shared between procceses
+
+            //Read-Writer Locks
+            //A reader-writer can lock for reading or writing
+            //Suports lock recursion
+            //Supports upgradeability
+
+            #endregion
+
+
 
         }
         #region TASK CLASS
@@ -250,14 +392,14 @@ namespace ParallelProgramming
         public static void Write(char c)
         {
             int i = 1000;
-            while (i  -- > 0)
+            while (i-- > 0)
             {
                 Console.Write(c);
             }
         }
         #endregion
 
-        #region Data Sharing and Synchronization
+        #region SpinLock
         static SpinLock sl = new SpinLock();
         public static void LockRecursion(int x)
         {
@@ -287,7 +429,7 @@ namespace ParallelProgramming
         #endregion
     }
 
-    public class BankAccount 
+    public class BankAccount
     {
         public object padLock = new object();
         private int balance;
@@ -310,7 +452,13 @@ namespace ParallelProgramming
             //    Balance -= amount;
             //}
             Interlocked.Add(ref balance, -amount);
-            
+
+        }
+
+        public void Transfer(BankAccount where, int amount)
+        {
+            Balance -= amount;
+            where.Balance += amount;
         }
 
     }
