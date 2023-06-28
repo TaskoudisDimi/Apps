@@ -1,4 +1,6 @@
 ﻿
+using System.Collections.Concurrent;
+
 namespace ParallelProgramming
 {
     class Program
@@ -350,14 +352,14 @@ namespace ParallelProgramming
             //Interlock.Increment()/Decrement()
             //Interlock.Add()
             //Exchange()/CompareExchange()
-            
-            
+
+
             //A sping lock wastes CPU cucles without yielding
             //Enter() to take, Exit() to release
             //Lock recursion = ability to enter a lock twice on the same thread
             //SpinLock doesn't support lock recursion
             //Owner tracking helps keep a record of thread that acquied the lock 
-            
+
             //Mutex
             //A waithandle-derived synchronization primitive
             //WaitOne() to acquire 
@@ -369,6 +371,81 @@ namespace ParallelProgramming
             //A reader-writer can lock for reading or writing
             //Suports lock recursion
             //Supports upgradeability
+
+            #endregion
+
+
+            #region Concurrent Collections
+
+            #region Concurrent Dictionary
+            //Task.Factory.StartNew(AddParis).Wait();
+            //AddParis();
+            //capitals["Russia"] = "Leningrand";
+            //capitals.AddOrUpdate("Russia", "Moscow", (k, old) => old + "--> Moscow");
+            //Console.WriteLine($"The capital of Russia is {capitals["Russia"]}");
+
+
+            //var capOfSweden = capitals.GetOrAdd("Sweden", "Sctocholm");
+            //Console.WriteLine($"The capital of Sweden is {capOfSweden}");
+
+            //const string toRemove = "Russia";
+            //string removed;
+            //var didRemove = capitals.TryRemove(toRemove, out removed);
+            //if (didRemove)
+            //{
+            //    Console.WriteLine($"We just removed {removed}");
+            //}
+            //else
+            //{
+            //    Console.WriteLine($"Failed to remove the capital of {toRemove}");
+            //}
+
+            //foreach (var kv in capitals)
+            //{
+            //    Console.WriteLine($" - {kv.Value} is the capital of {kv.Key}");
+            //}
+            #endregion
+
+            #region Concurrent Queue
+            //var q = new ConcurrentQueue<int>();
+            //q.Enqueue(1);
+            //q.Enqueue(2);
+
+            //int result;
+            //if(q.TryDequeue(out result))
+            //{
+            //    Console.WriteLine($"Removed element {result}");
+            //}
+            //if(q.TryPeek(out result))
+            //{
+            //    Console.WriteLine($"Front element is {result}");
+            //}
+            #endregion
+
+            #region Concurrent Stack
+            //var stack = new ConcurrentStack<int>();
+            //stack.Push(1);
+            //stack.Push(2);
+            //stack.Push(3);
+            //stack.Push(4);
+
+            //int result;
+            //if(stack.TryPeek(out result))
+            //{
+            //    Console.WriteLine($"{result} is on top");
+            //}
+            //if (stack.TryPop(out result))
+            //{
+            //    Console.WriteLine($"Popped {result}");
+            //}
+            //var items = new int[5];
+            //if (stack.TryPopRange(items, 0, 5) > 0)
+            //{
+            //    var text = string.Join(", ", items.Select(i => i.ToString()));
+            //    Console.WriteLine($"Popped these items {text}");
+            //}
+
+            #endregion
 
             #endregion
 
@@ -426,6 +503,24 @@ namespace ParallelProgramming
                 }
             }
         }
+        #endregion
+
+        #region Concurrent Collections
+
+        #region Concurrent Dictionary
+
+        //the capitals could be calling from several threads
+        private static ConcurrentDictionary<string, string> capitals = new ConcurrentDictionary<string, string>();
+        private static void AddParis()
+        {
+            bool success = capitals.TryAdd("France", "Paris");
+            string who = Task.CurrentId.HasValue ? ("Task " + Task.CurrentId) : "Main Thread";
+            Console.WriteLine($"{who} {(success ? "added" : "did not add")} the element");
+        }
+
+        #endregion
+        
+
         #endregion
     }
 
