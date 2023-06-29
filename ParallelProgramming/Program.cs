@@ -447,9 +447,83 @@ namespace ParallelProgramming
 
             #endregion
 
+            #region Concurrent Bag
+
+            //var bag = new ConcurrentBag<int>();
+            //var tasks = new List<Task>();
+            //for(int i = 0; i < 10; i++)
+            //{
+            //    var i1 = i;
+            //    tasks.Add(Task.Factory.StartNew(() =>
+            //    {
+            //        bag.Add(i1);
+            //        Console.WriteLine($"{Task.CurrentId} has added {i1}");
+            //        int result;
+            //        if(bag.TryPeek(out result))
+            //        {
+            //            Console.WriteLine($"{Task.CurrentId} has peeked the value {result}");
+            //        }
+
+            //    }));
+            //    Task.WaitAll(tasks.ToArray());
+
+            //    int last;
+            //    if(bag.TryTake(out last))
+            //    {
+            //        Console.WriteLine($"I got {last}");
+            //    }
+            //}
+            #endregion
+
+            #region Producer-Consumer Pattern
+            //Task.Factory.StartNew(ProductAndConsume, cts.Token);
+            //Console.ReadKey();
+            //cts.Cancel();
+
             #endregion
 
 
+            #region Summary
+            //Concurrent collections use TryXxx() method, return a bool inndicating success
+            //Optimized for multithreaded use, Some ops (Count) can block and make collection slow
+            //ConcurrentBag/Queue/Stack
+            //A BlockingCollection is a wrapper around one of the IProducerConsumerCollection classes
+            //Provides blocking and bounding capabilities
+
+            #endregion
+
+            #endregion
+
+            #region Task Coordination
+            //Getting multiple tasks to execute in a particular order
+
+            #region Continuations
+            //var task = Task.Factory.StartNew(() => "Task 1");
+            //var task2 = Task.Factory.StartNew(() => "Task 2");
+            ////var task3 = Task.Factory.ContinueWhenAll(new[] { task, task2 },
+            ////    tasks =>
+            ////    {
+            ////        Console.WriteLine("Tasks completed:");
+            ////        foreach (var t in tasks)
+            ////            Console.WriteLine(" - " + t.Result);
+            ////        Console.WriteLine("All tasks done!");
+            ////    });
+            //var task3 = Task.Factory.ContinueWhenAny(new[] { task, task2 },
+            //    t =>
+            //    {
+            //        Console.WriteLine("Tasks completed:");
+            //        Console.WriteLine(" - " + t.Result);
+            //        Console.WriteLine("All tasks done!");
+            //    });
+            //task3.Wait();
+            #endregion
+
+            #region Child Tasks
+
+            #endregion
+
+
+            #endregion
 
         }
         #region TASK CLASS
@@ -519,7 +593,49 @@ namespace ParallelProgramming
         }
 
         #endregion
-        
+
+        #region Producer-Consumer Pattern
+        //static BlockingCollection<int> messages = 
+        //    new BlockingCollection<int>(new ConcurrentBag<int>(), 10);
+        //static CancellationTokenSource cts = new CancellationTokenSource();
+        //static Random Random = new Random();
+
+        //static void ProductAndConsume()
+        //{
+        //    var producer = Task.Factory.StartNew(RunProducer);
+        //    var consumer = Task.Factory.StartNew(RunConsumer);
+        //    try
+        //    {
+        //        Task.WaitAll(new[] { producer, consumer }, cts.Token);
+        //    }
+        //    catch
+        //    {
+
+        //    }
+        //}
+        //private static void RunProducer()
+        //{
+        //    while (true)
+        //    {
+        //        cts.Token.ThrowIfCancellationRequested();
+        //        int i = Random.Next(100);
+        //        messages.Add(i);
+        //        Console.WriteLine($"+{i}\t");
+        //        Thread.Sleep(Random.Next(1000));
+
+        //    }
+        //}
+        //private static void RunConsumer()
+        //{
+        //    foreach(var item in messages.GetConsumingEnumerable())
+        //    {
+        //        cts.Token.ThrowIfCancellationRequested();
+        //        Console.WriteLine($"-{item}\t");
+        //        Thread.Sleep(Random.Next(1000));
+        //    }
+        //}
+
+        #endregion
 
         #endregion
     }
