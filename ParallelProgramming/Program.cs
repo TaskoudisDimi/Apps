@@ -5,8 +5,7 @@ namespace ParallelProgramming
 {
     class Program
     {
-        static ReaderWriterLockSlim padlock = new ReaderWriterLockSlim();
-        static Random random = new Random();
+        
         static void Main(string[] args)
         {
             #region TASK CLASS
@@ -519,13 +518,157 @@ namespace ParallelProgramming
             #endregion
 
             #region Child Tasks
+            //var parent = new Task(() =>
+            //{
+            //    var child = new Task(() =>
+            //    {
+            //        Console.WriteLine("Child task starting");
+            //        Thread.Sleep(3000);
+            //        Console.WriteLine("Child task finishing");
+            //        //throw new Exception();
+            //    }, TaskCreationOptions.AttachedToParent);
+
+            //    var completionHandler = child.ContinueWith(t =>
+            //    {
+            //        Console.WriteLine($"Hooray, task {t.Id}'s state is {t.Status}");
+            //    }, TaskContinuationOptions.AttachedToParent | TaskContinuationOptions.OnlyOnRanToCompletion);
+
+            //    var failHandler = child.ContinueWith(t =>
+            //    {
+            //        Console.WriteLine(value: $"Oops, task {t.Id}'s state is {t.Status}");
+            //    }, TaskContinuationOptions.AttachedToParent | TaskContinuationOptions.OnlyOnFaulted);
+
+            //    child.Start();
+            //});
+            //parent.Start();
+            //try
+            //{
+            //    parent.Wait();
+            //}
+            //catch
+            //{
+
+            //}
 
             #endregion
 
+            #region Barrier 
+            //var water = Task.Factory.StartNew(Water);
+            //var cup = Task.Factory.StartNew(Cup);
+            //var tea = Task.Factory.ContinueWhenAll(new[] { water, cup }, tasks =>
+            //{
+            //    Console.WriteLine("Enjoy your cup of tea.");
+            //});
+            //tea.Wait();
+            #endregion
+
+            #region CountDown Event
+
+            //for (int i = 0; i < taskCount; i++)
+            //{
+            //    Task.Factory.StartNew(() =>
+            //    {
+            //        Console.WriteLine($"Entering task {Task.CurrentId}");
+            //        Thread.Sleep(random.Next(1000));
+            //        cte.Signal();
+            //        Console.WriteLine($"Exiting task {Task.CurrentId}");
+            //    });
+            //}
+
+            //var finalTask = Task.Factory.StartNew(() =>
+            //{
+            //    Console.WriteLine($"Waiting for other tasks to complete in {Task.CurrentId}");
+            //    cte.Wait();
+            //    Console.WriteLine($"All tasks completed");
+            //});
+            //finalTask.Wait();
+
+
+            #endregion
+
+            #region ManualResetEventsSlim AutoResetEvent
+
+            //var evt = new ManualResetEventSlim();
+
+            //Task.Factory.StartNew(() =>
+            //{
+            //    Console.WriteLine("Boiling water");
+            //    evt.Set();
+            //});
+
+            //var makeTea = Task.Factory.StartNew(() =>
+            //{
+            //    Console.WriteLine("Waiting for water..");
+            //    evt.Wait();
+            //    Console.WriteLine("Here is your tea");
+            //});
+            //makeTea.Wait();
+
+            //var evt2 = new AutoResetEvent(false); //false
+            //Task.Factory.StartNew(() =>
+            //{
+            //    Console.WriteLine("Boiling water");
+            //    evt2.Set(); //true
+            //});
+
+            //var makeTea2 = Task.Factory.StartNew(() =>
+            //{
+            //    Console.WriteLine("Waiting for water..");
+            //    evt2.WaitOne(); //false
+            //    Console.WriteLine("Here is your tea");
+            //    var ok = evt2.WaitOne(1000);
+            //    if (ok)
+            //    {
+            //        Console.WriteLine("Enjoy your tea");
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("No tea for you");
+            //    }
+            //});
+            //makeTea2.Wait();
+
+
+            #endregion
+
+            #region SemaSphoreSlim
+
+            //var sema = new SemaphoreSlim(2, 10);
+
+            //for (int i = 0; i < 20; i++)
+            //{
+            //    Task.Factory.StartNew(() =>
+            //    {
+            //        Console.WriteLine($"Entering task {Task.CurrentId}");
+            //        sema.Wait(); //Release Count
+
+            //        Console.WriteLine($"Entering task {Task.CurrentId}");
+
+            //    });
+            //}
+
+            //while(sema.CurrentCount <= 2)
+            //{
+            //    Console.WriteLine($"Semaphore count {sema.CurrentCount}");
+            //    Console.ReadKey();
+            //    sema.Release(2);
+            //}
+
+            #endregion
+
+            #endregion
+
+            #region Parallel Loops
+
+            #region Parallel Invoke/For/Foreach
+
+            #endregion
 
             #endregion
 
         }
+        //static ReaderWriterLockSlim padlock = new ReaderWriterLockSlim();
+        //static Random random = new Random();
         #region TASK CLASS
         public static int TextLength(object o)
         {
@@ -583,14 +726,14 @@ namespace ParallelProgramming
 
         #region Concurrent Dictionary
 
-        //the capitals could be calling from several threads
-        private static ConcurrentDictionary<string, string> capitals = new ConcurrentDictionary<string, string>();
-        private static void AddParis()
-        {
-            bool success = capitals.TryAdd("France", "Paris");
-            string who = Task.CurrentId.HasValue ? ("Task " + Task.CurrentId) : "Main Thread";
-            Console.WriteLine($"{who} {(success ? "added" : "did not add")} the element");
-        }
+        ////the capitals could be calling from several threads
+        //private static ConcurrentDictionary<string, string> capitals = new ConcurrentDictionary<string, string>();
+        //private static void AddParis()
+        //{
+        //    bool success = capitals.TryAdd("France", "Paris");
+        //    string who = Task.CurrentId.HasValue ? ("Task " + Task.CurrentId) : "Main Thread";
+        //    Console.WriteLine($"{who} {(success ? "added" : "did not add")} the element");
+        //}
 
         #endregion
 
@@ -637,42 +780,87 @@ namespace ParallelProgramming
 
         #endregion
 
+
         #endregion
+
+        #region Task Coordination
+
+        #region Barrier 
+        //static Barrier barrier = new Barrier(2, b =>
+        //{
+        //    Console.WriteLine($"Phase {b.CurrentPhaseNumber} is finished");
+        //});
+
+        //public static void Water()
+        //{
+        //    Console.WriteLine("Putting the kettle on (takes a bit longer)");
+        //    Thread.Sleep(2000);
+        //    barrier.SignalAndWait(); //Signal wait
+        //    Console.WriteLine("Pouring water into cup");
+        //    barrier.SignalAndWait();
+        //    Console.WriteLine("Putting the kettle away");
+        //}
+
+        //public static void Cup()
+        //{
+        //    Console.WriteLine("Finding the nicest cup of tea (fast)");
+        //    barrier.SignalAndWait(); //Signal wait
+        //    Console.WriteLine("Adding tea.");
+        //    barrier.SignalAndWait();
+        //    Console.WriteLine("Adding sugar");
+        //}
+        #endregion
+
+        #region CountDown Event
+
+        //private static int taskCount = 5;
+        //static CountdownEvent cte = new CountdownEvent(taskCount);
+        //private static Random random = new Random();
+
+        #endregion
+
+        #endregion
+
+        #region Parallel Loops
+
+
+        #endregion
+
     }
 
-    public class BankAccount
-    {
-        public object padLock = new object();
-        private int balance;
-        public int Balance { get { return balance; } private set { balance = value; } }
+    //public class BankAccount
+    //{
+    //    public object padLock = new object();
+    //    private int balance;
+    //    public int Balance { get { return balance; } private set { balance = value; } }
 
-        public void Deposit(int amount)
-        {
-            //lock(padLock)
-            //{
-            //    Balance += amount;
-            //}
+    //    public void Deposit(int amount)
+    //    {
+    //        //lock(padLock)
+    //        //{
+    //        //    Balance += amount;
+    //        //}
 
-            Interlocked.Add(ref balance, amount);
-            //Thread.MemoryBarrier();
-        }
-        public void WithDraw(int amount)
-        {
-            //lock (padLock)
-            //{
-            //    Balance -= amount;
-            //}
-            Interlocked.Add(ref balance, -amount);
+    //        Interlocked.Add(ref balance, amount);
+    //        //Thread.MemoryBarrier();
+    //    }
+    //    public void WithDraw(int amount)
+    //    {
+    //        //lock (padLock)
+    //        //{
+    //        //    Balance -= amount;
+    //        //}
+    //        Interlocked.Add(ref balance, -amount);
 
-        }
+    //    }
 
-        public void Transfer(BankAccount where, int amount)
-        {
-            Balance -= amount;
-            where.Balance += amount;
-        }
+    //    public void Transfer(BankAccount where, int amount)
+    //    {
+    //        Balance -= amount;
+    //        where.Balance += amount;
+    //    }
 
-    }
+    //}
 
 }
 
