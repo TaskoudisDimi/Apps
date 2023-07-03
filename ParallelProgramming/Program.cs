@@ -1,12 +1,14 @@
 ﻿
+using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Running;
 using System.Collections.Concurrent;
 
 namespace ParallelProgramming
 {
-    class Program
+    public class Program
     {
         
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             #region TASK CLASS
 
@@ -662,6 +664,72 @@ namespace ParallelProgramming
 
             #region Parallel Invoke/For/Foreach
 
+            //var a = new Action(() => Console.WriteLine($"First {Task.CurrentId}"));
+            //var b = new Action(() => Console.WriteLine($"Second {Task.CurrentId}"));
+            //var c = new Action(() => Console.WriteLine($"Third {Task.CurrentId}"));
+
+            //Parallel.Invoke(a, b, c);
+
+            //Parallel.For(1, 11, i =>
+            //{
+            //    Console.WriteLine($"{i * i}\t");
+            //});
+
+            //string[] words = { "oh", "what", "a", "night" };
+            //Parallel.ForEach(words, word =>
+            //{
+            //    Console.WriteLine($"{word} has length {word.Length} (task {Task.CurrentId})");
+            //});
+
+            //Parallel.ForEach(Range(1, 20, 3), Console.WriteLine); 
+
+            #endregion
+
+            #region Breaking, Cancellations, Exceptions
+            //try
+            //{
+            //    Demo();
+
+            //}
+            //catch
+            //{
+
+            //}
+            #endregion
+
+            #region Thread Local Storage
+
+            //int sum = 0;
+            //Parallel.For(1, 1001, () => 0, (x, state, tls) =>
+            //{
+            //    tls += x;
+            //    Console.WriteLine($"Task {Task.CurrentId} has sum {tls}");
+            //    return tls;
+            //},
+            //partialSum =>
+            //{
+            //    Console.WriteLine($"Partial value of task {Task.CurrentId} is {partialSum}");
+            //    Interlocked.Add(ref sum, partialSum);
+            //});
+            //Console.WriteLine($"Sum of 1...100 = {sum}");
+
+
+
+            #endregion
+
+            #region Partiotioning
+
+            //var summary = BenchmarkRunner.Run<Program>();
+            //Console.WriteLine(summary);
+
+            #endregion
+
+            #endregion
+
+            #region Parallel LINQ
+
+            #region AsParallel and ParallelQuery
+
             #endregion
 
             #endregion
@@ -822,6 +890,69 @@ namespace ParallelProgramming
         #endregion
 
         #region Parallel Loops
+
+        #region Parallel Invoke/For/Foreach
+        //public static IEnumerable<int> Range(int start, int end, int step)
+        //{
+        //    for (int i = 0; i < end; i+= step)
+        //    {
+        //        yield return i;
+        //    }
+        //}
+
+        #endregion
+
+        #region Breaking, Cancellations, Exceptions
+        //public static void Demo()
+        //{
+        //    Parallel.For(0, 20, (int x, ParallelLoopState state) =>
+        //    {
+        //        Console.WriteLine($"{x} [{Task.CurrentId}]\t");
+        //        if( x == 10)
+        //        {
+        //            //state.Stop();
+        //            //state.Break();
+        //            throw new Exception();
+        //        }
+        //    });
+        //}
+        #endregion
+
+        #region Partiotioning
+
+        //[Benchmark]
+        //public void SquareEachValue()
+        //{
+        //    const int count = 100000;
+        //    var values = Enumerable.Range(0, count);
+        //    var results = new int[count];
+        //    Parallel.ForEach(values, x => { results[x] = (int)Math.Pow(x, 2); });
+        //}
+
+        //[Benchmark]
+        //public void SquareEachValueChunked()
+        //{
+        //    const int count = 100000;
+        //    var values = Enumerable.Range(0, count);
+        //    var results = new int[count];
+
+        //    var part = Partitioner.Create(0, count, 10000);
+        //    Parallel.ForEach(part, range =>
+        //    {
+        //        for (int i = range.Item1; i < range.Item2; i++)
+        //        {
+        //            results[i] = (int)Math.Pow(i, 2);
+        //        }
+        //    });
+        //}
+
+        #endregion
+
+        #endregion
+
+        #region Parallel LINQ
+
+        
 
 
         #endregion
