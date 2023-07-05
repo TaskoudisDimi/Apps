@@ -37,7 +37,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop", "Shop\Shop.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopLibrary", "ShopLibrary\ShopLibrary.csproj", "{C71F4BA8-DF4B-425A-86AB-0BB6A99209D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParallelProgramming", "ParallelProgramming\ParallelProgramming.csproj", "{8097227B-E836-4DD9-AECD-113391694B8C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParallelProgramming", "ParallelProgramming\ParallelProgramming.csproj", "{8097227B-E836-4DD9-AECD-113391694B8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParallelProgrammingForm", "ParallelProgrammingForm\ParallelProgrammingForm.csproj", "{05CB375B-EC31-4033-8833-8A45DBCA6895}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -191,6 +193,14 @@ Global
 		{8097227B-E836-4DD9-AECD-113391694B8C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8097227B-E836-4DD9-AECD-113391694B8C}.Release|x64.ActiveCfg = Release|Any CPU
 		{8097227B-E836-4DD9-AECD-113391694B8C}.Release|x64.Build.0 = Release|Any CPU
+		{05CB375B-EC31-4033-8833-8A45DBCA6895}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05CB375B-EC31-4033-8833-8A45DBCA6895}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05CB375B-EC31-4033-8833-8A45DBCA6895}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{05CB375B-EC31-4033-8833-8A45DBCA6895}.Debug|x64.Build.0 = Debug|Any CPU
+		{05CB375B-EC31-4033-8833-8A45DBCA6895}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05CB375B-EC31-4033-8833-8A45DBCA6895}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05CB375B-EC31-4033-8833-8A45DBCA6895}.Release|x64.ActiveCfg = Release|Any CPU
+		{05CB375B-EC31-4033-8833-8A45DBCA6895}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
