@@ -41,7 +41,7 @@ namespace ServerForm
         {
             byte[] buffer;
 
-            int length = Convert.ToInt32(bufferSizeTextBox.Text);
+            int length = Convert.ToInt32(1024);
             buffer = new byte[length];
             int bytesRead;
 
