@@ -13,23 +13,76 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Timer = System.Windows.Forms.Timer;
 
 namespace Forms.Forms
 {
     public partial class AttributeTest : Form
     {
+
+        private BackgroundWorker backgroundWorker;
+
         public AttributeTest()
         {
             InitializeComponent();
+
+            backgroundWorker = new BackgroundWorker();
+            backgroundWorker.WorkerReportsProgress = true;
+            backgroundWorker.DoWork += BackgroundWorker_DoWork;
+            backgroundWorker.ProgressChanged += BackgroundWorker_ProgressChanged;
+            backgroundWorker.RunWorkerCompleted += BackgroundWorker_RunWorkerCompleted;
+
+        }
+        private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            // Simulate a time-consuming operation (5 seconds)
+            Thread.Sleep(5000);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            List<Category> categories = ReadFromSqlTable<Category>();
-            foreach (Category categorie in categories)
-            {
-                Console.WriteLine(categorie.CatId);
-            }
+            // This event is not used in this example, but it's required for the BackgroundWorker to report progress.
+        }
+
+        private void BackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            labelTest.Text = "End of downloading";
+            progressBar1.Style = ProgressBarStyle.Blocks;
+            
+        }
+        public void testTask()
+        {
+            Thread.Sleep(1000);
+            
+
+        }
+        private void AttributeTest_Load(object sender, EventArgs e)
+        {
+
+        }
+        private async void button1_Click(object sender, EventArgs e)
+        {
+
+            //await Task.Run(() =>
+            //{
+            //    testTask();
+            //});
+
+            
+            labelTest.Text = "Processing...";
+            progressBar1.Style = ProgressBarStyle.Marquee;
+
+            // Start the background worker
+            backgroundWorker.RunWorkerAsync();
+
+
+            //List<Category> categories = ReadFromSqlTable<Category>();
+            //foreach (Category categorie in categories)
+            //{
+            //    Console.WriteLine(categorie.CatId);
+            //}
+
         }
         public static List<T> ReadFromSqlTable<T>() where T : new()
         {
