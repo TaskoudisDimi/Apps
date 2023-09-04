@@ -8,30 +8,28 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Forms.Forms
 {
     public partial class ProgressWait : Form
     {
-        public Action Worker { get; set; }
 
-        public ProgressWait(Action worker)
+        public ProgressWait()
         {
             InitializeComponent();
-            if (worker == null)
-            {
-                throw new ArgumentNullException();
-            }
-            Worker = worker;
+            
            
         }
-
-        protected override void OnLoad(EventArgs e)
+        // Define a method to update the progress bar
+        public void UpdateProgressBar(int progress)
         {
-            base.OnLoad(e);
-            Task.Factory.StartNew(Worker).ContinueWith(t => { this.Close(); }, TaskScheduler.FromCurrentSynchronizationContext());
+            // Ensure that the progress value is within the valid range (0-100)
+            if (progress >= 0 && progress <= 100)
+            {
+                progressBar.Value = progress;
+            }
         }
-
 
 
     }

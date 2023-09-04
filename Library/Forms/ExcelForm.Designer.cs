@@ -106,7 +106,6 @@
             this.testButton.TabIndex = 6;
             this.testButton.Text = "Test ProgressBar";
             this.testButton.UseVisualStyleBackColor = true;
-            this.testButton.Click += new System.EventHandler(this.testButton_Click);
             // 
             // ExcelForm
             // 

@@ -326,13 +326,7 @@ namespace Forms
         }
 
 
-        private void testButton_Click(object sender, EventArgs e)
-        {
-            using (ProgressWait wait = new ProgressWait(test))
-            {
-                wait.ShowDialog(this);
-            }
-        }
+        
     }
 
 

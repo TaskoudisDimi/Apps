@@ -22,6 +22,8 @@ namespace Forms.Forms
     {
 
         private BackgroundWorker backgroundWorker;
+        private ProgressWait progressForm;
+
 
         public AttributeTest()
         {
@@ -33,57 +35,53 @@ namespace Forms.Forms
             backgroundWorker.ProgressChanged += BackgroundWorker_ProgressChanged;
             backgroundWorker.RunWorkerCompleted += BackgroundWorker_RunWorkerCompleted;
 
+            progressForm = new ProgressWait();
+
         }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            labelTest.Text = "Processing...";
+            //progressBar1.Style = ProgressBarStyle.Marquee;
+
+            // Start the background worker
+            backgroundWorker.RunWorkerAsync();
+
+            // Show the progress form
+            progressForm.Show();
+        }
+
         private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             // Simulate a time-consuming operation (5 seconds)
-            Thread.Sleep(5000);
+            for (int i = 0; i < 100; i++)
+            {
+                Thread.Sleep(50); // Simulate work
+                backgroundWorker.ReportProgress(i); // Report progress
+            }
         }
 
         private void BackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            // This event is not used in this example, but it's required for the BackgroundWorker to report progress.
+            // Update the progress bar in the progress form
+            progressForm.UpdateProgressBar(e.ProgressPercentage);
         }
 
         private void BackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             labelTest.Text = "End of downloading";
-            progressBar1.Style = ProgressBarStyle.Blocks;
-            
-        }
-        public void testTask()
-        {
-            Thread.Sleep(1000);
-            
 
+            // Close the progress form when the background work is done
+            progressForm.Close();
         }
+
         private void AttributeTest_Load(object sender, EventArgs e)
         {
-
-        }
-        private async void button1_Click(object sender, EventArgs e)
-        {
-
-            //await Task.Run(() =>
-            //{
-            //    testTask();
-            //});
-
-            
-            labelTest.Text = "Processing...";
-            progressBar1.Style = ProgressBarStyle.Marquee;
-
-            // Start the background worker
             backgroundWorker.RunWorkerAsync();
-
-
-            //List<Category> categories = ReadFromSqlTable<Category>();
-            //foreach (Category categorie in categories)
-            //{
-            //    Console.WriteLine(categorie.CatId);
-            //}
-
+            progressForm.Show();
         }
+
         public static List<T> ReadFromSqlTable<T>() where T : new()
         {
             List<T> result = new List<T>();

@@ -31,7 +31,6 @@
             button1 = new Button();
             labelTest = new Label();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            progressBar1 = new ProgressBar();
             SuspendLayout();
             // 
             // button1
@@ -53,19 +52,11 @@
             labelTest.TabIndex = 1;
             labelTest.Text = "Test";
             // 
-            // progressBar1
-            // 
-            progressBar1.Location = new Point(12, 153);
-            progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(435, 23);
-            progressBar1.TabIndex = 2;
-            // 
             // AttributeTest
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(459, 206);
-            Controls.Add(progressBar1);
             Controls.Add(labelTest);
             Controls.Add(button1);
             Name = "AttributeTest";
@@ -80,6 +71,5 @@
         private Button button1;
         private Label labelTest;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private ProgressBar progressBar1;
     }
 }
