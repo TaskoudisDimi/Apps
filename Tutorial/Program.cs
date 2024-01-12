@@ -21,6 +21,7 @@ using System.Xml.Serialization;
 using System.Data;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Policy;
+using Newtonsoft.Json;
 
 namespace Lesson1
 
@@ -1097,7 +1098,6 @@ namespace Lesson1
                 //    Console.WriteLine($"Name: {name}, Age: {age}");
                 //}
 
-
                 ////Lock
                 //for (int i = 0; i < 10; i++)
                 //{
@@ -1212,33 +1212,33 @@ namespace Lesson1
                 //printDelegate("Test Upper!");
 
 
-                
-                // Inside a method or block where shared resource is accessed
-                lock (lockObject)
-                {
-                    // Access or modify the shared resource
-                }
 
-                mutex.WaitOne();
-                try
-                {
-                    // Access or modify the shared resource
-                }
-                finally
-                {
-                    mutex.ReleaseMutex();
-                }
+                //// Inside a method or block where shared resource is accessed
+                //lock (lockObject)
+                //{
+                //    // Access or modify the shared resource
+                //}
 
-                Monitor.Enter(lockObject);
-                try
-                {
-                    // Access or modify the shared resource
-                    // Only one thread can enter this section at a time
-                }
-                finally
-                {
-                    Monitor.Exit(lockObject);
-                }
+                //mutex.WaitOne();
+                //try
+                //{
+                //    // Access or modify the shared resource
+                //}
+                //finally
+                //{
+                //    mutex.ReleaseMutex();
+                //}
+
+                //Monitor.Enter(lockObject);
+                //try
+                //{
+                //    // Access or modify the shared resource
+                //    // Only one thread can enter this section at a time
+                //}
+                //finally
+                //{
+                //    Monitor.Exit(lockObject);
+                //}
 
 
                 //The AutoResetEvent and ManualResetEvent classes are synchronization primitives in .NET that allow threads to
@@ -1293,15 +1293,186 @@ namespace Lesson1
                 //// Wait for the worker thread to complete
                 //workerThread.Join();
 
+
+                #region Dependency injection  
+
+                //Constructor
+                //// Create an instance of the dependency
+                //IMessageService emailService = new EmailService();
+                //// Create an instance of the class with the dependency injected
+                //NotificationService notificationService = new NotificationService(emailService);
+                //// Use the class
+                //notificationService.SendNotification("Hello, world!");
+
+
+                ////Property
+                //// Create an instance of the dependent class
+                //UserService userService = new UserService();
+
+                //// Create an instance of the dependency
+                //ILogger logger = new ConsoleLogger();
+
+                //// Inject the dependency through the property
+                //userService.Logger = logger;
+
+                //// Use the dependent class
+                //userService.CreateUser("Dependent");
+
+
+                ////Method 
+                //// Create an instance of the dependent class
+                //CalculationService calculationService = new CalculationService();
+
+                //// Create an instance of the dependency
+                //ICalculator calculator = new BasicCalculator();
+
+                //// Use the dependent class and inject the dependency into the method
+                //int result = calculationService.PerformCalculation(5, 3, calculator);
+
+
+                //Console.WriteLine($"Result: {result}"); // Output: Result: 8
+
+                #endregion
+
+
+
                 Console.ReadLine();
             }
 
-            private static AutoResetEvent signal = new AutoResetEvent(false);
-            private static ManualResetEvent signalManual = new ManualResetEvent(false);
-            public string sharedObject = "sharedObject";
-            private static object lockObject = new object();
 
-            private static Mutex mutex = new Mutex();
+
+            #region Dependency injection  
+
+
+            #region Constructor
+            //In the example above, we have an IMessageService interface that defines the contract for a message service.
+            //The EmailService class implements this interface and provides the concrete implementation for sending emails.
+            //The NotificationService class depends on the IMessageService interface, which is injected via its constructor.
+            //This allows different implementations of IMessageService to be easily swapped without modifying the NotificationService class.
+            //The SendNotification method uses the injected IMessageService to send a notification message.
+            //The NotificationService class depends on the IMessageService interface, which is injected via its constructor.
+            //This allows different implementations of IMessageService to be easily swapped without modifying the NotificationService class.
+            //The SendNotification method uses the injected IMessageService to send a notification message.
+
+            //// Interface representing the dependency
+            //public interface IMessageService
+            //{
+            //    void SendMessage(string message);
+            //}
+
+            //// Concrete implementation of the dependency
+            //public class EmailService: IMessageService
+            //{
+            //    public void SendMessage(string message)
+            //    {
+            //        Console.WriteLine($"Sending email: {message}");
+            //    }
+            //}
+
+            //// Class that depends on the IMessageService
+            //public class NotificationService
+            //{
+            //    private readonly IMessageService _messageService;
+
+            //    // Constructor injection
+            //    public NotificationService(IMessageService messageService)
+            //    {
+            //        _messageService = messageService;
+            //    }
+
+            //    public void SendNotification(string message)
+            //    {
+            //        _messageService.SendMessage(message);
+            //    }
+            //}
+
+            #endregion
+
+
+            #region Property
+
+            //In the example above, we have an ILogger interface that defines the contract for a logger.
+            //The ConsoleLogger class implements this interface and provides the concrete implementation for logging to the console.
+            //The UserService class depends on the ILogger interface, which is injected through a public property called Logger.
+            //The CreateUser method uses the injected ILogger to log a message during the user creation process.
+            //In the Main method, we create an instance of UserService and an instance of ConsoleLogger.
+            //We then inject the ConsoleLogger into the UserService instance by assigning it to the Logger property.
+            //Finally, we call the CreateUser method on the userService instance, which uses the injected ILogger implementation to log a message.
+
+            //// Interface representing the dependency
+            //public interface ILogger
+            //{
+            //    void Log(string message);
+            //}
+
+            //// Concrete implementation of the dependency
+            //public class ConsoleLogger : ILogger
+            //{
+            //    public void Log(string message)
+            //    {
+            //        Console.WriteLine($"Logging: {message}");
+            //    }
+            //}
+
+            //// Class that depends on the ILogger
+            //public class UserService
+            //{
+            //    // Property injection
+            //    public ILogger Logger { get; set; }
+
+            //    public void CreateUser(string username)
+            //    {
+            //        // Perform user creation logic
+            //        Logger.Log($"User '{username}' created successfully.");
+            //    }
+            //}
+
+
+            #endregion
+
+
+            #region Method
+
+            //In the example above, we have an ICalculator interface that defines the contract for a calculator.The BasicCalculator class implements this interface and provides concrete implementation for performing addition.
+            //The CalculationService class depends on the ICalculator interface, which is injected into the PerformCalculation method as a parameter.The method uses the injected ICalculator to perform the addition and returns the result.
+            //In the Main method, we create an instance of CalculationService and an instance of BasicCalculator.We then call the PerformCalculation method on the calculationService instance, passing in the BasicCalculator instance as the dependency. The method injection allows us to provide the necessary dependency only when it’s needed for a specific method call.
+
+
+            //// Interface representing the dependency
+            //public interface ICalculator
+            //{
+            //    int Add(int a, int b);
+            //}
+            //// Concrete implementation of the dependency
+            //public class BasicCalculator : ICalculator
+            //{
+            //    public int Add(int a, int b)
+            //    {
+            //        return a + b;
+            //    }
+            //}
+
+            //// Class that depends on the ICalculator
+            //public class CalculationService
+            //{
+            //    public int PerformCalculation(int a, int b, ICalculator calculator)
+            //    {
+            //        return calculator.Add(a, b);
+            //    }
+            //}
+
+            #endregion
+
+            #endregion
+
+
+
+            //private static AutoResetEvent signal = new AutoResetEvent(false);
+            //private static ManualResetEvent signalManual = new ManualResetEvent(false);
+            //public string sharedObject = "sharedObject";
+            //private static object lockObject = new object();
+
+            //private static Mutex mutex = new Mutex();
 
 
 

@@ -2,6 +2,7 @@
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 class Program
@@ -32,14 +33,18 @@ class Program
 
     //    // Perform authentication (e.g., sending credentials to a login endpoint)
     //    // Replace the URL and authentication credentials with your actual authentication logic
-    //    var loginData = new FormUrlEncodedContent(new[]
-    //    {
-    //        new KeyValuePair<string, string>("username", "yourUsername"),
-    //        new KeyValuePair<string, string>("password", "yourPassword")
-    //        // Add other authentication parameters as needed
-    //    });
+    //    var loginData = new StringContent(
+    //        JsonSerializer.Serialize(new
+    //        {
+    //            username = "DimTask",
+    //            password = "9963"
+    //            // Add other authentication parameters as needed
+    //        }),
+    //        Encoding.UTF8,
+    //        "application/json"
+    //    );
 
-    //    var loginResponse = await httpClient.PostAsync("https://yourapi.com/login", loginData);
+    //    var loginResponse = await httpClient.PostAsync("https://localhost:7008/login", loginData);
 
     //    if (loginResponse.IsSuccessStatusCode)
     //    {
@@ -48,7 +53,7 @@ class Program
     //        {
     //            foreach (var cookie in cookieValues)
     //            {
-    //                if (cookie.StartsWith("MyCookie="))
+    //                if (cookie.StartsWith("AuthCookie="))
     //                {
     //                    // Extract the value of the authentication cookie
     //                    var cookieParts = cookie.Split(';')[0].Split('=');
@@ -69,10 +74,10 @@ class Program
     //    using var httpClient = new HttpClient();
 
     //    // Set the obtained authentication cookie value in the request headers
-    //    httpClient.DefaultRequestHeaders.Add("Cookie", $"MyCookie={cookieValue}");
+    //    httpClient.DefaultRequestHeaders.Add("Cookie", $"AuthCookie={cookieValue}");
 
     //    // Replace the URL with your API endpoint
-    //    string apiUrl = "https://yourapi.com/protectedEndpoint";
+    //    string apiUrl = "https://localhost:7008/api/Product/cookie";
 
     //    HttpResponseMessage response = await httpClient.GetAsync(apiUrl);
 
@@ -91,30 +96,66 @@ class Program
     #endregion
 
     #region JWT
-    //// Replace with the actual JWT token received after successful authentication
-    //private const string YourJwtToken = "YOUR_JWT_TOKEN_HERE";
 
     //static async Task Main(string[] args)
     //{
-    //    if (!string.IsNullOrEmpty(YourJwtToken))
+    //    // Perform authentication to obtain the JWT
+    //    string jwtToken = await PerformAuthenticationAndGetJwt();
+
+    //    if (!string.IsNullOrEmpty(jwtToken))
     //    {
-    //        await MakeAuthenticatedRequestWithJwt();
+    //        Console.WriteLine("JWT Token obtained: " + jwtToken);
+    //        // Use the obtained JWT in subsequent requests
+    //        await MakeAuthenticatedRequestWithJwt(jwtToken);
     //    }
     //    else
     //    {
-    //        Console.WriteLine("Please provide a valid JWT token.");
+    //        Console.WriteLine("Failed to obtain the JWT.");
     //    }
     //}
 
-    //static async Task MakeAuthenticatedRequestWithJwt()
+    //static async Task<string> PerformAuthenticationAndGetJwt()
     //{
     //    using var httpClient = new HttpClient();
 
-    //    // Set the JWT token in the Authorization header
-    //    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", YourJwtToken);
+    //    // Perform authentication (e.g., sending credentials to a login endpoint)
+    //    var loginData = new StringContent(
+    //        JsonSerializer.Serialize(new
+    //        {
+    //            username = "Dimitask",
+    //            password = "9963"
+    //            // Add other authentication parameters as needed
+    //        }),
+    //        Encoding.UTF8,
+    //        "application/json"
+    //    );
+
+    //    var loginResponse = await httpClient.PostAsync("https://localhost:7008/login", loginData);
+
+    //    if (loginResponse.IsSuccessStatusCode)
+    //    {
+    //        // Extract the JWT from the response content
+    //        var responseContent = await loginResponse.Content.ReadAsStringAsync();
+    //        var tokenObject = JsonSerializer.Deserialize<Dictionary<string, string>>(responseContent);
+
+    //        if (tokenObject.TryGetValue("token", out var jwtToken))
+    //        {
+    //            return jwtToken;
+    //        }
+    //    }
+
+    //    return null;
+    //}
+
+    //static async Task MakeAuthenticatedRequestWithJwt(string jwtToken)
+    //{
+    //    using var httpClient = new HttpClient();
+
+    //    // Set the obtained JWT in the Authorization header
+    //    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwtToken);
 
     //    // Replace the URL with your API endpoint
-    //    string apiUrl = "https://yourapi.com/protectedEndpoint";
+    //    string apiUrl = "https://localhost:7008/api/Product/jwt";
 
     //    HttpResponseMessage response = await httpClient.GetAsync(apiUrl);
 
@@ -128,13 +169,14 @@ class Program
     //        Console.WriteLine("Failed to authenticate. Status code: " + response.StatusCode);
     //    }
     //}
+
     #endregion
 
     #region Basic Auth
 
     //// Replace with your actual username and password for Basic Authentication
-    //private const string Username = "yourUsername";
-    //private const string Password = "yourPassword";
+    //private const string Username = "Dimitask";
+    //private const string Password = "9963";
 
     //static async Task Main(string[] args)
     //{
@@ -152,7 +194,7 @@ class Program
     //    httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", authHeaderValue);
 
     //    // Replace the URL with your API endpoint
-    //    string apiUrl = "https://yourapi.com/protectedEndpoint";
+    //    string apiUrl = "https://localhost:7008/api/Product/BasicAuth";
 
     //    HttpResponseMessage response = await httpClient.GetAsync(apiUrl);
 
@@ -166,6 +208,46 @@ class Program
     //        Console.WriteLine("Failed to authenticate. Status code: " + response.StatusCode);
     //    }
     //}
+
+    #endregion
+
+    #region API Key
+
+    //static async Task Main(string[] args)
+    //{
+    //    await MakeRequest("https://localhost:7008/api/Product/ApiKey", "ztpvzE5zFnxyXZbCoTsrrkzS5d9VNO");
+    //}
+
+    //private static async Task MakeRequest(string apiURL, string apiKey)
+    //{
+    //    using var httpClient = new HttpClient();
+
+    //    if (!string.IsNullOrEmpty(apiKey))
+    //    {
+    //        httpClient.DefaultRequestHeaders.Add("Api-Key", apiKey);
+    //    }
+
+    //    HttpResponseMessage response = await httpClient.GetAsync(apiURL);
+
+    //    if (response.IsSuccessStatusCode)
+    //    {
+    //        string content = await response.Content.ReadAsStringAsync();
+    //        Console.WriteLine("Response from API: " + content);
+    //    }
+    //    else
+    //    {
+    //        Console.WriteLine("Failed to authenticate. Status code: " + response.StatusCode);
+    //    }
+
+
+    //}
+
+
+    #endregion
+
+    #region OAuth 
+
+
 
     #endregion
 }

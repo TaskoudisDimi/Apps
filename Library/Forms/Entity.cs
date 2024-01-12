@@ -21,13 +21,27 @@ namespace Forms.Forms
 
         private void Entity_Load(object sender, EventArgs e)
         {
+            var dbContext = new DatabaseContext();
             // Initialize the binding source and connect it to the database using Entity Framework
             bindingSource = new BindingSource();
-            var dbContext = new DatabaseContext();
             bindingSource.DataSource = dbContext.CategoryTbl.ToList();
-
             // Set the binding source as the data source for the DataGridView control
             dataGridView.DataSource = bindingSource;
+        }
+
+        private void createButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
