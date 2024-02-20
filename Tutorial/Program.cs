@@ -22,142 +22,13 @@ using System.Data;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Policy;
 using Newtonsoft.Json;
+using Nancy.Extensions;
 
 namespace Lesson1
 
 {
     class Tutorial  //Η class είναι ένα container που μπορώ να γράψω κώδικα
     {
-        #region Comments1
-
-        //static void Main(string[] args) //Method or function 
-        //{
-
-        //        /*
-        //        string username = "";
-
-        //        Console.WriteLine("Give me your name:");
-
-        //        username = Console.ReadLine();
-
-        //        Console.WriteLine("My name is " + username);
-        //        Console.ReadLine();
-        //        */
-
-        //        //Console.WriteLine(4 - 5);
-
-        //        /*int x = 0 ;
-        //        x++;
-        //        Console.WriteLine(x);
-        //        */
-
-
-        //        //float ximeia, istoria, mo;
-
-        //        //Console.WriteLine("Dwse vathmo ximeias");
-        //        //ximeia = float.Parse(Console.ReadLine());
-
-        //        //Console.WriteLine("Dwse vathmo istorias");
-        //        //istoria = float.Parse(Console.ReadLine());
-
-        //        //mo = istoria + ximeia;
-
-        //        //Console.WriteLine("O mesos oros einai: " + mo/2);
-
-
-        //        //Console.WriteLine(Math.Max(8, 10)); //Έυρεση μέγιστου
-        //        //Console.WriteLine(Math.Min(8, 10)); //Έυρεση ελάχιστου
-        //        //Console.WriteLine(Math.Sqrt(1024)); //Έυρεση ρίζας
-        //        //Console.WriteLine(Math.Abs(-5.6)); //Απόλυτη τιμή
-        //        //Console.WriteLine(Math.Round(4.5)); //Στρογγυλοποίηση
-
-        //        //Console.WriteLine("\ttesttesttesttesttest"); //\t κενό
-        //        //Console.WriteLine("\ntesttesttesttesttest"); //\n αλλαγή γραμμής
-
-        //        //string phrase = "test";
-        //        //Console.WriteLine(phrase.Length);  //Length = μήκος string
-
-        //        //Console.WriteLine(phrase[3]);
-
-        //        //Console.WriteLine(phrase.Substring(1)); //Αφαιρεί το γράμμα που δηλώνω
-
-        //        //Console.WriteLine(phrase.Contains("e")); //Αν περιέχει η λέξη test το γράμμα e τότε θα επιστρέψει true
-
-
-        //        //bool flag;
-
-        //        //int a = 4;
-        //        //int b = 5;
-
-        //        //if (a == 4 || b == 5)
-        //        //{
-        //        //    Console.WriteLine(a);
-        //        //}
-
-        //        Console.ReadLine();
-
-
-
-        //    }
-        //}
-
-        //public class Person //Καλώ αυτή τη class στη κύρια class Program όπου θα εκτελεστεί ότι υλοποίησα σε αυτή (Person)
-        //{
-        //    public string Name;
-        //    public int Age;
-        //    public bool HasPet;
-
-
-        //    public void Greetings() //Βάζω το void όταν η method δεν θα επιστρέψει κάποια τιμή
-        //    {
-        //        //Console.WriteLine("Den epistrefw kapoia timh = void");
-        //        Console.WriteLine("Hi my name is: " + Name + " and my age is " + Age);
-        //    }
-
-        //    //public int calc(int x, int y) //Σε αυτή τη method που επιστρέφω μια τιμή (number) δεν βάζω το void 
-        //    //{
-        //    //    int number = x + y;
-        //    //    return number;
-        //    //}
-        //}
-
-        //public class Student
-        //{
-        //    public string name
-        //    {
-        //        get;
-        //        set;
-        //    }
-        //}
-        //public class Universities
-        //{
-        //    public string university
-        //    {
-        //        get;
-        //        set;
-        //    }
-        //    public IList<Student> students
-        //    {
-        //        get;
-        //        set;
-        //    }
-        //}
-        //public class ClassUniversities
-        //{
-        //    public Universities universities
-        //    {
-        //        get;
-        //        set;
-        //    }
-        //}
-
-        //public class Department
-        //{
-        //    public int DeptId { get; set; }
-        //    public string DepartmentName { get; set; }
-        //}
-
-        #endregion
 
         class Program
         {
@@ -167,10 +38,27 @@ namespace Lesson1
 
             //private static System.Timers.Timer timer;
 
+            //delegate void ProccessItem(int item);
+
+            //public delegate void MyEvent(object sender, EventArgs args);
+            //public static event MyEvent myEvent;
+
+
             static void Main(string[] args)
             {
 
+
                 #region Comments
+
+                //Console.WriteLine(Math.Max(8, 10)); //Έυρεση μέγιστου
+                //        //Console.WriteLine(Math.Min(8, 10)); //Έυρεση ελάχιστου
+                //        //Console.WriteLine(Math.Sqrt(1024)); //Έυρεση ρίζας
+                //        //Console.WriteLine(Math.Abs(-5.6)); //Απόλυτη τιμή
+                //        //Console.WriteLine(Math.Round(4.5)); //Στρογγυλοποίηση
+
+                //        //Console.WriteLine("\ttesttesttesttesttest"); //\t κενό
+                //        //Console.WriteLine("\ntesttesttesttesttest"); //\n αλλαγή γραμμής
+
 
                 //ClassUniversities university1 = new ClassUniversities();
 
@@ -217,8 +105,6 @@ namespace Lesson1
                 //person.Greetings();
 
 
-
-
                 //string phrase = "Girrafe";
                 //char grade = 'A';
                 //int age = 14;
@@ -228,20 +114,6 @@ namespace Lesson1
                 //bool isMale = true;
                 //Console.WriteLine(age);
                 //Console.ReadLine();
-
-
-                //string str = "Girrafe";
-                ////Console.WriteLine(str.ToUpper());
-                //string str = "Girrafe";
-                //Console.WriteLine(str.ToLower());
-
-
-                //string str = "Girrafe";
-                //Console.WriteLine(str.Contains("Girrafe"));
-
-
-                //string str = "Girrafe";
-                //Console.WriteLine(str[2]);
 
 
                 ////Βρίσκει από ποιο index ξεκινάει η λέξη ή το γράμμα που του έχω βάλει να ψάξει
@@ -284,7 +156,6 @@ namespace Lesson1
                 //Console.WriteLine(num1 + num2);
 
 
-
                 ////Υπολογίζω τη πρόσθεση δύο double που δίνει ο χρήστης
                 //Console.WriteLine("Please enter a number: ");
                 ////Το Console.ReadLine δέχεται ότι γράψει ο χρήστης στη console και επιστρέφει πάντα string, για αυτό με το Convert.ToInt32 το κάνουμε Int
@@ -294,25 +165,6 @@ namespace Lesson1
                 //double num2 = Convert.ToDouble(Console.ReadLine());
 
                 //Console.WriteLine(num1 + num2);
-
-
-
-
-                ////Create a Madlib
-                //string color, pluralNoun, celebrity;
-
-                //Console.WriteLine("Enter a color: ");
-                //color = Console.ReadLine();
-
-                //Console.WriteLine("Enter a pluralNoun: ");
-                //pluralNoun = Console.ReadLine();
-
-                //Console.WriteLine("Enter a celebrity: ");
-                //celebrity = Console.ReadLine();
-
-                //Console.WriteLine("Roses are " + color);
-                //Console.WriteLine(pluralNoun + "are blue");
-                //Console.WriteLine("I love " + celebrity);
 
 
                 ////Δημιουργία arrays
@@ -329,8 +181,6 @@ namespace Lesson1
                 //SayHi("Mike", 13);
                 //SayHi("Tom", 26);
                 //SayHi("John", 29);
-
-
 
 
 
@@ -364,7 +214,7 @@ namespace Lesson1
                 //double num1 = Convert.ToDouble(Console.ReadLine());
 
                 //Console.WriteLine("Enter operator: ");
-                //string op = Console.ReadLine(); 
+                //string op = Console.ReadLine();
 
                 //Console.WriteLine("Enter a number: ");
                 //double num2 = Convert.ToDouble(Console.ReadLine());
@@ -379,7 +229,7 @@ namespace Lesson1
                 //}
                 //else if (op == "/")
                 //{
-                //    Console.WriteLine((num1/num2));
+                //    Console.WriteLine((num1 / num2));
                 //}
                 //else if (op == "*")
                 //{
@@ -618,7 +468,7 @@ namespace Lesson1
                 //Console.WriteLine($"Full Name: {info.FullName}{Environment.NewLine}Directory: {info.Directory}{Environment.NewLine}Extension: {info.Extension}{Environment.NewLine}Create Date: {info.CreationTime}"); // And many more
 
 
-                ////In this exercise, you'll use the Path class and Directory.GetCurrentDirectory to improve the program so it will find any file with a .json or .txt extension.
+                //In this exercise, you'll use the Path class and Directory.GetCurrentDirectory to improve the program so it will find any file with a .json or .txt extension.
                 //var currentDirectory = Directory.GetCurrentDirectory();
                 //var storesDirectory = Path.Combine(currentDirectory, "stores");
 
@@ -995,6 +845,7 @@ namespace Lesson1
                 //    Console.WriteLine("Key {0} and Value {1}", item.Key, item.Value);
                 //}
 
+
                 ////Interface
                 //TestInterface test = new UsefulTools();
                 //test.PTheory();
@@ -1143,6 +994,7 @@ namespace Lesson1
 
                 //Json to bytes
 
+                #region Timer
                 ////Timer
                 //timer = new System.Timers.Timer(5000);
                 //timer.Elapsed += TimerElapsed;
@@ -1150,6 +1002,7 @@ namespace Lesson1
                 //Console.ReadLine();
                 ////When I want to stop the execute
                 //timer.Stop();
+                #endregion
 
                 ////XML
                 //XMLExample obj = new XMLExample { Name = "Test", Age = 28, Email = "test@gmail.com" };
@@ -1168,7 +1021,6 @@ namespace Lesson1
                 //    deserialize = (XMLExample)serilieazer_.Deserialize(reader);
                 //};
 
-                #endregion
 
                 ////AsEnumerable -> Convert the DataTable to an enumerable sequence using AsEnumerable
                 ////Except -> Find the set difference between the two arrays using Except
@@ -1194,22 +1046,19 @@ namespace Lesson1
                 //Console.WriteLine(testReadOnly);
 
 
-                ////Abstract
+                #region Abstract
+
                 //Circle createCircle = new Circle(5);
+                //createCircle.PrintDetails();
                 //Console.WriteLine($"{createCircle.CalculateArea()}");
 
+                #endregion
 
                 //Static Extern
                 //The combination of static extern is used in C# to define a method declaration that is implemented externally in another language
                 //or platform, typically through a native code library or an external component.
 
-                ////Delegate
-                //Printer printer = new Printer();
-                //PrintDelegate printDelegate = printer.PrintMessage;
-                //printDelegate("Test!");
 
-                //printDelegate = PrintUpperCase;
-                //printDelegate("Test Upper!");
 
 
 
@@ -1241,6 +1090,7 @@ namespace Lesson1
                 //}
 
 
+                #region AutoResetEvent/ManualResetEvent
                 //The AutoResetEvent and ManualResetEvent classes are synchronization primitives in .NET that allow threads to
                 //communicate and coordinate their execution. They are typically used in scenarios where one or more threads need
                 //to wait for a signal before proceeding.
@@ -1294,6 +1144,12 @@ namespace Lesson1
                 //workerThread.Join();
 
 
+                #endregion
+
+
+                #endregion
+
+
                 #region Dependency injection  
 
                 //Constructor
@@ -1332,17 +1188,81 @@ namespace Lesson1
 
                 //Console.WriteLine($"Result: {result}"); // Output: Result: 8
 
+
                 #endregion
 
 
+                #region delegate callback
+
+                //Delegate
+                //List<int> numbers = new List<int> { 1, 2, 3, 4, 5 };
+                //ProcessItems(numbers, Square);
+
+                #endregion
+
+
+                #region event
+                //myEvent += MyEventHandler;
+                //EventInvoke();
+                #endregion
+
+                
+                #region protected override
+               
+                //// Δημιουργία αντικειμένου της υποκλάσης
+                //DerivedClass derivedObj = new DerivedClass();
+
+                //// Κλήση της μεθόδου Show που καλεί την αναπλαστική μέθοδο Display
+                //derivedObj.Show();
+
+                //// Δημιουργία αντικειμένου της BaseClass
+                //BaseClass baseObj = new BaseClass();
+
+                //// Κλήση της μεθόδου Display από το αντικείμενο της BaseClass
+                //baseObj.Display();
+
+                #endregion
+
 
                 Console.ReadLine();
+
             }
 
 
+            #region event
+
+            //private static void EventInvoke()
+            //{
+            //    Console.WriteLine("The event trigger here!");
+            //    myEvent.Invoke(null, EventArgs.Empty);
+            //}
+
+            //private static void MyEventHandler(object sender, EventArgs args)
+            //{
+            //    //Do something when the event triggered
+            //    Console.WriteLine("The event triggered!");
+            //}
+            
+            #endregion
+
+            #region delegate
+
+            //static void ProcessItems(List<int> items, ProccessItem proccess)
+            //{
+            //    foreach (var item in items)
+            //    {
+            //        proccess(item);
+            //    }
+            //}
+
+            //static void Square(int number)
+            //{
+            //    Console.WriteLine(number * number);
+            //}
+
+            #endregion
 
             #region Dependency injection  
-
 
             #region Constructor
             //In the example above, we have an IMessageService interface that defines the contract for a message service.
@@ -1388,7 +1308,6 @@ namespace Lesson1
 
             #endregion
 
-
             #region Property
 
             //In the example above, we have an ILogger interface that defines the contract for a logger.
@@ -1430,8 +1349,7 @@ namespace Lesson1
 
             #endregion
 
-
-            #region Method
+            #region Methods
 
             //In the example above, we have an ICalculator interface that defines the contract for a calculator.The BasicCalculator class implements this interface and provides concrete implementation for performing addition.
             //The CalculationService class depends on the ICalculator interface, which is injected into the PerformCalculation method as a parameter.The method uses the injected ICalculator to perform the addition and returns the result.
@@ -1465,30 +1383,29 @@ namespace Lesson1
 
             #endregion
 
-
+            #region AutoResetEvent/ManualResetEvent
 
             //private static AutoResetEvent signal = new AutoResetEvent(false);
             //private static ManualResetEvent signalManual = new ManualResetEvent(false);
+
+            #endregion
+
             //public string sharedObject = "sharedObject";
             //private static object lockObject = new object();
 
             //private static Mutex mutex = new Mutex();
 
 
+            #region Timer
 
-            //Delegate Example
-            //public static void PrintUpperCase(string message)
-            //{
-            //    Console.WriteLine(message.ToUpper());
-            //}
-
-
-            //Timer
             //private static void TimerElapsed(object sender, ElapsedEventArgs e)
             //{
             //    //Do something
             //    Console.WriteLine("Time to elapsed..." + e.SignalTime);
             //}
+
+            #endregion
+
 
             //static readonly object _object = new object();
 
@@ -1518,7 +1435,6 @@ namespace Lesson1
             //        }
             //        Thread.Sleep(1000);
             //    }
-
 
             //}
 
@@ -1558,9 +1474,8 @@ namespace Lesson1
             //    Console.WriteLine("Worker 1 thread finished...");
             //}
 
+
         }
-
-
 
 
         //Lock statement
@@ -1591,31 +1506,7 @@ namespace Lesson1
         //}
 
 
-        ////Delegate
-        //public delegate int Calculate(int x, int y);
-        //public delegate string StringJoin(string a, string b);
 
-        //public class StringJoins
-        //{
-        //    public static string AddStr(string a, string b)
-        //    {
-        //        return string.Join(", ",  a + b);
-        //    }
-        //}
-
-
-        //public class Calculator
-        //{
-        //    public static int Add(int x, int y)
-        //    {
-        //        return x + y;
-        //    }
-
-        //    public static int Subtract(int x, int y)
-        //    {
-        //        return x - y;
-        //    }
-        //}
 
         //public class Person
         //{
@@ -1740,13 +1631,6 @@ namespace Lesson1
         //}
 
 
-        //class TestAttribute : Attribute { }
-
-        //[TestAttribute]
-        //class MyTest
-        //{
-
-        //}
 
     }
 }

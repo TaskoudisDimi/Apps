@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tutorial
 {
+    //Υποκλάση του Shape
     public class Circle : Shape
     {
         private readonly double radius;
